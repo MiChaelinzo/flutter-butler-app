@@ -90,16 +90,19 @@ The design should evoke the feeling of a cutting-edge, futuristic AI interface -
 
 ## Color Selection
 
-A bold, high-tech palette with vibrant cyan and magenta accents that creates visual energy and modern sophistication.
+A vibrant, multi-colored palette featuring purple, cyan, magenta, orange, and yellow that creates visual energy, modern sophistication, and delightful variety throughout the interface.
 
-- **Primary Color**: Vibrant Cyan (oklch(0.70 0.25 190)) - Communicates innovation, technology, and intelligence with energizing brightness
-- **Secondary Colors**: Deep space navy backgrounds (oklch(0.10 0.07 260)) for main surfaces, semi-transparent cards (oklch(0.15 0.06 265 / 0.7)) with glassmorphism - creates dramatic contrast and futuristic depth
-- **Accent Color**: Electric Magenta (oklch(0.75 0.25 330)) - Highlights critical actions and AI features, creates dynamic visual interest and modern tech aesthetic
+- **Primary Color**: Vivid Purple (oklch(0.55 0.25 270)) - Communicates innovation, technology, and intelligence with energizing brightness
+- **Secondary Color**: Bright Magenta (oklch(0.65 0.22 320)) - Supporting color for secondary actions and visual interest
+- **Accent Color**: Vibrant Cyan (oklch(0.70 0.24 200)) - Highlights important elements and creates dynamic visual contrast
+- **Orange**: Warm Orange (oklch(0.70 0.22 45)) - Adds warmth and energy to quick actions and automations sections
+- **Yellow**: Cheerful Yellow (oklch(0.85 0.18 95)) - Brings brightness and optimism to habits and celebratory moments
 - **Foreground/Background Pairings**: 
-  - Background (Deep Navy oklch(0.10 0.07 260)): Bright white text (oklch(0.98 0.01 260)) - Ratio 15.2:1 ✓
-  - Primary (Vibrant Cyan oklch(0.70 0.25 190)): White text (oklch(0.98 0.01 265)) - Ratio 7.8:1 ✓
-  - Accent (Electric Magenta oklch(0.75 0.25 330)): White text (oklch(0.98 0.01 265)) - Ratio 8.1:1 ✓
-  - Card (Semi-transparent oklch(0.15 0.06 265 / 0.7)): Bright text (oklch(0.98 0.01 265)) - Ratio 12.5:1 ✓
+  - Background (Light Purple oklch(0.97 0.02 280)): Deep text (oklch(0.15 0.05 280)) - Ratio 14.8:1 ✓
+  - Primary (Purple oklch(0.55 0.25 270)): White text (oklch(0.99 0.01 280)) - Ratio 7.2:1 ✓
+  - Accent (Cyan oklch(0.70 0.24 200)): White text (oklch(0.99 0.01 280)) - Ratio 6.8:1 ✓
+  - Orange (oklch(0.70 0.22 45)): White text (oklch(0.99 0.01 280)) - Ratio 6.5:1 ✓
+  - Yellow (oklch(0.85 0.18 95)): Dark text (oklch(0.20 0.05 95)) - Ratio 9.2:1 ✓
 
 ## Font Selection
 

@@ -19,10 +19,12 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.70_0.25_190)_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,oklch(0.75_0.25_330)_0%,transparent_60%),radial-gradient(ellipse_at_center,oklch(0.70_0.20_280)_0%,transparent_70%)] opacity-30 pointer-events-none animate-glow" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.70_0.25_190)_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,oklch(0.75_0.25_330)_0%,transparent_60%),radial-gradient(ellipse_at_top_left,oklch(0.72_0.22_45)_0%,transparent_50%),radial-gradient(ellipse_at_bottom_right,oklch(0.82_0.18_95)_0%,transparent_55%),radial-gradient(ellipse_at_center,oklch(0.70_0.20_280)_0%,transparent_70%)] opacity-30 pointer-events-none animate-glow" />
       <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_80px,oklch(0.70_0.25_190)_80px,oklch(0.70_0.25_190)_81px),repeating-linear-gradient(90deg,transparent,transparent_80px,oklch(0.70_0.25_190)_80px,oklch(0.70_0.25_190)_81px)] opacity-[0.08] pointer-events-none" />
       <div className="absolute top-20 right-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-float" />
       <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/20 rounded-full blur-[120px] animate-float" style={{ animationDelay: '-3s' }} />
+      <div className="absolute top-1/3 left-1/3 w-80 h-80 bg-orange/20 rounded-full blur-[100px] animate-float" style={{ animationDelay: '-1.5s' }} />
+      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-yellow/20 rounded-full blur-[100px] animate-float" style={{ animationDelay: '-4.5s' }} />
       
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-12 relative z-10">
         <header className="mb-8 md:mb-12">
@@ -70,35 +72,35 @@ function App() {
               </TabsTrigger>
               <TabsTrigger 
                 value="actions" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-accent data-[state=active]:to-accent/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-accent/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-orange data-[state=active]:to-orange/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-orange/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
               >
                 <Lightning size={22} weight="duotone" />
                 <span className="hidden sm:inline">Actions</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="tasks" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary data-[state=active]:to-primary/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-primary/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-accent data-[state=active]:to-accent/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-accent/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
               >
                 <ListChecks size={22} weight="duotone" />
                 <span className="hidden sm:inline">Tasks</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="habits" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-accent data-[state=active]:to-accent/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-accent/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-yellow data-[state=active]:to-yellow/80 data-[state=active]:text-yellow-foreground data-[state=active]:shadow-xl data-[state=active]:shadow-yellow/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
               >
                 <Flame size={22} weight="duotone" />
                 <span className="hidden sm:inline">Habits</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="notes" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary data-[state=active]:to-primary/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-primary/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-secondary data-[state=active]:to-secondary/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-secondary/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
               >
                 <Note size={22} weight="duotone" />
                 <span className="hidden sm:inline">Notes</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="automations" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-accent data-[state=active]:to-accent/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-accent/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-orange data-[state=active]:to-orange/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-orange/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
               >
                 <Gear size={22} weight="duotone" />
                 <span className="hidden sm:inline">Automations</span>
@@ -115,10 +117,10 @@ function App() {
               <div className="lg:col-span-2 space-y-6 md:space-y-8">
                 <div>
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border-2 border-accent/30 shadow-xl shadow-accent/20 backdrop-blur-xl">
-                      <Lightning className="text-accent drop-shadow-lg" size={28} weight="duotone" />
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange/30 to-orange/10 flex items-center justify-center border-2 border-orange/30 shadow-xl shadow-orange/20 backdrop-blur-xl">
+                      <Lightning className="text-orange drop-shadow-lg" size={28} weight="duotone" />
                     </div>
-                    <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent">Quick Actions</h2>
+                    <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-foreground to-orange bg-clip-text text-transparent">Quick Actions</h2>
                   </div>
                   <QuickActions />
                 </div>
@@ -143,11 +145,11 @@ function App() {
           <TabsContent value="actions" className="space-y-6 md:space-y-8 mt-10">
             <div>
               <div className="flex items-center gap-5 mb-10">
-                <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border-2 border-accent/30 shadow-2xl shadow-accent/30 backdrop-blur-xl">
-                  <Lightning className="text-accent drop-shadow-lg" size={36} weight="duotone" />
+                <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-orange/30 to-orange/10 flex items-center justify-center border-2 border-orange/30 shadow-2xl shadow-orange/30 backdrop-blur-xl">
+                  <Lightning className="text-orange drop-shadow-lg" size={36} weight="duotone" />
                 </div>
                 <div>
-                  <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent">Quick Actions</h2>
+                  <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-orange to-foreground bg-clip-text text-transparent">Quick Actions</h2>
                   <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
                     AI-powered shortcuts for your daily workflow
                   </p>
@@ -174,11 +176,11 @@ function App() {
 
           <TabsContent value="habits" className="space-y-6 md:space-y-8 mt-10">
             <div className="flex items-center gap-5 mb-10">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border-2 border-accent/30 shadow-2xl shadow-accent/30 backdrop-blur-xl">
-                <Flame className="text-accent drop-shadow-lg" size={36} weight="duotone" />
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-yellow/30 to-yellow/10 flex items-center justify-center border-2 border-yellow/30 shadow-2xl shadow-yellow/30 backdrop-blur-xl">
+                <Flame className="text-yellow drop-shadow-lg" size={36} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent">Habit Tracker</h2>
+                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-yellow to-foreground bg-clip-text text-transparent">Habit Tracker</h2>
                 <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
                   Build consistency and track your streaks
                 </p>
@@ -189,11 +191,11 @@ function App() {
 
           <TabsContent value="notes" className="space-y-6 md:space-y-8 mt-10">
             <div className="flex items-center gap-5 mb-10">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center border-2 border-primary/30 shadow-2xl shadow-primary/30 backdrop-blur-xl">
-                <Note className="text-primary drop-shadow-lg" size={36} weight="duotone" />
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-secondary/30 to-secondary/10 flex items-center justify-center border-2 border-secondary/30 shadow-2xl shadow-secondary/30 backdrop-blur-xl">
+                <Note className="text-secondary drop-shadow-lg" size={36} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Quick Notes</h2>
+                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-secondary to-foreground bg-clip-text text-transparent">Quick Notes</h2>
                 <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
                   Capture ideas with AI-powered summaries
                 </p>
@@ -204,11 +206,11 @@ function App() {
 
           <TabsContent value="automations" className="space-y-6 md:space-y-8 mt-10">
             <div className="flex items-center gap-5 mb-10">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border-2 border-accent/30 shadow-2xl shadow-accent/30 backdrop-blur-xl">
-                <Gear className="text-accent drop-shadow-lg" size={36} weight="duotone" />
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-orange/30 to-orange/10 flex items-center justify-center border-2 border-orange/30 shadow-2xl shadow-orange/30 backdrop-blur-xl">
+                <Gear className="text-orange drop-shadow-lg" size={36} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent">Automations</h2>
+                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-orange to-foreground bg-clip-text text-transparent">Automations</h2>
                 <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
                   Run pre-built workflows with AI assistance
                 </p>
