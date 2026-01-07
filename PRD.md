@@ -69,11 +69,11 @@ This is a multi-feature personal assistant platform with AI integration, task au
 - **Success criteria**: 70%+ daily goal completion rate, users identify productivity patterns, improved weekly consistency
 
 ### Calendar Integration View
-- **Functionality**: Visual timeline showing tasks, habits, and time blocks throughout the day
-- **Purpose**: Provides holistic view of daily schedule and available time slots
-- **Trigger**: User opens calendar view tab
-- **Progression**: User views daily timeline → sees scheduled tasks and habits → identifies free blocks → adds new items to specific times → drag-to-reschedule → syncs with priorities
-- **Success criteria**: Users better understand time allocation, reduce scheduling conflicts, more realistic planning
+- **Functionality**: Comprehensive calendar with day/week/month views showing tasks, habits, and time blocks with visual overview of commitments
+- **Purpose**: Provides holistic view of daily/weekly/monthly schedule to help users understand time allocation and spot patterns
+- **Trigger**: User opens calendar tab from main navigation
+- **Progression**: User selects calendar tab → chooses view mode (day/week/month) → sees aggregated tasks and habits visualized → switches dates with navigation controls → reviews daily timeline for open slots → identifies completion patterns across time periods
+- **Success criteria**: Users better understand time allocation, visualize productivity patterns, plan realistically with full context of commitments
 
 ### Habit Tracking
 - **Functionality**: Daily habit tracker with streak monitoring and completion tracking

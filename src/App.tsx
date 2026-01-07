@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target } from '@phosphor-icons/react'
+import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar } from '@phosphor-icons/react'
 import { Toaster } from '@/components/ui/sonner'
 import { DailyBriefing } from '@/components/DailyBriefing'
 import { QuickActions } from '@/components/QuickActions'
@@ -14,6 +14,7 @@ import { AutomationTemplates } from '@/components/AutomationTemplates'
 import { ProductivityStats } from '@/components/ProductivityStats'
 import { FocusMode } from '@/components/FocusMode'
 import { DailyGoals } from '@/components/DailyGoals'
+import { CalendarView } from '@/components/CalendarView'
 
 function App() {
   const [chatOpen, setChatOpen] = useState(false)
@@ -85,6 +86,13 @@ function App() {
               >
                 <Target size={22} weight="duotone" />
                 <span className="hidden sm:inline">Goals</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="calendar" 
+                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary data-[state=active]:to-primary/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-primary/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+              >
+                <Calendar size={22} weight="duotone" />
+                <span className="hidden sm:inline">Calendar</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="actions" 
@@ -268,6 +276,10 @@ function App() {
               </div>
             </div>
             <AutomationTemplates />
+          </TabsContent>
+
+          <TabsContent value="calendar" className="space-y-6 md:space-y-8 mt-10">
+            <CalendarView />
           </TabsContent>
         </Tabs>
       </div>
