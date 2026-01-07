@@ -12,6 +12,11 @@
     -moz-osx-font-smoothing: grayscale;
     background-attachment: fixed;
     overflow-x: hidden;
+    background: linear-gradient(135deg, 
+      oklch(0.12 0.06 260) 0%,
+      oklch(0.08 0.08 280) 50%,
+      oklch(0.10 0.07 240) 100%
+    );
   }
   
   h1, h2, h3 {
@@ -25,27 +30,50 @@
   }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
 :root {
-  --background: oklch(0.16 0.04 265);
-  --foreground: oklch(0.98 0.01 265);
-  --card: oklch(0.20 0.04 265);
+  --background: oklch(0.10 0.07 260);
+  --foreground: oklch(0.98 0.01 260);
+  --card: oklch(0.15 0.06 265 / 0.7);
   --card-foreground: oklch(0.98 0.01 265);
-  --popover: oklch(0.22 0.04 265);
+  --popover: oklch(0.17 0.06 265 / 0.95);
   --popover-foreground: oklch(0.98 0.01 265);
-  --primary: oklch(0.72 0.19 145);
-  --primary-foreground: oklch(0.16 0.04 265);
-  --secondary: oklch(0.28 0.05 265);
+  --primary: oklch(0.70 0.25 190);
+  --primary-foreground: oklch(0.98 0.01 265);
+  --secondary: oklch(0.25 0.06 265);
   --secondary-foreground: oklch(0.98 0.01 265);
-  --muted: oklch(0.24 0.04 265);
-  --muted-foreground: oklch(0.60 0.02 265);
-  --accent: oklch(0.75 0.20 80);
-  --accent-foreground: oklch(0.16 0.04 265);
-  --destructive: oklch(0.58 0.24 25);
+  --muted: oklch(0.20 0.05 265);
+  --muted-foreground: oklch(0.65 0.03 265);
+  --accent: oklch(0.75 0.25 330);
+  --accent-foreground: oklch(0.98 0.01 265);
+  --destructive: oklch(0.60 0.27 25);
   --destructive-foreground: oklch(0.98 0.01 265);
-  --border: oklch(0.28 0.04 265);
-  --input: oklch(0.28 0.04 265);
-  --ring: oklch(0.72 0.19 145);
-  --radius: 1rem;
+  --border: oklch(0.25 0.06 265 / 0.5);
+  --input: oklch(0.20 0.05 265);
+  --ring: oklch(0.70 0.25 190);
+  --radius: 1.2rem;
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-display: "Space Grotesk", sans-serif;
 }

@@ -86,20 +86,20 @@ This is a multi-feature personal assistant platform with AI integration, task au
 
 ## Design Direction
 
-The design should evoke the feeling of having a highly capable, attentive personal assistant - professional yet warm, powerful yet approachable. It should feel like a premium service that respects the user's time and intelligence. The interface should be calm and uncluttered, with sophistication in the details rather than overwhelming features.
+The design should evoke the feeling of a cutting-edge, futuristic AI interface - vibrant yet sophisticated, high-tech yet intuitive. It should feel like interacting with advanced technology that's both powerful and delightfully responsive. The interface should be visually striking with rich colors, animated gradients, and glassmorphic elements that create depth and dimensionality.
 
 ## Color Selection
 
-A refined, professional palette with warm accents that feels personal and trustworthy rather than cold and corporate.
+A bold, high-tech palette with vibrant cyan and magenta accents that creates visual energy and modern sophistication.
 
-- **Primary Color**: Deep navy blue (oklch(0.25 0.08 250)) - Communicates professionalism, trust, and intelligence without feeling corporate or sterile
-- **Secondary Colors**: Warm off-white backgrounds (oklch(0.98 0.005 90)) for main surfaces, soft slate (oklch(0.85 0.01 240)) for cards - creates depth and visual hierarchy while maintaining sophistication
-- **Accent Color**: Warm amber/gold (oklch(0.75 0.15 75)) - Highlights important actions and AI-generated insights, feels premium and energizing like morning sunlight
+- **Primary Color**: Vibrant Cyan (oklch(0.70 0.25 190)) - Communicates innovation, technology, and intelligence with energizing brightness
+- **Secondary Colors**: Deep space navy backgrounds (oklch(0.10 0.07 260)) for main surfaces, semi-transparent cards (oklch(0.15 0.06 265 / 0.7)) with glassmorphism - creates dramatic contrast and futuristic depth
+- **Accent Color**: Electric Magenta (oklch(0.75 0.25 330)) - Highlights critical actions and AI features, creates dynamic visual interest and modern tech aesthetic
 - **Foreground/Background Pairings**: 
-  - Background (Warm Off-white oklch(0.98 0.005 90)): Navy text (oklch(0.25 0.08 250)) - Ratio 10.2:1 ✓
-  - Primary (Deep Navy oklch(0.25 0.08 250)): Off-white text (oklch(0.98 0.005 90)) - Ratio 10.2:1 ✓
-  - Accent (Warm Amber oklch(0.75 0.15 75)): Navy text (oklch(0.25 0.08 250)) - Ratio 5.1:1 ✓
-  - Card (Soft Slate oklch(0.85 0.01 240)): Navy text (oklch(0.25 0.08 250)) - Ratio 6.8:1 ✓
+  - Background (Deep Navy oklch(0.10 0.07 260)): Bright white text (oklch(0.98 0.01 260)) - Ratio 15.2:1 ✓
+  - Primary (Vibrant Cyan oklch(0.70 0.25 190)): White text (oklch(0.98 0.01 265)) - Ratio 7.8:1 ✓
+  - Accent (Electric Magenta oklch(0.75 0.25 330)): White text (oklch(0.98 0.01 265)) - Ratio 8.1:1 ✓
+  - Card (Semi-transparent oklch(0.15 0.06 265 / 0.7)): Bright text (oklch(0.98 0.01 265)) - Ratio 12.5:1 ✓
 
 ## Font Selection
 
@@ -118,7 +118,7 @@ Typography should feel modern and highly readable with a touch of personality - 
 
 ## Animations
 
-Animations should reinforce the feeling of intelligence and responsiveness - smooth, purposeful, and slightly anticipatory. Use spring physics for interactive elements to make the interface feel alive and attentive. AI-generated content should fade in with a subtle upward motion to signal "thinking complete." Cards should have gentle hover lifts (2-4px) to feel tangible. Page transitions should be swift (200ms) to respect user time. Loading states should use elegant skeleton screens rather than spinners. Celebrate task completions with satisfying micro-interactions (gentle scale + color shift).
+Animations should reinforce the feeling of advanced technology and responsive intelligence - fluid, dynamic, and visually striking. Use smooth transitions with subtle spring physics for interactive elements to make the interface feel alive and reactive. AI-generated content should fade in with glowing effects and upward motion to signal processing complete. Cards should have pronounced hover lifts (4-6px) with scale transformations and glow effects to feel interactive and futuristic. Include animated gradient backgrounds that pulse and shift. Page transitions should be swift (250-300ms) with smooth fades. Loading states should use elegant skeleton screens with shimmer effects. Celebrate completions with satisfying scale animations and color bursts. Floating blob shapes in the background add organic motion.
 
 ## Component Selection
 

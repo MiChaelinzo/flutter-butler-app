@@ -59,17 +59,18 @@ export function ProductivityStats() {
   ]
 
   return (
-    <Card className="shadow-lg border border-border/50 hover:shadow-xl transition-all duration-300 bg-card/80 backdrop-blur-sm">
-      <CardHeader className="pb-6">
-        <CardTitle className="flex items-center gap-3.5 text-2xl sm:text-3xl font-bold">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/30 to-primary/15 flex items-center justify-center border border-primary/40 shadow-lg shadow-primary/20">
-            <ChartBar className="text-primary" size={24} weight="duotone" />
+    <Card className="shadow-2xl border-2 border-white/10 hover:shadow-accent/30 transition-all duration-300 bg-card backdrop-blur-2xl relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10 pointer-events-none opacity-50" />
+      <CardHeader className="pb-6 relative">
+        <CardTitle className="flex items-center gap-4 text-3xl sm:text-4xl font-bold">
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent/40 to-primary/40 flex items-center justify-center border-2 border-white/20 shadow-2xl shadow-accent/30">
+            <ChartBar className="text-white drop-shadow-lg" size={28} weight="duotone" />
           </div>
-          Your Progress
+          <span className="bg-gradient-to-r from-foreground via-accent to-primary bg-clip-text text-transparent">Your Progress</span>
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <CardContent className="relative">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {stats.map((stat, idx) => {
             const Icon = stat.icon
             const isAccent = stat.color === 'accent'
@@ -77,36 +78,37 @@ export function ProductivityStats() {
             return (
               <div
                 key={idx}
-                className={`p-5 sm:p-6 rounded-2xl border transition-all duration-300 hover:shadow-lg ${
+                className={`p-6 sm:p-7 rounded-2xl border-2 transition-all duration-300 hover:shadow-2xl hover:scale-105 relative overflow-hidden backdrop-blur-xl ${
                   isAccent
-                    ? 'bg-gradient-to-br from-accent/15 to-accent/5 border-accent/30'
-                    : 'bg-gradient-to-br from-primary/15 to-primary/5 border-primary/30'
+                    ? 'bg-gradient-to-br from-accent/25 to-accent/10 border-accent/30 hover:border-accent/50 hover:shadow-accent/30'
+                    : 'bg-gradient-to-br from-primary/25 to-primary/10 border-primary/30 hover:border-primary/50 hover:shadow-primary/30'
                 }`}
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-md ${
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+                <div className="flex items-center justify-between mb-5 relative">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-xl border-2 ${
                     isAccent
-                      ? 'bg-accent/20 border border-accent/40'
-                      : 'bg-primary/20 border border-primary/40'
+                      ? 'bg-accent/30 border-accent/50 shadow-accent/20'
+                      : 'bg-primary/30 border-primary/50 shadow-primary/20'
                   }`}>
-                    <Icon className={isAccent ? 'text-accent' : 'text-primary'} size={24} weight="duotone" />
+                    <Icon className={`${isAccent ? 'text-accent' : 'text-primary'} drop-shadow-lg`} size={28} weight="duotone" />
                   </div>
                 </div>
-                <div>
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-3xl sm:text-4xl font-bold text-foreground">{stat.value}</span>
+                <div className="relative">
+                  <div className="flex items-baseline gap-2.5 mb-2">
+                    <span className="text-4xl sm:text-5xl font-bold text-foreground drop-shadow-lg">{stat.value}</span>
                     {stat.total > 0 && (
-                      <span className="text-lg text-muted-foreground font-bold">/ {stat.total}</span>
+                      <span className="text-xl text-muted-foreground font-bold">/ {stat.total}</span>
                     )}
                   </div>
-                  <p className="text-sm text-muted-foreground font-bold uppercase tracking-wide mb-3">
+                  <p className="text-sm text-muted-foreground font-bold uppercase tracking-wide mb-4">
                     {stat.label}
                   </p>
                   {stat.percent !== null && (
-                    <div className="w-full h-2 bg-muted/30 rounded-full overflow-hidden">
+                    <div className="w-full h-3 bg-black/20 rounded-full overflow-hidden border border-white/10">
                       <div
-                        className={`h-full rounded-full transition-all duration-500 ${
-                          isAccent ? 'bg-accent' : 'bg-primary'
+                        className={`h-full rounded-full transition-all duration-700 shadow-lg ${
+                          isAccent ? 'bg-gradient-to-r from-accent to-accent/80 shadow-accent/50' : 'bg-gradient-to-r from-primary to-primary/80 shadow-primary/50'
                         }`}
                         style={{ width: `${stat.percent}%` }}
                       />

@@ -75,19 +75,19 @@ export function QuickActions() {
           return (
             <Card
               key={action.id}
-              className="cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 active:scale-95 border border-border/50 group overflow-hidden relative bg-card/80 backdrop-blur-sm"
+              className="cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-2 active:scale-95 border-2 border-white/10 group overflow-hidden relative bg-card backdrop-blur-2xl"
               onClick={() => handleActionClick(action.id)}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/20" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/20 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,oklch(0.70_0.25_190)_0%,transparent_60%)] opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
               
-              <CardContent className="p-5 sm:p-6 flex flex-col items-center text-center gap-3.5 relative">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-accent/25 via-accent/15 to-primary/15 flex items-center justify-center group-hover:scale-110 group-hover:from-accent/35 group-hover:to-primary/25 transition-all duration-300 border border-accent/30 shadow-lg shadow-accent/10">
-                  <Icon size={28} className="text-accent group-hover:text-accent transition-colors" weight="duotone" />
+              <CardContent className="p-5 sm:p-6 flex flex-col items-center text-center gap-4 relative">
+                <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-gradient-to-br from-primary/30 via-accent/30 to-primary/20 flex items-center justify-center group-hover:scale-125 group-hover:from-primary/50 group-hover:to-accent/50 transition-all duration-300 border-2 border-white/20 shadow-xl shadow-primary/20 group-hover:shadow-2xl group-hover:shadow-primary/40">
+                  <Icon size={32} className="text-foreground drop-shadow-lg group-hover:text-white transition-colors" weight="duotone" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm sm:text-base text-foreground mb-1 leading-tight">{action.title}</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-snug font-medium">{action.description}</p>
+                  <h3 className="font-bold text-sm sm:text-base text-foreground mb-1.5 leading-tight group-hover:text-white transition-colors">{action.title}</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-snug font-semibold group-hover:text-foreground/90 transition-colors">{action.description}</p>
                 </div>
               </CardContent>
             </Card>
@@ -96,18 +96,18 @@ export function QuickActions() {
       </div>
 
       <Dialog open={!!selectedAction} onOpenChange={() => setSelectedAction(null)}>
-        <DialogContent className="max-w-2xl border border-border/50 bg-card/95 backdrop-blur-md shadow-2xl">
+        <DialogContent className="max-w-2xl border-2 border-white/10 bg-card backdrop-blur-2xl shadow-2xl">
           <DialogHeader>
-            <DialogTitle className="flex items-center gap-3.5 text-2xl sm:text-3xl font-bold">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent/30 to-accent/15 flex items-center justify-center border border-accent/40 shadow-lg shadow-accent/20">
-                <Lightning className="text-accent" size={24} weight="duotone" />
+            <DialogTitle className="flex items-center gap-4 text-2xl sm:text-3xl font-bold">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center border-2 border-white/20 shadow-2xl shadow-primary/30">
+                <Lightning className="text-white drop-shadow-lg" size={28} weight="duotone" />
               </div>
-              {action?.title}
+              <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">{action?.title}</span>
             </DialogTitle>
-            <DialogDescription className="text-sm sm:text-base font-medium">{action?.description}</DialogDescription>
+            <DialogDescription className="text-sm sm:text-base font-semibold text-muted-foreground pl-1">{action?.description}</DialogDescription>
           </DialogHeader>
 
-          <div className="space-y-5 mt-6">
+          <div className="space-y-6 mt-6">
             <div>
               <label className="text-sm font-bold mb-3 block text-foreground">Your Input</label>
               <Textarea
@@ -115,16 +115,17 @@ export function QuickActions() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 rows={5}
-                className="resize-none rounded-2xl border border-border/50 focus:ring-2 focus:ring-primary text-sm sm:text-base bg-muted/30 backdrop-blur-sm"
+                className="resize-none rounded-2xl border-2 border-white/10 focus:ring-2 focus:ring-primary focus:border-primary/50 text-sm sm:text-base bg-muted/50 backdrop-blur-xl font-medium"
               />
             </div>
 
             <Button 
               onClick={handleGenerate} 
               disabled={!input.trim() || isLoading}
-              className="w-full h-12 text-base font-bold shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
+              className="w-full h-14 text-lg font-bold shadow-2xl shadow-primary/40 hover:shadow-accent/40 transition-all duration-300 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] border-2 border-white/20 group relative overflow-hidden"
             >
-              {isLoading ? 'Generating...' : 'Generate'}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <span className="relative z-10">{isLoading ? 'Generating...' : 'Generate'}</span>
             </Button>
 
             {(result || isLoading) && (
@@ -136,31 +137,32 @@ export function QuickActions() {
                       variant="outline"
                       size="sm"
                       onClick={handleCopy}
-                      className="h-10 rounded-xl border border-border/50 hover:bg-muted/80"
+                      className="h-11 rounded-xl border-2 border-white/10 hover:bg-primary/20 backdrop-blur-xl font-bold"
                     >
                       {copied ? (
                         <>
-                          <Check size={16} className="mr-2" weight="bold" />
+                          <Check size={18} className="mr-2" weight="bold" />
                           Copied
                         </>
                       ) : (
                         <>
-                          <Copy size={16} className="mr-2" />
+                          <Copy size={18} className="mr-2" />
                           Copy
                         </>
                       )}
                     </Button>
                   )}
                 </div>
-                <div className="bg-muted/30 backdrop-blur-sm rounded-2xl p-5 sm:p-6 min-h-[200px] border border-border/50">
+                <div className="bg-muted/50 backdrop-blur-xl rounded-2xl p-6 sm:p-7 min-h-[200px] border-2 border-white/10 shadow-xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 pointer-events-none" />
                   {isLoading ? (
-                    <div className="space-y-3">
-                      <Skeleton className="h-4 w-full rounded-lg bg-muted/50" />
-                      <Skeleton className="h-4 w-5/6 rounded-lg bg-muted/50" />
-                      <Skeleton className="h-4 w-4/6 rounded-lg bg-muted/50" />
+                    <div className="space-y-3 relative">
+                      <Skeleton className="h-5 w-full rounded-lg bg-muted/70" />
+                      <Skeleton className="h-5 w-5/6 rounded-lg bg-muted/70" />
+                      <Skeleton className="h-5 w-4/6 rounded-lg bg-muted/70" />
                     </div>
                   ) : (
-                    <p className="text-sm sm:text-base whitespace-pre-wrap leading-relaxed text-foreground font-medium">{result}</p>
+                    <p className="text-sm sm:text-base whitespace-pre-wrap leading-relaxed text-foreground font-semibold relative">{result}</p>
                   )}
                 </div>
               </div>
