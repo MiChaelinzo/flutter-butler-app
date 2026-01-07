@@ -53,25 +53,25 @@ export function AIChat({ open, onOpenChange }: AIChatProps) {
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent side="right" className="w-full sm:w-[500px] flex flex-col p-0 border-l">
-        <SheetHeader className="p-5 sm:p-6 pb-5 border-b bg-gradient-to-r from-primary/5 to-accent/5">
-          <SheetTitle className="flex items-center gap-3 text-xl sm:text-2xl font-semibold">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center border border-primary/20">
-              <Robot className="text-primary" size={20} weight="duotone" />
+      <SheetContent side="right" className="w-full sm:w-[500px] flex flex-col p-0 border-l border-border/50 bg-background/95 backdrop-blur-md">
+        <SheetHeader className="p-6 sm:p-7 pb-6 border-b border-border/50 bg-gradient-to-r from-primary/10 via-accent/5 to-accent/10">
+          <SheetTitle className="flex items-center gap-3.5 text-2xl sm:text-3xl font-bold">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/20 flex items-center justify-center border border-primary/40 shadow-lg shadow-primary/20">
+              <Robot className="text-primary" size={24} weight="duotone" />
             </div>
             AI Assistant
           </SheetTitle>
         </SheetHeader>
 
-        <ScrollArea className="flex-1 p-5 sm:p-6">
-          <div className="space-y-4">
+        <ScrollArea className="flex-1 p-6 sm:p-7">
+          <div className="space-y-5">
             {(messages || []).length === 0 ? (
-              <div className="text-center py-12 text-muted-foreground">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 mx-auto mb-4 flex items-center justify-center">
-                  <Robot size={32} className="opacity-60" weight="duotone" />
+              <div className="text-center py-16 text-muted-foreground">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-primary/15 to-accent/10 mx-auto mb-5 flex items-center justify-center border border-primary/30">
+                  <Robot size={40} className="opacity-60" weight="duotone" />
                 </div>
-                <p className="text-sm sm:text-[15px] font-semibold text-foreground mb-1">Start a conversation</p>
-                <p className="text-xs sm:text-sm">Your AI assistant is ready to help</p>
+                <p className="text-base sm:text-lg font-bold text-foreground mb-2">Start a conversation</p>
+                <p className="text-sm sm:text-base font-medium">Your AI assistant is ready to help</p>
               </div>
             ) : (
               <>
@@ -81,23 +81,23 @@ export function AIChat({ open, onOpenChange }: AIChatProps) {
                     className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`max-w-[85%] rounded-xl px-4 py-3 shadow-sm ${
+                      className={`max-w-[85%] rounded-2xl px-5 py-4 shadow-lg ${
                         message.role === 'user'
-                          ? 'bg-gradient-to-br from-primary to-primary/90 text-primary-foreground'
-                          : 'bg-muted/80 text-foreground border'
+                          ? 'bg-gradient-to-br from-primary to-accent text-primary-foreground border border-primary/30'
+                          : 'bg-muted/60 backdrop-blur-sm text-foreground border border-border/50'
                       }`}
                     >
-                      <p className="text-sm sm:text-[15px] whitespace-pre-wrap leading-relaxed">{message.content}</p>
+                      <p className="text-sm sm:text-base whitespace-pre-wrap leading-relaxed font-medium">{message.content}</p>
                     </div>
                   </div>
                 ))}
                 {isLoading && (
                   <div className="flex justify-start">
-                    <div className="max-w-[85%] rounded-xl px-4 py-3 bg-muted/80 border">
-                      <div className="flex gap-1.5">
-                        <div className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '0ms' }} />
-                        <div className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '150ms' }} />
-                        <div className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '300ms' }} />
+                    <div className="max-w-[85%] rounded-2xl px-5 py-4 bg-muted/60 backdrop-blur-sm border border-border/50">
+                      <div className="flex gap-2">
+                        <div className="w-2.5 h-2.5 rounded-full bg-primary animate-bounce" style={{ animationDelay: '0ms' }} />
+                        <div className="w-2.5 h-2.5 rounded-full bg-accent animate-bounce" style={{ animationDelay: '150ms' }} />
+                        <div className="w-2.5 h-2.5 rounded-full bg-primary animate-bounce" style={{ animationDelay: '300ms' }} />
                       </div>
                     </div>
                   </div>
@@ -107,13 +107,13 @@ export function AIChat({ open, onOpenChange }: AIChatProps) {
           </div>
         </ScrollArea>
 
-        <div className="p-5 sm:p-6 pt-5 border-t bg-muted/20">
+        <div className="p-6 sm:p-7 pt-6 border-t border-border/50 bg-muted/20 backdrop-blur-sm">
           <form
             onSubmit={(e) => {
               e.preventDefault()
               sendMessage()
             }}
-            className="flex gap-2.5"
+            className="flex gap-3"
           >
             <Input
               placeholder="Ask me anything..."
@@ -121,15 +121,15 @@ export function AIChat({ open, onOpenChange }: AIChatProps) {
               onChange={(e) => setInput(e.target.value)}
               disabled={isLoading}
               id="chat-input"
-              className="h-11 rounded-xl border text-sm sm:text-[15px]"
+              className="h-12 rounded-2xl border border-border/50 text-sm sm:text-base bg-muted/30 backdrop-blur-sm"
             />
             <Button 
               type="submit" 
               disabled={!input.trim() || isLoading} 
               size="icon"
-              className="h-11 w-11 rounded-xl shadow-sm flex-shrink-0"
+              className="h-12 w-12 rounded-2xl shadow-lg flex-shrink-0 bg-gradient-to-br from-primary to-accent hover:from-primary/90 hover:to-accent/90"
             >
-              <PaperPlaneRight size={18} weight="bold" />
+              <PaperPlaneRight size={20} weight="bold" />
             </Button>
           </form>
         </div>
