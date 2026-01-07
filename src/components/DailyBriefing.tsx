@@ -56,18 +56,18 @@ Format as JSON with keys: greeting, weather, priorities (array), insight`
   const getWeatherIcon = () => {
     if (!briefing) return null
     const weather = briefing.weather.toLowerCase()
-    if (weather.includes('sun') || weather.includes('clear')) return <Sun className="text-accent" size={24} weight="fill" />
-    if (weather.includes('rain')) return <CloudRain className="text-accent" size={24} weight="fill" />
-    return <Cloud className="text-accent" size={24} weight="fill" />
+    if (weather.includes('sun') || weather.includes('clear')) return <Sun className="text-accent" size={22} weight="duotone" />
+    if (weather.includes('rain')) return <CloudRain className="text-accent" size={22} weight="duotone" />
+    return <Cloud className="text-accent" size={22} weight="duotone" />
   }
 
   return (
-    <Card className="shadow-lg border-2 hover:shadow-xl transition-all backdrop-blur-sm bg-card/90 overflow-hidden">
-      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-      <CardHeader className="flex flex-row items-center justify-between pb-4 relative">
-        <CardTitle className="flex items-center gap-3 text-2xl">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center shadow-md">
-            <Sparkle className="text-white" size={22} weight="fill" />
+    <Card className="shadow-sm border hover:shadow-md transition-all duration-200 bg-card overflow-hidden">
+      <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
+      <CardHeader className="flex flex-row items-center justify-between pb-5 relative">
+        <CardTitle className="flex items-center gap-3 text-xl sm:text-2xl font-semibold">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center border border-accent/20">
+            <Sparkle className="text-accent" size={20} weight="duotone" />
           </div>
           Daily Briefing
         </CardTitle>
@@ -76,53 +76,53 @@ Format as JSON with keys: greeting, weather, priorities (array), insight`
           size="icon"
           onClick={handleRegenerate}
           disabled={isLoading}
-          className="h-10 w-10 rounded-xl hover:bg-muted/80"
+          className="h-9 w-9 rounded-lg hover:bg-muted/80"
         >
-          <ArrowsClockwise size={20} className={isLoading ? 'animate-spin' : ''} weight="bold" />
+          <ArrowsClockwise size={18} className={isLoading ? 'animate-spin' : ''} weight="bold" />
         </Button>
       </CardHeader>
-      <CardContent className="space-y-6 relative">
+      <CardContent className="space-y-5 relative">
         {isLoading && !briefing ? (
           <>
-            <Skeleton className="h-5 w-3/4 rounded-lg" />
-            <Skeleton className="h-5 w-1/2 rounded-lg" />
-            <Skeleton className="h-24 w-full rounded-lg" />
+            <Skeleton className="h-4 w-3/4 rounded-lg" />
+            <Skeleton className="h-4 w-1/2 rounded-lg" />
+            <Skeleton className="h-20 w-full rounded-lg" />
             <Skeleton className="h-16 w-full rounded-lg" />
           </>
         ) : briefing ? (
           <>
-            <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-5 border border-primary/10">
-              <p className="text-lg font-semibold text-foreground leading-relaxed">{briefing.greeting}</p>
+            <div className="bg-gradient-to-r from-primary/8 to-accent/8 rounded-xl p-4 sm:p-5 border border-primary/10">
+              <p className="text-[15px] sm:text-base font-medium text-foreground leading-relaxed">{briefing.greeting}</p>
             </div>
 
-            <div className="flex items-center gap-3 px-1">
-              <div className="w-9 h-9 rounded-xl bg-accent/15 flex items-center justify-center">
+            <div className="flex items-center gap-3 px-0.5">
+              <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center border border-accent/20">
                 {getWeatherIcon()}
               </div>
-              <span className="text-base text-foreground font-medium">{briefing.weather}</span>
+              <span className="text-sm sm:text-[15px] text-foreground font-medium">{briefing.weather}</span>
             </div>
 
             <div className="space-y-3">
-              <h4 className="text-base font-bold text-foreground flex items-center gap-2">
-                <div className="w-1.5 h-5 bg-primary rounded-full" />
+              <h4 className="text-sm sm:text-[15px] font-semibold text-foreground flex items-center gap-2">
+                <div className="w-1 h-4 bg-primary rounded-full" />
                 Top Priorities
               </h4>
-              <div className="space-y-3 pl-1">
+              <div className="space-y-2.5 pl-0.5">
                 {briefing.priorities.map((priority, idx) => (
                   <div key={idx} className="flex items-start gap-3 group">
-                    <div className="w-7 h-7 rounded-lg bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/25 transition-colors">
-                      <span className="text-primary font-bold text-sm">{idx + 1}</span>
+                    <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/15 transition-colors border border-primary/20">
+                      <span className="text-primary font-bold text-xs">{idx + 1}</span>
                     </div>
-                    <span className="text-foreground leading-relaxed pt-0.5">{priority}</span>
+                    <span className="text-sm sm:text-[15px] text-foreground leading-relaxed pt-0.5">{priority}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-accent/10 to-accent/5 rounded-2xl p-5 border-l-4 border-accent shadow-sm">
+            <div className="bg-gradient-to-r from-accent/10 to-accent/5 rounded-xl p-4 sm:p-5 border-l-4 border-accent shadow-sm">
               <div className="flex gap-3">
-                <Lightbulb size={24} weight="fill" className="text-accent flex-shrink-0 mt-0.5" />
-                <p className="text-foreground leading-relaxed italic font-medium">{briefing.insight}</p>
+                <Lightbulb size={22} weight="duotone" className="text-accent flex-shrink-0 mt-0.5" />
+                <p className="text-sm sm:text-[15px] text-foreground leading-relaxed italic font-medium">{briefing.insight}</p>
               </div>
             </div>
           </>

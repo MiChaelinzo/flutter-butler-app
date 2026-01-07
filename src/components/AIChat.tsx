@@ -53,25 +53,25 @@ export function AIChat({ open, onOpenChange }: AIChatProps) {
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent side="right" className="w-full sm:w-[500px] flex flex-col p-0 border-l-2">
-        <SheetHeader className="p-6 pb-5 border-b-2 bg-gradient-to-r from-primary/5 to-accent/5">
-          <SheetTitle className="flex items-center gap-3 text-2xl">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
-              <Robot className="text-white" size={22} weight="fill" />
+      <SheetContent side="right" className="w-full sm:w-[500px] flex flex-col p-0 border-l">
+        <SheetHeader className="p-5 sm:p-6 pb-5 border-b bg-gradient-to-r from-primary/5 to-accent/5">
+          <SheetTitle className="flex items-center gap-3 text-xl sm:text-2xl font-semibold">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center border border-primary/20">
+              <Robot className="text-primary" size={20} weight="duotone" />
             </div>
             AI Assistant
           </SheetTitle>
         </SheetHeader>
 
-        <ScrollArea className="flex-1 p-6">
+        <ScrollArea className="flex-1 p-5 sm:p-6">
           <div className="space-y-4">
             {(messages || []).length === 0 ? (
               <div className="text-center py-12 text-muted-foreground">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 mx-auto mb-4 flex items-center justify-center">
-                  <Robot size={40} className="opacity-60" weight="fill" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 mx-auto mb-4 flex items-center justify-center">
+                  <Robot size={32} className="opacity-60" weight="duotone" />
                 </div>
-                <p className="text-base font-semibold text-foreground mb-1">Start a conversation</p>
-                <p className="text-sm">Your AI assistant is ready to help</p>
+                <p className="text-sm sm:text-[15px] font-semibold text-foreground mb-1">Start a conversation</p>
+                <p className="text-xs sm:text-sm">Your AI assistant is ready to help</p>
               </div>
             ) : (
               <>
@@ -81,19 +81,19 @@ export function AIChat({ open, onOpenChange }: AIChatProps) {
                     className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`max-w-[85%] rounded-2xl px-4 py-3 shadow-sm ${
+                      className={`max-w-[85%] rounded-xl px-4 py-3 shadow-sm ${
                         message.role === 'user'
                           ? 'bg-gradient-to-br from-primary to-primary/90 text-primary-foreground'
-                          : 'bg-muted/80 backdrop-blur-sm text-foreground border-2'
+                          : 'bg-muted/80 text-foreground border'
                       }`}
                     >
-                      <p className="text-sm whitespace-pre-wrap leading-relaxed">{message.content}</p>
+                      <p className="text-sm sm:text-[15px] whitespace-pre-wrap leading-relaxed">{message.content}</p>
                     </div>
                   </div>
                 ))}
                 {isLoading && (
                   <div className="flex justify-start">
-                    <div className="max-w-[85%] rounded-2xl px-4 py-3 bg-muted/80 backdrop-blur-sm border-2">
+                    <div className="max-w-[85%] rounded-xl px-4 py-3 bg-muted/80 border">
                       <div className="flex gap-1.5">
                         <div className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '0ms' }} />
                         <div className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -107,13 +107,13 @@ export function AIChat({ open, onOpenChange }: AIChatProps) {
           </div>
         </ScrollArea>
 
-        <div className="p-6 pt-5 border-t-2 bg-muted/20">
+        <div className="p-5 sm:p-6 pt-5 border-t bg-muted/20">
           <form
             onSubmit={(e) => {
               e.preventDefault()
               sendMessage()
             }}
-            className="flex gap-3"
+            className="flex gap-2.5"
           >
             <Input
               placeholder="Ask me anything..."
@@ -121,15 +121,15 @@ export function AIChat({ open, onOpenChange }: AIChatProps) {
               onChange={(e) => setInput(e.target.value)}
               disabled={isLoading}
               id="chat-input"
-              className="h-12 rounded-xl border-2 text-base"
+              className="h-11 rounded-xl border text-sm sm:text-[15px]"
             />
             <Button 
               type="submit" 
               disabled={!input.trim() || isLoading} 
               size="icon"
-              className="h-12 w-12 rounded-xl shadow-lg"
+              className="h-11 w-11 rounded-xl shadow-sm flex-shrink-0"
             >
-              <PaperPlaneRight size={20} weight="fill" />
+              <PaperPlaneRight size={18} weight="bold" />
             </Button>
           </form>
         </div>
