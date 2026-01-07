@@ -48,11 +48,32 @@ This is a multi-feature personal assistant platform with AI integration, task au
 - **Success criteria**: Users create 2+ custom automations, report significant time savings
 
 ### AI Chat Assistant with Video/Audio Calls
-- **Functionality**: Multi-modal conversational interface with text chat, video calls, and audio calls featuring a 3D virtual assistant
-- **Purpose**: Provides instant intelligent assistance through preferred communication method with visual feedback
+- **Functionality**: Multi-modal conversational interface with text chat, video calls, and audio calls featuring a 3D virtual assistant with context-aware responses
+- **Purpose**: Provides instant intelligent assistance through preferred communication method with visual feedback and personalized help
 - **Trigger**: User opens chat panel and selects text, video call, or audio call mode
-- **Progression**: User opens assistant → chooses mode (text/video/audio) → engages with AI butler → receives visual feedback from animated 3D avatar → controls mute/speaker during calls → ends call or switches modes
-- **Success criteria**: Video/audio modes provide engaging visual experience, 3D avatar responds naturally to conversation, users feel more connected to their AI assistant
+- **Progression**: User opens assistant → chooses mode (text/video/audio) → engages with AI butler → receives visual feedback from animated 3D avatar → controls mute/speaker during calls → AI provides contextual help based on current app state → ends call or switches modes
+- **Success criteria**: Video/audio modes provide engaging visual experience, 3D avatar responds naturally to conversation, context-aware suggestions improve productivity, users feel more connected to their AI assistant
+
+### Focus Mode & Pomodoro Timer
+- **Functionality**: Distraction-free focus sessions with customizable Pomodoro timers, ambient sounds, and task isolation
+- **Purpose**: Helps users achieve deep work states and complete tasks efficiently
+- **Trigger**: User activates focus mode from dashboard or task view
+- **Progression**: User selects task or work session → sets timer duration (25/45/60 min) → optional ambient sound selection → focus mode activates with minimal UI → progress visible → break reminder → completion celebration
+- **Success criteria**: Users complete more focused work sessions, report reduced distractions, complete tasks faster
+
+### Daily Goals & Progress Tracking
+- **Functionality**: Set daily intentions, track completion, view weekly/monthly analytics with AI insights
+- **Purpose**: Provides motivation and accountability through visible progress and patterns
+- **Trigger**: Morning routine or manual goal setting
+- **Progression**: User sets 1-3 daily goals → works through day marking progress → views completion stats → receives AI analysis of productivity patterns → adjusts strategies
+- **Success criteria**: 70%+ daily goal completion rate, users identify productivity patterns, improved weekly consistency
+
+### Calendar Integration View
+- **Functionality**: Visual timeline showing tasks, habits, and time blocks throughout the day
+- **Purpose**: Provides holistic view of daily schedule and available time slots
+- **Trigger**: User opens calendar view tab
+- **Progression**: User views daily timeline → sees scheduled tasks and habits → identifies free blocks → adds new items to specific times → drag-to-reschedule → syncs with priorities
+- **Success criteria**: Users better understand time allocation, reduce scheduling conflicts, more realistic planning
 
 ### Habit Tracking
 - **Functionality**: Daily habit tracker with streak monitoring and completion tracking

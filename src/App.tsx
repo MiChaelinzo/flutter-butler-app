@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear } from '@phosphor-icons/react'
+import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target } from '@phosphor-icons/react'
 import { Toaster } from '@/components/ui/sonner'
 import { DailyBriefing } from '@/components/DailyBriefing'
 import { QuickActions } from '@/components/QuickActions'
@@ -12,6 +12,8 @@ import { NoteTaking } from '@/components/NoteTaking'
 import { SmartSuggestions } from '@/components/SmartSuggestions'
 import { AutomationTemplates } from '@/components/AutomationTemplates'
 import { ProductivityStats } from '@/components/ProductivityStats'
+import { FocusMode } from '@/components/FocusMode'
+import { DailyGoals } from '@/components/DailyGoals'
 
 function App() {
   const [chatOpen, setChatOpen] = useState(false)
@@ -71,6 +73,20 @@ function App() {
                 <span className="hidden sm:inline">Dashboard</span>
               </TabsTrigger>
               <TabsTrigger 
+                value="focus" 
+                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-orange data-[state=active]:to-orange/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-orange/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+              >
+                <Timer size={22} weight="duotone" />
+                <span className="hidden sm:inline">Focus</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="goals" 
+                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-accent data-[state=active]:to-accent/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-accent/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+              >
+                <Target size={22} weight="duotone" />
+                <span className="hidden sm:inline">Goals</span>
+              </TabsTrigger>
+              <TabsTrigger 
                 value="actions" 
                 className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-orange data-[state=active]:to-orange/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-orange/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
               >
@@ -111,6 +127,11 @@ function App() {
           <TabsContent value="dashboard" className="space-y-6 md:space-y-10 mt-10">
             <DailyBriefing onRegenerate={() => {}} />
             
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+              <DailyGoals />
+              <FocusMode />
+            </div>
+            
             <ProductivityStats />
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
@@ -140,6 +161,36 @@ function App() {
                 </div>
               </div>
             </div>
+          </TabsContent>
+
+          <TabsContent value="focus" className="space-y-6 md:space-y-8 mt-10">
+            <div className="flex items-center gap-5 mb-10">
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-orange/30 to-orange/10 flex items-center justify-center border-2 border-orange/30 shadow-2xl shadow-orange/30 backdrop-blur-xl">
+                <Timer className="text-orange drop-shadow-lg" size={36} weight="duotone" />
+              </div>
+              <div>
+                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-orange to-foreground bg-clip-text text-transparent">Focus Mode</h2>
+                <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
+                  Pomodoro timer for deep work sessions
+                </p>
+              </div>
+            </div>
+            <FocusMode />
+          </TabsContent>
+
+          <TabsContent value="goals" className="space-y-6 md:space-y-8 mt-10">
+            <div className="flex items-center gap-5 mb-10">
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center border-2 border-primary/30 shadow-2xl shadow-primary/30 backdrop-blur-xl">
+                <Target className="text-primary drop-shadow-lg" size={36} weight="duotone" />
+              </div>
+              <div>
+                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Daily Goals</h2>
+                <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
+                  Set and track your daily intentions
+                </p>
+              </div>
+            </div>
+            <DailyGoals />
           </TabsContent>
 
           <TabsContent value="actions" className="space-y-6 md:space-y-8 mt-10">

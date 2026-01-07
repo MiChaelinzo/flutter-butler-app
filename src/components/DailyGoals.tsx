@@ -1,0 +1,225 @@
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Progress } from '@/components/ui/progress'
+import { Target, Plus, CheckCircle, Circle, Sparkle, TrendUp } from '@phosphor-icons/react'
+import { useState } from 'react'
+import { useKV } from '@github/spark/hooks'
+import { toast } from 'sonner'
+
+interface DailyGoal {
+  id: string
+  text: string
+  completed: boolean
+  date: string
+  createdAt: number
+}
+
+export function DailyGoals() {
+  const [goals, setGoals] = useKV<DailyGoal[]>('butler-daily-goals', [])
+  const [newGoalText, setNewGoalText] = useState('')
+  const [isAnalyzing, setIsAnalyzing] = useState(false)
+
+  const today = new Date().toISOString().split('T')[0]
+  const todayGoals = (goals || []).filter((g) => g.date === today)
+
+  const addGoal = () => {
+    if (!newGoalText.trim() || todayGoals.length >= 3) {
+      if (todayGoals.length >= 3) {
+        toast.error('Maximum 3 daily goals')
+      }
+      return
+    }
+
+    const newGoal: DailyGoal = {
+      id: Date.now().toString(),
+      text: newGoalText,
+      completed: false,
+      date: today,
+      createdAt: Date.now(),
+    }
+
+    setGoals((current) => [...(current || []), newGoal])
+    setNewGoalText('')
+    toast.success('Goal added to today')
+  }
+
+  const toggleGoal = (id: string) => {
+    setGoals((current) =>
+      (current || []).map((goal) =>
+        goal.id === id ? { ...goal, completed: !goal.completed } : goal
+      )
+    )
+  }
+
+  const getWeeklyStats = () => {
+    const sevenDaysAgo = new Date()
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7)
+    const weekStart = sevenDaysAgo.toISOString().split('T')[0]
+
+    const weekGoals = (goals || []).filter((g) => g.date >= weekStart)
+    const completed = weekGoals.filter((g) => g.completed).length
+    const total = weekGoals.length
+
+    return { completed, total, rate: total > 0 ? Math.round((completed / total) * 100) : 0 }
+  }
+
+  const generateInsight = async () => {
+    setIsAnalyzing(true)
+    try {
+      const stats = getWeeklyStats()
+      const recentGoals = (goals || [])
+        .slice(-10)
+        .map((g) => `${g.completed ? '✓' : '○'} ${g.text}`)
+        .join(', ')
+
+      const promptText = `Based on these recent goals and completion rate of ${stats.rate}%: ${recentGoals}. Provide one encouraging, actionable insight in 1-2 sentences to help improve productivity.`
+
+      const prompt = window.spark.llmPrompt([promptText], '')
+      const response = await window.spark.llm(prompt, 'gpt-4o-mini')
+
+      toast.success('AI Insight', {
+        description: response,
+        duration: 8000,
+      })
+    } catch (error) {
+      console.error('Failed to generate insight:', error)
+      toast.error('Could not generate insight')
+    } finally {
+      setIsAnalyzing(false)
+    }
+  }
+
+  const completedToday = todayGoals.filter((g) => g.completed).length
+  const progressPercent = todayGoals.length > 0 ? (completedToday / todayGoals.length) * 100 : 0
+  const weekStats = getWeeklyStats()
+
+  return (
+    <Card className="shadow-2xl border-2 border-white/10 hover:shadow-primary/30 transition-all duration-300 bg-card backdrop-blur-2xl relative overflow-hidden group">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 pointer-events-none opacity-50" />
+
+      <CardHeader className="pb-6 relative">
+        <CardTitle className="flex items-center justify-between">
+          <div className="flex items-center gap-4 text-3xl sm:text-4xl font-bold">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center border-2 border-white/20 shadow-2xl shadow-primary/30">
+              <Target className="text-white drop-shadow-lg" size={28} weight="duotone" />
+            </div>
+            <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+              Daily Goals
+            </span>
+          </div>
+          <Button
+            onClick={generateInsight}
+            disabled={isAnalyzing || (goals || []).length < 3}
+            variant="outline"
+            size="icon"
+            className="h-12 w-12 rounded-2xl border-2 border-white/10 hover:bg-primary/20 backdrop-blur-xl"
+          >
+            {isAnalyzing ? (
+              <Sparkle className="animate-pulse text-primary" size={24} weight="duotone" />
+            ) : (
+              <TrendUp className="text-primary" size={24} weight="duotone" />
+            )}
+          </Button>
+        </CardTitle>
+      </CardHeader>
+
+      <CardContent className="space-y-6 relative">
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <span className="text-base font-bold text-foreground">
+              Today's Progress
+            </span>
+            <span className="text-base font-bold text-primary">
+              {completedToday} / {todayGoals.length}
+            </span>
+          </div>
+          <Progress value={progressPercent} className="h-3 rounded-full" />
+        </div>
+
+        <div className="grid grid-cols-2 gap-4">
+          <Card className="bg-gradient-to-br from-primary/20 to-primary/10 border-2 border-white/10 shadow-xl">
+            <CardContent className="p-5 text-center">
+              <div className="text-3xl font-bold text-primary mb-2">{weekStats.rate}%</div>
+              <p className="text-xs text-foreground font-bold">Weekly Completion</p>
+            </CardContent>
+          </Card>
+          <Card className="bg-gradient-to-br from-accent/20 to-accent/10 border-2 border-white/10 shadow-xl">
+            <CardContent className="p-5 text-center">
+              <div className="text-3xl font-bold text-accent mb-2">{weekStats.completed}</div>
+              <p className="text-xs text-foreground font-bold">Goals This Week</p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {todayGoals.length < 3 && (
+          <div className="flex gap-3">
+            <Input
+              placeholder="Add a goal for today..."
+              value={newGoalText}
+              onChange={(e) => setNewGoalText(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && addGoal()}
+              id="new-goal-input"
+              className="h-14 rounded-2xl border-2 border-white/10 text-base bg-muted/50 backdrop-blur-xl font-semibold focus:border-primary/50 focus:ring-2 focus:ring-primary/30"
+            />
+            <Button
+              onClick={addGoal}
+              disabled={!newGoalText.trim()}
+              size="icon"
+              className="h-14 w-14 rounded-2xl shadow-2xl shadow-primary/40 flex-shrink-0 bg-gradient-to-br from-primary via-accent to-primary hover:scale-110 transition-all border-2 border-white/20"
+            >
+              <Plus className="text-white" size={24} weight="bold" />
+            </Button>
+          </div>
+        )}
+
+        <div className="space-y-3">
+          {todayGoals.length === 0 ? (
+            <div className="text-center py-12 text-muted-foreground">
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-5 flex items-center justify-center border-2 border-white/10 shadow-xl">
+                <Target size={40} className="text-primary opacity-50" weight="duotone" />
+              </div>
+              <p className="text-lg font-bold text-foreground">No goals set for today</p>
+              <p className="text-base font-semibold mt-2">Add 1-3 goals to focus on</p>
+            </div>
+          ) : (
+            todayGoals.map((goal) => (
+              <div
+                key={goal.id}
+                className="flex items-center gap-4 p-5 rounded-2xl border-2 border-white/10 bg-card/80 backdrop-blur-xl hover:bg-primary/10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/20 transition-all group cursor-pointer"
+                onClick={() => toggleGoal(goal.id)}
+              >
+                <div
+                  className={`h-12 w-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all ${
+                    goal.completed
+                      ? 'bg-primary/20 text-primary'
+                      : 'bg-muted/50 text-muted-foreground'
+                  }`}
+                >
+                  {goal.completed ? (
+                    <CheckCircle size={28} weight="fill" />
+                  ) : (
+                    <Circle size={28} weight="regular" />
+                  )}
+                </div>
+                <p
+                  className={`flex-1 text-base font-bold leading-snug ${
+                    goal.completed ? 'line-through text-muted-foreground' : 'text-foreground'
+                  }`}
+                >
+                  {goal.text}
+                </p>
+              </div>
+            ))
+          )}
+        </div>
+
+        {todayGoals.length === 3 && (
+          <div className="text-center text-sm text-muted-foreground font-semibold">
+            Focus on these 3 goals today 🎯
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  )
+}
