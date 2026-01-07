@@ -47,12 +47,12 @@ This is a multi-feature personal assistant platform with AI integration, task au
 - **Progression**: User selects automation template → customizes steps and timing → saves automation → runs manually or on schedule → receives consolidated output
 - **Success criteria**: Users create 2+ custom automations, report significant time savings
 
-### AI Chat Assistant
-- **Functionality**: Conversational interface for ad-hoc questions, brainstorming, and quick help
-- **Purpose**: Provides instant intelligent assistance for unexpected needs
-- **Trigger**: User opens chat panel or asks question
-- **Progression**: User types question → AI provides contextual answer considering user's data → conversation continues naturally → user can save important responses
-- **Success criteria**: Responses feel accurate and helpful, users return for multiple queries daily
+### AI Chat Assistant with Video/Audio Calls
+- **Functionality**: Multi-modal conversational interface with text chat, video calls, and audio calls featuring a 3D virtual assistant
+- **Purpose**: Provides instant intelligent assistance through preferred communication method with visual feedback
+- **Trigger**: User opens chat panel and selects text, video call, or audio call mode
+- **Progression**: User opens assistant → chooses mode (text/video/audio) → engages with AI butler → receives visual feedback from animated 3D avatar → controls mute/speaker during calls → ends call or switches modes
+- **Success criteria**: Video/audio modes provide engaging visual experience, 3D avatar responds naturally to conversation, users feel more connected to their AI assistant
 
 ### Habit Tracking
 - **Functionality**: Daily habit tracker with streak monitoring and completion tracking
@@ -126,22 +126,25 @@ Animations should reinforce the feeling of advanced technology and responsive in
 ## Component Selection
 
 - **Components**: 
-  - **Dialog/Sheet**: For AI chat interface, automation builders, and detailed task editing - provides focused context
+  - **Dialog/Sheet**: For AI chat interface with video/audio call views, automation builders, and detailed task editing
   - **Card**: Primary container for all feature modules with subtle shadows for depth
   - **Button**: Extensive use with variants - solid for primary actions (AI generation), outline for secondary (edit), ghost for tertiary (dismiss)
   - **Input/Textarea**: Clean forms with floating labels for task entry and automation configuration
-  - **Badge**: Status indicators for task priority, automation status, reminder timing
+  - **Badge**: Status indicators for task priority, automation status, reminder timing, call status (live indicator)
   - **ScrollArea**: For task lists and chat history ensuring content never feels cramped
   - **Tabs**: Switch between different butler views (dashboard, tasks, automations, insights)
   - **Separator**: Subtle dividers to create breathing room between sections
   - **Skeleton**: Loading states for AI content generation
   - **Avatar**: User profile in header, personalization touch
+  - **3D Canvas**: Three.js powered virtual assistant with animated sphere head, glowing eyes, orbital rings, and particle effects
 
 - **Customizations**: 
   - Custom AI thinking indicator with pulsing dots in accent color
   - Custom quick action cards with icon backgrounds using subtle gradients
   - Custom task card with inline priority editing and smart time display
   - Custom briefing card with weather icon integration and dynamic greetings
+  - Custom 3D virtual assistant model with reactive animations based on speaking state and user interaction
+  - Custom video/audio call interface with in-call controls (mute, speaker, end call)
   
 - **States**: 
   - Buttons: Default soft shadow, hover lifts 2px with deeper shadow, active slight scale (0.98), focus subtle accent glow
@@ -162,6 +165,11 @@ Animations should reinforce the feeling of advanced technology and responsive in
   - ArrowsClockwise (regenerate)
   - List (tasks)
   - Gear (settings)
+  - VideoCamera (video call)
+  - Phone (audio call)
+  - Microphone/MicrophoneSlash (mute toggle)
+  - SpeakerHigh/SpeakerSlash (speaker toggle)
+  - X (end call)
 
 - **Spacing**: 
   - Container padding: p-6 (desktop), p-4 (mobile)
