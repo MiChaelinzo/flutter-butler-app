@@ -42,6 +42,27 @@ export const QUICK_ACTIONS: QuickAction[] = [
     description: 'Get key information fast',
     icon: 'magnifying-glass',
     prompt: 'Provide a quick overview of: '
+  },
+  {
+    id: 'pros-cons',
+    title: 'Pros & Cons',
+    description: 'Analyze decision factors',
+    icon: 'list-checks',
+    prompt: 'List pros and cons for: '
+  },
+  {
+    id: 'improve-writing',
+    title: 'Improve Writing',
+    description: 'Polish and refine text',
+    icon: 'note',
+    prompt: 'Improve the clarity and professionalism of this text: '
+  },
+  {
+    id: 'goal-planning',
+    title: 'Goal Planning',
+    description: 'Create action plan',
+    icon: 'lightbulb',
+    prompt: 'Help me create an action plan to achieve this goal: '
   }
 ]
 
@@ -63,5 +84,23 @@ export const AUTOMATION_TEMPLATES = [
     name: 'End of Day Review',
     description: 'Reflect on accomplishments and plan tomorrow',
     steps: ['List completed tasks', 'Note key learnings', 'Set tomorrow priorities']
+  },
+  {
+    id: 'weekly-planning',
+    name: 'Weekly Planning',
+    description: 'Strategic overview and goal setting for the week',
+    steps: ['Review last week achievements', 'Set weekly goals', 'Identify potential obstacles', 'Plan key milestones']
+  },
+  {
+    id: 'focus-session',
+    name: 'Focus Session Prep',
+    description: 'Optimize environment for deep work',
+    steps: ['Clear distractions', 'Set focus timer', 'Define session outcome', 'Prepare resources']
+  },
+  {
+    id: 'email-catchup',
+    name: 'Email Catch-up',
+    description: 'Process inbox efficiently',
+    steps: ['Prioritize urgent emails', 'Draft quick responses', 'Flag items for follow-up', 'Archive processed messages']
   }
 ]

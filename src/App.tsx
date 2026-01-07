@@ -1,12 +1,17 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Robot, House, Lightning, ListChecks, Sparkle } from '@phosphor-icons/react'
+import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear } from '@phosphor-icons/react'
 import { Toaster } from '@/components/ui/sonner'
 import { DailyBriefing } from '@/components/DailyBriefing'
 import { QuickActions } from '@/components/QuickActions'
 import { TaskManager } from '@/components/TaskManager'
 import { AIChat } from '@/components/AIChat'
+import { HabitTracker } from '@/components/HabitTracker'
+import { NoteTaking } from '@/components/NoteTaking'
+import { SmartSuggestions } from '@/components/SmartSuggestions'
+import { AutomationTemplates } from '@/components/AutomationTemplates'
+import { ProductivityStats } from '@/components/ProductivityStats'
 
 function App() {
   const [chatOpen, setChatOpen] = useState(false)
@@ -51,28 +56,49 @@ function App() {
         </header>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6 md:space-y-8">
-          <div className="flex justify-center">
+          <div className="flex justify-center overflow-x-auto pb-2">
             <TabsList className="inline-flex h-14 rounded-2xl bg-card/50 backdrop-blur-sm border border-border shadow-lg p-1.5 gap-1">
               <TabsTrigger 
                 value="dashboard" 
-                className="gap-2.5 px-5 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-bold text-base transition-all duration-200"
+                className="gap-2.5 px-4 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-bold text-sm sm:text-base transition-all duration-200"
               >
                 <House size={20} weight="duotone" />
                 <span className="hidden sm:inline">Dashboard</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="actions" 
-                className="gap-2.5 px-5 sm:px-6 rounded-xl data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-bold text-base transition-all duration-200"
+                className="gap-2.5 px-4 sm:px-6 rounded-xl data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-bold text-sm sm:text-base transition-all duration-200"
               >
                 <Lightning size={20} weight="duotone" />
                 <span className="hidden sm:inline">Actions</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="tasks" 
-                className="gap-2.5 px-5 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-bold text-base transition-all duration-200"
+                className="gap-2.5 px-4 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-bold text-sm sm:text-base transition-all duration-200"
               >
                 <ListChecks size={20} weight="duotone" />
                 <span className="hidden sm:inline">Tasks</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="habits" 
+                className="gap-2.5 px-4 sm:px-6 rounded-xl data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-bold text-sm sm:text-base transition-all duration-200"
+              >
+                <Flame size={20} weight="duotone" />
+                <span className="hidden sm:inline">Habits</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="notes" 
+                className="gap-2.5 px-4 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-bold text-sm sm:text-base transition-all duration-200"
+              >
+                <Note size={20} weight="duotone" />
+                <span className="hidden sm:inline">Notes</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="automations" 
+                className="gap-2.5 px-4 sm:px-6 rounded-xl data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-bold text-sm sm:text-base transition-all duration-200"
+              >
+                <Gear size={20} weight="duotone" />
+                <span className="hidden sm:inline">Automations</span>
               </TabsTrigger>
             </TabsList>
           </div>
@@ -80,17 +106,35 @@ function App() {
           <TabsContent value="dashboard" className="space-y-6 md:space-y-8 mt-8">
             <DailyBriefing onRegenerate={() => {}} />
             
-            <div>
-              <div className="flex items-center gap-3.5 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center border border-accent/30 shadow-lg shadow-accent/10">
-                  <Lightning className="text-accent" size={24} weight="duotone" />
+            <ProductivityStats />
+            
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+              <div className="lg:col-span-2 space-y-6 md:space-y-8">
+                <div>
+                  <div className="flex items-center gap-3.5 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center border border-accent/30 shadow-lg shadow-accent/10">
+                      <Lightning className="text-accent" size={24} weight="duotone" />
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Quick Actions</h2>
+                  </div>
+                  <QuickActions />
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Quick Actions</h2>
-              </div>
-              <QuickActions />
-            </div>
 
-            <TaskManager />
+                <TaskManager />
+              </div>
+
+              <div className="space-y-6 md:space-y-8">
+                <div>
+                  <div className="flex items-center gap-3.5 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center border border-primary/30 shadow-lg shadow-primary/10">
+                      <Sparkle className="text-primary" size={24} weight="duotone" />
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Smart Suggestions</h2>
+                  </div>
+                  <SmartSuggestions />
+                </div>
+              </div>
+            </div>
           </TabsContent>
 
           <TabsContent value="actions" className="space-y-6 md:space-y-8 mt-8">
@@ -123,6 +167,51 @@ function App() {
               </div>
             </div>
             <TaskManager />
+          </TabsContent>
+
+          <TabsContent value="habits" className="space-y-6 md:space-y-8 mt-8">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center border border-accent/30 shadow-lg shadow-accent/10">
+                <Flame className="text-accent" size={32} weight="duotone" />
+              </div>
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Habit Tracker</h2>
+                <p className="text-muted-foreground mt-1.5 text-sm sm:text-base font-medium">
+                  Build consistency and track your streaks
+                </p>
+              </div>
+            </div>
+            <HabitTracker />
+          </TabsContent>
+
+          <TabsContent value="notes" className="space-y-6 md:space-y-8 mt-8">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center border border-primary/30 shadow-lg shadow-primary/10">
+                <Note className="text-primary" size={32} weight="duotone" />
+              </div>
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Quick Notes</h2>
+                <p className="text-muted-foreground mt-1.5 text-sm sm:text-base font-medium">
+                  Capture ideas with AI-powered summaries
+                </p>
+              </div>
+            </div>
+            <NoteTaking />
+          </TabsContent>
+
+          <TabsContent value="automations" className="space-y-6 md:space-y-8 mt-8">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center border border-accent/30 shadow-lg shadow-accent/10">
+                <Gear className="text-accent" size={32} weight="duotone" />
+              </div>
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Automations</h2>
+                <p className="text-muted-foreground mt-1.5 text-sm sm:text-base font-medium">
+                  Run pre-built workflows with AI assistance
+                </p>
+              </div>
+            </div>
+            <AutomationTemplates />
           </TabsContent>
         </Tabs>
       </div>

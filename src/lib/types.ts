@@ -38,3 +38,29 @@ export interface ChatMessage {
   content: string
   timestamp: number
 }
+
+export interface Habit {
+  id: string
+  name: string
+  completedDates: string[]
+  createdAt: number
+}
+
+export interface Note {
+  id: string
+  title: string
+  content: string
+  tags: string[]
+  createdAt: number
+  updatedAt: number
+}
+
+export interface SmartSuggestion {
+  id: string
+  type: 'productivity' | 'habit' | 'task' | 'automation'
+  title: string
+  description: string
+  action?: string
+  dismissed: boolean
+  createdAt: number
+}

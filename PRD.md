@@ -54,6 +54,27 @@ This is a multi-feature personal assistant platform with AI integration, task au
 - **Progression**: User types question → AI provides contextual answer considering user's data → conversation continues naturally → user can save important responses
 - **Success criteria**: Responses feel accurate and helpful, users return for multiple queries daily
 
+### Habit Tracking
+- **Functionality**: Daily habit tracker with streak monitoring and completion tracking
+- **Purpose**: Helps users build consistent positive routines and visualize progress
+- **Trigger**: User adds new habit or marks daily completion
+- **Progression**: User creates habit → checks off daily → streak counter increments → visual feedback reinforces consistency → long-term habit formation
+- **Success criteria**: Users maintain 3+ active habits, streaks motivate continued engagement
+
+### Quick Notes with AI
+- **Functionality**: Fast note-taking with AI-powered summarization and search
+- **Purpose**: Capture fleeting ideas and important information without losing context
+- **Trigger**: User clicks to create new note or searches existing notes
+- **Progression**: User writes note → can request AI summary → notes saved with timestamps → searchable by content → easy retrieval when needed
+- **Success criteria**: Users capture 5+ notes per week, AI summaries save reading time
+
+### Smart Suggestions
+- **Functionality**: Context-aware productivity recommendations based on time of day and usage patterns
+- **Purpose**: Proactively guide users toward better productivity habits and workflows
+- **Trigger**: Automatic generation on dashboard, refreshable on demand
+- **Progression**: AI analyzes context → generates 3-5 actionable suggestions → user reviews and acts → dismisses completed items → new suggestions appear
+- **Success criteria**: Users act on 40%+ of suggestions, report finding them helpful
+
 ## Edge Case Handling
 
 - **Empty States**: First-time users see guided onboarding with sample data and suggested quick actions to try
