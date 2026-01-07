@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Sparkle, ArrowsClockwise, Sun, Cloud, CloudRain } from '@phosphor-icons/react'
+import { Sparkle, ArrowsClockwise, Sun, Cloud, CloudRain, Lightbulb } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { Skeleton } from '@/components/ui/skeleton'
 
@@ -62,10 +62,13 @@ Format as JSON with keys: greeting, weather, priorities (array), insight`
   }
 
   return (
-    <Card className="shadow-sm hover:shadow-md transition-shadow">
-      <CardHeader className="flex flex-row items-center justify-between pb-3">
-        <CardTitle className="flex items-center gap-2 text-xl">
-          <Sparkle className="text-accent" size={24} weight="fill" />
+    <Card className="shadow-lg border-2 hover:shadow-xl transition-all backdrop-blur-sm bg-card/90 overflow-hidden">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <CardHeader className="flex flex-row items-center justify-between pb-4 relative">
+        <CardTitle className="flex items-center gap-3 text-2xl">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center shadow-md">
+            <Sparkle className="text-white" size={22} weight="fill" />
+          </div>
           Daily Briefing
         </CardTitle>
         <Button
@@ -73,44 +76,54 @@ Format as JSON with keys: greeting, weather, priorities (array), insight`
           size="icon"
           onClick={handleRegenerate}
           disabled={isLoading}
-          className="h-8 w-8"
+          className="h-10 w-10 rounded-xl hover:bg-muted/80"
         >
-          <ArrowsClockwise size={18} className={isLoading ? 'animate-spin' : ''} />
+          <ArrowsClockwise size={20} className={isLoading ? 'animate-spin' : ''} weight="bold" />
         </Button>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-6 relative">
         {isLoading && !briefing ? (
           <>
-            <Skeleton className="h-4 w-3/4" />
-            <Skeleton className="h-4 w-1/2" />
-            <Skeleton className="h-20 w-full" />
-            <Skeleton className="h-12 w-full" />
+            <Skeleton className="h-5 w-3/4 rounded-lg" />
+            <Skeleton className="h-5 w-1/2 rounded-lg" />
+            <Skeleton className="h-24 w-full rounded-lg" />
+            <Skeleton className="h-16 w-full rounded-lg" />
           </>
         ) : briefing ? (
           <>
-            <div>
-              <p className="text-base font-medium text-foreground">{briefing.greeting}</p>
+            <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-5 border border-primary/10">
+              <p className="text-lg font-semibold text-foreground leading-relaxed">{briefing.greeting}</p>
             </div>
 
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              {getWeatherIcon()}
-              <span>{briefing.weather}</span>
+            <div className="flex items-center gap-3 px-1">
+              <div className="w-9 h-9 rounded-xl bg-accent/15 flex items-center justify-center">
+                {getWeatherIcon()}
+              </div>
+              <span className="text-base text-foreground font-medium">{briefing.weather}</span>
             </div>
 
-            <div>
-              <h4 className="text-sm font-semibold text-foreground mb-2">Top Priorities</h4>
-              <ul className="space-y-1.5">
+            <div className="space-y-3">
+              <h4 className="text-base font-bold text-foreground flex items-center gap-2">
+                <div className="w-1.5 h-5 bg-primary rounded-full" />
+                Top Priorities
+              </h4>
+              <div className="space-y-3 pl-1">
                 {briefing.priorities.map((priority, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="text-accent font-bold mt-0.5">{idx + 1}.</span>
-                    <span>{priority}</span>
-                  </li>
+                  <div key={idx} className="flex items-start gap-3 group">
+                    <div className="w-7 h-7 rounded-lg bg-primary/15 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-primary/25 transition-colors">
+                      <span className="text-primary font-bold text-sm">{idx + 1}</span>
+                    </div>
+                    <span className="text-foreground leading-relaxed pt-0.5">{priority}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
-            <div className="bg-accent/10 rounded-lg p-4 border-l-4 border-accent">
-              <p className="text-sm text-foreground italic">{briefing.insight}</p>
+            <div className="bg-gradient-to-r from-accent/10 to-accent/5 rounded-2xl p-5 border-l-4 border-accent shadow-sm">
+              <div className="flex gap-3">
+                <Lightbulb size={24} weight="fill" className="text-accent flex-shrink-0 mt-0.5" />
+                <p className="text-foreground leading-relaxed italic font-medium">{briefing.insight}</p>
+              </div>
             </div>
           </>
         ) : null}

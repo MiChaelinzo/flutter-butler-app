@@ -81,15 +81,17 @@ export function TaskManager() {
   const completedTasks = (tasks || []).filter(t => t.completed)
 
   return (
-    <Card className="shadow-sm">
-      <CardHeader className="pb-3">
-        <CardTitle className="flex items-center gap-2 text-xl">
-          <ListChecks className="text-primary" size={24} weight="bold" />
+    <Card className="shadow-lg border-2 backdrop-blur-sm bg-card/90">
+      <CardHeader className="pb-4">
+        <CardTitle className="flex items-center gap-3 text-2xl">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-md">
+            <ListChecks className="text-white" size={22} weight="bold" />
+          </div>
           Tasks
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="flex gap-2">
+      <CardContent className="space-y-5">
+        <div className="flex gap-3">
           <Input
             placeholder="Add a new task..."
             value={newTaskText}
@@ -97,40 +99,50 @@ export function TaskManager() {
             onKeyDown={(e) => e.key === 'Enter' && addTask()}
             disabled={isAnalyzing}
             id="new-task-input"
+            className="h-12 rounded-xl border-2 text-base"
           />
-          <Button onClick={addTask} disabled={!newTaskText.trim() || isAnalyzing} size="icon">
-            {isAnalyzing ? <Sparkle className="animate-pulse" size={18} /> : <Plus size={18} />}
+          <Button 
+            onClick={addTask} 
+            disabled={!newTaskText.trim() || isAnalyzing} 
+            size="icon"
+            className="h-12 w-12 rounded-xl shadow-lg"
+          >
+            {isAnalyzing ? <Sparkle className="animate-pulse" size={20} weight="fill" /> : <Plus size={20} weight="bold" />}
           </Button>
         </div>
 
-        <ScrollArea className="h-[400px] pr-4">
+        <ScrollArea className="h-[450px] pr-4">
           <div className="space-y-3">
             {incompleteTasks.length === 0 && completedTasks.length === 0 ? (
-              <div className="text-center py-8 text-muted-foreground">
-                <ListChecks size={48} className="mx-auto mb-2 opacity-50" />
-                <p className="text-sm">No tasks yet. Add one to get started!</p>
+              <div className="text-center py-12 text-muted-foreground">
+                <div className="w-20 h-20 rounded-2xl bg-muted mx-auto mb-4 flex items-center justify-center">
+                  <ListChecks size={40} className="opacity-50" />
+                </div>
+                <p className="text-base font-medium">No tasks yet</p>
+                <p className="text-sm mt-1">Add one above to get started!</p>
               </div>
             ) : (
               <>
                 {incompleteTasks.map((task) => (
                   <div
                     key={task.id}
-                    className="flex items-start gap-3 p-3 rounded-lg border bg-card hover:bg-accent/5 transition-colors"
+                    className="flex items-start gap-3 p-4 rounded-2xl border-2 bg-card hover:bg-primary/5 hover:border-primary/30 transition-all group"
                   >
                     <Checkbox
                       checked={task.completed}
                       onCheckedChange={() => toggleTask(task.id)}
-                      className="mt-0.5"
+                      className="mt-1 h-5 w-5 rounded-lg"
                       id={`task-${task.id}`}
                     />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-foreground">{task.text}</p>
-                      <div className="flex items-center gap-2 mt-1.5 flex-wrap">
-                        <Badge variant="outline" className={getPriorityColor(task.priority)}>
+                      <p className="text-base font-semibold text-foreground leading-snug">{task.text}</p>
+                      <div className="flex items-center gap-2.5 mt-2 flex-wrap">
+                        <Badge variant="outline" className={`${getPriorityColor(task.priority)} font-bold text-xs rounded-lg px-2.5 py-1`}>
                           {task.priority}
                         </Badge>
                         {task.estimatedMinutes && (
-                          <span className="text-xs text-muted-foreground">
+                          <span className="text-xs text-muted-foreground font-medium flex items-center gap-1">
+                            <div className="w-1 h-1 rounded-full bg-muted-foreground" />
                             ~{task.estimatedMinutes} min
                           </span>
                         )}
@@ -140,9 +152,9 @@ export function TaskManager() {
                       variant="ghost"
                       size="icon"
                       onClick={() => deleteTask(task.id)}
-                      className="h-8 w-8 text-muted-foreground hover:text-destructive"
+                      className="h-9 w-9 text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"
                     >
-                      <Trash size={16} />
+                      <Trash size={18} weight="bold" />
                     </Button>
                   </div>
                 ))}
@@ -150,33 +162,35 @@ export function TaskManager() {
                 {completedTasks.length > 0 && (
                   <>
                     {incompleteTasks.length > 0 && (
-                      <div className="border-t pt-3 mt-3">
-                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">
+                      <div className="border-t-2 pt-5 mt-5">
+                        <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
+                          <div className="h-0.5 flex-1 bg-border" />
                           Completed
+                          <div className="h-0.5 flex-1 bg-border" />
                         </p>
                       </div>
                     )}
                     {completedTasks.map((task) => (
                       <div
                         key={task.id}
-                        className="flex items-start gap-3 p-3 rounded-lg border bg-muted/50 opacity-60"
+                        className="flex items-start gap-3 p-4 rounded-2xl border-2 bg-muted/30 opacity-60 hover:opacity-80 transition-opacity group"
                       >
                         <Checkbox
                           checked={task.completed}
                           onCheckedChange={() => toggleTask(task.id)}
-                          className="mt-0.5"
+                          className="mt-1 h-5 w-5 rounded-lg"
                           id={`task-${task.id}`}
                         />
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-foreground line-through">{task.text}</p>
+                          <p className="text-base font-semibold text-foreground line-through leading-snug">{task.text}</p>
                         </div>
                         <Button
                           variant="ghost"
                           size="icon"
                           onClick={() => deleteTask(task.id)}
-                          className="h-8 w-8 text-muted-foreground hover:text-destructive"
+                          className="h-9 w-9 text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"
                         >
-                          <Trash size={16} />
+                          <Trash size={18} weight="bold" />
                         </Button>
                       </div>
                     ))}
