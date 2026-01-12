@@ -13,6 +13,14 @@ const prizes = [
   { place: 'Most Valuable Feedback', amount: '$500', extras: '$500 Serverpod Cloud credit' },
 ]
 
+const ideaPrompts = [
+  'Productivity copilots that plan your day and unblock tasks',
+  'AI helpers that summarize meetings, docs, and inboxes',
+  'Smart dashboards mixing schedule, tasks, and reminders',
+  'Automations that run daily routines with minimal clicks',
+  'Experimental assistants that feel fun yet genuinely useful'
+]
+
 export function HackathonInfo() {
   return (
     <Card className="shadow-2xl border-2 border-white/10 hover:shadow-accent/30 transition-all duration-300 bg-card backdrop-blur-2xl overflow-hidden">
@@ -97,6 +105,28 @@ export function HackathonInfo() {
               <li>• Code repository link (share access if private)</li>
               <li>• Optional MVP feedback form for bonus prize</li>
             </ul>
+          </div>
+        </div>
+
+        <div className="p-6 rounded-2xl border border-white/10 bg-card/70 shadow-xl space-y-4">
+          <h3 className="text-2xl font-bold bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
+            Requirement snapshot
+          </h3>
+          <ul className="space-y-2 text-foreground font-medium">
+            <li>• Ship a Flutter app paired with a Serverpod backend</li>
+            <li>• Make it a personal assistant, automation, or helpful service</li>
+            <li>• Demonstrate Flutter + Serverpod working together in the UX</li>
+          </ul>
+          <Separator className="bg-white/10" />
+          <div className="space-y-3">
+            <p className="text-sm font-semibold text-muted-foreground">Idea starters</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {ideaPrompts.map((idea) => (
+                <div key={idea} className="p-3 rounded-xl border border-white/10 bg-muted/40 text-sm font-semibold text-foreground/90">
+                  {idea}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
