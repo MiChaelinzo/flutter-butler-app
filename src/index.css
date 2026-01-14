@@ -4,24 +4,24 @@
 @layer base {
   * {
     @apply border-border
-  }
+:ro
 }
 
 :root {
   --background: oklch(0.12 0.03 285);
   --foreground: oklch(0.95 0.02 285);
   
-  --card: oklch(0.15 0.05 285);
-  --card-foreground: oklch(0.95 0.02 285);
+  --muted-foreground: oklch(0.6
+  --accent: oklch(0.72 0.22 320);
   
-  --popover: oklch(0.15 0.05 285);
-  --popover-foreground: oklch(0.95 0.02 285);
+  --destructive-foreground: oklch(
+  --border: oklch(0.25 0.08 285);
   
-  --primary: oklch(0.75 0.20 195);
-  --primary-foreground: oklch(0.12 0.03 285);
+  --orange: oklch(0.72 0.22 40);
   
-  --secondary: oklch(0.25 0.08 285);
-  --secondary-foreground: oklch(0.95 0.02 285);
+  
+  --radius: 0.5rem;
+
   
   --muted: oklch(0.20 0.05 285);
   --muted-foreground: oklch(0.65 0.05 285);
@@ -48,25 +48,25 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-card: var(--card);
+  --radius-md: var(--radius)
   --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
+  --radius-2xl: calc(var(--radius)
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
+    transform: translate(-2px,
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
+    transform: translate(0);
   --color-input: var(--input);
   --color-ring: var(--ring);
   
-  --color-orange: var(--orange);
+
   --color-orange-foreground: var(--orange-foreground);
   
   --color-lime: var(--lime);
@@ -76,67 +76,67 @@
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) * 1.5);
   --radius-xl: calc(var(--radius) * 2);
-  --radius-2xl: calc(var(--radius) * 3);
-  --radius-full: 9999px;
-}
-
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(0);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-@keyframes floating-orb {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-}
-
-@keyframes holographic-shift {
-  0%, 100% {
     background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
+  --radius-full: 9999px;
+ 
 
-.neon-text {
-  text-shadow: 
-    0 0 10px oklch(0.75 0.20 195 / 0.8),
-    0 0 20px oklch(0.75 0.20 195 / 0.6),
-    0 0 30px oklch(0.75 0.20 195 / 0.4);
-}
 
-.neon-box {
-  box-shadow: 
-    0 0 20px oklch(0.75 0.20 195 / 0.3),
-    0 0 40px oklch(0.75 0.20 195 / 0.2),
-    inset 0 0 20px oklch(0.75 0.20 195 / 0.1);
+    13
+    oklch(0.85 0.20 195),
+  )
+  backg
+  -webkit-text-fill-color: transpare
 }
+.text-g
+    135deg,
+   
+  );
+  background-clip: text;
+  -
+}
+.no-scrollbar::-webkit-scrol
+}
+.no-scro
+  scrollbar-width: none;
 
-.glitch-effect {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   animation: glitch 0.3s ease-in-out infinite;
 }
 
@@ -151,7 +151,7 @@
     oklch(0.72 0.22 320),
     oklch(0.72 0.22 40)
   );
-  background-size: 200% 200%;
+
   animation: holographic-shift 5s ease infinite;
 }
 
@@ -170,10 +170,10 @@
     oklch(0.75 0.20 195)
   );
   background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: holographic-shift 3s ease infinite;
+
+
+
+
 }
 
 .text-gradient-hot {
@@ -196,5 +196,5 @@
 
 .no-scrollbar {
   -ms-overflow-style: none;
-  scrollbar-width: none;
+
 }
