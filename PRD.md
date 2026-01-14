@@ -54,6 +54,27 @@ This is a multi-feature personal assistant platform with AI integration, task au
 - **Progression**: User opens assistant → chooses mode (text/video/audio) → engages with AI butler → receives visual feedback from animated 3D avatar → controls mute/speaker during calls → AI provides contextual help based on current app state → ends call or switches modes
 - **Success criteria**: Video/audio modes provide engaging visual experience, 3D avatar responds naturally to conversation, context-aware suggestions improve productivity, users feel more connected to their AI assistant
 
+### Team Collaboration & Sharing
+- **Functionality**: Share tasks, goals, and automations with team members; collaborative workspaces with real-time sync
+- **Purpose**: Enables teams to coordinate productivity and share AI-powered workflows
+- **Trigger**: User clicks share button on tasks/automations or creates team workspace
+- **Progression**: User creates shareable item → generates invite link → team members join → real-time updates across all users → collaborative editing and completion tracking
+- **Success criteria**: Teams coordinate better, reduced duplicate work, shared automations increase team productivity
+
+### Advanced Analytics Dashboard
+- **Functionality**: Comprehensive productivity insights with trend analysis, time tracking visualizations, and AI-powered recommendations
+- **Purpose**: Helps users understand patterns and optimize their workflows based on data
+- **Trigger**: User opens analytics/insights tab
+- **Progression**: User views dashboard → explores charts and trends → identifies patterns → receives AI recommendations → implements improvements → tracks impact over time
+- **Success criteria**: Users discover actionable insights, 30% productivity improvement after implementing AI suggestions
+
+### Voice Commands & Natural Language Processing
+- **Functionality**: Hands-free task creation, timer control, and navigation using natural voice commands
+- **Purpose**: Enables eyes-free interaction and faster task entry
+- **Trigger**: User activates voice mode with hotkey or button
+- **Progression**: User speaks command → AI processes natural language → extracts intent and entities → executes action → provides audio/visual confirmation
+- **Success criteria**: 95%+ command accuracy, users prefer voice for quick task entry
+
 ### Focus Mode & Pomodoro Timer
 - **Functionality**: Distraction-free focus sessions with customizable Pomodoro timers, ambient sounds, and task isolation
 - **Purpose**: Helps users achieve deep work states and complete tasks efficiently

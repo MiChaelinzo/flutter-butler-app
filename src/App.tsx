@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar } from '@phosphor-icons/react'
+import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar, ChartLine, Users, Microphone } from '@phosphor-icons/react'
 import { Toaster } from '@/components/ui/sonner'
 import { DailyBriefing } from '@/components/DailyBriefing'
 import { QuickActions } from '@/components/QuickActions'
@@ -15,6 +15,10 @@ import { ProductivityStats } from '@/components/ProductivityStats'
 import { FocusMode } from '@/components/FocusMode'
 import { DailyGoals } from '@/components/DailyGoals'
 import { CalendarView } from '@/components/CalendarView'
+import { AnalyticsDashboard } from '@/components/AnalyticsDashboard'
+import { TeamCollaboration } from '@/components/TeamCollaboration'
+import { VoiceCommands } from '@/components/VoiceCommands'
+import { PoweredByFooter } from '@/components/PoweredByFooter'
 
 function App() {
   const [chatOpen, setChatOpen] = useState(false)
@@ -72,6 +76,27 @@ function App() {
               >
                 <House size={22} weight="duotone" />
                 <span className="hidden sm:inline">Dashboard</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="analytics" 
+                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary data-[state=active]:to-primary/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-primary/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+              >
+                <ChartLine size={22} weight="duotone" />
+                <span className="hidden sm:inline">Analytics</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="team" 
+                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-accent data-[state=active]:to-accent/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-accent/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+              >
+                <Users size={22} weight="duotone" />
+                <span className="hidden sm:inline">Team</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="voice" 
+                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-orange data-[state=active]:to-orange/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-orange/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+              >
+                <Microphone size={22} weight="duotone" />
+                <span className="hidden sm:inline">Voice</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="focus" 
@@ -281,7 +306,21 @@ function App() {
           <TabsContent value="calendar" className="space-y-6 md:space-y-8 mt-10">
             <CalendarView />
           </TabsContent>
+
+          <TabsContent value="analytics" className="space-y-6 md:space-y-8 mt-10">
+            <AnalyticsDashboard />
+          </TabsContent>
+
+          <TabsContent value="team" className="space-y-6 md:space-y-8 mt-10">
+            <TeamCollaboration />
+          </TabsContent>
+
+          <TabsContent value="voice" className="space-y-6 md:space-y-8 mt-10">
+            <VoiceCommands />
+          </TabsContent>
         </Tabs>
+
+        <PoweredByFooter />
       </div>
 
       <AIChat open={chatOpen} onOpenChange={setChatOpen} />
