@@ -285,7 +285,7 @@ function App() {
       </div>
 
       <AIChat open={chatOpen} onOpenChange={setChatOpen} />
-      <Toaster position="top-right" />
+      <Toaster position="top-right" richColors />
     </div>
   )
 }
