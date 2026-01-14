@@ -128,19 +128,19 @@ This is a multi-feature personal assistant platform with AI integration, task au
 
 ## Design Direction
 
-The design should evoke the feeling of a cutting-edge, futuristic AI interface - vibrant yet sophisticated, high-tech yet intuitive. It should feel like interacting with advanced technology that's both powerful and delightfully responsive. The interface should be visually striking with rich colors, animated gradients, and glassmorphic elements that create depth and dimensionality.
+The design should evoke the feeling of a sophisticated, modern AI interface - refined yet vibrant, high-tech yet approachable. It should feel like interacting with cutting-edge technology that's both powerful and elegantly simple. The interface features clean lines, subtle depth through shadows and borders, and a restrained use of color that creates visual impact without overwhelming the user.
 
 ## Color Selection
 
-A vibrant, multi-colored palette featuring purple, cyan, magenta, orange, and yellow that creates visual energy, modern sophistication, and delightful variety throughout the interface.
+A sophisticated purple-based palette featuring purple, cyan, magenta, orange, and yellow that creates visual clarity, modern elegance, and purposeful color coding throughout the interface.
 
-- **Primary Color**: Vivid Purple (oklch(0.55 0.25 270)) - Communicates innovation, technology, and intelligence with energizing brightness
-- **Secondary Color**: Bright Magenta (oklch(0.65 0.22 320)) - Supporting color for secondary actions and visual interest
-- **Accent Color**: Vibrant Cyan (oklch(0.70 0.24 200)) - Highlights important elements and creates dynamic visual contrast
-- **Orange**: Warm Orange (oklch(0.70 0.22 45)) - Adds warmth and energy to quick actions and automations sections
-- **Yellow**: Cheerful Yellow (oklch(0.85 0.18 95)) - Brings brightness and optimism to habits and celebratory moments
+- **Primary Color**: Deep Purple (oklch(0.55 0.25 270)) - Communicates innovation, technology, and intelligence with confident sophistication
+- **Secondary Color**: Vivid Magenta (oklch(0.65 0.22 320)) - Supporting color for secondary actions and complementary visual interest
+- **Accent Color**: Bright Cyan (oklch(0.70 0.24 200)) - Highlights important elements and creates refreshing visual contrast
+- **Orange**: Energetic Orange (oklch(0.70 0.22 45)) - Adds warmth and urgency to quick actions and time-sensitive elements
+- **Yellow**: Optimistic Yellow (oklch(0.85 0.18 95)) - Brings positivity and achievement to habits and celebrations
 - **Foreground/Background Pairings**: 
-  - Background (Light Purple oklch(0.97 0.02 280)): Deep text (oklch(0.15 0.05 280)) - Ratio 14.8:1 ✓
+  - Background (Soft Purple oklch(0.98 0.008 270)): Deep text (oklch(0.15 0.05 280)) - Ratio 16.2:1 ✓
   - Primary (Purple oklch(0.55 0.25 270)): White text (oklch(0.99 0.01 280)) - Ratio 7.2:1 ✓
   - Accent (Cyan oklch(0.70 0.24 200)): White text (oklch(0.99 0.01 280)) - Ratio 6.8:1 ✓
   - Orange (oklch(0.70 0.22 45)): White text (oklch(0.99 0.01 280)) - Ratio 6.5:1 ✓
@@ -148,22 +148,22 @@ A vibrant, multi-colored palette featuring purple, cyan, magenta, orange, and ye
 
 ## Font Selection
 
-Typography should feel modern and highly readable with a touch of personality - professional enough for work contexts but warm enough for daily personal use.
+Typography should feel contemporary and highly readable with geometric precision - professional and refined while maintaining warmth for daily personal use.
 
-- **Primary Font**: Plus Jakarta Sans - A geometric sans-serif that feels contemporary, friendly, and highly legible at all sizes. Works beautifully for both UI elements and content.
-- **Accent Font**: Space Grotesk - Used sparingly for headings and key labels, adds subtle technical sophistication appropriate for an AI assistant without feeling cold.
+- **Primary Font**: Plus Jakarta Sans - A modern geometric sans-serif that feels approachable, highly legible, and perfectly suited for UI elements and body content.
+- **Accent Font**: Space Grotesk - Used for headings and key labels, adds technical sophistication appropriate for an AI assistant while maintaining warmth.
 
 - **Typographic Hierarchy**: 
-  - H1 (Page Title): Space Grotesk Bold / 32px / tight letter spacing (-0.02em) / leading-tight
-  - H2 (Section Headings): Space Grotesk SemiBold / 24px / normal letter spacing / leading-snug
-  - H3 (Card Titles): Plus Jakarta Sans Bold / 18px / slight negative letter spacing (-0.01em) / leading-snug
-  - Body (Main Content): Plus Jakarta Sans Regular / 15px / normal letter spacing / leading-relaxed (1.6)
-  - Small (Metadata): Plus Jakarta Sans Medium / 13px / normal letter spacing / leading-normal
-  - Button Text: Plus Jakarta Sans SemiBold / 15px / slight positive letter spacing (0.01em)
+  - H1 (Page Title): Space Grotesk Bold / 28-32px / tight letter spacing (-0.02em) / leading-tight
+  - H2 (Section Headings): Space Grotesk SemiBold / 20-24px / tight letter spacing (-0.02em) / leading-snug
+  - H3 (Card Titles): Plus Jakarta Sans Bold / 16-18px / slight negative letter spacing (-0.01em) / leading-snug
+  - Body (Main Content): Plus Jakarta Sans Regular / 14-15px / normal letter spacing / leading-relaxed (1.6)
+  - Small (Metadata): Plus Jakarta Sans Medium / 12-13px / normal letter spacing / leading-normal
+  - Button Text: Plus Jakarta Sans SemiBold / 14-15px / slight positive letter spacing (0.01em)
 
 ## Animations
 
-Animations should reinforce the feeling of advanced technology and responsive intelligence - fluid, dynamic, and visually striking. Use smooth transitions with subtle spring physics for interactive elements to make the interface feel alive and reactive. AI-generated content should fade in with glowing effects and upward motion to signal processing complete. Cards should have pronounced hover lifts (4-6px) with scale transformations and glow effects to feel interactive and futuristic. Include animated gradient backgrounds that pulse and shift. Page transitions should be swift (250-300ms) with smooth fades. Loading states should use elegant skeleton screens with shimmer effects. Celebrate completions with satisfying scale animations and color bursts. Floating blob shapes in the background add organic motion.
+Animations should reinforce the feeling of modern sophistication and responsive intelligence - smooth, purposeful, and refined. Use gentle transitions with subtle easing for interactive elements to make the interface feel polished and reactive. Content should fade in elegantly with upward motion (0.4s ease-out). Cards have modest hover lifts (2-4px) with smooth shadow transitions to feel interactive without being distracting. Background gradients remain subtle and static. Page transitions are swift (200-250ms) with soft fades. Loading states use minimal skeleton screens with gentle pulse effects. Celebrate completions with tasteful scale animations (1.02-1.05x). All animations prioritize clarity and speed over showiness.
 
 ## Component Selection
 
@@ -189,10 +189,10 @@ Animations should reinforce the feeling of advanced technology and responsive in
   - Custom video/audio call interface with in-call controls (mute, speaker, end call)
   
 - **States**: 
-  - Buttons: Default soft shadow, hover lifts 2px with deeper shadow, active slight scale (0.98), focus subtle accent glow
-  - Cards: Default subtle border, hover lifts 4px with enhanced shadow and slight accent border glow
-  - Inputs: Default light border, focus accent border with subtle outer glow, error state with destructive color
-  - Quick Actions: Default muted background, hover accent gradient overlay at 10% opacity, active scale feedback
+  - Buttons: Default with clean borders, hover lifts 2px with enhanced shadow, active subtle scale (0.95), focus clean ring outline
+  - Cards: Default subtle border and shadow, hover lifts 4px with deeper shadow and maintained border
+  - Inputs: Default light border, focus primary ring with clean outline, error state with destructive color
+  - Tabs: Default muted appearance, active solid background color with clear text contrast, smooth transitions between states
 
 - **Icon Selection**: 
   - Sparkles (AI generation)

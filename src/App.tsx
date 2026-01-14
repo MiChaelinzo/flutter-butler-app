@@ -26,29 +26,28 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.70_0.25_190)_0%,transparent_60%),radial-gradient(ellipse_at_bottom_left,oklch(0.75_0.25_330)_0%,transparent_60%),radial-gradient(ellipse_at_top_left,oklch(0.72_0.22_45)_0%,transparent_50%),radial-gradient(ellipse_at_bottom_right,oklch(0.82_0.18_95)_0%,transparent_55%),radial-gradient(ellipse_at_center,oklch(0.70_0.20_280)_0%,transparent_70%)] opacity-30 pointer-events-none animate-glow" />
-      <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_80px,oklch(0.70_0.25_190)_80px,oklch(0.70_0.25_190)_81px),repeating-linear-gradient(90deg,transparent,transparent_80px,oklch(0.70_0.25_190)_80px,oklch(0.70_0.25_190)_81px)] opacity-[0.08] pointer-events-none" />
-      <div className="absolute top-20 right-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-float" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/20 rounded-full blur-[120px] animate-float" style={{ animationDelay: '-3s' }} />
-      <div className="absolute top-1/3 left-1/3 w-80 h-80 bg-orange/20 rounded-full blur-[100px] animate-float" style={{ animationDelay: '-1.5s' }} />
-      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-yellow/20 rounded-full blur-[100px] animate-float" style={{ animationDelay: '-4.5s' }} />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(0.55_0.25_270/0.15)_0%,transparent_50%),radial-gradient(ellipse_at_bottom_left,oklch(0.70_0.24_200/0.12)_0%,transparent_50%),radial-gradient(ellipse_at_center,oklch(0.65_0.22_320/0.08)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,oklch(0.90_0.01_270/0.3)_1px,transparent_1px),linear-gradient(to_bottom,oklch(0.90_0.01_270/0.3)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+      <div className="absolute top-[10%] right-[15%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[140px] animate-float" />
+      <div className="absolute bottom-[15%] left-[10%] w-[450px] h-[450px] bg-accent/10 rounded-full blur-[140px] animate-float" style={{ animationDelay: '-3s' }} />
+      <div className="absolute top-[40%] left-[40%] w-[400px] h-[400px] bg-secondary/8 rounded-full blur-[120px] animate-float" style={{ animationDelay: '-1.5s' }} />
       
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-12 relative z-10">
-        <header className="mb-8 md:mb-12">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 relative z-10">
+        <header className="mb-10 md:mb-14">
           <div className="flex items-start sm:items-center justify-between gap-4 flex-col sm:flex-row">
-            <div className="space-y-2">
-              <div className="flex items-center gap-4">
+            <div className="space-y-3">
+              <div className="flex items-center gap-5">
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary blur-2xl opacity-60 rounded-3xl animate-glow" />
-                  <div className="relative w-20 h-20 rounded-3xl bg-gradient-to-br from-primary via-accent to-primary flex items-center justify-center shadow-2xl shadow-primary/40 border-2 border-white/20 backdrop-blur-xl group-hover:scale-110 transition-transform duration-300">
-                    <Robot size={42} weight="duotone" className="text-white drop-shadow-lg" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-secondary blur-xl opacity-40 rounded-[2rem] animate-pulse" />
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-[1.75rem] bg-gradient-to-br from-primary via-accent to-secondary flex items-center justify-center shadow-lg border border-white/10 backdrop-blur-sm group-hover:scale-105 transition-transform duration-300">
+                    <Robot size={48} weight="duotone" className="text-white drop-shadow-lg" />
                   </div>
                 </div>
                 <div>
-                  <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground tracking-tight bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent drop-shadow-lg">
+                  <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground tracking-tight">
                     Butler
                   </h1>
-                  <p className="text-muted-foreground text-base sm:text-lg md:text-lg mt-2 font-semibold tracking-wide">
+                  <p className="text-muted-foreground text-sm sm:text-base mt-2 font-medium tracking-wide">
                     Your AI-powered personal assistant
                   </p>
                 </div>
@@ -57,107 +56,107 @@ function App() {
             <Button 
               onClick={() => setChatOpen(true)} 
               size="lg" 
-              className="gap-3 shadow-2xl shadow-primary/50 hover:shadow-accent/50 transition-all duration-300 hover:scale-110 active:scale-95 h-14 px-8 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] border-2 border-white/20 backdrop-blur-xl group relative overflow-hidden"
+              className="gap-2.5 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 h-12 px-6 sm:h-14 sm:px-8 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 border border-white/10 backdrop-blur-sm group relative overflow-hidden rounded-2xl"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-              <Sparkle size={24} weight="fill" className="animate-pulse relative z-10" />
-              <span className="hidden sm:inline font-bold text-lg relative z-10">Ask Assistant</span>
-              <span className="sm:hidden font-bold text-lg relative z-10">Chat</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <Sparkle size={20} weight="fill" className="relative z-10" />
+              <span className="hidden sm:inline font-semibold text-base relative z-10">Ask Assistant</span>
+              <span className="sm:hidden font-semibold text-base relative z-10">Chat</span>
             </Button>
           </div>
         </header>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6 md:space-y-10">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8 md:space-y-10">
           <div className="flex justify-center overflow-x-auto pb-2">
-            <TabsList className="inline-flex h-16 rounded-3xl bg-card/80 backdrop-blur-2xl border-2 border-white/10 shadow-2xl p-2 gap-2">
+            <TabsList className="inline-flex h-14 rounded-2xl bg-card/60 backdrop-blur-xl border border-border shadow-sm p-1.5 gap-1">
               <TabsTrigger 
                 value="dashboard" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary data-[state=active]:to-primary/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-primary/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-muted/50"
               >
-                <House size={22} weight="duotone" />
+                <House size={20} weight="duotone" />
                 <span className="hidden sm:inline">Dashboard</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="analytics" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary data-[state=active]:to-primary/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-primary/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-muted/50"
               >
-                <ChartLine size={22} weight="duotone" />
+                <ChartLine size={20} weight="duotone" />
                 <span className="hidden sm:inline">Analytics</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="team" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-accent data-[state=active]:to-accent/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-accent/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-muted/50"
               >
-                <Users size={22} weight="duotone" />
+                <Users size={20} weight="duotone" />
                 <span className="hidden sm:inline">Team</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="voice" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-orange data-[state=active]:to-orange/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-orange/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-md font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-muted/50"
               >
-                <Microphone size={22} weight="duotone" />
+                <Microphone size={20} weight="duotone" />
                 <span className="hidden sm:inline">Voice</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="focus" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-orange data-[state=active]:to-orange/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-orange/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground data-[state=active]:shadow-md font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-muted/50"
               >
-                <Timer size={22} weight="duotone" />
+                <Timer size={20} weight="duotone" />
                 <span className="hidden sm:inline">Focus</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="goals" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-accent data-[state=active]:to-accent/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-accent/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-muted/50"
               >
-                <Target size={22} weight="duotone" />
+                <Target size={20} weight="duotone" />
                 <span className="hidden sm:inline">Goals</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="calendar" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary data-[state=active]:to-primary/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-primary/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-muted/50"
               >
-                <Calendar size={22} weight="duotone" />
+                <Calendar size={20} weight="duotone" />
                 <span className="hidden sm:inline">Calendar</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="actions" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-orange data-[state=active]:to-orange/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-orange/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-md font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-muted/50"
               >
-                <Lightning size={22} weight="duotone" />
+                <Lightning size={20} weight="duotone" />
                 <span className="hidden sm:inline">Actions</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="tasks" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-accent data-[state=active]:to-accent/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-accent/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-muted/50"
               >
-                <ListChecks size={22} weight="duotone" />
+                <ListChecks size={20} weight="duotone" />
                 <span className="hidden sm:inline">Tasks</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="habits" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-yellow data-[state=active]:to-yellow/80 data-[state=active]:text-yellow-foreground data-[state=active]:shadow-xl data-[state=active]:shadow-yellow/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-yellow data-[state=active]:text-yellow-foreground data-[state=active]:shadow-md font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-muted/50"
               >
-                <Flame size={22} weight="duotone" />
+                <Flame size={20} weight="duotone" />
                 <span className="hidden sm:inline">Habits</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="notes" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-secondary data-[state=active]:to-secondary/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-secondary/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground data-[state=active]:shadow-md font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-muted/50"
               >
-                <Note size={22} weight="duotone" />
+                <Note size={20} weight="duotone" />
                 <span className="hidden sm:inline">Notes</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="automations" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-orange data-[state=active]:to-orange/80 data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-orange/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-md font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-muted/50"
               >
-                <Gear size={22} weight="duotone" />
+                <Gear size={20} weight="duotone" />
                 <span className="hidden sm:inline">Automations</span>
               </TabsTrigger>
             </TabsList>
           </div>
 
-          <TabsContent value="dashboard" className="space-y-6 md:space-y-10 mt-10">
+          <TabsContent value="dashboard" className="space-y-8 md:space-y-10 mt-10 animate-slide-up">
             <DailyBriefing onRegenerate={() => {}} />
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
@@ -170,11 +169,11 @@ function App() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
               <div className="lg:col-span-2 space-y-6 md:space-y-8">
                 <div>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange/30 to-orange/10 flex items-center justify-center border-2 border-orange/30 shadow-xl shadow-orange/20 backdrop-blur-xl">
-                      <Lightning className="text-orange drop-shadow-lg" size={28} weight="duotone" />
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange/20 to-orange/5 flex items-center justify-center border border-orange/20 shadow-sm backdrop-blur-sm">
+                      <Lightning className="text-orange" size={24} weight="duotone" />
                     </div>
-                    <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-foreground to-orange bg-clip-text text-transparent">Quick Actions</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Quick Actions</h2>
                   </div>
                   <QuickActions />
                 </div>
@@ -184,11 +183,11 @@ function App() {
 
               <div className="space-y-6 md:space-y-8">
                 <div>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center border-2 border-primary/30 shadow-xl shadow-primary/20 backdrop-blur-xl">
-                      <Sparkle className="text-primary drop-shadow-lg" size={28} weight="duotone" />
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/20 shadow-sm backdrop-blur-sm">
+                      <Sparkle className="text-primary" size={24} weight="duotone" />
                     </div>
-                    <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">Smart Suggestions</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Smart Suggestions</h2>
                   </div>
                   <SmartSuggestions />
                 </div>
@@ -196,14 +195,14 @@ function App() {
             </div>
           </TabsContent>
 
-          <TabsContent value="focus" className="space-y-6 md:space-y-8 mt-10">
-            <div className="flex items-center gap-5 mb-10">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-orange/30 to-orange/10 flex items-center justify-center border-2 border-orange/30 shadow-2xl shadow-orange/30 backdrop-blur-xl">
-                <Timer className="text-orange drop-shadow-lg" size={36} weight="duotone" />
+          <TabsContent value="focus" className="space-y-6 md:space-y-8 mt-10 animate-slide-up">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 flex items-center justify-center border border-secondary/20 shadow-md backdrop-blur-sm">
+                <Timer className="text-secondary" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-orange to-foreground bg-clip-text text-transparent">Focus Mode</h2>
-                <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Focus Mode</h2>
+                <p className="text-muted-foreground mt-1 text-sm sm:text-base font-medium">
                   Pomodoro timer for deep work sessions
                 </p>
               </div>
@@ -211,14 +210,14 @@ function App() {
             <FocusMode />
           </TabsContent>
 
-          <TabsContent value="goals" className="space-y-6 md:space-y-8 mt-10">
-            <div className="flex items-center gap-5 mb-10">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center border-2 border-primary/30 shadow-2xl shadow-primary/30 backdrop-blur-xl">
-                <Target className="text-primary drop-shadow-lg" size={36} weight="duotone" />
+          <TabsContent value="goals" className="space-y-6 md:space-y-8 mt-10 animate-slide-up">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center border border-accent/20 shadow-md backdrop-blur-sm">
+                <Target className="text-accent" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Daily Goals</h2>
-                <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Daily Goals</h2>
+                <p className="text-muted-foreground mt-1 text-sm sm:text-base font-medium">
                   Set and track your daily intentions
                 </p>
               </div>
@@ -226,15 +225,15 @@ function App() {
             <DailyGoals />
           </TabsContent>
 
-          <TabsContent value="actions" className="space-y-6 md:space-y-8 mt-10">
+          <TabsContent value="actions" className="space-y-6 md:space-y-8 mt-10 animate-slide-up">
             <div>
-              <div className="flex items-center gap-5 mb-10">
-                <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-orange/30 to-orange/10 flex items-center justify-center border-2 border-orange/30 shadow-2xl shadow-orange/30 backdrop-blur-xl">
-                  <Lightning className="text-orange drop-shadow-lg" size={36} weight="duotone" />
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange/20 to-orange/5 flex items-center justify-center border border-orange/20 shadow-md backdrop-blur-sm">
+                  <Lightning className="text-orange" size={32} weight="duotone" />
                 </div>
                 <div>
-                  <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-orange to-foreground bg-clip-text text-transparent">Quick Actions</h2>
-                  <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Quick Actions</h2>
+                  <p className="text-muted-foreground mt-1 text-sm sm:text-base font-medium">
                     AI-powered shortcuts for your daily workflow
                   </p>
                 </div>
@@ -243,14 +242,14 @@ function App() {
             </div>
           </TabsContent>
 
-          <TabsContent value="tasks" className="space-y-6 md:space-y-8 mt-10">
-            <div className="flex items-center gap-5 mb-10">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center border-2 border-primary/30 shadow-2xl shadow-primary/30 backdrop-blur-xl">
-                <ListChecks className="text-primary drop-shadow-lg" size={36} weight="duotone" />
+          <TabsContent value="tasks" className="space-y-6 md:space-y-8 mt-10 animate-slide-up">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/20 shadow-md backdrop-blur-sm">
+                <ListChecks className="text-primary" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">Task Management</h2>
-                <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Task Management</h2>
+                <p className="text-muted-foreground mt-1 text-sm sm:text-base font-medium">
                   Smart tracking with AI-powered insights
                 </p>
               </div>
@@ -258,14 +257,14 @@ function App() {
             <TaskManager />
           </TabsContent>
 
-          <TabsContent value="habits" className="space-y-6 md:space-y-8 mt-10">
-            <div className="flex items-center gap-5 mb-10">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-yellow/30 to-yellow/10 flex items-center justify-center border-2 border-yellow/30 shadow-2xl shadow-yellow/30 backdrop-blur-xl">
-                <Flame className="text-yellow drop-shadow-lg" size={36} weight="duotone" />
+          <TabsContent value="habits" className="space-y-6 md:space-y-8 mt-10 animate-slide-up">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow/20 to-yellow/5 flex items-center justify-center border border-yellow/20 shadow-md backdrop-blur-sm">
+                <Flame className="text-yellow" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-yellow to-foreground bg-clip-text text-transparent">Habit Tracker</h2>
-                <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Habit Tracker</h2>
+                <p className="text-muted-foreground mt-1 text-sm sm:text-base font-medium">
                   Build consistency and track your streaks
                 </p>
               </div>
@@ -273,14 +272,14 @@ function App() {
             <HabitTracker />
           </TabsContent>
 
-          <TabsContent value="notes" className="space-y-6 md:space-y-8 mt-10">
-            <div className="flex items-center gap-5 mb-10">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-secondary/30 to-secondary/10 flex items-center justify-center border-2 border-secondary/30 shadow-2xl shadow-secondary/30 backdrop-blur-xl">
-                <Note className="text-secondary drop-shadow-lg" size={36} weight="duotone" />
+          <TabsContent value="notes" className="space-y-6 md:space-y-8 mt-10 animate-slide-up">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 flex items-center justify-center border border-secondary/20 shadow-md backdrop-blur-sm">
+                <Note className="text-secondary" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-secondary to-foreground bg-clip-text text-transparent">Quick Notes</h2>
-                <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Quick Notes</h2>
+                <p className="text-muted-foreground mt-1 text-sm sm:text-base font-medium">
                   Capture ideas with AI-powered summaries
                 </p>
               </div>
@@ -288,14 +287,14 @@ function App() {
             <NoteTaking />
           </TabsContent>
 
-          <TabsContent value="automations" className="space-y-6 md:space-y-8 mt-10">
-            <div className="flex items-center gap-5 mb-10">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-orange/30 to-orange/10 flex items-center justify-center border-2 border-orange/30 shadow-2xl shadow-orange/30 backdrop-blur-xl">
-                <Gear className="text-orange drop-shadow-lg" size={36} weight="duotone" />
+          <TabsContent value="automations" className="space-y-6 md:space-y-8 mt-10 animate-slide-up">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange/20 to-orange/5 flex items-center justify-center border border-orange/20 shadow-md backdrop-blur-sm">
+                <Gear className="text-orange" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-orange to-foreground bg-clip-text text-transparent">Automations</h2>
-                <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Automations</h2>
+                <p className="text-muted-foreground mt-1 text-sm sm:text-base font-medium">
                   Run pre-built workflows with AI assistance
                 </p>
               </div>
@@ -303,19 +302,19 @@ function App() {
             <AutomationTemplates />
           </TabsContent>
 
-          <TabsContent value="calendar" className="space-y-6 md:space-y-8 mt-10">
+          <TabsContent value="calendar" className="space-y-6 md:space-y-8 mt-10 animate-slide-up">
             <CalendarView />
           </TabsContent>
 
-          <TabsContent value="analytics" className="space-y-6 md:space-y-8 mt-10">
+          <TabsContent value="analytics" className="space-y-6 md:space-y-8 mt-10 animate-slide-up">
             <AnalyticsDashboard />
           </TabsContent>
 
-          <TabsContent value="team" className="space-y-6 md:space-y-8 mt-10">
+          <TabsContent value="team" className="space-y-6 md:space-y-8 mt-10 animate-slide-up">
             <TeamCollaboration />
           </TabsContent>
 
-          <TabsContent value="voice" className="space-y-6 md:space-y-8 mt-10">
+          <TabsContent value="voice" className="space-y-6 md:space-y-8 mt-10 animate-slide-up">
             <VoiceCommands />
           </TabsContent>
         </Tabs>
