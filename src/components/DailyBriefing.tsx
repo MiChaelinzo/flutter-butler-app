@@ -62,62 +62,61 @@ Format as JSON with keys: greeting, weather, priorities (array), insight`
   }
 
   return (
-    <Card className="shadow-2xl border-2 border-white/10 hover:shadow-accent/30 transition-all duration-300 bg-card backdrop-blur-2xl overflow-hidden relative group">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-accent/30 to-primary/30 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+    <Card className="shadow-[0_0_40px_rgba(0,200,255,0.3)] border-2 border-primary/40 hover:shadow-[0_0_60px_rgba(0,200,255,0.5)] hover:border-primary/60 transition-all duration-500 bg-card/40 backdrop-blur-2xl overflow-hidden relative group">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent" />
       
       <CardHeader className="flex flex-row items-center justify-between pb-6 relative">
-        <CardTitle className="flex items-center gap-4 text-3xl sm:text-4xl font-bold">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center border-2 border-white/20 shadow-2xl shadow-primary/30 group-hover:scale-110 transition-transform duration-300">
-            <Sparkle className="text-white drop-shadow-lg" size={28} weight="duotone" />
+        <CardTitle className="flex items-center gap-4 text-3xl sm:text-4xl font-black tracking-[0.06em] uppercase">
+          <div className="relative w-16 h-16 rounded-xl bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center border-2 border-primary/50 shadow-[0_0_30px_rgba(0,200,255,0.4)] group-hover:shadow-[0_0_50px_rgba(0,200,255,0.6)] group-hover:scale-110 transition-all duration-300">
+            <Sparkle className="text-primary drop-shadow-[0_0_15px_rgba(0,200,255,0.9)]" size={28} weight="duotone" />
           </div>
-          <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">Daily Briefing</span>
+          <span className="text-gradient-cyber">Daily Intel</span>
         </CardTitle>
         <Button
           variant="ghost"
           size="icon"
           onClick={handleRegenerate}
           disabled={isLoading}
-          className="h-12 w-12 rounded-2xl hover:bg-primary/20 hover:scale-110 transition-all border-2 border-transparent hover:border-white/10 backdrop-blur-xl"
+          className="h-12 w-12 rounded-xl hover:bg-primary/20 hover:scale-110 transition-all border-2 border-primary/30 hover:border-primary/60 backdrop-blur-xl hover:shadow-[0_0_20px_rgba(0,200,255,0.4)]"
         >
-          <ArrowsClockwise size={24} className={isLoading ? 'animate-spin text-primary' : 'text-foreground'} weight="bold" />
+          <ArrowsClockwise size={24} className={isLoading ? 'animate-spin text-primary drop-shadow-[0_0_10px_rgba(0,200,255,0.8)]' : 'text-primary'} weight="bold" />
         </Button>
       </CardHeader>
       
       <CardContent className="space-y-7 relative">
         {isLoading && !briefing ? (
           <>
-            <Skeleton className="h-6 w-3/4 rounded-xl bg-muted/70" />
-            <Skeleton className="h-6 w-1/2 rounded-xl bg-muted/70" />
-            <Skeleton className="h-32 w-full rounded-2xl bg-muted/70" />
-            <Skeleton className="h-24 w-full rounded-2xl bg-muted/70" />
+            <Skeleton className="h-6 w-3/4 rounded-xl bg-muted/50 border border-primary/20" />
+            <Skeleton className="h-6 w-1/2 rounded-xl bg-muted/50 border border-primary/20" />
+            <Skeleton className="h-32 w-full rounded-xl bg-muted/50 border border-primary/20" />
+            <Skeleton className="h-24 w-full rounded-xl bg-muted/50 border border-primary/20" />
           </>
         ) : briefing ? (
           <>
-            <div className="bg-gradient-to-r from-primary/30 via-accent/30 to-primary/30 rounded-2xl p-6 sm:p-7 border-2 border-white/20 shadow-2xl backdrop-blur-xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,oklch(0.70_0.25_190)_0%,transparent_60%)] opacity-20" />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
-              <p className="text-lg sm:text-xl font-bold text-white leading-relaxed relative drop-shadow-lg">{briefing.greeting}</p>
+            <div className="bg-gradient-to-r from-primary/20 via-accent/15 to-primary/20 rounded-xl p-6 sm:p-7 border-2 border-primary/40 shadow-[0_0_30px_rgba(0,200,255,0.2)] backdrop-blur-xl relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent" />
+              <p className="text-lg sm:text-xl font-bold text-foreground leading-relaxed relative tracking-wide">{briefing.greeting}</p>
             </div>
 
             <div className="flex items-center gap-4 px-2">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent/40 to-accent/20 flex items-center justify-center border-2 border-white/20 shadow-xl shadow-accent/20">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border-2 border-accent/40 shadow-[0_0_20px_rgba(255,0,150,0.3)]">
                 {getWeatherIcon()}
               </div>
-              <span className="text-base sm:text-lg text-foreground font-bold">{briefing.weather}</span>
+              <span className="text-base sm:text-lg text-foreground font-bold tracking-wide">{briefing.weather}</span>
             </div>
 
             <div className="space-y-5">
-              <h4 className="text-lg sm:text-xl font-bold text-foreground flex items-center gap-4">
-                <div className="w-2 h-8 bg-gradient-to-b from-primary via-accent to-primary rounded-full shadow-xl shadow-primary/50" />
-                <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">Top Priorities</span>
+              <h4 className="text-lg sm:text-xl font-black text-foreground flex items-center gap-4 tracking-[0.04em] uppercase">
+                <div className="w-1 h-8 bg-gradient-to-b from-primary via-accent to-primary rounded-full shadow-[0_0_15px_rgba(0,200,255,0.6)]" />
+                <span className="text-gradient-cyber">Priority Queue</span>
               </h4>
               <div className="space-y-4 pl-2">
                 {briefing.priorities.map((priority, idx) => (
-                  <div key={idx} className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:from-primary/60 group-hover:to-accent/60 transition-all border-2 border-white/20 shadow-xl shadow-primary/20 group-hover:scale-110">
-                      <span className="text-white font-bold text-base drop-shadow-lg">{idx + 1}</span>
+                  <div key={idx} className="flex items-start gap-4 group/priority">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/priority:from-primary/50 group-hover/priority:to-accent/50 transition-all border-2 border-primary/40 shadow-[0_0_15px_rgba(0,200,255,0.2)] group-hover/priority:shadow-[0_0_25px_rgba(0,200,255,0.4)] group-hover/priority:scale-110 duration-300">
+                      <span className="text-primary font-black text-base drop-shadow-[0_0_5px_rgba(0,200,255,0.8)]">{idx + 1}</span>
                     </div>
                     <span className="text-base sm:text-lg text-foreground leading-relaxed pt-1.5 font-semibold">{priority}</span>
                   </div>
@@ -125,11 +124,11 @@ Format as JSON with keys: greeting, weather, priorities (array), insight`
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-accent/30 via-accent/25 to-accent/20 rounded-2xl p-6 sm:p-7 border-l-4 border-accent shadow-2xl backdrop-blur-xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,oklch(0.75_0.25_330)_0%,transparent_60%)] opacity-20" />
+            <div className="bg-gradient-to-r from-accent/20 via-accent/15 to-accent/10 rounded-xl p-6 sm:p-7 border-l-4 border-accent shadow-[0_0_30px_rgba(255,0,150,0.2)] backdrop-blur-xl relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent" />
               <div className="flex gap-5 relative">
-                <Lightbulb size={28} weight="duotone" className="text-accent drop-shadow-lg flex-shrink-0 mt-1" />
-                <p className="text-base sm:text-lg text-foreground leading-relaxed italic font-bold">{briefing.insight}</p>
+                <Lightbulb size={28} weight="duotone" className="text-accent drop-shadow-[0_0_10px_rgba(255,0,150,0.8)] flex-shrink-0 mt-1" />
+                <p className="text-base sm:text-lg text-foreground leading-relaxed font-semibold">{briefing.insight}</p>
               </div>
             </div>
           </>

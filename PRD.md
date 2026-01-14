@@ -128,42 +128,42 @@ This is a multi-feature personal assistant platform with AI integration, task au
 
 ## Design Direction
 
-The design should evoke the feeling of a sophisticated, modern AI interface - refined yet vibrant, high-tech yet approachable. It should feel like interacting with cutting-edge technology that's both powerful and elegantly simple. The interface features clean lines, subtle depth through shadows and borders, and a restrained use of color that creates visual impact without overwhelming the user.
+The design should evoke a futuristic, cyberpunk-inspired AI interface with holographic elements and neon accents - bold and electrifying while remaining highly functional. It should feel like interacting with advanced technology from a sci-fi universe. The interface features dark gradients, glowing borders, vibrant neon highlights, and dynamic visual effects that create an immersive digital experience.
 
 ## Color Selection
 
-A sophisticated purple-based palette featuring purple, cyan, magenta, orange, and yellow that creates visual clarity, modern elegance, and purposeful color coding throughout the interface.
+A striking cyberpunk palette featuring electric neon colors against deep dark backgrounds with holographic iridescence creating a futuristic, high-energy aesthetic.
 
-- **Primary Color**: Deep Purple (oklch(0.55 0.25 270)) - Communicates innovation, technology, and intelligence with confident sophistication
-- **Secondary Color**: Vivid Magenta (oklch(0.65 0.22 320)) - Supporting color for secondary actions and complementary visual interest
-- **Accent Color**: Bright Cyan (oklch(0.70 0.24 200)) - Highlights important elements and creates refreshing visual contrast
-- **Orange**: Energetic Orange (oklch(0.70 0.22 45)) - Adds warmth and urgency to quick actions and time-sensitive elements
-- **Yellow**: Optimistic Yellow (oklch(0.85 0.18 95)) - Brings positivity and achievement to habits and celebrations
+- **Primary Color**: Electric Cyan (oklch(0.75 0.20 195)) - Glowing digital energy representing AI intelligence and interactivity
+- **Secondary Color**: Deep Violet (oklch(0.35 0.18 285)) - Dark mystery with technological sophistication for containers and depth
+- **Accent Color**: Neon Magenta (oklch(0.70 0.28 330)) - Explosive highlight color for CTAs and critical interactive elements
+- **Orange**: Blazing Orange (oklch(0.72 0.22 40)) - Hot energy for warnings and time-critical features
+- **Yellow**: Electric Lime (oklch(0.85 0.20 130)) - Radioactive glow for achievements and positive feedback
 - **Foreground/Background Pairings**: 
-  - Background (Soft Purple oklch(0.98 0.008 270)): Deep text (oklch(0.15 0.05 280)) - Ratio 16.2:1 ✓
-  - Primary (Purple oklch(0.55 0.25 270)): White text (oklch(0.99 0.01 280)) - Ratio 7.2:1 ✓
-  - Accent (Cyan oklch(0.70 0.24 200)): White text (oklch(0.99 0.01 280)) - Ratio 6.8:1 ✓
-  - Orange (oklch(0.70 0.22 45)): White text (oklch(0.99 0.01 280)) - Ratio 6.5:1 ✓
-  - Yellow (oklch(0.85 0.18 95)): Dark text (oklch(0.20 0.05 95)) - Ratio 9.2:1 ✓
+  - Background (Deep Space oklch(0.12 0.03 285)): Bright Cyan text (oklch(0.92 0.15 195)) - Ratio 14.8:1 ✓
+  - Primary (Electric Cyan oklch(0.75 0.20 195)): Dark Space text (oklch(0.12 0.03 285)) - Ratio 12.1:1 ✓
+  - Accent (Neon Magenta oklch(0.70 0.28 330)): White text (oklch(0.99 0 0)) - Ratio 5.2:1 ✓
+  - Orange (Blazing Orange oklch(0.72 0.22 40)): White text (oklch(0.99 0 0)) - Ratio 5.8:1 ✓
+  - Card (Dark Violet oklch(0.18 0.08 285)): Cyan text (oklch(0.88 0.15 195)) - Ratio 9.5:1 ✓
 
 ## Font Selection
 
-Typography should feel contemporary and highly readable with geometric precision - professional and refined while maintaining warmth for daily personal use.
+Typography should feel futuristic and technical with sharp geometric forms - cutting-edge and bold, evoking advanced AI interfaces and digital displays.
 
-- **Primary Font**: Plus Jakarta Sans - A modern geometric sans-serif that feels approachable, highly legible, and perfectly suited for UI elements and body content.
-- **Accent Font**: Space Grotesk - Used for headings and key labels, adds technical sophistication appropriate for an AI assistant while maintaining warmth.
+- **Primary Font**: Orbitron - A geometric futuristic sans-serif perfect for cyberpunk aesthetics with strong technical character and excellent screen readability
+- **Accent Font**: Rajdhani - Sharp and condensed, ideal for headers and labels with an ultra-modern sci-fi feeling
 
 - **Typographic Hierarchy**: 
-  - H1 (Page Title): Space Grotesk Bold / 28-32px / tight letter spacing (-0.02em) / leading-tight
-  - H2 (Section Headings): Space Grotesk SemiBold / 20-24px / tight letter spacing (-0.02em) / leading-snug
-  - H3 (Card Titles): Plus Jakarta Sans Bold / 16-18px / slight negative letter spacing (-0.01em) / leading-snug
-  - Body (Main Content): Plus Jakarta Sans Regular / 14-15px / normal letter spacing / leading-relaxed (1.6)
-  - Small (Metadata): Plus Jakarta Sans Medium / 12-13px / normal letter spacing / leading-normal
-  - Button Text: Plus Jakarta Sans SemiBold / 14-15px / slight positive letter spacing (0.01em)
+  - H1 (Page Title): Orbitron Black / 36-48px / wide letter spacing (0.08em) / leading-none / uppercase
+  - H2 (Section Headings): Rajdhani Bold / 24-28px / wide letter spacing (0.06em) / leading-tight / uppercase
+  - H3 (Card Titles): Rajdhani SemiBold / 18-20px / letter spacing (0.04em) / leading-snug / uppercase
+  - Body (Main Content): Rajdhani Medium / 15-16px / slight letter spacing (0.01em) / leading-relaxed (1.5)
+  - Small (Metadata): Rajdhani Regular / 13-14px / letter spacing (0.02em) / leading-normal
+  - Button Text: Rajdhani Bold / 15-16px / letter spacing (0.05em) / uppercase
 
 ## Animations
 
-Animations should reinforce the feeling of modern sophistication and responsive intelligence - smooth, purposeful, and refined. Use gentle transitions with subtle easing for interactive elements to make the interface feel polished and reactive. Content should fade in elegantly with upward motion (0.4s ease-out). Cards have modest hover lifts (2-4px) with smooth shadow transitions to feel interactive without being distracting. Background gradients remain subtle and static. Page transitions are swift (200-250ms) with soft fades. Loading states use minimal skeleton screens with gentle pulse effects. Celebrate completions with tasteful scale animations (1.02-1.05x). All animations prioritize clarity and speed over showiness.
+Animations should reinforce the cyberpunk aesthetic with dynamic energy and digital effects - glowing pulses, holographic shimmers, and neon trails. Interactive elements glow on hover with animated neon borders (300ms ease-out). Content materializes with glitch effects and scan-line animations (0.5s). Cards have dramatic glow intensification and slight float on hover with pulsing borders. Background features animated gradient shifts and particle effects. Loading states use glowing scan lines and digital corruption effects. Celebrate completions with explosive neon bursts and screen flashes (200ms). All animations embrace the futuristic, high-energy aesthetic while maintaining usability.
 
 ## Component Selection
 
