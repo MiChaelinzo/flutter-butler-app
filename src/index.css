@@ -1,63 +1,55 @@
 @import 'tailwindcss';
+@import "tw-animate-css";
 
-
+@layer base {
+  * {
+    @apply border-border
   }
-  bod
-  }
-  h
-  
+}
 
+:root {
   --background: oklch(0.12 0.03 285);
+  --foreground: oklch(0.98 0 0);
   
+  --card: oklch(0.15 0.04 285);
+  --card-foreground: oklch(0.98 0 0);
   
-  --popover: oklch(0.15 0.
+  --popover: oklch(0.15 0.04 285);
+  --popover-foreground: oklch(0.98 0 0);
   
-  -
- 
-
-  --mut
+  --primary: oklch(0.75 0.20 195);
+  --primary-foreground: oklch(0.12 0.03 285);
+  
+  --secondary: oklch(0.25 0.08 285);
+  --secondary-foreground: oklch(0.98 0 0);
+  
+  --muted: oklch(0.20 0.05 285);
+  --muted-foreground: oklch(0.65 0.05 285);
+  
   --accent: oklch(0.70 0.28 330);
+  --accent-foreground: oklch(0.98 0 0);
   
+  --destructive: oklch(0.60 0.25 25);
+  --destructive-foreground: oklch(0.98 0 0);
   
-  --border: oklch(0.30 0.12 285
+  --border: oklch(0.30 0.12 285);
+  --input: oklch(0.30 0.12 285);
   --ring: oklch(0.75 0.20 195);
   
+  --orange: oklch(0.72 0.22 40);
+  --orange-foreground: oklch(0.12 0.03 285);
   
+  --lime: oklch(0.85 0.20 130);
   --lime-foreground: oklch(0.12 0.03 285);
   
+  --radius: 0.5rem;
+}
 
+@theme {
   --color-background: var(--background);
-  
-  --color-popover: var(--popover);
-  --color-primary: var(--primary);
-  
-  --color-muted: var(--muted);
-  --color-accent: var(--accent);
-  
-  --color-border: var(--border);
-  --color-ring: var(--ring);
-  
-  --color-lime-foreground: var(--lime
-  --radius-sm: calc(var(--radius) * 0.5);
-  
-  --radius-2xl: calc(var(--radius
-}
-@keyframes neon-pulse {
-  
-  }
-    text-shadow: 0 0 20px currentColor,
-  
-
-  0%, 100% {
-  
-    box-shadow: 0 0 
-}
-
-    tran
-  100% {
-  }
-
-  0% {
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
@@ -90,7 +82,7 @@
   0%, 100% {
     text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
     opacity: 1;
-   
+  }
   50% {
     text-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px currentColor;
     opacity: 0.9;
@@ -119,22 +111,22 @@
   0% {
     transform: translate(0);
   }
-.hologr
-    oklch(0.75 0.20 195),
-   
-    okl
-  background-size: 400% 400%;
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
-.cyber-
-    linear-gradient(to right, oklch
-  b
-
-  background: linear-gradient(135deg
-   
-  -webki
-  -webkit-text-fill-color: t
-
- 
 
 @keyframes float-drift {
   0%, 100% {
@@ -212,12 +204,6 @@
 .text-gradient-hot {
   background: linear-gradient(135deg, 
     oklch(0.72 0.22 40),
-    oklch(0.70 0.28 330)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
     oklch(0.70 0.28 330)
   );
   -webkit-background-clip: text;
