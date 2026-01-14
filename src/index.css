@@ -1,11 +1,7 @@
 @import 'tailwindcss';
 @import "tw-animate-css";
 
-  }
-  bod
-    -webkit-font-smoothin
-  }
-  
+@layer base {
   body {
     font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     -webkit-font-smoothing: antialiased;
@@ -16,25 +12,24 @@
       oklch(0.97 0.02 270) 0%,
       oklch(0.98 0.015 200) 25%,
       oklch(0.96 0.025 320) 50%,
-
+      oklch(0.97 0.02 270) 100%
     );
   }
   
-@keyframes flo
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display), sans-serif;
-  }
     letter-spacing: -0.02em;
   }
 
-@keyframes glow {
+  p, span, div {
     font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-   
+  }
 }
 
 @keyframes float {
-}
+  0%, 100% { 
     transform: translateY(0px) scale(1);
-  0
+  }
   50% { 
     transform: translateY(-30px) scale(1.05);
   }
@@ -44,9 +39,9 @@
   0%, 100% { 
     opacity: 0.6;
     filter: blur(100px);
-}
+  }
   50% { 
-  from {
+    opacity: 0.8;
     filter: blur(120px);
   }
 }
@@ -54,19 +49,19 @@
 @keyframes shimmer {
   0% { 
     background-position: -1000px 0; 
-}
-  100% { 
-  animation: glow 4s ease-in-out in
   }
-.
+  100% { 
+    background-position: 1000px 0;
+  }
+}
 
 @keyframes pulse-glow {
   0%, 100% {
     box-shadow: 0 0 20px var(--glow-color, currentColor);
   }
-  --bac
+  50% {
     box-shadow: 0 0 40px var(--glow-color, currentColor);
-  -
+  }
 }
 
 @keyframes slide-up {
@@ -74,29 +69,29 @@
     opacity: 0;
     transform: translateY(20px);
   }
-  --de
+  to {
     opacity: 1;
     transform: translateY(0);
   }
- 
+}
 
 .animate-float {
   animation: float 8s ease-in-out infinite;
- 
+}
 
 .animate-glow {
   animation: glow 4s ease-in-out infinite;
- 
+}
 
-  --orange-foreground
+.animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
- 
+}
 
 .animate-slide-up {
   animation: slide-up 0.4s ease-out;
-@
+}
 
-  --col
+:root {
   --background: oklch(0.97 0.02 75);
   --foreground: oklch(0.22 0.04 55);
   --card: oklch(0.99 0.01 75);
@@ -114,25 +109,23 @@
   --destructive: oklch(0.62 0.18 35);
   --destructive-foreground: oklch(0.97 0.02 75);
   --border: oklch(0.80 0.05 75);
-  --radius-lg: calc(var(--radiu
+  --input: oklch(0.80 0.05 75);
   --ring: oklch(0.58 0.15 65);
   --radius: 1rem;
-  --font-sans: Poppins;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", sans-serif;
-  --font-serif: Merriweather;
-  --font-mono: Source Code Pro;
   --chart-1: oklch(0.58 0.15 65);
   --chart-2: oklch(0.78 0.12 45);
   --chart-3: oklch(0.68 0.10 85);
   --chart-4: oklch(0.48 0.12 25);
   --chart-5: oklch(0.88 0.08 95);
-
+  --sidebar-background: oklch(0.97 0.02 75);
   --sidebar-foreground: oklch(0.22 0.04 55);
   --sidebar-primary: oklch(0.58 0.15 65);
   --sidebar-primary-foreground: oklch(0.97 0.02 75);
   --sidebar-accent: oklch(0.85 0.08 85);
   --sidebar-accent-foreground: oklch(0.28 0.04 55);
-
+  --sidebar-border: oklch(0.80 0.05 75);
   --sidebar-ring: oklch(0.58 0.15 65);
   --shadow-color: oklch(0.58 0.15 65);
   --shadow-opacity: 0.16;
@@ -142,37 +135,32 @@
   --shadow-offset-y: 9px;
   --orange: oklch(0.70 0.22 45);
   --orange-foreground: oklch(0.99 0.01 280);
+  --yellow: oklch(0.85 0.15 90);
+  --yellow-foreground: oklch(0.22 0.04 55);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-orange: var(--orange);
+  --color-orange-foreground: var(--orange-foreground);
+  --color-yellow: var(--yellow);
+  --color-yellow-foreground: var(--yellow-foreground);
+}
