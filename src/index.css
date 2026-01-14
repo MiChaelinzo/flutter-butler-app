@@ -1,9 +1,9 @@
 @import 'tailwindcss';
+@import "tw-animate-css";
 
-
-  }
-
-  --background: oklch(0.1
+@layer base {
+  * {
+    @apply border-border;
   }
 }
 
@@ -20,62 +20,129 @@
   --primary: oklch(0.75 0.20 195);
   --primary-foreground: oklch(0.12 0.03 285);
 
-
+  --secondary: oklch(0.35 0.12 285);
   --secondary-foreground: oklch(0.95 0.02 285);
 
   --muted: oklch(0.20 0.05 285);
   --muted-foreground: oklch(0.65 0.05 285);
 
-  --lime-foreground: oklch(0.12 0
+  --accent: oklch(0.75 0.25 330);
   --accent-foreground: oklch(0.12 0.03 285);
 
   --destructive: oklch(0.65 0.25 25);
   --destructive-foreground: oklch(0.95 0.02 285);
 
-  --color-card-foreground: var(--
+  --border: oklch(0.22 0.06 285);
   --input: oklch(0.25 0.08 285);
   --ring: oklch(0.75 0.20 195);
 
-  --color-secondary-foreground: 
+  --orange: oklch(0.70 0.20 45);
   --orange-foreground: oklch(0.12 0.03 285);
 
   --lime: oklch(0.85 0.22 130);
   --lime-foreground: oklch(0.12 0.03 285);
 
-  --color-ring: var
+  --radius: 0.75rem;
 }
 
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --radius-md: var(--radius)
+  --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --radius-2xl: calc(var(--radius)
+  --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-    oklch(0.75 0.20 195)
+  --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-.text-gradient-hot {
+  --color-border: var(--border);
   --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-orange: var(--orange);
+  --color-orange-foreground: var(--orange-foreground);
+  --color-lime: var(--lime);
+  --color-lime-foreground: var(--lime-foreground);
+
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 1.5);
+  --radius-xl: calc(var(--radius) * 2);
+  --radius-2xl: calc(var(--radius) * 3);
+  --radius-full: 9999px;
+}
+
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 200, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 200, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.text-gradient-cyber {
+  background: linear-gradient(135deg, oklch(0.75 0.20 195) 0%, oklch(0.75 0.25 330) 50%, oklch(0.75 0.20 195) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holographic-shift 3s ease-in-out infinite;
+}
+
+.text-gradient-hot {
+  background: linear-gradient(135deg, oklch(0.70 0.20 45) 0%, oklch(0.75 0.25 330) 50%, oklch(0.70 0.20 45) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holographic-shift 3s ease-in-out infinite;
+}
+
+.neon-text {
+  text-shadow: 
+    0 0 10px rgba(0, 200, 255, 0.8),
+    0 0 20px rgba(0, 200, 255, 0.6),
+    0 0 30px rgba(0, 200, 255, 0.4);
+}
+
 .floating-orb {
+  animation: float-orb 20s ease-in-out infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 @keyframes holographic-shift {
+  0%, 100% {
     background-position: 0% 50%;
-
   }
-
-
+  50% {
+    background-position: 100% 50%;
   }
-    transform: translate(30px
+}
+
+@keyframes float-orb {
+  0%, 100% {
+    transform: translate(0px, 0px);
+  }
+  33% {
+    transform: translate(30px, -30px);
+  }
   66% {
+    transform: translate(-20px, 20px);
   }
+}
 
 
 
