@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar, RocketLaunch } from '@phosphor-icons/react'
+import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar } from '@phosphor-icons/react'
 import { Toaster } from '@/components/ui/sonner'
 import { DailyBriefing } from '@/components/DailyBriefing'
 import { QuickActions } from '@/components/QuickActions'
@@ -15,7 +15,6 @@ import { ProductivityStats } from '@/components/ProductivityStats'
 import { FocusMode } from '@/components/FocusMode'
 import { DailyGoals } from '@/components/DailyGoals'
 import { CalendarView } from '@/components/CalendarView'
-import { HackathonInfo } from '@/components/HackathonInfo'
 
 function App() {
   const [chatOpen, setChatOpen] = useState(false)
@@ -129,13 +128,6 @@ function App() {
               >
                 <Gear size={22} weight="duotone" />
                 <span className="hidden sm:inline">Automations</span>
-              </TabsTrigger>
-              <TabsTrigger 
-                value="hackathon" 
-                className="gap-3 px-5 sm:px-7 rounded-2xl data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary data-[state=active]:to-accent data-[state=active]:text-white data-[state=active]:shadow-xl data-[state=active]:shadow-primary/50 font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105"
-              >
-                <RocketLaunch size={22} weight="duotone" />
-                <span className="hidden sm:inline">Hackathon</span>
               </TabsTrigger>
             </TabsList>
           </div>
@@ -288,23 +280,6 @@ function App() {
 
           <TabsContent value="calendar" className="space-y-6 md:space-y-8 mt-10">
             <CalendarView />
-          </TabsContent>
-
-          <TabsContent value="hackathon" className="space-y-6 md:space-y-8 mt-10">
-            <div className="flex items-center gap-5 mb-6">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary/30 to-accent/10 flex items-center justify-center border-2 border-primary/30 shadow-2xl shadow-primary/30 backdrop-blur-xl">
-                <RocketLaunch className="text-primary drop-shadow-lg" size={36} weight="duotone" />
-              </div>
-              <div>
-                <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-                  Hackathon Brief
-                </h2>
-                <p className="text-muted-foreground mt-2 text-base sm:text-lg font-semibold">
-                  Key details for the “Build your Flutter Butler with Serverpod” Devpost challenge.
-                </p>
-              </div>
-            </div>
-            <HackathonInfo />
           </TabsContent>
         </Tabs>
       </div>
