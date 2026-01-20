@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+
 
 interface GrowingPlantProps {
   progress: number
@@ -67,10 +67,10 @@ export function GrowingPlant({ progress, isPaused }: GrowingPlantProps) {
 
           {growthStage >= 1 && (
             <motion.g
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ 
-                scale: leafScale, 
                 opacity: 1,
+              }}
+                scale: { duration:
+                rotate: { d
                 rotate: isGrowing ? [0, -2, 0] : 0 
               }}
               transition={{ 
@@ -98,170 +98,170 @@ export function GrowingPlant({ progress, isPaused }: GrowingPlantProps) {
               animate={{ 
                 scale: leafScale, 
                 opacity: 1,
-                rotate: isGrowing ? [0, 2, 0] : 0 
-              }}
-              transition={{ 
-                scale: { duration: 0.8, ease: "easeOut", delay: 0.2 },
-                opacity: { duration: 0.5, delay: 0.2 },
-                rotate: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
-              }}
-              style={{ transformOrigin: "100px 200px" }}
-            >
-              <ellipse
-                cx="130"
+              style={{ transformOrigin: "100px 200
+              <e
                 cy="200"
-                rx="25"
                 ry="15"
-                fill="url(#leafGradient)"
                 filter="url(#glow)"
-                transform="rotate(30 130 200)"
               />
-            </motion.g>
           )}
-
           {growthStage >= 3 && (
-            <motion.g
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ 
-                scale: leafScale * 1.1, 
-                opacity: 1,
-                rotate: isGrowing ? [0, -3, 0] : 0 
+             
+                scale:
+                rotate: 
+              transition
+                opacity
               }}
-              transition={{ 
-                scale: { duration: 0.8, ease: "easeOut", delay: 0.4 },
-                opacity: { duration: 0.5, delay: 0.4 },
-                rotate: { duration: 2.2, repeat: Infinity, ease: "easeInOut" }
-              }}
-              style={{ transformOrigin: "100px 170px" }}
             >
-              <ellipse
                 cx="65"
-                cy="170"
                 rx="28"
-                ry="17"
-                fill="url(#leafGradient)"
-                filter="url(#glow)"
-                transform="rotate(-35 65 170)"
-              />
-            </motion.g>
-          )}
+                
+                transfo
+            
 
-          {growthStage >= 4 && (
             <motion.g
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ 
-                scale: leafScale * 1.1, 
+              animate
                 opacity: 1,
-                rotate: isGrowing ? [0, 3, 0] : 0 
               }}
-              transition={{ 
-                scale: { duration: 0.8, ease: "easeOut", delay: 0.6 },
-                opacity: { duration: 0.5, delay: 0.6 },
-                rotate: { duration: 2.8, repeat: Infinity, ease: "easeInOut" }
-              }}
-              style={{ transformOrigin: "100px 140px" }}
-            >
-              <ellipse
-                cx="135"
+                scale: { duration: 0.8, 
+                rotate: { d
+              style={{ transformOrigin: "100px 140p
+              <e
                 cy="140"
-                rx="28"
                 ry="17"
-                fill="url(#leafGradient)"
                 filter="url(#glow)"
-                transform="rotate(35 135 140)"
               />
-            </motion.g>
           )}
-
           {growthStage >= 5 && (
-            <motion.g
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ 
-                scale: 1,
-                opacity: 1
+             
+                scale:
               }}
-              transition={{ 
-                scale: { duration: 1, ease: "easeOut", delay: 0.8 },
-                opacity: { duration: 0.5, delay: 0.8 }
+                scale: {
               }}
-            >
-              <motion.circle
-                cx="100"
+              <motion.c
                 cy="110"
-                r="12"
-                fill="oklch(0.85 0.20 85)"
-                filter="url(#glow)"
+                fill="oklch(0.85 0.
                 animate={isGrowing ? {
-                  scale: [1, 1.1, 1],
-                  opacity: [1, 0.8, 1]
-                } : {}}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
+                
+                transit
+            
+
               <motion.g
-                animate={isGrowing ? {
-                  rotate: [0, 360]
-                } : {}}
+                  rot
                 transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear"
+                  repeat:
                 }}
-                style={{ transformOrigin: "100px 110px" }}
               >
-                {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
                   <ellipse
-                    key={angle}
-                    cx="100"
-                    cy="110"
+                
                     rx="15"
-                    ry="5"
                     fill="oklch(0.90 0.18 80)"
-                    opacity="0.8"
-                    transform={`rotate(${angle} 100 110)`}
-                  />
+                    transform={`rotate(${angle} 100 110
                 ))}
-              </motion.g>
-            </motion.g>
-          )}
+            </mo
         </motion.g>
-
-        {isPaused && (
-          <motion.g
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0.3, 0.6, 0.3] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <circle cx="100" cy="150" r="80" fill="oklch(0.5 0 0 / 0.1)" />
-          </motion.g>
+        {isPa
+            initial={{
+            transition={
+            <circle cx="
         )}
-      </svg>
 
-      {progress === 100 && (
         <motion.div
-          className="absolute top-0 left-1/2 -translate-x-1/2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y:
           transition={{ duration: 0.5 }}
-        >
-          <div className="text-4xl">🌸</div>
-        </motion.div>
+          <div c
       )}
+      <div c
 
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120px] h-[20px]">
-        <motion.div
-          className="w-full h-full rounded-full"
-          style={{
-            background: 'radial-gradient(ellipse at center, oklch(0.45 0.12 140 / 0.6) 0%, transparent 70%)'
-          }}
-          initial={{ scaleX: 0.5 }}
-          animate={{ scaleX: 1 }}
+            background: 'radial-
+          initial={{ 
           transition={{ duration: 1 }}
-        />
       </div>
-    </div>
   )
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
