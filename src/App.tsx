@@ -21,7 +21,6 @@ import { VoiceCommands } from '@/components/VoiceCommands'
 import { PoweredByFooter } from '@/components/PoweredByFooter'
 import { APISettings } from '@/components/APISettings'
 import { NebulaBackground } from '@/components/NebulaBackground'
-import { MouseTrail } from '@/components/MouseTrail'
 import { useTheme } from '@/hooks/use-theme'
 
 function App() {
@@ -30,20 +29,19 @@ function App() {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative">
       {theme === 'dark' && <NebulaBackground />}
-      {theme === 'dark' && <MouseTrail />}
       
-      <div className="absolute inset-0 cyber-grid opacity-30" />
+      <div className="absolute inset-0 cyber-grid opacity-30 pointer-events-none" style={{ zIndex: 1 }} />
       
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 1 }}>
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full bg-primary/8 blur-[100px]" />
         <div className="absolute bottom-0 left-1/3 w-[500px] h-[500px] rounded-full bg-accent/8 blur-[100px]" />
       </div>
 
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent pointer-events-none" style={{ zIndex: 1 }} />
       
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-10 relative z-10">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-10 relative" style={{ zIndex: 10 }}>
         <header className="mb-8 md:mb-12">
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <div className="flex items-center gap-5">
