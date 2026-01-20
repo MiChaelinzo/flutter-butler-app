@@ -13,6 +13,9 @@ export function DailyBriefing({ onRegenerate }: DailyBriefingProps) {
   const [briefing, setBriefing] = useState<{
     greeting: string
     weather: string
+    temperature: number
+    feelsLike: number
+    humidity: number
     priorities: string[]
     insight: string
   } | null>(null)
@@ -28,10 +31,13 @@ export function DailyBriefing({ onRegenerate }: DailyBriefingProps) {
       const promptText = `Generate a brief daily briefing for a personal assistant app. Include:
 1. A personalized ${timeOfDay} message (one sentence, warm and motivating)
 2. Weather description (choose from diverse conditions like: sunny, partly cloudy, overcast, rain, drizzle, thunderstorm, snow, blizzard, fog, mist, windy, hot, cold, freezing, clear night, hail, sleet - be specific and realistic for current season)
-3. Three key priorities for the day (productivity-focused, actionable)
-4. One insightful tip or mindset suggestion for the day
+3. Temperature in Fahrenheit (realistic number between -20 and 110 based on weather condition and season)
+4. Feels like temperature in Fahrenheit (usually within 5-10 degrees of actual temp)
+5. Humidity percentage (realistic number between 20 and 95 based on weather)
+6. Three key priorities for the day (productivity-focused, actionable)
+7. One insightful tip or mindset suggestion for the day
 
-Return the result as a valid JSON object with keys: greeting, weather, priorities (array), insight`
+Return the result as a valid JSON object with keys: greeting, weather, temperature (number), feelsLike (number), humidity (number), priorities (array), insight`
       const prompt = window.spark.llmPrompt([promptText], timeOfDay)
       
       const response = await window.spark.llm(prompt, 'gpt-4o-mini', true)
@@ -218,11 +224,31 @@ Return the result as a valid JSON object with keys: greeting, weather, prioritie
               <p className="text-base sm:text-lg text-foreground leading-relaxed font-medium">{briefing.greeting}</p>
             </div>
 
-            <div className="flex items-center gap-3 p-4 rounded-lg border border-border/30">
-              <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-                {getWeatherIcon()}
+            <div className="rounded-lg p-5 border border-border/30 bg-gradient-to-br from-accent/5 to-primary/5">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent/20 to-primary/10 flex items-center justify-center border border-primary/20">
+                    {getWeatherIcon()}
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-base sm:text-lg font-semibold text-foreground">{briefing.weather}</span>
+                    <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                      <Drop size={14} weight="fill" className="text-blue-400" />
+                      <span>{briefing.humidity}% humidity</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-end gap-1">
+                  <div className="flex items-start gap-1">
+                    <span className="text-4xl sm:text-5xl font-bold text-foreground">{briefing.temperature}</span>
+                    <span className="text-2xl font-semibold text-muted-foreground mt-1">°F</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-muted-foreground text-sm">
+                    <Thermometer size={14} weight="duotone" />
+                    <span>Feels like {briefing.feelsLike}°F</span>
+                  </div>
+                </div>
               </div>
-              <span className="text-sm sm:text-base text-foreground">{briefing.weather}</span>
             </div>
 
             <div className="space-y-4">
