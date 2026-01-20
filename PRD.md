@@ -135,7 +135,7 @@ This is a multi-feature personal assistant platform with AI integration, task au
 
 ## Design Direction
 
-The design evokes a sophisticated cyberpunk-inspired AI interface with refined neon accents and holographic elements - bold yet elegant while maintaining exceptional usability. The interface features carefully balanced dark gradients, luminous borders with subtle glow effects, vibrant accent highlights, and smooth dynamic animations that create an immersive, premium digital experience. Every element is crafted with attention to detail, from the floating orb backgrounds to the gradient text effects, creating a cohesive futuristic aesthetic that feels both cutting-edge and polished.
+The design evokes a sophisticated cyberpunk-inspired AI interface with refined neon accents and holographic elements - bold yet elegant while maintaining exceptional usability. The interface features carefully balanced dark gradients, luminous borders with subtle glow effects, vibrant accent highlights, and smooth dynamic animations that create an immersive, premium digital experience. Every element is crafted with attention to detail, from the floating orb backgrounds to the gradient text effects, creating a cohesive futuristic aesthetic that feels both cutting-edge and polished. Features include a dynamic nebula background with stars and cosmic colors, an interactive mouse trail effect that creates flowing neon particles following cursor movement, and a dark/light mode toggle allowing users to switch between the immersive dark cyberpunk theme and a clean light professional theme.
 
 ## Color Selection
 

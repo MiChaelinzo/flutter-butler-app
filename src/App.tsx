@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar, ChartLine, Users, Microphone, Plugs } from '@phosphor-icons/react'
+import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar, ChartLine, Users, Microphone, Plugs, Moon, Sun } from '@phosphor-icons/react'
 import { Toaster } from '@/components/ui/sonner'
 import { DailyBriefing } from '@/components/DailyBriefing'
 import { QuickActions } from '@/components/QuickActions'
@@ -20,13 +20,20 @@ import { TeamCollaboration } from '@/components/TeamCollaboration'
 import { VoiceCommands } from '@/components/VoiceCommands'
 import { PoweredByFooter } from '@/components/PoweredByFooter'
 import { APISettings } from '@/components/APISettings'
+import { NebulaBackground } from '@/components/NebulaBackground'
+import { MouseTrail } from '@/components/MouseTrail'
+import { useTheme } from '@/hooks/use-theme'
 
 function App() {
   const [chatOpen, setChatOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('dashboard')
+  const { theme, toggleTheme } = useTheme()
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
+      {theme === 'dark' && <NebulaBackground />}
+      {theme === 'dark' && <MouseTrail />}
+      
       <div className="absolute inset-0 cyber-grid opacity-40" />
       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -63,16 +70,30 @@ function App() {
                 </div>
               </div>
             </div>
-            <Button 
-              onClick={() => setChatOpen(true)} 
-              size="lg" 
-              className="relative gap-3 h-14 px-8 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] transition-all duration-700 border-2 border-primary/60 shadow-[0_0_30px_rgba(114,192,255,0.5)] hover:shadow-[0_0_50px_rgba(114,192,255,0.8)] font-bold text-base tracking-[0.05em] uppercase overflow-hidden group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-              <Sparkle size={24} weight="fill" className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
-              <span className="hidden sm:inline relative z-10">Activate AI</span>
-              <span className="sm:hidden relative z-10">AI</span>
-            </Button>
+            <div className="flex items-center gap-3">
+              <Button 
+                onClick={toggleTheme}
+                size="lg"
+                variant="outline"
+                className="h-14 w-14 rounded-xl border-2 border-primary/60 bg-card/60 backdrop-blur-xl shadow-[0_0_20px_rgba(114,192,255,0.3)] hover:shadow-[0_0_35px_rgba(114,192,255,0.5)] transition-all duration-300"
+              >
+                {theme === 'dark' ? (
+                  <Sun size={24} weight="duotone" className="text-primary" />
+                ) : (
+                  <Moon size={24} weight="duotone" className="text-primary" />
+                )}
+              </Button>
+              <Button 
+                onClick={() => setChatOpen(true)} 
+                size="lg" 
+                className="relative gap-3 h-14 px-8 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] transition-all duration-700 border-2 border-primary/60 shadow-[0_0_30px_rgba(114,192,255,0.5)] hover:shadow-[0_0_50px_rgba(114,192,255,0.8)] font-bold text-base tracking-[0.05em] uppercase overflow-hidden group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                <Sparkle size={24} weight="fill" className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
+                <span className="hidden sm:inline relative z-10">Activate AI</span>
+                <span className="sm:hidden relative z-10">AI</span>
+              </Button>
+            </div>
           </div>
         </header>
 
