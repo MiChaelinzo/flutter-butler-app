@@ -21,6 +21,10 @@ import { VoiceCommands } from '@/components/VoiceCommands'
 import { PoweredByFooter } from '@/components/PoweredByFooter'
 import { APISettings } from '@/components/APISettings'
 import { NebulaBackground } from '@/components/NebulaBackground'
+import { ParticleEffect } from '@/components/ParticleEffect'
+import { MatrixRain } from '@/components/MatrixRain'
+import { FloatingHearts } from '@/components/FloatingHearts'
+import { ShootingStars } from '@/components/ShootingStars'
 import { useTheme } from '@/hooks/use-theme'
 import { useRewardSystem, RewardNotifications, CoinDisplay } from '@/components/RewardSystem'
 import { VanityShop, type VanityItem } from '@/components/VanityShop'
@@ -28,18 +32,42 @@ import { Leaderboard } from '@/components/Leaderboard'
 import { MusicPlayer } from '@/components/MusicPlayer'
 import { ChatBox } from '@/components/ChatBox'
 import { WeatherForecast } from '@/components/WeatherForecast'
+import { useKV } from '@github/spark/hooks'
 
 function App() {
   const [chatOpen, setChatOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('dashboard')
   const { theme, toggleTheme } = useTheme()
   const { coins, totalEarned, awardCoins, spendCoins, rewardQueue } = useRewardSystem()
+  const [activeEffect] = useKV<string>('active-effect', 'effect-none')
+  const [activeBackground] = useKV<string>('active-background', 'bg-default')
 
+  const getParticleType = () => {
+    switch (activeEffect) {
+      case 'effect-snow':
+        return 'snow'
+      case 'effect-particles':
+        return 'particles'
+      case 'effect-sparkles':
+        return 'sparkles'
+      case 'effect-bubbles':
+        return 'bubbles'
+      case 'effect-fireflies':
+        return 'fireflies'
+      default:
+        return null
+    }
+  }
 
+  const particleType = getParticleType()
 
   return (
     <div className="min-h-screen bg-background relative">
       {theme === 'dark' && <NebulaBackground />}
+      {activeBackground === 'bg-matrix' && <MatrixRain />}
+      {activeEffect === 'effect-hearts' && <FloatingHearts />}
+      {activeEffect === 'effect-stars' && <ShootingStars />}
+      {particleType && <ParticleEffect type={particleType} count={60} />}
       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" />

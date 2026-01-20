@@ -14,6 +14,8 @@ import {
 import { motion } from 'framer-motion'
 import { toast } from 'sonner'
 import { cn } from '@/lib/utils'
+import { useState } from 'react'
+import { Confetti } from '@/components/Confetti'
 
 export interface VanityItem {
   id: string
@@ -110,6 +112,13 @@ const VANITY_ITEMS: VanityItem[] = [
     gradient: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
   },
   {
+    id: 'effect-snow',
+    name: 'Snowfall',
+    description: 'Gentle falling snowflakes',
+    category: 'effect',
+    gradient: 'linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%)',
+  },
+  {
     id: 'effect-particles',
     name: 'Particle Storm',
     description: 'Floating particle effects',
@@ -124,6 +133,34 @@ const VANITY_ITEMS: VanityItem[] = [
     gradient: 'radial-gradient(circle, #ffd700 0%, #ffed4e 100%)',
   },
   {
+    id: 'effect-bubbles',
+    name: 'Rising Bubbles',
+    description: 'Floating bubble effects',
+    category: 'effect',
+    gradient: 'radial-gradient(circle, #00fff5 0%, #00d4ff 100%)',
+  },
+  {
+    id: 'effect-fireflies',
+    name: 'Fireflies',
+    description: 'Glowing firefly effects',
+    category: 'effect',
+    gradient: 'radial-gradient(circle, #ffff00 0%, #90ee90 100%)',
+  },
+  {
+    id: 'effect-hearts',
+    name: 'Floating Hearts',
+    description: 'Rising heart particles',
+    category: 'effect',
+    gradient: 'radial-gradient(circle, #ff1493 0%, #ffb6c1 100%)',
+  },
+  {
+    id: 'effect-stars',
+    name: 'Shooting Stars',
+    description: 'Streaking shooting stars',
+    category: 'effect',
+    gradient: 'radial-gradient(circle, #ffffff 0%, #c8dcff 100%)',
+  },
+  {
     id: 'effect-glow',
     name: 'Neon Glow',
     description: 'Enhanced glow effects',
@@ -136,6 +173,7 @@ export function VanityShop() {
   const [activeBackground, setActiveBackground] = useKV<string>('active-background', 'bg-default')
   const [activeTheme, setActiveTheme] = useKV<string>('active-theme', 'theme-default')
   const [activeEffect, setActiveEffect] = useKV<string>('active-effect', 'effect-none')
+  const [showConfetti, setShowConfetti] = useState(false)
 
   const handleSelect = (item: VanityItem) => {
     switch (item.category) {
@@ -149,6 +187,9 @@ export function VanityShop() {
         setActiveEffect(item.id)
         break
     }
+    
+    setShowConfetti(true)
+    
     toast.success('Applied!', {
       description: `${item.name} is now active`,
     })
@@ -246,6 +287,12 @@ export function VanityShop() {
 
   return (
     <div className="space-y-6">
+      <Confetti 
+        active={showConfetti} 
+        duration={2500} 
+        onComplete={() => setShowConfetti(false)} 
+      />
+      
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center backdrop-blur-xl">
