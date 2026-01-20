@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { ScrollArea } from '@/components/ui/s
+import { useState } from 'react'
 import { Robot, PaperPlaneRight, Trash } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { useKV } from '@github/spark/hooks'
@@ -14,22 +14,22 @@ interface Message {
 }
 
 interface ChatBoxProps {
-  storageKey: string
-  title?: string
-  placeholder?: string
 }
+export function 
+  const [input, setInp
 
-export function ChatBox({ storageKey, title = 'AI Chat', placeholder = 'Ask me anything...' }: ChatBoxProps) {
-  const [messages, setMessages] = useKV<Message[]>(storageKey, [])
-  const [input, setInput] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-
-  const sendMessage = async () => {
-    if (!input.trim()) return
 
     const userMessage: Message = {
-      id: Date.now().toString(),
       role: 'user',
+      timestamp: Date.now()
+
+
+
+      const promptText = `You
+
+      const assistantMessage: Mess
+        role: 'assistant',
+        timestamp: 
       content: input,
       timestamp: Date.now()
     }
@@ -127,31 +127,31 @@ export function ChatBox({ storageKey, title = 'AI Chat', placeholder = 'Ask me a
         </div>
       </ScrollArea>
 
-      <div className="p-5 border-t border-border bg-muted/20">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault()
-            sendMessage()
-          }}
-          className="flex gap-2"
-        >
-          <Input
-            placeholder={placeholder}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            disabled={isLoading}
-            className="h-10 rounded-lg border-border/50 text-sm bg-background"
-          />
-          <Button 
-            type="submit" 
-            disabled={!input.trim() || isLoading} 
-            size="icon"
-            className="h-10 w-10 rounded-lg flex-shrink-0 bg-gradient-to-br from-primary to-accent hover:from-primary/90 hover:to-accent/90"
           >
-            <PaperPlaneRight size={18} weight="bold" />
-          </Button>
-        </form>
+          </B
       </div>
-    </Card>
   )
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
