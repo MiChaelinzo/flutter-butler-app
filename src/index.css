@@ -1,14 +1,13 @@
 @import 'tailwindcss';
 @import "tw-animate-css";
 
+@layer base {
+  * {
+    @apply border-border;
   }
-  bod
+  body {
+    @apply bg-background text-foreground;
   }
-  h
-  
-
-  --background: oklch(0.12 0.02 285);
-
   
   h1, h2, h3, h4, h5, h6, .heading-font {
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -22,33 +21,33 @@
   --card: oklch(0.16 0.03 285 / 0.6);
   --card-foreground: oklch(0.96 0.01 285);
 
+  --popover: oklch(0.16 0.03 285);
+  --popover-foreground: oklch(0.96 0.01 285);
 
-  --lime-foreground: oklch(0.98 0.01 285);
+  --primary: oklch(0.55 0.25 285);
+  --primary-foreground: oklch(0.98 0.01 285);
 
+  --secondary: oklch(0.25 0.04 285);
+  --secondary-foreground: oklch(0.96 0.01 285);
 
-  --color-background: var(--background);
+  --muted: oklch(0.20 0.03 285);
+  --muted-foreground: oklch(0.65 0.03 285);
 
-  --color-card-foreground: var(--car
-  --color-popover: var(--popover);
+  --accent: oklch(0.45 0.20 310);
+  --accent-foreground: oklch(0.98 0.01 285);
 
-  --color-primary-foreground: va
-  --color-secondary: var(--secondary);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 285);
 
-  --color-muted-foreground: var(-
-  --color-accent: var(--accent);
+  --border: oklch(0.25 0.04 285);
+  --input: oklch(0.25 0.04 285);
+  --ring: oklch(0.55 0.25 285);
 
-  --color-destructive-foreground: var
-  --color-border: var(--border);
-
-  --color-orange: var(--orange);
-  
-  --color-lime-foreground: var(
-
-  --radius-lg: calc(var(--radius
-  --radius-2xl: calc(var(--radius) * 3);
+  --orange: oklch(0.65 0.20 50);
+  --orange-foreground: oklch(0.98 0.01 285);
 
   --lime: oklch(0.75 0.20 130);
-  --lime-foreground: oklch(0.98 0.01 285);
+  --lime-foreground: oklch(0.12 0.02 285);
 
   --radius: 0.625rem;
 }
@@ -80,105 +79,68 @@
   
   --color-border: var(--border);
   --color-input: var(--input);
-    transform: translate(20p
-  
-  }
-    transform: translate(25px, 10px) scale(1.05);
-}
-@keyframes pulse-glow {
-    transform: scale(1);
+  --color-ring: var(--ring);
 
+  --color-orange: var(--orange);
+  --color-orange-foreground: var(--orange-foreground);
+
+  --color-lime: var(--lime);
+  --color-lime-foreground: var(--lime-foreground);
+
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 1.5);
+  --radius-xl: calc(var(--radius) * 2);
+  --radius-2xl: calc(var(--radius) * 3);
+  --radius-full: 9999px;
+}
+
+.cyber-grid {
+  background-image: 
+    linear-gradient(to right, oklch(0.55 0.25 285 / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.55 0.25 285 / 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.text-gradient-cyber {
+  background: linear-gradient(135deg, oklch(0.75 0.20 285), oklch(0.55 0.25 285), oklch(0.65 0.20 310));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-hot {
+  background: linear-gradient(135deg, oklch(0.75 0.22 50), oklch(0.65 0.20 50), oklch(0.75 0.20 130));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
     transform: scale(1.05);
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
