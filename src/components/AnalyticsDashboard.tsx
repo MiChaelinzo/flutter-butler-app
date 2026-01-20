@@ -4,7 +4,6 @@ import { useKV } from '@github/spark/hooks'
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
-import { HealthRecommendations } from '@/components/HealthRecommendations'
 
 interface AnalyticsData {
   completionRate: number
@@ -344,10 +343,6 @@ Return as JSON with this exact structure:
               "{intel.motivationalQuote}"
             </p>
           </Card>
-
-          <div className="border-t border-border pt-8">
-            <HealthRecommendations airQuality={intel.airQuality} />
-          </div>
         </>
       ) : null}
 

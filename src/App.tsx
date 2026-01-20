@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar, ChartLine, Users, Microphone, Plugs, Moon, Sun, ShoppingCart, Trophy } from '@phosphor-icons/react'
+import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar, ChartLine, Users, Microphone, Plugs, Moon, Sun, Swatches, Trophy } from '@phosphor-icons/react'
 import { Toaster } from '@/components/ui/sonner'
 import { DailyBriefing } from '@/components/DailyBriefing'
 import { QuickActions } from '@/components/QuickActions'
@@ -35,12 +35,7 @@ function App() {
   const { theme, toggleTheme } = useTheme()
   const { coins, totalEarned, awardCoins, spendCoins, rewardQueue } = useRewardSystem()
 
-  const handlePurchase = (item: VanityItem) => {
-    const success = spendCoins(item.price)
-    if (!success) {
-      return
-    }
-  }
+
 
   return (
     <div className="min-h-screen bg-background relative">
@@ -197,8 +192,8 @@ function App() {
                 value="shop" 
                 className="gap-2 px-3 sm:px-4 rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium text-xs sm:text-sm transition-all"
               >
-                <ShoppingCart size={16} weight="duotone" />
-                <span className="hidden sm:inline">Shop</span>
+                <Swatches size={16} weight="duotone" />
+                <span className="hidden sm:inline">Custom</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="leaderboard" 
@@ -390,7 +385,7 @@ function App() {
           </TabsContent>
 
           <TabsContent value="shop" className="space-y-6 mt-6">
-            <VanityShop coins={coins || 0} onPurchase={handlePurchase} />
+            <VanityShop />
           </TabsContent>
 
           <TabsContent value="leaderboard" className="space-y-6 mt-6">

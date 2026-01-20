@@ -5,12 +5,11 @@ import { Badge } from '@/components/ui/badge'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
-  ShoppingCart,
-  Star,
   Palette,
   Sparkle,
   CheckCircle,
   Image as ImageIcon,
+  Swatches,
 } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
 import { toast } from 'sonner'
@@ -20,19 +19,23 @@ export interface VanityItem {
   id: string
   name: string
   description: string
-  price: number
   category: 'background' | 'theme' | 'effect'
   preview?: string
   gradient?: string
-  isPremium?: boolean
 }
 
 const VANITY_ITEMS: VanityItem[] = [
   {
+    id: 'bg-default',
+    name: 'Default',
+    description: 'Clean and minimal default background',
+    category: 'background',
+    gradient: 'linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%)',
+  },
+  {
     id: 'bg-aurora',
     name: 'Aurora Borealis',
     description: 'Mesmerizing northern lights animation',
-    price: 500,
     category: 'background',
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
   },
@@ -40,7 +43,6 @@ const VANITY_ITEMS: VanityItem[] = [
     id: 'bg-sunset',
     name: 'Neon Sunset',
     description: 'Vibrant sunset with neon accents',
-    price: 400,
     category: 'background',
     gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
   },
@@ -48,7 +50,6 @@ const VANITY_ITEMS: VanityItem[] = [
     id: 'bg-ocean',
     name: 'Deep Ocean',
     description: 'Calm underwater atmosphere',
-    price: 450,
     category: 'background',
     gradient: 'linear-gradient(135deg, #0093E9 0%, #80D0C7 100%)',
   },
@@ -56,33 +57,34 @@ const VANITY_ITEMS: VanityItem[] = [
     id: 'bg-matrix',
     name: 'Matrix Rain',
     description: 'Classic green code rain effect',
-    price: 600,
     category: 'background',
     gradient: 'linear-gradient(135deg, #000000 0%, #0f9b0f 100%)',
-    isPremium: true,
   },
   {
     id: 'bg-galaxy',
     name: 'Spiral Galaxy',
     description: 'Stunning cosmic spiral animation',
-    price: 800,
     category: 'background',
     gradient: 'linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)',
-    isPremium: true,
   },
   {
     id: 'bg-fire',
     name: 'Plasma Fire',
     description: 'Dynamic flames and embers',
-    price: 550,
     category: 'background',
     gradient: 'linear-gradient(135deg, #f12711 0%, #f5af19 100%)',
+  },
+  {
+    id: 'theme-default',
+    name: 'Default',
+    description: 'Classic neutral theme',
+    category: 'theme',
+    gradient: 'linear-gradient(135deg, #6B7280 0%, #9CA3AF 100%)',
   },
   {
     id: 'theme-cyberpink',
     name: 'Cyber Pink',
     description: 'Hot pink cyberpunk vibes',
-    price: 300,
     category: 'theme',
     gradient: 'linear-gradient(135deg, #ff0080 0%, #ff8c00 100%)',
   },
@@ -90,7 +92,6 @@ const VANITY_ITEMS: VanityItem[] = [
     id: 'theme-emerald',
     name: 'Emerald Dream',
     description: 'Soothing green tones',
-    price: 250,
     category: 'theme',
     gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
   },
@@ -98,15 +99,20 @@ const VANITY_ITEMS: VanityItem[] = [
     id: 'theme-royal',
     name: 'Royal Purple',
     description: 'Luxurious purple palette',
-    price: 350,
     category: 'theme',
     gradient: 'linear-gradient(135deg, #8E2DE2 0%, #4A00E0 100%)',
+  },
+  {
+    id: 'effect-none',
+    name: 'None',
+    description: 'No special effects',
+    category: 'effect',
+    gradient: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
   },
   {
     id: 'effect-particles',
     name: 'Particle Storm',
     description: 'Floating particle effects',
-    price: 400,
     category: 'effect',
     gradient: 'radial-gradient(circle, #667eea 0%, #764ba2 100%)',
   },
@@ -114,7 +120,6 @@ const VANITY_ITEMS: VanityItem[] = [
     id: 'effect-sparkles',
     name: 'Magic Sparkles',
     description: 'Twinkling star effects',
-    price: 350,
     category: 'effect',
     gradient: 'radial-gradient(circle, #ffd700 0%, #ffed4e 100%)',
   },
@@ -122,46 +127,17 @@ const VANITY_ITEMS: VanityItem[] = [
     id: 'effect-glow',
     name: 'Neon Glow',
     description: 'Enhanced glow effects',
-    price: 300,
     category: 'effect',
     gradient: 'radial-gradient(circle, #00fff5 0%, #ff00ff 100%)',
   },
 ]
 
-export function VanityShop({
-  coins,
-  onPurchase,
-}: {
-  coins: number
-  onPurchase: (item: VanityItem) => void
-}) {
-  const [ownedItems, setOwnedItems] = useKV<string[]>('owned-vanity-items', [])
-  const [activeBackground, setActiveBackground] = useKV<string>('active-background', '')
-  const [activeTheme, setActiveTheme] = useKV<string>('active-theme', '')
-  const [activeEffect, setActiveEffect] = useKV<string>('active-effect', '')
+export function VanityShop() {
+  const [activeBackground, setActiveBackground] = useKV<string>('active-background', 'bg-default')
+  const [activeTheme, setActiveTheme] = useKV<string>('active-theme', 'theme-default')
+  const [activeEffect, setActiveEffect] = useKV<string>('active-effect', 'effect-none')
 
-  const handlePurchase = (item: VanityItem) => {
-    if ((ownedItems || []).includes(item.id)) {
-      toast.info('Already owned', {
-        description: `You already own ${item.name}`,
-      })
-      return
-    }
-
-    if (coins >= item.price) {
-      onPurchase(item)
-      setOwnedItems((items = []) => [...items, item.id])
-      toast.success('Purchase successful!', {
-        description: `You bought ${item.name}`,
-      })
-    } else {
-      toast.error('Insufficient coins', {
-        description: `You need ${item.price - coins} more coins`,
-      })
-    }
-  }
-
-  const handleActivate = (item: VanityItem) => {
+  const handleSelect = (item: VanityItem) => {
     switch (item.category) {
       case 'background':
         setActiveBackground(item.id)
@@ -197,7 +173,6 @@ export function VanityShop({
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {items.map((item, index) => {
-          const owned = (ownedItems || []).includes(item.id)
           const active = isActive(item)
 
           return (
@@ -209,20 +184,15 @@ export function VanityShop({
             >
               <Card
                 className={cn(
-                  'relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 card-gradient-hover',
+                  'relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 card-gradient-hover cursor-pointer',
                   active && 'ring-2 ring-primary shadow-primary/30'
                 )}
+                onClick={() => !active && handleSelect(item)}
               >
                 <div
                   className="h-32 w-full relative"
                   style={{ background: item.gradient }}
                 >
-                  {item.isPremium && (
-                    <Badge className="absolute top-2 right-2 bg-amber-500 text-white border-amber-400">
-                      <Star size={12} weight="fill" className="mr-1" />
-                      Premium
-                    </Badge>
-                  )}
                   {active && (
                     <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm">
                       <Badge className="bg-primary text-primary-foreground">
@@ -241,42 +211,29 @@ export function VanityShop({
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between">
-                    <Badge
-                      variant="outline"
-                      className="bg-amber-500/10 border-amber-500/30 text-amber-400"
+                  <div className="flex items-center justify-end">
+                    <Button
+                      size="sm"
+                      variant={active ? 'outline' : 'default'}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleSelect(item)
+                      }}
+                      disabled={active}
+                      className="gap-2"
                     >
-                      {item.price} coins
-                    </Badge>
-
-                    {owned ? (
-                      <Button
-                        size="sm"
-                        variant={active ? 'outline' : 'default'}
-                        onClick={() => handleActivate(item)}
-                        disabled={active}
-                        className="gap-2"
-                      >
-                        {active ? (
-                          <>
-                            <CheckCircle size={16} weight="fill" />
-                            Active
-                          </>
-                        ) : (
-                          'Activate'
-                        )}
-                      </Button>
-                    ) : (
-                      <Button
-                        size="sm"
-                        onClick={() => handlePurchase(item)}
-                        disabled={coins < item.price}
-                        className="gap-2"
-                      >
-                        <ShoppingCart size={16} />
-                        Buy
-                      </Button>
-                    )}
+                      {active ? (
+                        <>
+                          <CheckCircle size={16} weight="fill" />
+                          Active
+                        </>
+                      ) : (
+                        <>
+                          <Swatches size={16} weight="duotone" />
+                          Select
+                        </>
+                      )}
+                    </Button>
                   </div>
                 </div>
               </Card>
@@ -292,14 +249,14 @@ export function VanityShop({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center backdrop-blur-xl">
-            <ShoppingCart className="text-primary" size={32} weight="duotone" />
+            <Swatches className="text-primary" size={32} weight="duotone" />
           </div>
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gradient-cyber">
-              Vanity Shop
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+              Customization
             </h2>
             <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide">
-              Customize Your Experience
+              All Items Free • Select to Apply
             </p>
           </div>
         </div>
