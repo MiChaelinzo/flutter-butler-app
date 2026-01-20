@@ -1,14 +1,14 @@
 @import 'tailwindcss';
 @import "tw-animate-css";
 
-@layer base {
-  * {
-    @apply border-border;
   }
+  bod
+  }
+  h
   
-  body {
-    @apply bg-background text-foreground;
-  }
+
+  --background: oklch(0.12 0.02 285);
+
   
   h1, h2, h3, h4, h5, h6, .heading-font {
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -22,30 +22,30 @@
   --card: oklch(0.16 0.03 285 / 0.6);
   --card-foreground: oklch(0.96 0.01 285);
 
-  --popover: oklch(0.16 0.03 285);
-  --popover-foreground: oklch(0.98 0.01 285);
 
-  --primary: oklch(0.75 0.20 230);
-  --primary-foreground: oklch(0.98 0.01 285);
+  --lime-foreground: oklch(0.98 0.01 285);
 
-  --secondary: oklch(0.45 0.18 280);
-  --secondary-foreground: oklch(0.98 0.01 285);
 
-  --muted: oklch(0.25 0.02 285);
-  --muted-foreground: oklch(0.65 0.01 285);
+  --color-background: var(--background);
 
-  --accent: oklch(0.62 0.24 330);
-  --accent-foreground: oklch(0.98 0.01 285);
+  --color-card-foreground: var(--car
+  --color-popover: var(--popover);
 
-  --destructive: oklch(0.60 0.25 30);
-  --destructive-foreground: oklch(0.98 0.01 285);
+  --color-primary-foreground: va
+  --color-secondary: var(--secondary);
 
-  --border: oklch(0.30 0.02 285);
-  --input: oklch(0.30 0.02 285);
-  --ring: oklch(0.75 0.20 230);
+  --color-muted-foreground: var(-
+  --color-accent: var(--accent);
 
-  --orange: oklch(0.72 0.22 45);
-  --orange-foreground: oklch(0.98 0.01 285);
+  --color-destructive-foreground: var
+  --color-border: var(--border);
+
+  --color-orange: var(--orange);
+  
+  --color-lime-foreground: var(
+
+  --radius-lg: calc(var(--radius
+  --radius-2xl: calc(var(--radius) * 3);
 
   --lime: oklch(0.75 0.20 130);
   --lime-foreground: oklch(0.98 0.01 285);
@@ -80,105 +80,105 @@
   
   --color-border: var(--border);
   --color-input: var(--input);
-  --color-ring: var(--ring);
+    transform: translate(20p
   
-  --color-orange: var(--orange);
-  --color-orange-foreground: var(--orange-foreground);
-  
-  --color-lime: var(--lime);
-  --color-lime-foreground: var(--lime-foreground);
-
-  --radius-sm: calc(var(--radius) * 0.5);
-  --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) * 1.5);
-  --radius-xl: calc(var(--radius) * 2);
-  --radius-2xl: calc(var(--radius) * 3);
-  --radius-full: 9999px;
-}
-
-.cyber-grid {
-  background-image: 
-    linear-gradient(oklch(0.75 0.20 230 / 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.75 0.20 230 / 0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.text-gradient-cyber {
-  background: linear-gradient(135deg, 
-    oklch(0.75 0.20 230) 0%, 
-    oklch(0.62 0.24 330) 50%, 
-    oklch(0.75 0.20 230) 100%
-  );
-  background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 6s ease-in-out infinite;
-}
-
-.text-gradient-hot {
-  background: linear-gradient(135deg, 
-    oklch(0.72 0.22 45) 0%, 
-    oklch(0.62 0.24 330) 50%, 
-    oklch(0.72 0.22 45) 100%
-  );
-  background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 8s ease-in-out infinite;
-}
-
-.neon-text {
-  text-shadow: 
-    0 0 10px oklch(0.75 0.20 230 / 0.6),
-    0 0 20px oklch(0.75 0.20 230 / 0.4),
-    0 0 30px oklch(0.75 0.20 230 / 0.2);
-}
-
-.floating-orb {
-  animation: float-orb 20s ease-in-out infinite;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  scrollbar-width: none;
-}
-
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
   }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes float-orb {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(20px, -20px) scale(1.1);
-  }
-  50% {
-    transform: translate(-15px, 15px) scale(0.95);
-  }
-  75% {
     transform: translate(25px, 10px) scale(1.05);
-  }
 }
-
 @keyframes pulse-glow {
-  0%, 100% {
     transform: scale(1);
-    opacity: 0.8;
-  }
-  50% {
+
     transform: scale(1.05);
-    opacity: 1;
   }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
