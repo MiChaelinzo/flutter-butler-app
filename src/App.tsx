@@ -57,7 +57,7 @@ function App() {
         <header className="mb-8 md:mb-12">
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <div className="flex items-center gap-4">
-              <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-card border border-border flex items-center justify-center shadow-sm">
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-card glass-border flex items-center justify-center">
                 <Robot size={32} weight="duotone" className="text-primary" />
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-lime rounded-full border-2 border-background animate-pulse" />
               </div>
@@ -101,7 +101,7 @@ function App() {
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6 md:space-y-8">
           <div className="flex justify-center overflow-x-auto pb-2 no-scrollbar">
-            <TabsList className="inline-flex h-10 rounded-lg bg-card border border-border p-1 gap-0.5">
+            <TabsList className="inline-flex h-10 rounded-lg bg-card glass-border p-1 gap-0.5">
               <TabsTrigger 
                 value="dashboard" 
                 className="gap-2 px-3 sm:px-4 rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium text-xs sm:text-sm transition-all"

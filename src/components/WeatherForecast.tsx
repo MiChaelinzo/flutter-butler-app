@@ -1,35 +1,36 @@
 import { Button } from '@/components/ui/button'
 import { useState, useEffect } from 'react'
 import { useKV } from '@github/spark/hooks'
-interface ForecastDay {
-import { useKV } from '@github/spark/hooks'
+import { CalendarBlank, ArrowsClockwise, Sun, Cloud, CloudRain, CloudSnow, CloudFog, CloudLightning, Wind, Moon, Drop } from '@phosphor-icons/react'
+import { Skeleton } from '@/components/ui/skeleton'
 
 interface ForecastDay {
   day: string
-  tempHigh: nu
-  windSpeed: numb
+  date: string
+  weather: string
+  temperature: number
+  tempLow: number
+  tempHigh: number
+  humidity: number
+  windSpeed: number
+  description: string
 }
-export function W
-  const [forecast,
-  const [numDays, 
-  const generateFor
+
+export function WeatherForecast() {
+  const [forecast, setForecast] = useState<ForecastDay[] | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [numDays, setNumDays] = useKV<number>('forecast-days', 5)
+  const [tempUnit, setTempUnit] = useKV<string>('temperature-unit', 'fahrenheit')
+
+  const generateForecast = async () => {
+    setIsLoading(true)
     try {
- 
-
-        const date = new Date(today
-        return {
-          date: `${months[date.getMonth()]} ${date.getDate()}`
-      })
-      const promptText = `Generate a realis
-
-4. High temperature (5-15 degrees above 
-6. Wind speed in mph (
-
-
+      const days = numDays || 5
+      const today = new Date()
+      const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       
-      const response = await window.spark.llm(prompt, 'gpt-4o-mini', true)
-      
-        ...nextDays[index],
+      const nextDays = Array.from({ length: days }).map((_, i) => {
         const date = new Date(today)
         date.setDate(today.getDate() + i + 1)
         return {
@@ -38,7 +39,7 @@ export function W
         }
       })
 
-      const promptText = `Generate a realistic ${numDays}-day weather forecast. For each day, provide:
+      const promptText = `Generate a realistic ${days}-day weather forecast. For each day, provide:
 1. Weather condition (choose from: sunny, partly cloudy, overcast, rain, drizzle, thunderstorm, light snow, heavy snow, fog, mist, windy, clear)
 2. Temperature in Fahrenheit (realistic number between 20 and 95, showing gradual changes between days)
 3. Low temperature (5-15 degrees below main temp)
@@ -49,9 +50,9 @@ export function W
 
 Create a realistic forecast with gradual weather pattern changes, not random jumps.
 
-Return as a JSON object with a "days" property containing an array of ${numDays} forecast objects with keys: weather, temperature (number), tempLow (number), tempHigh (number), humidity (number), windSpeed (number), description`
+Return as a JSON object with a "days" property containing an array of ${days} forecast objects with keys: weather, temperature (number), tempLow (number), tempHigh (number), humidity (number), windSpeed (number), description`
       
-      const prompt = window.spark.llmPrompt([promptText], numDays.toString())
+      const prompt = window.spark.llmPrompt([promptText], days.toString())
       const response = await window.spark.llm(prompt, 'gpt-4o-mini', true)
       const data = JSON.parse(response)
       
@@ -162,7 +163,7 @@ Return as a JSON object with a "days" property containing an array of ${numDays}
     <div className="space-y-6">
       <div className="flex items-center justify-between pb-4">
         <div className="flex items-center gap-3 text-xl sm:text-2xl font-bold">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent/20 to-primary/10 flex items-center justify-center border border-accent/30">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent/20 to-primary/10 glass-border-subtle flex items-center justify-center">
             <CalendarBlank className="text-accent" size={20} weight="duotone" />
           </div>
           <span>{numDays}-Day Forecast</span>
@@ -204,7 +205,7 @@ Return as a JSON object with a "days" property containing an array of ${numDays}
       <div>
         {isLoading && !forecast ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {Array.from({ length: numDays }).map((_, i) => (
+            {Array.from({ length: numDays || 5 }).map((_, i) => (
               <Skeleton key={i} className="h-48 w-full rounded-lg bg-muted/20" />
             ))}
           </div>
@@ -214,7 +215,7 @@ Return as a JSON object with a "days" property containing an array of ${numDays}
               {forecast.map((day, index) => (
                 <div
                   key={index}
-                  className="rounded-xl p-4 border border-border/20 bg-background/40 backdrop-blur-sm hover:border-primary/40 hover:shadow-lg transition-all duration-300 group/card"
+                  className="rounded-xl p-4 glass-border bg-background/40 hover:border-primary/40 hover:shadow-lg transition-all duration-300 group/card"
                 >
                   <div className="space-y-3">
                     <div className="text-center">
@@ -223,9 +224,9 @@ Return as a JSON object with a "days" property containing an array of ${numDays}
                     </div>
 
                     <div className="flex justify-center py-2">
-                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent/10 to-primary/5 flex items-center justify-center border border-primary/10 group-hover/card:scale-110 transition-transform duration-300">
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent/10 to-primary/5 glass-border-subtle flex items-center justify-center group-hover/card:scale-110 transition-transform duration-300">
                         {getWeatherIcon(day.weather, 32)}
-                        {day
+                      </div>
                     </div>
 
                     <div className="text-center space-y-1">
@@ -256,27 +257,13 @@ Return as a JSON object with a "days" property containing an array of ${numDays}
                         {day.description}
                       </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        ) : null}
+      </div>
+    </div>
+  )
+}

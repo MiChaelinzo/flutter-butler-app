@@ -149,7 +149,7 @@ This is a multi-feature personal assistant platform with AI integration, task au
 
 ## Design Direction
 
-The design evokes a sophisticated cyberpunk-inspired AI interface with refined neon accents and holographic elements - bold yet elegant while maintaining exceptional usability. The interface features carefully balanced dark gradients, luminous borders with subtle glow effects, vibrant accent highlights, and smooth dynamic animations that create an immersive, premium digital experience. Every element is crafted with attention to detail, from the floating orb backgrounds to the gradient text effects, creating a cohesive futuristic aesthetic that feels both cutting-edge and polished. Features include a dynamic nebula background with stars and cosmic colors, an interactive mouse trail effect that creates flowing neon particles following cursor movement, and a dark/light mode toggle allowing users to switch between the immersive dark cyberpunk theme and a clean light professional theme.
+The design evokes a sophisticated cyberpunk-inspired AI interface with refined neon accents, holographic elements, and subtle glassmorphism effects - bold yet elegant while maintaining exceptional usability. The interface features carefully balanced dark gradients, luminous borders with subtle glow effects and frosted glass transparency, vibrant accent highlights, and smooth dynamic animations that create an immersive, premium digital experience. Every element is crafted with attention to detail, from the floating orb backgrounds to the gradient text effects and semi-transparent backdrop blur on key UI components, creating a cohesive futuristic aesthetic that feels both cutting-edge and polished. Glassmorphism effects are applied subtly to cards, navigation elements, and containers through backdrop-filter blur and layered semi-transparent borders, giving depth and dimension while maintaining clarity. Features include a dynamic nebula background with stars and cosmic colors, an interactive mouse trail effect that creates flowing neon particles following cursor movement, and a dark/light mode toggle allowing users to switch between the immersive dark cyberpunk theme and a clean light professional theme.
 
 ## Color Selection
 
@@ -184,20 +184,20 @@ Typography should feel modern, clean, and highly legible while maintaining a tec
 
 ## Animations
 
-Animations reinforce the refined cyberpunk aesthetic with smooth energy and elegant digital effects - subtle glowing pulses, holographic shimmers, and fluid neon trails. Interactive elements glow softly on hover with animated borders (400ms ease-out). Content materializes with smooth fade and scale animations (0.4s). Cards have refined glow intensification and gentle lift on hover (6px) with pulsing borders. Background features smooth animated gradient shifts and floating orb particles (25s cycles). Loading states use elegant scan lines and progress indicators. Celebrate completions with satisfying neon bursts and gentle flashes (250ms). 
+Animations reinforce the refined cyberpunk aesthetic with smooth energy, elegant digital effects, and depth-enhancing glassmorphism - subtle glowing pulses, holographic shimmers, frosted glass transitions, and fluid neon trails. Interactive elements glow softly on hover with animated borders and backdrop-blur effects (400ms ease-out). Content materializes with smooth fade and scale animations (0.4s). Cards have refined glow intensification, gentle lift on hover (6px), and pulsing borders with glassmorphic transparency. Background features smooth animated gradient shifts and floating orb particles (25s cycles). Loading states use elegant scan lines and progress indicators. Celebrate completions with satisfying neon bursts and gentle flashes (250ms). Glassmorphism transitions feature smooth backdrop-filter blur changes (300ms) that enhance depth without distracting from content.
 
 Weather icons feature purposeful animations that enhance the visual experience: sunny icons rotate slowly (30s), clouds float gently (4s vertical motion), rain bounces softly (2s), thunderstorms pulse with energy, snow falls with bouncing and spinning snowflake particles (3s), fog pulses with reduced opacity (3s), wind sways side-to-side (3s), drizzle shows animated water drops (2s drip), night icons glow with ethereal light (2s), freezing conditions shiver rapidly (1s), hail shakes violently (0.5s), and dust/sand drifts horizontally (5s). All weather animations are smooth, non-intrusive, and use CSS keyframes for optimal performance without impacting usability.
 
 ## Component Selection
 
 - **Components**: 
-  - **Dialog/Sheet**: For AI chat interface with video/audio call views, automation builders, detailed task editing, shop interface, and leaderboard view
-  - **Card**: Primary container for all feature modules with refined shadows and glowing borders
-  - **Button**: Extensive use with variants - gradient fills for primary actions (AI generation), outline for secondary (edit), ghost for tertiary (dismiss)
-  - **Input/Textarea**: Clean forms with elegant focus states for task entry and API configuration
-  - **Badge**: Status indicators for task priority, automation status, reminder timing, API connection status, coin amounts
+  - **Dialog/Sheet**: For AI chat interface with video/audio call views, automation builders, detailed task editing, shop interface, and leaderboard view with glassmorphism backdrop blur
+  - **Card**: Primary container for all feature modules with refined shadows, glowing borders, and subtle frosted glass effects using backdrop-filter
+  - **Button**: Extensive use with variants - gradient fills for primary actions (AI generation), outline for secondary (edit), ghost for tertiary (dismiss) - all with glassmorphic borders on hover
+  - **Input/Textarea**: Clean forms with elegant focus states and subtle glass borders for task entry and API configuration
+  - **Badge**: Status indicators for task priority, automation status, reminder timing, API connection status, coin amounts with semi-transparent backgrounds
   - **ScrollArea**: For task lists, chat history, shop items, and leaderboard ensuring content never feels cramped
-  - **Tabs**: Switch between different butler views (dashboard, tasks, automations, insights, API settings, shop, leaderboard)
+  - **Tabs**: Switch between different butler views (dashboard, tasks, automations, insights, API settings, shop, leaderboard) with glassmorphic container
   - **Separator**: Subtle dividers to create breathing room between sections
   - **Skeleton**: Loading states for AI content generation
   - **Avatar**: User profile in header and leaderboard, personalization touch
@@ -209,19 +209,20 @@ Weather icons feature purposeful animations that enhance the visual experience: 
 
 - **Customizations**: 
   - Custom AI thinking indicator with pulsing dots in accent color
-  - Custom quick action cards with icon backgrounds using refined gradients
-  - Custom task card with inline priority editing and smart time display
-  - Custom briefing card with weather icon integration and dynamic greetings
-  - Custom API configuration cards with service-specific styling and status badges
+  - Custom quick action cards with icon backgrounds using refined gradients and glassmorphic borders
+  - Custom task card with inline priority editing, smart time display, and frosted glass background
+  - Custom briefing card with weather icon integration, dynamic greetings, and subtle backdrop blur
+  - Custom API configuration cards with service-specific styling, status badges, and glass borders
   - Custom connection test feedback with success/error states
   - Custom 3D virtual assistant model with reactive animations based on speaking state and user interaction
   - Custom video/audio call interface with in-call controls (mute, speaker, end call)
+  - Glassmorphism utility classes (.glass-border, .glass-border-strong, .glass-border-subtle) for consistent frosted glass effects
   
 - **States**: 
-  - Buttons: Default with refined borders and gradients, hover lifts 2px with enhanced glow shadow, active subtle scale (0.97), focus clean ring with primary color
-  - Cards: Default with subtle border and glow, hover lifts 6px with intensified glow and enhanced border visibility
-  - Inputs: Default with subtle border, focus with primary ring and enhanced outline, error state with destructive color glow
-  - Tabs: Default with muted appearance, active with solid background and glow shadow (20px blur), smooth 300ms transitions between all states
+  - Buttons: Default with refined borders and gradients, hover lifts 2px with enhanced glow shadow and subtle glass effect, active subtle scale (0.97), focus clean ring with primary color
+  - Cards: Default with subtle border and glow plus glassmorphic backdrop blur (12px), hover lifts 6px with intensified glow and enhanced border visibility
+  - Inputs: Default with subtle glass border, focus with primary ring and enhanced outline, error state with destructive color glow
+  - Tabs: Default with muted appearance, active with solid background, glow shadow (20px blur), and frosted glass container, smooth 300ms transitions between all states
   - Switches: Default with muted background, active with primary color and glow effect
 
 - **Icon Selection**: 
