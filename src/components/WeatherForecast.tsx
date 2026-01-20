@@ -1,35 +1,35 @@
 import { Button } from '@/components/ui/button'
-import { Sun, Cloud, CloudRain, CloudSnow, CloudFog, CloudLightning, Wind, Moon, Snowflake, Drop, Thermometer, ArrowsClockwise, CalendarBlank } from '@phosphor-icons/react'
 import { useState, useEffect } from 'react'
-import { Skeleton } from '@/components/ui/skeleton'
+import { useKV } from '@github/spark/hooks'
+interface ForecastDay {
 import { useKV } from '@github/spark/hooks'
 
 interface ForecastDay {
   day: string
-  date: string
-  weather: string
-  temperature: number
-  tempLow: number
-  tempHigh: number
-  humidity: number
-  windSpeed: number
-  description: string
+  tempHigh: nu
+  windSpeed: numb
 }
-
-export function WeatherForecast() {
-  const [isLoading, setIsLoading] = useState(false)
-  const [forecast, setForecast] = useState<ForecastDay[] | null>(null)
-  const [tempUnit, setTempUnit] = useKV('temperature-unit', 'fahrenheit')
-  const [numDays, setNumDays] = useState(5)
-
-  const generateForecast = async () => {
-    setIsLoading(true)
+export function W
+  const [forecast,
+  const [numDays, 
+  const generateFor
     try {
-      const today = new Date()
-      const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+ 
+
+        const date = new Date(today
+        return {
+          date: `${months[date.getMonth()]} ${date.getDate()}`
+      })
+      const promptText = `Generate a realis
+
+4. High temperature (5-15 degrees above 
+6. Wind speed in mph (
+
+
       
-      const nextDays = Array.from({ length: numDays }, (_, i) => {
+      const response = await window.spark.llm(prompt, 'gpt-4o-mini', true)
+      
+        ...nextDays[index],
         const date = new Date(today)
         date.setDate(today.getDate() + i + 1)
         return {
@@ -225,7 +225,7 @@ Return as a JSON object with a "days" property containing an array of ${numDays}
                     <div className="flex justify-center py-2">
                       <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent/10 to-primary/5 flex items-center justify-center border border-primary/10 group-hover/card:scale-110 transition-transform duration-300">
                         {getWeatherIcon(day.weather, 32)}
-                      </div>
+                        {day
                     </div>
 
                     <div className="text-center space-y-1">
@@ -256,27 +256,27 @@ Return as a JSON object with a "days" property containing an array of ${numDays}
                         {day.description}
                       </div>
                     </div>
-                  </div>
-                </div>
-              ))}
-            </div>
 
-            <div className="sm:hidden flex justify-center gap-2 pt-2">
-              {[3, 5, 7].map(days => (
-                <Button
-                  key={days}
-                  variant={numDays === days ? "default" : "ghost"}
-                  size="sm"
-                  onClick={() => setNumDays(days)}
-                  className="h-8 px-4 text-xs font-semibold"
-                >
-                  {days} Days
-                </Button>
-              ))}
-            </div>
-          </>
-        ) : null}
-      </div>
-    </div>
-  )
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
