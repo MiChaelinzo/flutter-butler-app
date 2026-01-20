@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Sparkle, ArrowsClockwise, Sun, Cloud, CloudRain, Lightbulb } from '@phosphor-icons/react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Skeleton } from '@/components/ui/skeleton'
 
 interface DailyBriefingProps {
@@ -49,9 +49,11 @@ Return the result as a valid JSON object with keys: greeting, weather, prioritie
     onRegenerate()
   }
 
-  if (!briefing && !isLoading) {
-    generateBriefing()
-  }
+  useEffect(() => {
+    if (!briefing && !isLoading) {
+      generateBriefing()
+    }
+  }, [])
 
   const getWeatherIcon = () => {
     if (!briefing) return null
