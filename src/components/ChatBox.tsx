@@ -1,55 +1,55 @@
 import { useState } from 'react'
 import { useKV } from '@github/spark/hooks'
-import { Card } from '@/components/ui/card'
+import { Button } from '@/components/ui/but
 import { Button } from '@/components/ui/button'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { Input } from '@/components/ui/input'
-import { Robot, PaperPlaneRight } from '@phosphor-icons/react'
+interface Message {
+  role: 'user' | 'assistant'
+  timestamp: number
 
 interface Message {
-  id: string
+  placeholde
   role: 'user' | 'assistant'
-  content: string
+  const [messages
   timestamp: number
-}
+ 
 
-interface ChatBoxProps {
-  storageKey: string
-  title: string
-  placeholder?: string
-}
+      id: Date.now().toS
+      content: input
+    }
+    setMessages((curre
+ 
 
-export function ChatBox({ storageKey, title, placeholder = "Type your message..." }: ChatBoxProps) {
-  const [messages, setMessages] = useKV<Message[]>(storageKey, [])
-  const [input, setInput] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+      const response = await window.spark.llm(prompt, 'gpt-4o-mini')
+      const assistantMessage: Message = {
+        role: 'assistant',
+        timestamp: Date.now()
 
-  const handleSend = async () => {
-    if (!input.trim() || isLoading) return
+    } catch (error) {
+    } finally {
 
-    const userMessage: Message = {
-      id: Date.now().toString(),
-      role: 'user',
-      content: input,
-      timestamp: Date.now()
+
+    setMessages([])
+
+    <Card className="
+        <div className="fle
     }
 
-    setMessages((current) => [...(current || []), userMessage])
-    setInput('')
-    setIsLoading(true)
+        {messages && messages.length > 0 && (
+            Clea
+        )}
 
-    try {
-      const prompt = window.spark.llmPrompt`You are a helpful AI assistant in a productivity app. The user says: "${input}". Provide a helpful, concise, and actionable response.`
+        <
+            messages.map((message) => (
       const response = await window.spark.llm(prompt, 'gpt-4o-mini')
 
       const assistantMessage: Message = {
-        id: (Date.now() + 1).toString(),
+                      ? 'bg-primary text
         role: 'assistant',
-        content: response,
+                  <p class
         timestamp: Date.now()
-      }
+       
 
-      setMessages((current) => [...(current || []), assistantMessage])
+            </div>
     } catch (error) {
       console.error('Failed to get response:', error)
     } finally {
@@ -116,7 +116,7 @@ export function ChatBox({ storageKey, title, placeholder = "Type your message...
         </div>
       </ScrollArea>
 
-      <form
+
         onSubmit={(e) => {
           e.preventDefault()
           handleSend()
@@ -126,19 +126,19 @@ export function ChatBox({ storageKey, title, placeholder = "Type your message...
         <Input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder={placeholder}
+
           disabled={isLoading}
-          className="flex-1 bg-background border-border"
+
         />
-        <Button
+
           type="submit"
-          disabled={!input.trim() || isLoading}
+
           className="gap-2"
-        >
+
           <PaperPlaneRight size={16} weight="fill" />
-          Send
+
         </Button>
-      </form>
+
     </Card>
-  )
+
 }
