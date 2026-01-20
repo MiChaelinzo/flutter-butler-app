@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react'
 
-interface Particle {
-  x: number
   y: number
-  vx: number
-  vy: number
-  size: number
+  vy: numbe
+  opacity: 
+  life: numb
+}
+interface Part
   opacity: number
   color: string
   life: number
@@ -14,58 +14,58 @@ interface Particle {
 
 interface ParticleEffectProps {
   type?: 'particles' | 'snow' | 'sparkles' | 'bubbles' | 'fireflies'
-  count?: number
+}: ParticleEffec
   colors?: string[]
-}
+ 
 
 export function ParticleEffect({ 
   type = 'particles', 
-  count = 60,
+    const ctx
   colors = ['#667eea', '#764ba2', '#f093fb', '#a8edea']
 }: ParticleEffectProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const particlesRef = useRef<Particle[]>([])
-  const animationFrameRef = useRef<number | undefined>(undefined)
+  const animationFrameRef = useRef<number>()
 
   useEffect(() => {
-    const canvas = canvasRef.current
+      const baseConfig = {
     if (!canvas) return
 
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
+          return {
+            vx: (Mat
 
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+            opacity: Math.random
+        
+          return {
+     
+
+            color:
+          }
+
+            ...baseConfig,
+            vy: (Math.rand
+            color: ['#ffff00', '#ffd700'
+          }
+        default:
+            ...baseConfig,
+            vy: 
+          }
     }
 
-    resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
+    const animate = (
 
-    const createParticle = (): Particle => {
-      const baseConfig = {
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        opacity: Math.random() * 0.5 + 0.2,
-        life: 0,
-        maxLife: Math.random() * 300 + 200,
-      }
-
-      switch (type) {
-        case 'snow':
           return {
             ...baseConfig,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: Math.random() * 1 + 0.5,
-            size: Math.random() * 4 + 2,
-            color: '#ffffff',
-            opacity: Math.random() * 0.8 + 0.2,
-          }
+        if (type === 'sparkles' || type === 
+        }
+        if (type === 'fireflies') {
+          particle.vy += (Mat
+          particle.vy = Math.max(-1, Math.min(1
+
         
-        case 'sparkles':
-          return {
-            ...baseConfig,
+        } else if (type 
+        } else {
+            particle.x < -
             vx: (Math.random() - 0.5) * 0.3,
             vy: (Math.random() - 0.5) * 0.3,
             size: Math.random() * 3 + 1,
@@ -104,7 +104,7 @@ export function ParticleEffect({
       }
     }
 
-    particlesRef.current = Array.from({ length: count }, (_) => createParticle())
+    particlesRef.current = Array.from({ length: count }, createParticle)
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -134,15 +134,15 @@ export function ParticleEffect({
           needsReset = 
             particle.x < -10 || 
             particle.x > canvas.width + 10 || 
-            particle.y < -10 || 
+    animate()
             particle.y > canvas.height + 10 ||
-            particle.life > particle.maxLife
+      window.removeEventListener('resize', r
         }
 
         if (needsReset) {
-          particlesRef.current[index] = createParticle()
+
           return
-        }
+      ref
 
         ctx.save()
         ctx.globalAlpha = particle.opacity
@@ -154,37 +154,37 @@ export function ParticleEffect({
           ctx.beginPath()
           ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
           ctx.fill()
-          
+
           ctx.fillStyle = '#ffffff'
-          ctx.beginPath()
+
           ctx.arc(particle.x, particle.y, particle.size * 0.5, 0, Math.PI * 2)
-          ctx.fill()
+
         } else if (type === 'bubbles') {
           const gradient = ctx.createRadialGradient(
             particle.x - particle.size * 0.3,
-            particle.y - particle.size * 0.3,
+
             0,
-            particle.x,
+
             particle.y,
             particle.size
           )
           gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)')
           gradient.addColorStop(0.5, particle.color)
           gradient.addColorStop(1, 'rgba(255, 255, 255, 0)')
-          
+
           ctx.fillStyle = gradient
           ctx.beginPath()
           ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
           ctx.fill()
           
           ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)'
-          ctx.lineWidth = 1
+
           ctx.beginPath()
           ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
           ctx.stroke()
-        } else if (type === 'fireflies') {
+
           ctx.fillStyle = particle.color
-          ctx.shadowBlur = 15
+
           ctx.shadowColor = particle.color
           ctx.beginPath()
           ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
@@ -194,13 +194,13 @@ export function ParticleEffect({
           ctx.beginPath()
           ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
           ctx.fill()
-        }
 
-        ctx.restore()
+
+
       })
 
       animationFrameRef.current = requestAnimationFrame(animate)
-    }
+
 
     animate()
 
@@ -210,13 +210,13 @@ export function ParticleEffect({
         cancelAnimationFrame(animationFrameRef.current)
       }
     }
-  }, [type, count, colors])
+
 
   return (
     <canvas
-      ref={canvasRef}
+
       className="fixed inset-0 pointer-events-none z-0"
-      style={{ background: 'transparent' }}
+
     />
   )
 }
