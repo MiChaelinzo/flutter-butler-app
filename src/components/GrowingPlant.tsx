@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+
 
 interface GrowingPlantProps {
   progress: number
   isPaused: boolean
-}
+ 
 
-export function GrowingPlant({ progress, isPaused }: GrowingPlantProps) {
-  const [isGrowing, setIsGrowing] = useState(false)
+      setIsGrowing(true)
+      setIsGrowing(false)
 
-  useEffect(() => {
+  const growthStage
     if (progress > 0 && !isPaused) {
       setIsGrowing(true)
     } else if (isPaused) {
@@ -22,51 +22,51 @@ export function GrowingPlant({ progress, isPaused }: GrowingPlantProps) {
   const stemHeight = Math.max(20, (progress / 100) * 100)
 
   return (
-    <div className="relative w-full h-[300px] flex items-end justify-center">
-      <svg
-        width="200"
-        height="300"
-        viewBox="0 0 200 300"
-        className="overflow-visible"
-      >
-        <defs>
-          <linearGradient id="stemGradient" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="oklch(0.65 0.15 145)" />
-            <stop offset="100%" stopColor="oklch(0.50 0.18 150)" />
-          </linearGradient>
-          <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="oklch(0.75 0.20 140)" />
-            <stop offset="50%" stopColor="oklch(0.70 0.18 145)" />
-            <stop offset="100%" stopColor="oklch(0.65 0.16 150)" />
-          </linearGradient>
+          
+            <stop o
+            <stop of
           <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
             <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
+       
+          </fi
 
-        <motion.g
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-        >
           <motion.rect
-            x="95"
             y={300 - stemHeight}
-            width="10"
             height={stemHeight}
-            fill="url(#stemGradient)"
             rx="5"
-            initial={{ height: 0 }}
             animate={{ height: stemHeight }}
-            transition={{ duration: 1, ease: "easeOut" }}
           />
+          {growthStage >= 1 
+              initial={{ scale: 0, opacity: 0 }}
+                scale
+                rotate: isGrowing ? [0, -2, 0
+              transition={{ 
+                opacit
+              }}
+            >
 
-          {growthStage >= 1 && (
+                r
+                fill="url(#leafGra
+                transform="rotate(
+            </motion.g>
+
             <motion.g
+              anim
+                opacity: 1,
+              }}
+                scale: { durati
+                rotate: { duration: 2
+              styl
+              <ellipse
+                cy="200"
+                ry="15"
+            
+
+          )}
+          {growthStag
               initial={{ scale: 0, opacity: 0 }}
               animate={{ 
                 scale: leafScale, 
@@ -240,20 +240,20 @@ export function GrowingPlant({ progress, isPaused }: GrowingPlantProps) {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           />
-        )}
+
       </svg>
 
       {progress === 100 && (
-        <motion.div
+
           className="absolute -top-8 left-1/2 -translate-x-1/2 text-center"
           initial={{ opacity: 0, y: 10, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.5 }}
+
         >
           <div className="text-2xl font-bold text-lime">🌟</div>
           <div className="text-xs font-semibold text-lime mt-1">Complete!</div>
         </motion.div>
-      )}
+
 
       <div className="absolute bottom-0 left-0 right-0 h-8 -z-10">
         <motion.div
@@ -263,9 +263,9 @@ export function GrowingPlant({ progress, isPaused }: GrowingPlantProps) {
           }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
+
         />
-      </div>
+
     </div>
-  )
+
 }
