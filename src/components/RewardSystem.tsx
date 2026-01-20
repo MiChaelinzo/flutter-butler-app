@@ -1,35 +1,34 @@
 import { useKV } from '@github/spark/hooks'
-import { motion, AnimatePresence } from 'fram
 import { motion, AnimatePresence } from 'framer-motion'
+import { Coins } from '@phosphor-icons/react'
 
+export interface RewardEvent {
+  id: string
+  amount: number
+  message: string
   timestamp: number
+}
 
-  const [coins, 
-  const [rewardQu
-  const awardCoins 
- 
+export function useRewardSystem() {
+  const [coins, setCoins] = useKV<number>('reward-coins', 0)
+  const [totalEarned, setTotalEarned] = useKV<number>('reward-total-earned', 0)
+  const [rewardQueue, setRewardQueue] = useKV<RewardEvent[]>('reward-queue', [])
 
+  const awardCoins = (amount: number, message: string) => {
+    const event: RewardEvent = {
+      id: `${Date.now()}-${Math.random()}`,
+      amount,
+      message,
+      timestamp: Date.now(),
     }
     setCoins((current = 0) => current + amount)
+    setTotalEarned((current = 0) => current + amount)
     setRewardQueue((queue = []) => [...queue, event])
+    
     setTimeout(() => {
-
-
-    let canSpend = false
-      if (current >= amount) {
-        retur
-      return c
-    return canSpend
-
-
-export function RewardNotifications({ events }:
-    <div className="fixed top-24 right-4 z-50 space-y
-        {events.map((event) => (
-
-            animate={{
-            className="bg-card border border-border rounded-xl p-4 shadow-lg
-            
-   
+      setRewardQueue((queue = []) => queue.filter(e => e.id !== event.id))
+    }, 3000)
+  }
 
   const spendCoins = (amount: number): boolean => {
     let canSpend = false
@@ -60,31 +59,23 @@ export function RewardNotifications({ events }: { events: RewardEvent[] }) {
           >
             <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
               <Coins size={24} weight="duotone" className="text-primary" />
+            </div>
+            <div className="flex-1">
+              <p className="font-semibold text-sm">{event.message}</p>
+              <p className="text-xs text-muted-foreground">+{event.amount} coins</p>
+            </div>
+          </motion.div>
+        ))}
+      </AnimatePresence>
+    </div>
+  )
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export function CoinDisplay({ amount }: { amount: number }) {
+  return (
+    <div className="flex items-center gap-2 px-4 h-12 bg-card/80 backdrop-blur-xl border border-border rounded-xl">
+      <Coins size={20} weight="duotone" className="text-primary" />
+      <span className="font-bold text-sm">{amount.toLocaleString()}</span>
+    </div>
+  )
+}
