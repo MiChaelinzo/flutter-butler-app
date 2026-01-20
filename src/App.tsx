@@ -26,6 +26,7 @@ import { useRewardSystem, RewardNotifications, CoinDisplay } from '@/components/
 import { VanityShop, type VanityItem } from '@/components/VanityShop'
 import { Leaderboard } from '@/components/Leaderboard'
 import { MusicPlayer } from '@/components/MusicPlayer'
+import { ChatBox } from '@/components/ChatBox'
 
 function App() {
   const [chatOpen, setChatOpen] = useState(false)
@@ -245,6 +246,12 @@ function App() {
                 </div>
               </div>
             </div>
+
+            <ChatBox 
+              storageKey="dashboard-chat" 
+              title="Command Chat" 
+              placeholder="Ask about your tasks, goals, or anything else..." 
+            />
           </TabsContent>
 
           <TabsContent value="focus" className="space-y-6 mt-6">
@@ -364,6 +371,11 @@ function App() {
 
           <TabsContent value="analytics" className="space-y-6 mt-6">
             <AnalyticsDashboard />
+            <ChatBox 
+              storageKey="analytics-chat" 
+              title="Intel Assistant" 
+              placeholder="Ask about analytics, insights, or productivity tips..." 
+            />
           </TabsContent>
 
           <TabsContent value="team" className="space-y-6 mt-6">
