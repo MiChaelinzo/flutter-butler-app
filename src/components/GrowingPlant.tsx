@@ -62,24 +62,23 @@ export function GrowingPlant({ progress, isPaused }: GrowingPlantProps) {
             height={stemHeight}
             rx="5"
             fill="url(#stemGradient)"
-              height: stemHeigh
             animate={{ 
               height: stemHeight,
               y: 280 - stemHeight 
             }}
-          {growthStage >= 0 && (
+            transition={{ duration: 0.5, ease: "easeOut" }}
           />
 
           {growthStage >= 0 && (
-                rotat
+            <motion.g
               initial={{ scale: 0, opacity: 0 }}
               animate={{ 
                 scale: leafScale, 
-              }}
+                opacity: 1,
                 rotate: isGrowing ? [0, -2, 0] : 0 
-              <e
+              }}
               transition={{ 
-                rx="25"
+                scale: { duration: 0.5, ease: "easeOut" },
                 opacity: { duration: 0.5 },
                 rotate: { duration: 2, repeat: Infinity, ease: "easeInOut" }
               }}
@@ -87,150 +86,177 @@ export function GrowingPlant({ progress, isPaused }: GrowingPlantProps) {
             >
               <ellipse
                 cx="70"
-              animate={{
+                cy="220"
                 rx="25"
-                rotate:
+                ry="15"
                 fill="url(#leafGradient)"
                 filter="url(#glow)"
                 transform="rotate(-30 70 220)"
-              }}
+              />
             </motion.g>
+          )}
             
-
           {growthStage >= 0 && (
             <motion.g
               initial={{ scale: 0, opacity: 0 }}
-                scale: { 
+              animate={{ 
                 scale: leafScale, 
-              }}
+                opacity: 1,
                 rotate: isGrowing ? [0, 2, 0] : 0 
-              <e
-            <motion.g
-              animate={{ 
-                opacity: 1,
               }}
-                
-                rotate: { duration: 2, repeat: Infinity,
-             
-              <ellipse
-                cy="200
-                ry="15"
-                filter=
-              />
-          )}
-          {growthStage >= 2 && (
-              initial={{ scale: 0, opacity: 0 
-                
-                rotate:
-            
-
+              transition={{ 
+                scale: { duration: 0.5, ease: "easeOut" },
+                opacity: { duration: 0.5 },
+                rotate: { duration: 2, repeat: Infinity, ease: "easeInOut" }
               }}
+              style={{ transformOrigin: "100px 220px" }}
             >
+              <ellipse
                 cx="130"
+                cy="220"
                 rx="25"
-                fill="url(#leafGra
-                transform="
-            </motion.g>
-
-            <motion.g
-              animate={{ 
-                opacity: 1,
-              }}
-                
-                rotate: { duration: 3, repeat: Infinity,
-             
-              <ellipse
-                cy="160"
-                ry="17"
-                filter=
+                ry="15"
+                fill="url(#leafGradient)"
+                filter="url(#glow)"
+                transform="rotate(30 130 220)"
               />
+            </motion.g>
           )}
-          {growthStage >= 3 && (
-              initial={{ scale: 0, opacity: 0 
-                
-                rotate:
-            
 
-              }}
-            >
-                cx="135"
-                rx="28"
-                fill="url(#leafGra
-                transform="
-            </motion.g>
-
+          {growthStage >= 1 && (
             <motion.g
-              animate={{ scale: 1, opacity: 1, rotate: [0,
-                scale: { duration: 0.5 },
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ 
+                scale: leafScale, 
+                opacity: 1,
+                rotate: isGrowing ? [0, -2.5, 0] : 0 
               }}
-              {[
-                  key={i}
-             
-                  ry="
-                  filte
-                />
+              transition={{ 
+                scale: { duration: 0.6, ease: "easeOut" },
+                opacity: { duration: 0.5 },
+                rotate: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+              }}
+              style={{ transformOrigin: "100px 200px" }}
+            >
+              <ellipse
+                cx="65"
+                cy="200"
+                rx="25"
+                ry="15"
+                fill="url(#leafGradient)"
+                filter="url(#glow)"
+                transform="rotate(-35 65 200)"
+              />
             </motion.g>
-        </motion.g>
-        {isPaused && (
-            cx="100"
-            r="30"
-            init
-            exit={{ sca
-        )}
+          )}
 
-        <motion.div
-          initial={{ 
-          transition={{ duration: 0.5 }}
-          <div className=
-          </div>
-      )}
-      <div className="absolute bottom-0 w-full fle
-          classN
-            background: `lin
-          initial={{ opacity: 0, scale: 0.5 }}
-          transition={{ duration: 0.5 }}
-      </div>
-  )
+          {growthStage >= 1 && (
+            <motion.g
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ 
+                scale: leafScale, 
+                opacity: 1,
+                rotate: isGrowing ? [0, 2.5, 0] : 0 
+              }}
+              transition={{ 
+                scale: { duration: 0.6, ease: "easeOut" },
+                opacity: { duration: 0.5 },
+                rotate: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+              }}
+              style={{ transformOrigin: "100px 200px" }}
+            >
+              <ellipse
+                cx="135"
+                cy="200"
+                rx="25"
+                ry="15"
+                fill="url(#leafGradient)"
+                filter="url(#glow)"
+                transform="rotate(35 135 200)"
+              />
+            </motion.g>
+          )}
 
+          {growthStage >= 2 && (
+            <motion.g
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ 
+                scale: leafScale, 
+                opacity: 1,
+                rotate: isGrowing ? [0, -3, 0] : 0 
+              }}
+              transition={{ 
+                scale: { duration: 0.7, ease: "easeOut" },
+                opacity: { duration: 0.5 },
+                rotate: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              }}
+              style={{ transformOrigin: "100px 180px" }}
+            >
+              <ellipse
+                cx="60"
+                cy="180"
+                rx="28"
+                ry="17"
+                fill="url(#leafGradient)"
+                filter="url(#glow)"
+                transform="rotate(-40 60 180)"
+              />
+            </motion.g>
+          )}
 
+          {growthStage >= 2 && (
+            <motion.g
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ 
+                scale: leafScale, 
+                opacity: 1,
+                rotate: isGrowing ? [0, 3, 0] : 0 
+              }}
+              transition={{ 
+                scale: { duration: 0.7, ease: "easeOut" },
+                opacity: { duration: 0.5 },
+                rotate: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              }}
+              style={{ transformOrigin: "100px 180px" }}
+            >
+              <ellipse
+                cx="140"
+                cy="180"
+                rx="28"
+                ry="17"
+                fill="url(#leafGradient)"
+                filter="url(#glow)"
+                transform="rotate(40 140 180)"
+              />
+            </motion.g>
+          )}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          {growthStage >= 3 && (
+            <motion.g
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ 
+                scale: leafScale, 
+                opacity: 1,
+                rotate: isGrowing ? [0, -2.7, 0] : 0 
+              }}
+              transition={{ 
+                scale: { duration: 0.8, ease: "easeOut" },
+                opacity: { duration: 0.5 },
+                rotate: { duration: 2.7, repeat: Infinity, ease: "easeInOut" }
+              }}
+              style={{ transformOrigin: "100px 160px" }}
+            >
+              <ellipse
+                cx="65"
+                cy="160"
+                rx="28"
+                ry="17"
+                fill="url(#leafGradient)"
+                filter="url(#glow)"
+                transform="rotate(-35 65 160)"
+              />
+            </motion.g>
+          )}
 
           {growthStage >= 3 && (
             <motion.g
@@ -256,7 +282,7 @@ export function GrowingPlant({ progress, isPaused }: GrowingPlantProps) {
                 filter="url(#glow)"
                 transform="rotate(35 135 160)"
               />
-
+            </motion.g>
           )}
 
           {progress === 100 && (
@@ -282,45 +308,45 @@ export function GrowingPlant({ progress, isPaused }: GrowingPlantProps) {
               ))}
             </motion.g>
           )}
+        </motion.g>
 
-
-
+        {isPaused && (
           <motion.circle
-
+            cx="100"
             cy="150"
-
+            r="30"
             fill="oklch(0.3 0 0 / 0.7)"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
-
+          />
         )}
+      </svg>
 
-
-
+      {progress === 100 && (
         <motion.div
           className="mt-4 text-center"
           initial={{ opacity: 0, y: 10, scale: 0.9 }}
-
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.5 }}
-
+        >
           <div className="text-2xl font-bold bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">
             🌸 Fully Grown! 🌸
           </div>
         </motion.div>
-
+      )}
 
       <div className="absolute bottom-0 w-full flex justify-center">
-
+        <motion.div
           className="w-32 h-2 bg-gradient-to-r from-transparent via-green-500/30 to-transparent rounded-full"
           style={{
             background: `linear-gradient(90deg, transparent, oklch(0.65 0.15 145 / ${progress / 100}), transparent)`
           }}
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
-
+          transition={{ duration: 0.5 }}
         />
-
+      </div>
     </div>
-
+  )
 }
