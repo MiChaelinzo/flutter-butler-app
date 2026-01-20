@@ -3,6 +3,7 @@ export interface Task {
   text: string
   completed: boolean
   priority: 'high' | 'medium' | 'low'
+  category?: 'work' | 'personal' | 'urgent' | 'routine' | 'creative'
   estimatedMinutes?: number
   createdAt: number
 }

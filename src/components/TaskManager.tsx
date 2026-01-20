@@ -2,16 +2,18 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Badge } from '@/components/ui/badge'
-import { ListChecks, Plus, Trash, Sparkle } from '@phosphor-icons/react'
+import { ListChecks, Plus, Trash, Sparkle, Briefcase, Heart, Warning, Repeat, Palette } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { useKV } from '@github/spark/hooks'
 import { Task } from '@/lib/types'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { toast } from 'sonner'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
 export function TaskManager() {
   const [tasks, setTasks] = useKV<Task[]>('butler-tasks', [])
   const [newTaskText, setNewTaskText] = useState('')
+  const [newTaskCategory, setNewTaskCategory] = useState<Task['category']>('work')
   const [isAnalyzing, setIsAnalyzing] = useState(false)
 
   const addTask = async () => {
@@ -29,12 +31,14 @@ export function TaskManager() {
         text: newTaskText,
         completed: false,
         priority: analysis.priority || 'medium',
+        category: newTaskCategory || 'work',
         estimatedMinutes: analysis.estimatedMinutes || 30,
         createdAt: Date.now()
       }
 
       setTasks((current) => [...(current || []), newTask])
       setNewTaskText('')
+      setNewTaskCategory('work')
       toast.success('Task added with AI insights')
     } catch (error) {
       const newTask: Task = {
@@ -42,10 +46,12 @@ export function TaskManager() {
         text: newTaskText,
         completed: false,
         priority: 'medium',
+        category: newTaskCategory || 'work',
         createdAt: Date.now()
       }
       setTasks((current) => [...(current || []), newTask])
       setNewTaskText('')
+      setNewTaskCategory('work')
     } finally {
       setIsAnalyzing(false)
     }
@@ -76,6 +82,46 @@ export function TaskManager() {
     }
   }
 
+  const getCategoryColor = (category?: string) => {
+    switch (category) {
+      case 'work':
+        return 'bg-primary/30 text-primary border-primary/50 shadow-lg shadow-primary/20'
+      case 'personal':
+        return 'bg-lime/30 text-lime border-lime/50 shadow-lg shadow-lime/20'
+      case 'urgent':
+        return 'bg-orange/30 text-orange border-orange/50 shadow-lg shadow-orange/20'
+      case 'routine':
+        return 'bg-secondary/30 text-secondary-foreground border-secondary/50 shadow-lg shadow-secondary/20'
+      case 'creative':
+        return 'bg-accent/30 text-accent border-accent/50 shadow-lg shadow-accent/20'
+      default:
+        return 'bg-muted/60 text-muted-foreground border-white/20 shadow-lg'
+    }
+  }
+
+  const getCategoryIcon = (category?: string) => {
+    switch (category) {
+      case 'work':
+        return <Briefcase size={14} weight="bold" />
+      case 'personal':
+        return <Heart size={14} weight="bold" />
+      case 'urgent':
+        return <Warning size={14} weight="bold" />
+      case 'routine':
+        return <Repeat size={14} weight="bold" />
+      case 'creative':
+        return <Palette size={14} weight="bold" />
+      default:
+        return null
+    }
+  }
+
+  const getTaskPulseClass = (priority: string, category?: string) => {
+    const priorityClass = `task-priority-${priority}`
+    const categoryClass = category ? `task-category-${category}` : ''
+    return `${priorityClass} ${categoryClass}`.trim()
+  }
+
   const incompleteTasks = (tasks || []).filter(t => !t.completed)
   const completedTasks = (tasks || []).filter(t => t.completed)
 
@@ -89,24 +135,64 @@ export function TaskManager() {
       </div>
       
       <div className="space-y-6">
-        <div className="flex gap-3">
-          <Input
-            placeholder="Add a new task..."
-            value={newTaskText}
-            onChange={(e) => setNewTaskText(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && addTask()}
-            disabled={isAnalyzing}
-            id="new-task-input"
-            className="h-14 rounded-2xl border border-white/10 text-base sm:text-lg bg-background/50 backdrop-blur-xl font-semibold focus:border-primary/50 focus:ring-2 focus:ring-primary/30"
-          />
-          <Button 
-            onClick={addTask} 
-            disabled={!newTaskText.trim() || isAnalyzing} 
-            size="icon"
-            className="h-14 w-14 rounded-2xl shadow-xl shadow-primary/30 flex-shrink-0 bg-gradient-to-br from-primary via-accent to-primary hover:scale-110 transition-all border border-white/10"
-          >
-            {isAnalyzing ? <Sparkle className="animate-pulse text-white" size={24} weight="duotone" /> : <Plus className="text-white" size={24} weight="bold" />}
-          </Button>
+        <div className="space-y-3">
+          <div className="flex gap-3">
+            <Input
+              placeholder="Add a new task..."
+              value={newTaskText}
+              onChange={(e) => setNewTaskText(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && addTask()}
+              disabled={isAnalyzing}
+              id="new-task-input"
+              className="h-14 rounded-2xl border border-white/10 text-base sm:text-lg bg-background/50 backdrop-blur-xl font-semibold focus:border-primary/50 focus:ring-2 focus:ring-primary/30"
+            />
+            <Button 
+              onClick={addTask} 
+              disabled={!newTaskText.trim() || isAnalyzing} 
+              size="icon"
+              className="h-14 w-14 rounded-2xl shadow-xl shadow-primary/30 flex-shrink-0 bg-gradient-to-br from-primary via-accent to-primary hover:scale-110 transition-all border border-white/10"
+            >
+              {isAnalyzing ? <Sparkle className="animate-pulse text-white" size={24} weight="duotone" /> : <Plus className="text-white" size={24} weight="bold" />}
+            </Button>
+          </div>
+          
+          <Select value={newTaskCategory} onValueChange={(value) => setNewTaskCategory(value as Task['category'])}>
+            <SelectTrigger className="w-full h-12 rounded-xl border border-white/10 bg-background/50 backdrop-blur-xl font-semibold">
+              <SelectValue placeholder="Select category" />
+            </SelectTrigger>
+            <SelectContent className="rounded-xl border border-white/10 bg-card/95 backdrop-blur-xl">
+              <SelectItem value="work" className="font-semibold">
+                <div className="flex items-center gap-2">
+                  <Briefcase size={16} weight="bold" className="text-primary" />
+                  Work
+                </div>
+              </SelectItem>
+              <SelectItem value="personal" className="font-semibold">
+                <div className="flex items-center gap-2">
+                  <Heart size={16} weight="bold" className="text-lime" />
+                  Personal
+                </div>
+              </SelectItem>
+              <SelectItem value="urgent" className="font-semibold">
+                <div className="flex items-center gap-2">
+                  <Warning size={16} weight="bold" className="text-orange" />
+                  Urgent
+                </div>
+              </SelectItem>
+              <SelectItem value="routine" className="font-semibold">
+                <div className="flex items-center gap-2">
+                  <Repeat size={16} weight="bold" className="text-secondary-foreground" />
+                  Routine
+                </div>
+              </SelectItem>
+              <SelectItem value="creative" className="font-semibold">
+                <div className="flex items-center gap-2">
+                  <Palette size={16} weight="bold" className="text-accent" />
+                  Creative
+                </div>
+              </SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <ScrollArea className="h-[400px] sm:h-[450px] pr-4">
@@ -124,7 +210,7 @@ export function TaskManager() {
                 {incompleteTasks.map((task) => (
                   <div
                     key={task.id}
-                    className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl border border-white/10 bg-background/40 backdrop-blur-xl hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all group card-gradient-hover-primary card-pulse-extreme-hover"
+                    className={`flex items-start gap-4 p-5 sm:p-6 rounded-2xl border border-white/10 bg-background/40 backdrop-blur-xl hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all group ${getTaskPulseClass(task.priority, task.category)}`}
                   >
                     <Checkbox
                       checked={task.completed}
@@ -138,6 +224,12 @@ export function TaskManager() {
                         <Badge variant="outline" className={`${getPriorityColor(task.priority)} font-bold text-sm sm:text-base rounded-xl px-4 py-1.5 border-2`}>
                           {task.priority}
                         </Badge>
+                        {task.category && (
+                          <Badge variant="outline" className={`${getCategoryColor(task.category)} font-bold text-sm sm:text-base rounded-xl px-4 py-1.5 border-2 flex items-center gap-1.5`}>
+                            {getCategoryIcon(task.category)}
+                            {task.category}
+                          </Badge>
+                        )}
                         {task.estimatedMinutes && (
                           <span className="text-sm sm:text-base text-muted-foreground font-bold flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-primary shadow-lg shadow-primary/50" />

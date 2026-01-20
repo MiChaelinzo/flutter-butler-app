@@ -963,3 +963,290 @@
   width: 300px;
   height: 300px;
 }
+
+.task-priority-high {
+  position: relative;
+  overflow: hidden;
+}
+
+.task-priority-high::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.577 0.245 27.325 / 0.15) 0%,
+    oklch(0.65 0.28 27.325 / 0.25) 50%,
+    oklch(0.577 0.245 27.325 / 0.15) 100%
+  );
+  background-size: 200% 200%;
+  animation: task-pulse-urgent 1.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.task-priority-high > * {
+  position: relative;
+  z-index: 1;
+}
+
+.task-priority-medium {
+  position: relative;
+  overflow: hidden;
+}
+
+.task-priority-medium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.68 0.24 330 / 0.12) 0%,
+    oklch(0.72 0.28 330 / 0.22) 50%,
+    oklch(0.68 0.24 330 / 0.12) 100%
+  );
+  background-size: 200% 200%;
+  animation: task-pulse-medium 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.task-priority-medium > * {
+  position: relative;
+  z-index: 1;
+}
+
+.task-priority-low {
+  position: relative;
+  overflow: hidden;
+}
+
+.task-priority-low::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.72 0.19 200 / 0.08) 0%,
+    oklch(0.76 0.22 200 / 0.15) 50%,
+    oklch(0.72 0.19 200 / 0.08) 100%
+  );
+  background-size: 200% 200%;
+  animation: task-pulse-low 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.task-priority-low > * {
+  position: relative;
+  z-index: 1;
+}
+
+.task-category-work {
+  position: relative;
+  overflow: hidden;
+}
+
+.task-category-work::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.72 0.19 200 / 0.10) 0%,
+    oklch(0.68 0.24 330 / 0.18) 50%,
+    oklch(0.72 0.19 200 / 0.10) 100%
+  );
+  background-size: 200% 200%;
+  animation: task-category-shift 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.task-category-work > * {
+  position: relative;
+  z-index: 1;
+}
+
+.task-category-personal {
+  position: relative;
+  overflow: hidden;
+}
+
+.task-category-personal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.82 0.18 130 / 0.10) 0%,
+    oklch(0.72 0.19 200 / 0.18) 50%,
+    oklch(0.82 0.18 130 / 0.10) 100%
+  );
+  background-size: 200% 200%;
+  animation: task-category-shift 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.task-category-personal > * {
+  position: relative;
+  z-index: 1;
+}
+
+.task-category-urgent {
+  position: relative;
+  overflow: hidden;
+}
+
+.task-category-urgent::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.70 0.20 45 / 0.12) 0%,
+    oklch(0.577 0.245 27.325 / 0.22) 50%,
+    oklch(0.70 0.20 45 / 0.12) 100%
+  );
+  background-size: 200% 200%;
+  animation: task-category-urgent 2.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.task-category-urgent > * {
+  position: relative;
+  z-index: 1;
+}
+
+.task-category-routine {
+  position: relative;
+  overflow: hidden;
+}
+
+.task-category-routine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.68 0.12 260 / 0.08) 0%,
+    oklch(0.72 0.16 260 / 0.14) 50%,
+    oklch(0.68 0.12 260 / 0.08) 100%
+  );
+  background-size: 200% 200%;
+  animation: task-category-shift 7s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.task-category-routine > * {
+  position: relative;
+  z-index: 1;
+}
+
+.task-category-creative {
+  position: relative;
+  overflow: hidden;
+}
+
+.task-category-creative::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.68 0.24 330 / 0.12) 0%,
+    oklch(0.70 0.20 45 / 0.20) 50%,
+    oklch(0.72 0.19 200 / 0.16) 75%,
+    oklch(0.68 0.24 330 / 0.12) 100%
+  );
+  background-size: 300% 300%;
+  animation: task-category-creative 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.task-category-creative > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes task-pulse-urgent {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.25;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.45;
+  }
+}
+
+@keyframes task-pulse-medium {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.18;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.32;
+  }
+}
+
+@keyframes task-pulse-low {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.12;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.22;
+  }
+}
+
+@keyframes task-category-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.15;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.28;
+  }
+}
+
+@keyframes task-category-urgent {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.28;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.45;
+  }
+}
+
+@keyframes task-category-creative {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.18;
+  }
+  33% {
+    background-position: 50% 100%;
+    opacity: 0.30;
+  }
+  66% {
+    background-position: 100% 0%;
+    opacity: 0.25;
+  }
+}
