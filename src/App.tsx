@@ -27,6 +27,7 @@ import { VanityShop, type VanityItem } from '@/components/VanityShop'
 import { Leaderboard } from '@/components/Leaderboard'
 import { MusicPlayer } from '@/components/MusicPlayer'
 import { ChatBox } from '@/components/ChatBox'
+import { WeatherForecast } from '@/components/WeatherForecast'
 
 function App() {
   const [chatOpen, setChatOpen] = useState(false)
@@ -211,6 +212,8 @@ function App() {
 
           <TabsContent value="dashboard" className="space-y-6 md:space-y-8 mt-6">
             <DailyBriefing onRegenerate={() => {}} />
+            
+            <WeatherForecast />
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <DailyGoals />
