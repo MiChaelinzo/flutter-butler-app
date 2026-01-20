@@ -383,3 +383,217 @@
   position: relative;
   z-index: 1;
 }
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(135deg, 
+    oklch(0.7 0.15 270 / 0.1) 0%,
+    oklch(0.65 0.2 300 / 0.15) 50%,
+    oklch(0.7 0.15 270 / 0.1) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: var(--background);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.gradient-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    oklch(1 0 0 / 0) 0%,
+    oklch(1 0 0 / 0.1) 50%,
+    oklch(1 0 0 / 0) 100%
+  );
+  transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gradient-shine:hover::after {
+  transform: translateX(100%) translateY(100%) rotate(45deg);
+}
+
+.interactive-gradient {
+  background: linear-gradient(135deg, 
+    var(--color-primary) 0%,
+    var(--color-primary) 50%,
+    oklch(from var(--color-primary) calc(l * 1.1) c h) 100%
+  );
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-gradient:hover {
+  background-position: 100% 50%;
+  box-shadow: 0 8px 24px -4px var(--color-primary);
+}
+
+.interactive-gradient:active {
+  background-position: 50% 50%;
+  transform: scale(0.98);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg,
+    oklch(0.5 0.2 270) 0%,
+    oklch(0.6 0.25 300) 50%,
+    oklch(0.5 0.2 270) 100%
+  );
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
+.gradient-pulse {
+  position: relative;
+  animation: gradient-pulse-animation 3s ease-in-out infinite;
+}
+
+@keyframes gradient-pulse-animation {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--color-primary);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--color-primary), 0 0 60px var(--color-primary);
+    filter: brightness(1.1);
+  }
+}
+
+.input-gradient-focus {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-gradient-focus:focus {
+  border-image: linear-gradient(135deg,
+    oklch(0.6 0.2 270) 0%,
+    oklch(0.7 0.25 300) 50%,
+    oklch(0.6 0.2 270) 100%
+  ) 1;
+  box-shadow: 0 0 0 3px oklch(0.6 0.2 270 / 0.1);
+}
+
+.badge-gradient {
+  background: linear-gradient(135deg,
+    oklch(0.65 0.18 270 / 0.9) 0%,
+    oklch(0.7 0.22 300 / 0.9) 100%
+  );
+  box-shadow: 0 2px 8px oklch(0.6 0.2 280 / 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.badge-gradient:hover {
+  box-shadow: 0 4px 16px oklch(0.6 0.2 280 / 0.4);
+  transform: translateY(-2px);
+}
+
+.progress-gradient {
+  background: linear-gradient(90deg,
+    oklch(0.55 0.2 270) 0%,
+    oklch(0.65 0.25 290) 50%,
+    oklch(0.7 0.22 310) 100%
+  );
+  background-size: 200% 100%;
+  animation: progress-flow 2s linear infinite;
+}
+
+@keyframes progress-flow {
+  0% {
+    background-position: 200% 0%;
+  }
+  100% {
+    background-position: -200% 0%;
+  }
+}
+
+.icon-gradient {
+  background: linear-gradient(135deg,
+    oklch(0.6 0.2 270) 0%,
+    oklch(0.7 0.25 300) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tab-gradient-active {
+  background: linear-gradient(135deg,
+    var(--color-primary) 0%,
+    oklch(from var(--color-primary) calc(l * 1.15) calc(c * 1.1) calc(h + 10)) 100%
+  );
+  box-shadow: 
+    0 4px 12px -2px var(--color-primary),
+    inset 0 1px 0 oklch(1 0 0 / 0.1);
+}
+
+.switch-gradient {
+  background: linear-gradient(135deg,
+    oklch(0.6 0.2 270) 0%,
+    oklch(0.7 0.25 300) 100%
+  );
+  box-shadow: 0 2px 8px oklch(0.6 0.2 280 / 0.3);
+}
+
+.checkbox-gradient:checked {
+  background: linear-gradient(135deg,
+    oklch(0.6 0.2 270) 0%,
+    oklch(0.7 0.25 300) 100%
+  );
+  box-shadow: 0 2px 8px oklch(0.6 0.2 280 / 0.3);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: oklch(1 0 0 / 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::after {
+  width: 300px;
+  height: 300px;
+}

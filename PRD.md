@@ -184,7 +184,7 @@ Typography should feel modern, clean, and highly legible while maintaining a tec
 
 ## Animations
 
-Animations reinforce the refined cyberpunk aesthetic with smooth energy, elegant digital effects, and depth-enhancing glassmorphism - subtle glowing pulses, holographic shimmers, frosted glass transitions, and fluid neon trails. Interactive elements glow softly on hover with animated borders and backdrop-blur effects (400ms ease-out). Content materializes with smooth fade and scale animations (0.4s). Cards have refined glow intensification, gentle lift on hover (6px), and pulsing borders with glassmorphic transparency. Background features smooth animated gradient shifts and floating orb particles (25s cycles). Loading states use elegant scan lines and progress indicators. Celebrate completions with satisfying neon bursts and gentle flashes (250ms). Glassmorphism transitions feature smooth backdrop-filter blur changes (300ms) that enhance depth without distracting from content.
+Animations reinforce the refined cyberpunk aesthetic with smooth energy, elegant digital effects, depth-enhancing glassmorphism, and **sophisticated gradient effects** on interactive elements - subtle glowing pulses, holographic shimmers, frosted glass transitions, flowing gradient overlays, and fluid neon trails. Interactive elements feature **animated gradient backgrounds** that shift on hover (400ms ease-out) with scale transformations and shadow intensification. **Buttons use multi-layer gradients** with pseudo-element overlays that fade in on hover, creating depth and dimensionality. Content materializes with smooth fade and scale animations (0.4s). Cards have refined glow intensification, gentle lift on hover (6px), pulsing borders with glassmorphic transparency, and **animated gradient overlays** on hover states. **Progress bars feature flowing gradient animations** with shimmer effects (2s infinite) and smooth color transitions. **Form inputs gain gradient borders and glowing shadows** on focus with smooth ring transitions. **Badges and pills use gradient fills** with shadow intensification on hover. Background features smooth animated gradient shifts and floating orb particles (25s cycles). Loading states use elegant scan lines and progress indicators. Celebrate completions with satisfying neon bursts and gentle flashes (250ms). Glassmorphism transitions feature smooth backdrop-filter blur changes (300ms) that enhance depth. **All interactive components (buttons, tabs, checkboxes, switches, sliders) incorporate gradient effects** that respond to user interaction with scale, shadow, and color transitions for a cohesive, premium feel.
 
 Weather icons feature purposeful animations that enhance the visual experience: sunny icons rotate slowly (30s), clouds float gently (4s vertical motion), rain bounces softly (2s), thunderstorms pulse with energy, snow falls with bouncing and spinning snowflake particles (3s), fog pulses with reduced opacity (3s), wind sways side-to-side (3s), drizzle shows animated water drops (2s drip), night icons glow with ethereal light (2s), freezing conditions shiver rapidly (1s), hail shakes violently (0.5s), and dust/sand drifts horizontally (5s). All weather animations are smooth, non-intrusive, and use CSS keyframes for optimal performance without impacting usability.
 
@@ -217,13 +217,19 @@ Weather icons feature purposeful animations that enhance the visual experience: 
   - Custom 3D virtual assistant model with reactive animations based on speaking state and user interaction
   - Custom video/audio call interface with in-call controls (mute, speaker, end call)
   - Glassmorphism utility classes (.glass-border, .glass-border-strong, .glass-border-subtle) for consistent frosted glass effects
+  - **Gradient utility classes** (.gradient-border, .gradient-shine, .interactive-gradient, .gradient-text, .gradient-pulse, .badge-gradient, .progress-gradient, .icon-gradient, .tab-gradient-active, .switch-gradient, .checkbox-gradient) for rich visual effects
+  - **Shimmer and ripple effects** for enhanced interactivity on buttons and progress indicators
   
 - **States**: 
-  - Buttons: Default with refined borders and gradients, hover lifts 2px with enhanced glow shadow and subtle glass effect, active subtle scale (0.97), focus clean ring with primary color
-  - Cards: Default with subtle border and glow plus glassmorphic backdrop blur (12px), hover lifts 6px with intensified glow and enhanced border visibility
-  - Inputs: Default with subtle glass border, focus with primary ring and enhanced outline, error state with destructive color glow
-  - Tabs: Default with muted appearance, active with solid background, glow shadow (20px blur), and frosted glass container, smooth 300ms transitions between all states
-  - Switches: Default with muted background, active with primary color and glow effect
+  - Buttons: Default with **multi-layer gradient backgrounds (from-primary via-primary to-primary/80)**, refined borders and shadows, hover lifts with scale(1.02) and enhanced glow shadow with **animated gradient overlay pseudo-element** (opacity 0→1), active scale(0.98), focus clean ring with primary color
+  - Cards: Default with subtle border and glow plus glassmorphic backdrop blur (12px), hover lifts 6px with intensified glow and enhanced border visibility plus **animated gradient overlay** that shifts across the surface
+  - Inputs: Default with subtle glass border, focus with **primary gradient border and glowing shadow** (shadow-md shadow-primary/10) and enhanced outline, hover with border-primary/50, error state with destructive color glow
+  - Tabs: Default with muted appearance, active with **gradient background (from-primary via-primary to-primary/80)**, glow shadow (shadow-lg shadow-primary/30), scale(1.02), and frosted glass container, smooth 300ms transitions between all states
+  - Switches: Default with muted background, active with **gradient background (from-primary via-primary to-primary/80)** and enhanced shadow (shadow-md shadow-primary/30), thumb with shadow-lg
+  - Checkboxes: Default with border, active with **gradient background (from-primary via-primary to-primary/80)**, scale(1.05), and shadow (shadow-md shadow-primary/30)
+  - Progress bars: **Flowing gradient fill (from-primary via-primary/90 to-primary)** with animated shimmer overlay (2s infinite), shadow-lg shadow-primary/30
+  - Badges: **Gradient backgrounds** with shadow effects, hover scale(1.05) and shadow intensification
+  - Sliders: Track with shadow-inner, range with **gradient fill and shadow**, thumb with **gradient background**, hover scale(1.10) and enhanced shadow
 
 - **Icon Selection**: 
   - Sparkles (AI generation)
