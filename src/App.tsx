@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar, ChartLine, Users, Microphone, Plugs, Moon, Sun } from '@phosphor-icons/react'
+import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar, ChartLine, Users, Microphone, Plugs, Moon, Sun, ShoppingCart, Trophy } from '@phosphor-icons/react'
 import { Toaster } from '@/components/ui/sonner'
 import { DailyBriefing } from '@/components/DailyBriefing'
 import { QuickActions } from '@/components/QuickActions'
@@ -22,11 +22,23 @@ import { PoweredByFooter } from '@/components/PoweredByFooter'
 import { APISettings } from '@/components/APISettings'
 import { NebulaBackground } from '@/components/NebulaBackground'
 import { useTheme } from '@/hooks/use-theme'
+import { useRewardSystem, RewardNotifications, CoinDisplay } from '@/components/RewardSystem'
+import { VanityShop, type VanityItem } from '@/components/VanityShop'
+import { Leaderboard } from '@/components/Leaderboard'
+import { MusicPlayer } from '@/components/MusicPlayer'
 
 function App() {
   const [chatOpen, setChatOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('dashboard')
   const { theme, toggleTheme } = useTheme()
+  const { coins, totalEarned, awardCoins, spendCoins, rewardQueue } = useRewardSystem()
+
+  const handlePurchase = (item: VanityItem) => {
+    const success = spendCoins(item.price)
+    if (!success) {
+      return
+    }
+  }
 
   return (
     <div className="min-h-screen bg-background relative">
@@ -40,6 +52,8 @@ function App() {
       </div>
 
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent pointer-events-none" style={{ zIndex: 1 }} />
+      
+      <RewardNotifications events={rewardQueue} />
       
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-10 relative" style={{ zIndex: 10 }}>
         <header className="mb-8 md:mb-12">
@@ -63,6 +77,8 @@ function App() {
               </div>
             </div>
             <div className="flex items-center gap-2">
+              <MusicPlayer compact />
+              <CoinDisplay amount={coins || 0} />
               <Button 
                 onClick={toggleTheme}
                 size="lg"
@@ -181,6 +197,20 @@ function App() {
               >
                 <Gear size={18} weight="duotone" />
                 <span className="hidden sm:inline">Auto</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="shop" 
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
+              >
+                <ShoppingCart size={18} weight="duotone" />
+                <span className="hidden sm:inline">Shop</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="leaderboard" 
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-amber-500 data-[state=active]:text-white data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
+              >
+                <Trophy size={18} weight="duotone" />
+                <span className="hidden sm:inline">Board</span>
               </TabsTrigger>
             </TabsList>
           </div>
@@ -349,6 +379,14 @@ function App() {
 
           <TabsContent value="voice" className="space-y-6 mt-8">
             <VoiceCommands />
+          </TabsContent>
+
+          <TabsContent value="shop" className="space-y-6 mt-8">
+            <VanityShop coins={coins || 0} onPurchase={handlePurchase} />
+          </TabsContent>
+
+          <TabsContent value="leaderboard" className="space-y-6 mt-8">
+            <Leaderboard userCoins={coins || 0} userTotalEarned={totalEarned || 0} />
           </TabsContent>
         </Tabs>
 

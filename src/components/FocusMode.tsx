@@ -170,10 +170,6 @@ export function FocusMode() {
                 </div>
               </div>
 
-              <div className="my-8">
-                <GrowingPlant progress={progress} isPaused={isPaused} />
-              </div>
-
               <div className="flex gap-3 justify-center">
                 <Button
                   onClick={togglePause}

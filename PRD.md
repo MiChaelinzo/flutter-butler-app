@@ -124,6 +124,20 @@ This is a multi-feature personal assistant platform with AI integration, task au
 - **Progression**: AI analyzes context → generates 3-5 actionable suggestions → user reviews and acts → dismisses completed items → new suggestions appear
 - **Success criteria**: Users act on 40%+ of suggestions, report finding them helpful
 
+### Reward System & Gamification
+- **Functionality**: Earn coins for completing tasks, goals, and habits; view global leaderboard; purchase vanity items like backgrounds, themes, and visual effects
+- **Purpose**: Motivates users through gamification, adds fun progression system, personalizes the experience
+- **Trigger**: User completes task/goal/habit (earns coins), opens shop tab, views leaderboard
+- **Progression**: User completes activity → earns coins with celebration animation → accumulates currency → browses shop → purchases vanity items → applies to personalize interface → compares progress on leaderboard
+- **Success criteria**: Users engage more with completion activities, 60%+ purchase at least one vanity item, leaderboard drives friendly competition
+
+### Background Music Player
+- **Functionality**: Ambient background music player with multiple tracks, volume control, and persistent playback across tabs
+- **Purpose**: Creates immersive, focused work environment with curated soundscapes
+- **Trigger**: User clicks music control in header or settings
+- **Progression**: User opens music controls → selects track from library → adjusts volume → music plays persistently → can pause/resume/skip → preference saved
+- **Success criteria**: 40%+ of users enable music during focus sessions, report improved concentration
+
 ## Edge Case Handling
 
 - **Empty States**: First-time users see guided onboarding with sample data and suggested quick actions to try
@@ -175,19 +189,21 @@ Animations reinforce the refined cyberpunk aesthetic with smooth energy and eleg
 ## Component Selection
 
 - **Components**: 
-  - **Dialog/Sheet**: For AI chat interface with video/audio call views, automation builders, and detailed task editing
+  - **Dialog/Sheet**: For AI chat interface with video/audio call views, automation builders, detailed task editing, shop interface, and leaderboard view
   - **Card**: Primary container for all feature modules with refined shadows and glowing borders
   - **Button**: Extensive use with variants - gradient fills for primary actions (AI generation), outline for secondary (edit), ghost for tertiary (dismiss)
   - **Input/Textarea**: Clean forms with elegant focus states for task entry and API configuration
-  - **Badge**: Status indicators for task priority, automation status, reminder timing, API connection status
-  - **ScrollArea**: For task lists and chat history ensuring content never feels cramped
-  - **Tabs**: Switch between different butler views (dashboard, tasks, automations, insights, API settings)
+  - **Badge**: Status indicators for task priority, automation status, reminder timing, API connection status, coin amounts
+  - **ScrollArea**: For task lists, chat history, shop items, and leaderboard ensuring content never feels cramped
+  - **Tabs**: Switch between different butler views (dashboard, tasks, automations, insights, API settings, shop, leaderboard)
   - **Separator**: Subtle dividers to create breathing room between sections
   - **Skeleton**: Loading states for AI content generation
-  - **Avatar**: User profile in header, personalization touch
+  - **Avatar**: User profile in header and leaderboard, personalization touch
   - **Switch**: Toggle controls for enabling/disabling API integrations
   - **Alert**: Status messages for API connection tests and system feedback
   - **3D Canvas**: Three.js powered virtual assistant with animated sphere head, glowing eyes, orbital rings, and particle effects
+  - **Slider**: Volume control for background music player
+  - **Progress**: Visual representation of purchase progress and user level
 
 - **Customizations**: 
   - Custom AI thinking indicator with pulsing dots in accent color
@@ -231,6 +247,15 @@ Animations reinforce the refined cyberpunk aesthetic with smooth energy and eleg
   - Microphone/MicrophoneSlash (mute toggle)
   - SpeakerHigh/SpeakerSlash (speaker toggle)
   - X (end call)
+  - Coin (currency, rewards)
+  - Trophy (achievements, leaderboard)
+  - ShoppingCart (shop)
+  - Star (rating, premium items)
+  - Crown (top users)
+  - MusicNote (background music)
+  - Play/Pause (music controls)
+  - SpeakerSimpleHigh/SpeakerSimpleSlash (volume)
+  - Palette (themes, customization)
 
 - **Spacing**: 
   - Container padding: p-6 (desktop), p-4 (mobile)
