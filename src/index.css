@@ -664,6 +664,111 @@
   z-index: 1;
 }
 
+.card-pulse-gradient-hover {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-pulse-gradient-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.72 0.19 200 / 0.15) 0%,
+    oklch(0.68 0.24 330 / 0.25) 25%,
+    oklch(0.70 0.20 45 / 0.20) 50%,
+    oklch(0.68 0.24 330 / 0.25) 75%,
+    oklch(0.72 0.19 200 / 0.15) 100%
+  );
+  background-size: 200% 200%;
+  animation: card-gradient-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-pulse-gradient-hover:hover::before {
+  animation: pulse-intense 1.5s ease-in-out infinite;
+}
+
+.card-pulse-gradient-hover > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-pulse-dramatic-hover {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-pulse-dramatic-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.72 0.19 200 / 0.12) 0%,
+    oklch(0.68 0.24 330 / 0.22) 25%,
+    oklch(0.82 0.18 130 / 0.18) 50%,
+    oklch(0.68 0.24 330 / 0.22) 75%,
+    oklch(0.72 0.19 200 / 0.12) 100%
+  );
+  background-size: 200% 200%;
+  animation: card-gradient-pulse-slow 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-pulse-dramatic-hover:hover::before {
+  animation: pulse-dramatic 1.2s ease-in-out infinite;
+}
+
+.card-pulse-dramatic-hover > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-pulse-extreme-hover {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-pulse-extreme-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.72 0.19 200 / 0.18) 0%,
+    oklch(0.70 0.20 45 / 0.28) 25%,
+    oklch(0.68 0.24 330 / 0.24) 50%,
+    oklch(0.70 0.20 45 / 0.28) 75%,
+    oklch(0.72 0.19 200 / 0.18) 100%
+  );
+  background-size: 200% 200%;
+  animation: card-gradient-pulse-fast 2.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-pulse-extreme-hover:hover::before {
+  animation: pulse-extreme 0.8s ease-in-out infinite;
+}
+
+.card-pulse-extreme-hover > * {
+  position: relative;
+  z-index: 1;
+}
+
 @keyframes gradient-pulse-animation {
   0%, 100% {
     box-shadow: 0 0 20px var(--color-primary);
@@ -705,6 +810,39 @@
   50% {
     background-position: 100% 50%;
     opacity: 0.28;
+  }
+}
+
+@keyframes pulse-intense {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.35;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.55;
+  }
+}
+
+@keyframes pulse-dramatic {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.45;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.70;
+  }
+}
+
+@keyframes pulse-extreme {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.55;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.85;
   }
 }
 

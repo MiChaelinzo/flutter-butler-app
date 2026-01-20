@@ -94,7 +94,7 @@ export function DailyGoals() {
   const weekStats = getWeeklyStats()
 
   return (
-    <div className="space-y-6 border border-border/20 rounded-2xl p-6 bg-background/20 backdrop-blur-sm card-pulse-gradient-slow">
+    <div className="space-y-6 border border-border/20 rounded-2xl p-6 bg-background/20 backdrop-blur-sm card-pulse-gradient-hover">
       <div className="flex items-center justify-between pb-4">
         <div className="flex items-center gap-4 text-3xl sm:text-4xl font-bold">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center border border-white/10 shadow-xl shadow-primary/20">
@@ -134,11 +134,11 @@ export function DailyGoals() {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          <div className="bg-gradient-to-br from-primary/10 to-primary/5 border border-white/10 shadow-lg rounded-xl p-5 text-center">
+          <div className="bg-gradient-to-br from-primary/10 to-primary/5 border border-white/10 shadow-lg rounded-xl p-5 text-center card-pulse-dramatic-hover">
             <div className="text-3xl font-bold text-primary mb-2">{weekStats.rate}%</div>
             <p className="text-xs text-foreground font-bold">Weekly Completion</p>
           </div>
-          <div className="bg-gradient-to-br from-accent/10 to-accent/5 border border-white/10 shadow-lg rounded-xl p-5 text-center">
+          <div className="bg-gradient-to-br from-accent/10 to-accent/5 border border-white/10 shadow-lg rounded-xl p-5 text-center card-pulse-dramatic-hover">
             <div className="text-3xl font-bold text-accent mb-2">{weekStats.completed}</div>
             <p className="text-xs text-foreground font-bold">Goals This Week</p>
           </div>
@@ -180,7 +180,7 @@ export function DailyGoals() {
               <button
                 key={goal.id}
                 type="button"
-                className="flex items-center gap-4 p-5 rounded-2xl border bg-background/40 backdrop-blur-xl hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all group cursor-pointer w-full text-left"
+                className="flex items-center gap-4 p-5 rounded-2xl border bg-background/40 backdrop-blur-xl hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all group cursor-pointer w-full text-left card-pulse-extreme-hover"
                 onClick={() => toggleGoal(goal.id)}
               >
                 <div

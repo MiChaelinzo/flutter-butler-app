@@ -97,7 +97,7 @@ export function SmartSuggestions() {
       {activeSuggestions.map((suggestion) => (
         <div
           key={suggestion.id}
-          className={`border hover:shadow-lg transition-all duration-300 rounded-xl backdrop-blur-sm card-gradient-hover card-pulse-gradient ${getTypeColor(
+          className={`border hover:shadow-lg transition-all duration-300 rounded-xl backdrop-blur-sm card-gradient-hover card-pulse-dramatic-hover ${getTypeColor(
             suggestion.type
           )}`}
         >

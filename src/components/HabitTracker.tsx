@@ -81,7 +81,7 @@ export function HabitTracker() {
   }
 
   return (
-    <Card className="shadow-lg border border-border/50 hover:shadow-xl transition-all duration-300 bg-card/80 backdrop-blur-sm card-pulse-gradient-slow">
+    <Card className="shadow-lg border border-border/50 hover:shadow-xl transition-all duration-300 bg-card/80 backdrop-blur-sm card-pulse-gradient-hover">
       <CardHeader className="pb-6">
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-3.5 text-2xl sm:text-3xl font-bold">
@@ -142,7 +142,7 @@ export function HabitTracker() {
               return (
                 <div
                   key={habit.id}
-                  className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-accent/5 hover:border-accent/40 hover:shadow-lg transition-all group card-gradient-hover-success card-pulse-gradient-success"
+                  className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-accent/5 hover:border-accent/40 hover:shadow-lg transition-all group card-gradient-hover-success card-pulse-extreme-hover"
                 >
                   <Button
                     variant="ghost"

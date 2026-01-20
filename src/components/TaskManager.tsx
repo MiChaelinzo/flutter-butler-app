@@ -80,7 +80,7 @@ export function TaskManager() {
   const completedTasks = (tasks || []).filter(t => t.completed)
 
   return (
-    <div className="space-y-6 border border-border/20 rounded-2xl p-6 bg-background/20 backdrop-blur-sm card-pulse-gradient-slow">
+    <div className="space-y-6 border border-border/20 rounded-2xl p-6 bg-background/20 backdrop-blur-sm card-pulse-gradient-hover">
       <div className="flex items-center gap-4 pb-4">
         <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center border border-white/10 shadow-xl shadow-primary/20">
           <ListChecks className="text-white drop-shadow-lg" size={28} weight="duotone" />
@@ -124,7 +124,7 @@ export function TaskManager() {
                 {incompleteTasks.map((task) => (
                   <div
                     key={task.id}
-                    className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl border border-white/10 bg-background/40 backdrop-blur-xl hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all group card-gradient-hover-primary"
+                    className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl border border-white/10 bg-background/40 backdrop-blur-xl hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all group card-gradient-hover-primary card-pulse-extreme-hover"
                   >
                     <Checkbox
                       checked={task.completed}

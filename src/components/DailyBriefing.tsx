@@ -237,11 +237,11 @@ Return the result as a valid JSON object with keys: greeting, weather, temperatu
           </>
         ) : briefing ? (
           <>
-            <div className="rounded-lg p-5 border border-border/20 bg-background/40 backdrop-blur-sm card-pulse-gradient">
+            <div className="rounded-lg p-5 border border-border/20 bg-background/40 backdrop-blur-sm card-pulse-gradient-hover">
               <p className="text-base sm:text-lg text-foreground leading-relaxed font-medium">{briefing.greeting}</p>
             </div>
 
-            <div className="rounded-lg p-5 border border-border/20 bg-background/40 backdrop-blur-sm card-pulse-gradient-primary">
+            <div className="rounded-lg p-5 border border-border/20 bg-background/40 backdrop-blur-sm card-pulse-dramatic-hover">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent/20 to-primary/10 flex items-center justify-center border border-primary/20">
