@@ -209,7 +209,7 @@ export function VanityShop({
             >
               <Card
                 className={cn(
-                  'relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20',
+                  'relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 card-gradient-hover',
                   active && 'ring-2 ring-primary shadow-primary/30'
                 )}
               >

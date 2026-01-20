@@ -142,7 +142,7 @@ export function HabitTracker() {
               return (
                 <div
                   key={habit.id}
-                  className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-accent/5 hover:border-accent/40 hover:shadow-lg transition-all group"
+                  className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm hover:bg-accent/5 hover:border-accent/40 hover:shadow-lg transition-all group card-gradient-hover-success"
                 >
                   <Button
                     variant="ghost"

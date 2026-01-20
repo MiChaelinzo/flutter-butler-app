@@ -165,7 +165,7 @@ export function Leaderboard({ userCoins, userTotalEarned }: { userCoins: number;
                 transition={{ delay: index * 0.05 }}
               >
                 <Card
-                  className={`p-4 transition-all duration-300 hover:shadow-lg ${
+                  className={`p-4 transition-all duration-300 hover:shadow-lg card-gradient-hover ${
                     isCurrentUser
                       ? 'ring-2 ring-primary shadow-primary/30 bg-primary/5'
                       : 'hover:shadow-primary/20'

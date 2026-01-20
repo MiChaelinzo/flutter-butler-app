@@ -77,7 +77,7 @@ export function ProductivityStats() {
             return (
               <div
                 key={idx}
-                className={`p-5 rounded-lg border transition-all duration-300 hover:shadow-md ${
+                className={`p-5 rounded-lg border transition-all duration-300 hover:shadow-md card-gradient-hover ${
                   isAccent
                     ? 'bg-accent/5 border-accent/30 hover:border-accent/50'
                     : 'bg-primary/5 border-primary/30 hover:border-primary/50'

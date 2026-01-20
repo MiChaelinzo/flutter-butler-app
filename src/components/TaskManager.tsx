@@ -124,7 +124,7 @@ export function TaskManager() {
                 {incompleteTasks.map((task) => (
                   <div
                     key={task.id}
-                    className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl border border-white/10 bg-background/40 backdrop-blur-xl hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all group"
+                    className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl border border-white/10 bg-background/40 backdrop-blur-xl hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all group card-gradient-hover-primary"
                   >
                     <Checkbox
                       checked={task.completed}

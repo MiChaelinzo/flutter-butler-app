@@ -153,6 +153,41 @@
   }
 }
 
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(0deg);
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .animate-bounce-slow {
   animation: bounce-slow 3s ease-in-out infinite;
 }
@@ -199,4 +234,152 @@
 
 .animate-drift {
   animation: drift 5s ease-in-out infinite;
+}
+
+.animate-gradient {
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-gradient-fast {
+  animation: gradient-shift 4s ease infinite;
+}
+
+.card-gradient-hover {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-gradient-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.7 0.15 270 / 0) 0%,
+    oklch(0.7 0.15 270 / 0.08) 25%,
+    oklch(0.65 0.2 300 / 0.12) 50%,
+    oklch(0.7 0.15 270 / 0.08) 75%,
+    oklch(0.7 0.15 270 / 0) 100%
+  );
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-gradient-hover:hover::before {
+  opacity: 1;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.card-gradient-hover > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-gradient-hover-primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-gradient-hover-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.5 0.1 250 / 0) 0%,
+    oklch(0.5 0.12 250 / 0.1) 25%,
+    oklch(0.6 0.15 280 / 0.15) 50%,
+    oklch(0.5 0.12 250 / 0.1) 75%,
+    oklch(0.5 0.1 250 / 0) 100%
+  );
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-gradient-hover-primary:hover::before {
+  opacity: 1;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.card-gradient-hover-primary > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-gradient-hover-accent {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-gradient-hover-accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.75 0.2 60 / 0) 0%,
+    oklch(0.75 0.2 60 / 0.08) 25%,
+    oklch(0.7 0.25 80 / 0.12) 50%,
+    oklch(0.75 0.2 60 / 0.08) 75%,
+    oklch(0.75 0.2 60 / 0) 100%
+  );
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-gradient-hover-accent:hover::before {
+  opacity: 1;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.card-gradient-hover-accent > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-gradient-hover-success {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-gradient-hover-success::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.7 0.15 150 / 0) 0%,
+    oklch(0.7 0.15 150 / 0.08) 25%,
+    oklch(0.65 0.2 170 / 0.12) 50%,
+    oklch(0.7 0.15 150 / 0.08) 75%,
+    oklch(0.7 0.15 150 / 0) 100%
+  );
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-gradient-hover-success:hover::before {
+  opacity: 1;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.card-gradient-hover-success > * {
+  position: relative;
+  z-index: 1;
 }

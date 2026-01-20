@@ -62,7 +62,7 @@ export function AutomationTemplates() {
           {AUTOMATION_TEMPLATES.map((automation) => (
             <Card
               key={automation.id}
-              className="border border-border/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 bg-card/50 backdrop-blur-sm overflow-hidden group"
+              className="border border-border/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 bg-card/50 backdrop-blur-sm overflow-hidden group card-gradient-hover"
             >
               <CardContent className="p-5 space-y-4">
                 <div className="flex items-start gap-3">

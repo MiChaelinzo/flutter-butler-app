@@ -207,7 +207,7 @@ export function NoteTaking() {
               {filteredNotes.map((note) => (
                 <Card
                   key={note.id}
-                  className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-border/50 group overflow-hidden bg-card/50 backdrop-blur-sm"
+                  className="cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-border/50 group overflow-hidden bg-card/50 backdrop-blur-sm card-gradient-hover"
                   onClick={() => openEditNote(note)}
                 >
                   <CardContent className="p-5 space-y-3">
