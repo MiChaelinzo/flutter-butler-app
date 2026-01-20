@@ -53,7 +53,7 @@ function App() {
 
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent pointer-events-none" style={{ zIndex: 1 }} />
       
-      <RewardNotifications events={rewardQueue} />
+      <RewardNotifications events={rewardQueue || []} />
       
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-10 relative" style={{ zIndex: 10 }}>
         <header className="mb-8 md:mb-12">
