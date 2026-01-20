@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Sparkle, ArrowsClockwise, Sun, Cloud, CloudRain, Lightbulb, CloudSnow, CloudFog, CloudLightning, Wind, Moon, Snowflake, Drop, Thermometer, Eye } from '@phosphor-icons/react'
 import { useState, useEffect } from 'react'
 import { Skeleton } from '@/components/ui/skeleton'
+import { useKV } from '@github/spark/hooks'
 
 interface DailyBriefingProps {
   onRegenerate: () => void
@@ -19,6 +20,7 @@ export function DailyBriefing({ onRegenerate }: DailyBriefingProps) {
     priorities: string[]
     insight: string
   } | null>(null)
+  const [tempUnit, setTempUnit] = useKV('temperature-unit', 'fahrenheit')
 
   const generateBriefing = async () => {
     setIsLoading(true)
@@ -60,6 +62,24 @@ Return the result as a valid JSON object with keys: greeting, weather, temperatu
       generateBriefing()
     }
   }, [])
+
+  const convertToC = (fahrenheit: number) => {
+    return Math.round((fahrenheit - 32) * 5 / 9)
+  }
+
+  const isCelsius = tempUnit === 'celsius'
+
+  const getDisplayTemp = (fahrenheit: number) => {
+    return isCelsius ? convertToC(fahrenheit) : fahrenheit
+  }
+
+  const getTempUnit = () => {
+    return isCelsius ? '°C' : '°F'
+  }
+
+  const toggleUnit = () => {
+    setTempUnit((current) => current === 'celsius' ? 'fahrenheit' : 'celsius')
+  }
 
   const getWeatherIcon = () => {
     if (!briefing) return null
@@ -240,12 +260,19 @@ Return the result as a valid JSON object with keys: greeting, weather, temperatu
                 </div>
                 <div className="flex flex-col items-end gap-1">
                   <div className="flex items-start gap-1">
-                    <span className="text-4xl sm:text-5xl font-bold text-foreground">{briefing.temperature}</span>
-                    <span className="text-2xl font-semibold text-muted-foreground mt-1">°F</span>
+                    <span className="text-4xl sm:text-5xl font-bold text-foreground">{getDisplayTemp(briefing.temperature)}</span>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={toggleUnit}
+                      className="text-2xl font-semibold text-muted-foreground hover:text-foreground mt-1 h-auto p-1 hover:bg-transparent transition-colors"
+                    >
+                      {getTempUnit()}
+                    </Button>
                   </div>
                   <div className="flex items-center gap-1.5 text-muted-foreground text-sm">
                     <Thermometer size={14} weight="duotone" />
-                    <span>Feels like {briefing.feelsLike}°F</span>
+                    <span>Feels like {getDisplayTemp(briefing.feelsLike)}{getTempUnit()}</span>
                   </div>
                 </div>
               </div>
