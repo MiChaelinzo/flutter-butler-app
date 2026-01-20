@@ -6,6 +6,7 @@ import { Timer, Play, Pause, X, CheckCircle } from '@phosphor-icons/react'
 import { useState, useEffect } from 'react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
+import { GrowingPlant } from './GrowingPlant'
 
 interface FocusSession {
   id: string
@@ -112,7 +113,8 @@ export function FocusMode() {
             {!isActive && (
               <Button
                 onClick={() => setDialogOpen(true)}
-                className="h-12 px-6 rounded-2xl shadow-2xl shadow-orange/40 bg-gradient-to-br from-orange to-accent hover:scale-110 transition-all border-2 border-white/20 font-bold"
+                type="button"
+                className="h-12 px-6 rounded-2xl shadow-2xl shadow-orange/40 bg-gradient-to-br from-orange to-accent hover:scale-110 transition-all border-2 border-white/20 font-bold text-white"
               >
                 <Play size={20} weight="fill" className="mr-2" />
                 Start
@@ -160,7 +162,7 @@ export function FocusMode() {
                       <div className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-orange via-accent to-orange bg-clip-text text-transparent">
                         {formatTime(timeRemaining)}
                       </div>
-                      <p className="text-muted-foreground text-sm sm:text-base font-bold mt-3">
+                      <p className="text-foreground text-sm sm:text-base font-bold mt-3">
                         {isPaused ? 'Paused' : 'Stay Focused'}
                       </p>
                     </div>
@@ -168,12 +170,17 @@ export function FocusMode() {
                 </div>
               </div>
 
+              <div className="my-8">
+                <GrowingPlant progress={progress} isPaused={isPaused} />
+              </div>
+
               <div className="flex gap-3 justify-center">
                 <Button
                   onClick={togglePause}
+                  type="button"
                   size="lg"
                   variant="outline"
-                  className="h-14 px-8 rounded-2xl border-2 border-white/10 hover:bg-orange/20 backdrop-blur-xl font-bold text-lg"
+                  className="h-14 px-8 rounded-2xl border-2 bg-card hover:bg-primary/20 hover:border-primary/50 font-bold text-lg text-foreground hover:text-primary transition-all shadow-lg"
                 >
                   {isPaused ? (
                     <>
@@ -189,9 +196,10 @@ export function FocusMode() {
                 </Button>
                 <Button
                   onClick={resetSession}
+                  type="button"
                   size="lg"
                   variant="outline"
-                  className="h-14 px-8 rounded-2xl border-2 border-white/10 hover:bg-destructive/20 backdrop-blur-xl font-bold text-lg"
+                  className="h-14 px-8 rounded-2xl border-2 bg-card hover:bg-destructive/20 hover:border-destructive/50 font-bold text-lg text-foreground hover:text-destructive transition-all shadow-lg"
                 >
                   <X size={24} weight="bold" className="mr-2" />
                   End
@@ -270,7 +278,8 @@ export function FocusMode() {
 
             <Button
               onClick={startSession}
-              className="w-full h-14 text-lg font-bold shadow-2xl shadow-orange/40 hover:shadow-accent/40 transition-all duration-300 bg-gradient-to-r from-orange via-accent to-orange bg-[length:200%_100%] hover:bg-[position:100%_0] border-2 border-white/20 group relative overflow-hidden"
+              type="button"
+              className="w-full h-14 text-lg font-bold shadow-2xl shadow-orange/40 hover:shadow-accent/40 transition-all duration-300 bg-gradient-to-r from-orange via-accent to-orange bg-[length:200%_100%] hover:bg-[position:100%_0] border-2 border-white/20 group relative overflow-hidden text-white"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               <span className="relative z-10 flex items-center gap-2">

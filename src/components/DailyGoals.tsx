@@ -111,9 +111,10 @@ export function DailyGoals() {
           <Button
             onClick={generateInsight}
             disabled={isAnalyzing || (goals || []).length < 3}
+            type="button"
             variant="outline"
             size="icon"
-            className="h-12 w-12 rounded-2xl border-2 border-white/10 hover:bg-primary/20 backdrop-blur-xl"
+            className="h-12 w-12 rounded-2xl border-2 bg-card hover:bg-primary/20 hover:border-primary/50 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isAnalyzing ? (
               <Sparkle className="animate-pulse text-primary" size={24} weight="duotone" />
@@ -160,15 +161,16 @@ export function DailyGoals() {
               onChange={(e) => setNewGoalText(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && addGoal()}
               id="new-goal-input"
-              className="h-14 rounded-2xl border-2 border-white/10 text-base bg-muted/50 backdrop-blur-xl font-semibold focus:border-primary/50 focus:ring-2 focus:ring-primary/30"
+              className="h-14 rounded-2xl border-2 text-base bg-card backdrop-blur-xl font-semibold focus:border-primary/50 focus:ring-2 focus:ring-primary/30 text-foreground placeholder:text-muted-foreground"
             />
             <Button
               onClick={addGoal}
               disabled={!newGoalText.trim()}
+              type="button"
               size="icon"
-              className="h-14 w-14 rounded-2xl shadow-2xl shadow-primary/40 flex-shrink-0 bg-gradient-to-br from-primary via-accent to-primary hover:scale-110 transition-all border-2 border-white/20"
+              className="h-14 w-14 rounded-2xl shadow-2xl shadow-primary/40 flex-shrink-0 bg-gradient-to-br from-primary via-accent to-primary hover:scale-110 transition-all border-2 border-white/20 disabled:opacity-50 disabled:cursor-not-allowed text-white"
             >
-              <Plus className="text-white" size={24} weight="bold" />
+              <Plus size={24} weight="bold" />
             </Button>
           </div>
         )}
@@ -184,16 +186,17 @@ export function DailyGoals() {
             </div>
           ) : (
             todayGoals.map((goal) => (
-              <div
+              <button
                 key={goal.id}
-                className="flex items-center gap-4 p-5 rounded-2xl border-2 border-white/10 bg-card/80 backdrop-blur-xl hover:bg-primary/10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/20 transition-all group cursor-pointer"
+                type="button"
+                className="flex items-center gap-4 p-5 rounded-2xl border-2 bg-card/80 backdrop-blur-xl hover:bg-primary/10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/20 transition-all group cursor-pointer w-full text-left"
                 onClick={() => toggleGoal(goal.id)}
               >
                 <div
                   className={`h-12 w-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all ${
                     goal.completed
-                      ? 'bg-primary/20 text-primary'
-                      : 'bg-muted/50 text-muted-foreground'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted text-foreground'
                   }`}
                 >
                   {goal.completed ? (
@@ -209,7 +212,7 @@ export function DailyGoals() {
                 >
                   {goal.text}
                 </p>
-              </div>
+              </button>
             ))
           )}
         </div>
