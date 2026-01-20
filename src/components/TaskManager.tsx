@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -81,17 +80,15 @@ export function TaskManager() {
   const completedTasks = (tasks || []).filter(t => t.completed)
 
   return (
-    <Card className="shadow-2xl border-2 border-white/10 hover:shadow-primary/30 transition-all duration-300 bg-card backdrop-blur-2xl relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 pointer-events-none opacity-50" />
-      <CardHeader className="pb-6 relative">
-        <CardTitle className="flex items-center gap-4 text-3xl sm:text-4xl font-bold">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center border-2 border-white/20 shadow-2xl shadow-primary/30">
-            <ListChecks className="text-white drop-shadow-lg" size={28} weight="duotone" />
-          </div>
-          <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">Tasks</span>
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-6 relative">
+    <div className="space-y-6 border border-border/20 rounded-2xl p-6 bg-background/20 backdrop-blur-sm">
+      <div className="flex items-center gap-4 pb-4">
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center border border-white/10 shadow-xl shadow-primary/20">
+          <ListChecks className="text-white drop-shadow-lg" size={28} weight="duotone" />
+        </div>
+        <span className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">Tasks</span>
+      </div>
+      
+      <div className="space-y-6">
         <div className="flex gap-3">
           <Input
             placeholder="Add a new task..."
@@ -100,13 +97,13 @@ export function TaskManager() {
             onKeyDown={(e) => e.key === 'Enter' && addTask()}
             disabled={isAnalyzing}
             id="new-task-input"
-            className="h-14 rounded-2xl border-2 border-white/10 text-base sm:text-lg bg-muted/50 backdrop-blur-xl font-semibold focus:border-primary/50 focus:ring-2 focus:ring-primary/30"
+            className="h-14 rounded-2xl border border-white/10 text-base sm:text-lg bg-background/50 backdrop-blur-xl font-semibold focus:border-primary/50 focus:ring-2 focus:ring-primary/30"
           />
           <Button 
             onClick={addTask} 
             disabled={!newTaskText.trim() || isAnalyzing} 
             size="icon"
-            className="h-14 w-14 rounded-2xl shadow-2xl shadow-primary/40 flex-shrink-0 bg-gradient-to-br from-primary via-accent to-primary hover:scale-110 transition-all border-2 border-white/20"
+            className="h-14 w-14 rounded-2xl shadow-xl shadow-primary/30 flex-shrink-0 bg-gradient-to-br from-primary via-accent to-primary hover:scale-110 transition-all border border-white/10"
           >
             {isAnalyzing ? <Sparkle className="animate-pulse text-white" size={24} weight="duotone" /> : <Plus className="text-white" size={24} weight="bold" />}
           </Button>
@@ -116,7 +113,7 @@ export function TaskManager() {
           <div className="space-y-4">
             {incompleteTasks.length === 0 && completedTasks.length === 0 ? (
               <div className="text-center py-20 text-muted-foreground">
-                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-6 flex items-center justify-center border-2 border-white/10 shadow-xl">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-6 flex items-center justify-center border border-white/10 shadow-xl">
                   <ListChecks size={48} className="opacity-50 text-primary" />
                 </div>
                 <p className="text-lg sm:text-xl font-bold text-foreground">No tasks yet</p>
@@ -127,7 +124,7 @@ export function TaskManager() {
                 {incompleteTasks.map((task) => (
                   <div
                     key={task.id}
-                    className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl border-2 border-white/10 bg-card/80 backdrop-blur-xl hover:bg-primary/10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/20 transition-all group"
+                    className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl border border-white/10 bg-background/40 backdrop-blur-xl hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all group"
                   >
                     <Checkbox
                       checked={task.completed}
@@ -153,7 +150,7 @@ export function TaskManager() {
                       variant="ghost"
                       size="icon"
                       onClick={() => deleteTask(task.id)}
-                      className="h-12 w-12 text-muted-foreground hover:text-destructive hover:bg-destructive/20 rounded-xl opacity-0 group-hover:opacity-100 transition-all flex-shrink-0 border-2 border-transparent hover:border-destructive/30"
+                      className="h-12 w-12 text-muted-foreground hover:text-destructive hover:bg-destructive/20 rounded-xl opacity-0 group-hover:opacity-100 transition-all flex-shrink-0 border border-transparent hover:border-destructive/30"
                     >
                       <Trash size={20} weight="bold" />
                     </Button>
@@ -163,7 +160,7 @@ export function TaskManager() {
                 {completedTasks.length > 0 && (
                   <>
                     {incompleteTasks.length > 0 && (
-                      <div className="border-t-2 border-white/10 pt-6 mt-6">
+                      <div className="border-t border-white/10 pt-6 mt-6">
                         <p className="text-sm sm:text-base font-bold text-muted-foreground uppercase tracking-wider mb-5 flex items-center gap-4">
                           <div className="h-0.5 flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
                           Completed
@@ -174,7 +171,7 @@ export function TaskManager() {
                     {completedTasks.map((task) => (
                       <div
                         key={task.id}
-                        className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl border-2 border-white/5 bg-muted/20 opacity-50 hover:opacity-70 transition-all group backdrop-blur-xl"
+                        className="flex items-start gap-4 p-5 sm:p-6 rounded-2xl border border-white/5 bg-background/20 opacity-50 hover:opacity-70 transition-all group backdrop-blur-xl"
                       >
                         <Checkbox
                           checked={task.completed}
@@ -189,7 +186,7 @@ export function TaskManager() {
                           variant="ghost"
                           size="icon"
                           onClick={() => deleteTask(task.id)}
-                          className="h-12 w-12 text-muted-foreground hover:text-destructive hover:bg-destructive/20 rounded-xl opacity-0 group-hover:opacity-100 transition-all flex-shrink-0 border-2 border-transparent hover:border-destructive/30"
+                          className="h-12 w-12 text-muted-foreground hover:text-destructive hover:bg-destructive/20 rounded-xl opacity-0 group-hover:opacity-100 transition-all flex-shrink-0 border border-transparent hover:border-destructive/30"
                         >
                           <Trash size={20} weight="bold" />
                         </Button>
@@ -201,7 +198,7 @@ export function TaskManager() {
             )}
           </div>
         </ScrollArea>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }

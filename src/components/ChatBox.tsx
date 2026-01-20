@@ -1,5 +1,4 @@
 import { useKV } from '@github/spark/hooks'
-import { Card } from '@/components/ui/card'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -64,7 +63,7 @@ export function ChatBox({ storageKey, title, placeholder }: ChatBoxProps) {
   }
 
   return (
-    <Card className="border border-border/50 bg-card/80 backdrop-blur-sm p-6">
+    <div className="border border-border/20 bg-background/30 backdrop-blur-sm p-6 rounded-xl">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold flex items-center gap-2">
           <Robot size={20} weight="duotone" className="text-primary" />
@@ -100,7 +99,7 @@ export function ChatBox({ storageKey, title, placeholder }: ChatBoxProps) {
                   className={`rounded-lg px-4 py-2 max-w-[80%] ${
                     message.role === 'user'
                       ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted text-foreground'
+                      : 'bg-background/60 backdrop-blur-sm border border-border/20 text-foreground'
                   }`}
                 >
                   <p className="text-sm leading-relaxed">{message.content}</p>
@@ -136,6 +135,6 @@ export function ChatBox({ storageKey, title, placeholder }: ChatBoxProps) {
           <PaperPlaneRight size={16} weight="fill" />
         </Button>
       </form>
-    </Card>
+    </div>
   )
 }

@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Progress } from '@/components/ui/progress'
@@ -95,37 +94,33 @@ export function DailyGoals() {
   const weekStats = getWeeklyStats()
 
   return (
-    <Card className="shadow-2xl border-2 border-white/10 hover:shadow-primary/30 transition-all duration-300 bg-card backdrop-blur-2xl relative overflow-hidden group">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 pointer-events-none opacity-50" />
-
-      <CardHeader className="pb-6 relative">
-        <CardTitle className="flex items-center justify-between">
-          <div className="flex items-center gap-4 text-3xl sm:text-4xl font-bold">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center border-2 border-white/20 shadow-2xl shadow-primary/30">
-              <Target className="text-white drop-shadow-lg" size={28} weight="duotone" />
-            </div>
-            <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-              Daily Goals
-            </span>
+    <div className="space-y-6 border border-border/20 rounded-2xl p-6 bg-background/20 backdrop-blur-sm">
+      <div className="flex items-center justify-between pb-4">
+        <div className="flex items-center gap-4 text-3xl sm:text-4xl font-bold">
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center border border-white/10 shadow-xl shadow-primary/20">
+            <Target className="text-white drop-shadow-lg" size={28} weight="duotone" />
           </div>
-          <Button
-            onClick={generateInsight}
-            disabled={isAnalyzing || (goals || []).length < 3}
-            type="button"
-            variant="outline"
-            size="icon"
-            className="h-12 w-12 rounded-2xl border-2 bg-card hover:bg-primary/20 hover:border-primary/50 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isAnalyzing ? (
-              <Sparkle className="animate-pulse text-primary" size={24} weight="duotone" />
-            ) : (
-              <TrendUp className="text-primary" size={24} weight="duotone" />
-            )}
-          </Button>
-        </CardTitle>
-      </CardHeader>
+          <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+            Daily Goals
+          </span>
+        </div>
+        <Button
+          onClick={generateInsight}
+          disabled={isAnalyzing || (goals || []).length < 3}
+          type="button"
+          variant="outline"
+          size="icon"
+          className="h-12 w-12 rounded-2xl border bg-background/50 hover:bg-primary/20 hover:border-primary/50 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isAnalyzing ? (
+            <Sparkle className="animate-pulse text-primary" size={24} weight="duotone" />
+          ) : (
+            <TrendUp className="text-primary" size={24} weight="duotone" />
+          )}
+        </Button>
+      </div>
 
-      <CardContent className="space-y-6 relative">
+      <div className="space-y-6">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <span className="text-base font-bold text-foreground">
@@ -139,18 +134,14 @@ export function DailyGoals() {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          <Card className="bg-gradient-to-br from-primary/20 to-primary/10 border-2 border-white/10 shadow-xl">
-            <CardContent className="p-5 text-center">
-              <div className="text-3xl font-bold text-primary mb-2">{weekStats.rate}%</div>
-              <p className="text-xs text-foreground font-bold">Weekly Completion</p>
-            </CardContent>
-          </Card>
-          <Card className="bg-gradient-to-br from-accent/20 to-accent/10 border-2 border-white/10 shadow-xl">
-            <CardContent className="p-5 text-center">
-              <div className="text-3xl font-bold text-accent mb-2">{weekStats.completed}</div>
-              <p className="text-xs text-foreground font-bold">Goals This Week</p>
-            </CardContent>
-          </Card>
+          <div className="bg-gradient-to-br from-primary/10 to-primary/5 border border-white/10 shadow-lg rounded-xl p-5 text-center">
+            <div className="text-3xl font-bold text-primary mb-2">{weekStats.rate}%</div>
+            <p className="text-xs text-foreground font-bold">Weekly Completion</p>
+          </div>
+          <div className="bg-gradient-to-br from-accent/10 to-accent/5 border border-white/10 shadow-lg rounded-xl p-5 text-center">
+            <div className="text-3xl font-bold text-accent mb-2">{weekStats.completed}</div>
+            <p className="text-xs text-foreground font-bold">Goals This Week</p>
+          </div>
         </div>
 
         {todayGoals.length < 3 && (
@@ -161,14 +152,14 @@ export function DailyGoals() {
               onChange={(e) => setNewGoalText(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && addGoal()}
               id="new-goal-input"
-              className="h-14 rounded-2xl border-2 text-base bg-card backdrop-blur-xl font-semibold focus:border-primary/50 focus:ring-2 focus:ring-primary/30 text-foreground placeholder:text-muted-foreground"
+              className="h-14 rounded-2xl border text-base bg-background/50 backdrop-blur-xl font-semibold focus:border-primary/50 focus:ring-2 focus:ring-primary/30 text-foreground placeholder:text-muted-foreground"
             />
             <Button
               onClick={addGoal}
               disabled={!newGoalText.trim()}
               type="button"
               size="icon"
-              className="h-14 w-14 rounded-2xl shadow-2xl shadow-primary/40 flex-shrink-0 bg-gradient-to-br from-primary via-accent to-primary hover:scale-110 transition-all border-2 border-white/20 disabled:opacity-50 disabled:cursor-not-allowed text-white"
+              className="h-14 w-14 rounded-2xl shadow-xl shadow-primary/30 flex-shrink-0 bg-gradient-to-br from-primary via-accent to-primary hover:scale-110 transition-all border border-white/10 disabled:opacity-50 disabled:cursor-not-allowed text-white"
             >
               <Plus size={24} weight="bold" />
             </Button>
@@ -178,7 +169,7 @@ export function DailyGoals() {
         <div className="space-y-3">
           {todayGoals.length === 0 ? (
             <div className="text-center py-12 text-muted-foreground">
-              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-5 flex items-center justify-center border-2 border-white/10 shadow-xl">
+              <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-5 flex items-center justify-center border border-white/10 shadow-xl">
                 <Target size={40} className="text-primary opacity-50" weight="duotone" />
               </div>
               <p className="text-lg font-bold text-foreground">No goals set for today</p>
@@ -189,7 +180,7 @@ export function DailyGoals() {
               <button
                 key={goal.id}
                 type="button"
-                className="flex items-center gap-4 p-5 rounded-2xl border-2 bg-card/80 backdrop-blur-xl hover:bg-primary/10 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/20 transition-all group cursor-pointer w-full text-left"
+                className="flex items-center gap-4 p-5 rounded-2xl border bg-background/40 backdrop-blur-xl hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all group cursor-pointer w-full text-left"
                 onClick={() => toggleGoal(goal.id)}
               >
                 <div
@@ -222,7 +213,7 @@ export function DailyGoals() {
             Focus on these 3 goals today 🎯
           </div>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }

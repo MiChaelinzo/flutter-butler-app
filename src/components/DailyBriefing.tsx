@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Sparkle, ArrowsClockwise, Sun, Cloud, CloudRain, Lightbulb, CloudSnow, CloudFog, CloudLightning, Wind, Moon, Snowflake, Drop, Thermometer, Eye } from '@phosphor-icons/react'
 import { useState, useEffect } from 'react'
@@ -209,16 +208,14 @@ Return the result as a valid JSON object with keys: greeting, weather, temperatu
   }
 
   return (
-    <Card className="border border-border/50 hover:border-primary/40 transition-all duration-300 bg-card/80 backdrop-blur-sm overflow-hidden relative group">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
-      
-      <CardHeader className="flex flex-row items-center justify-between pb-4 relative">
-        <CardTitle className="flex items-center gap-3 text-2xl sm:text-3xl font-bold">
+    <div className="space-y-6">
+      <div className="flex items-center justify-between pb-4">
+        <div className="flex items-center gap-3 text-2xl sm:text-3xl font-bold">
           <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center border border-primary/30">
             <Sparkle className="text-primary" size={24} weight="duotone" />
           </div>
           <span>Daily Intel</span>
-        </CardTitle>
+        </div>
         <Button
           variant="ghost"
           size="icon"
@@ -228,23 +225,23 @@ Return the result as a valid JSON object with keys: greeting, weather, temperatu
         >
           <ArrowsClockwise size={20} className={isLoading ? 'animate-spin text-primary' : 'text-muted-foreground'} weight="bold" />
         </Button>
-      </CardHeader>
+      </div>
       
-      <CardContent className="space-y-6 relative">
+      <div className="space-y-6">
         {isLoading && !briefing ? (
           <>
-            <Skeleton className="h-6 w-3/4 rounded-lg" />
-            <Skeleton className="h-6 w-1/2 rounded-lg" />
-            <Skeleton className="h-32 w-full rounded-lg" />
-            <Skeleton className="h-24 w-full rounded-lg" />
+            <Skeleton className="h-6 w-3/4 rounded-lg bg-muted/20" />
+            <Skeleton className="h-6 w-1/2 rounded-lg bg-muted/20" />
+            <Skeleton className="h-32 w-full rounded-lg bg-muted/20" />
+            <Skeleton className="h-24 w-full rounded-lg bg-muted/20" />
           </>
         ) : briefing ? (
           <>
-            <div className="rounded-lg p-5 border border-border/30">
+            <div className="rounded-lg p-5 border border-border/20 bg-background/40 backdrop-blur-sm">
               <p className="text-base sm:text-lg text-foreground leading-relaxed font-medium">{briefing.greeting}</p>
             </div>
 
-            <div className="rounded-lg p-5 border border-border/30 bg-gradient-to-br from-accent/5 to-primary/5">
+            <div className="rounded-lg p-5 border border-border/20 bg-background/40 backdrop-blur-sm">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent/20 to-primary/10 flex items-center justify-center border border-primary/20">
@@ -285,7 +282,7 @@ Return the result as a valid JSON object with keys: greeting, weather, temperatu
               </h4>
               <div className="space-y-3">
                 {briefing.priorities.map((priority, idx) => (
-                  <div key={idx} className="flex items-start gap-3 p-3 rounded-lg border border-border/30 hover:border-primary/40 transition-colors">
+                  <div key={idx} className="flex items-start gap-3 p-3 rounded-lg border border-border/20 bg-background/40 backdrop-blur-sm hover:border-primary/40 transition-colors">
                     <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <span className="text-primary font-semibold text-sm">{idx + 1}</span>
                     </div>
@@ -295,7 +292,7 @@ Return the result as a valid JSON object with keys: greeting, weather, temperatu
               </div>
             </div>
 
-            <div className="rounded-lg p-5 border-l-4 border-accent bg-accent/5">
+            <div className="rounded-lg p-5 border-l-4 border-accent bg-background/40 backdrop-blur-sm">
               <div className="flex gap-3">
                 <Lightbulb size={24} weight="duotone" className="text-accent flex-shrink-0 mt-0.5" />
                 <p className="text-sm sm:text-base text-foreground leading-relaxed">{briefing.insight}</p>
@@ -303,7 +300,7 @@ Return the result as a valid JSON object with keys: greeting, weather, temperatu
             </div>
           </>
         ) : null}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }

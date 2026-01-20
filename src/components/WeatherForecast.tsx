@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Sun, Cloud, CloudRain, CloudSnow, CloudFog, CloudLightning, Wind, Moon, Snowflake, Drop, Thermometer, ArrowsClockwise, CalendarBlank } from '@phosphor-icons/react'
 import { useState, useEffect } from 'react'
@@ -160,16 +159,14 @@ Return as a JSON object with a "days" property containing an array of ${numDays}
   }
 
   return (
-    <Card className="border border-border/50 hover:border-primary/40 transition-all duration-300 bg-card/80 backdrop-blur-sm overflow-hidden relative group">
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 pointer-events-none" />
-      
-      <CardHeader className="flex flex-row items-center justify-between pb-4 relative">
-        <CardTitle className="flex items-center gap-3 text-xl sm:text-2xl font-bold">
+    <div className="space-y-6">
+      <div className="flex items-center justify-between pb-4">
+        <div className="flex items-center gap-3 text-xl sm:text-2xl font-bold">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent/20 to-primary/10 flex items-center justify-center border border-accent/30">
             <CalendarBlank className="text-accent" size={20} weight="duotone" />
           </div>
           <span>{numDays}-Day Forecast</span>
-        </CardTitle>
+        </div>
         <div className="flex items-center gap-2">
           <div className="hidden sm:flex items-center gap-2">
             {[3, 5, 7].map(days => (
@@ -202,13 +199,13 @@ Return as a JSON object with a "days" property containing an array of ${numDays}
             <ArrowsClockwise size={16} className={isLoading ? 'animate-spin text-primary' : 'text-muted-foreground'} weight="bold" />
           </Button>
         </div>
-      </CardHeader>
+      </div>
       
-      <CardContent className="relative">
+      <div>
         {isLoading && !forecast ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {Array.from({ length: numDays }).map((_, i) => (
-              <Skeleton key={i} className="h-48 w-full rounded-lg" />
+              <Skeleton key={i} className="h-48 w-full rounded-lg bg-muted/20" />
             ))}
           </div>
         ) : forecast ? (
@@ -217,7 +214,7 @@ Return as a JSON object with a "days" property containing an array of ${numDays}
               {forecast.map((day, index) => (
                 <div
                   key={index}
-                  className="rounded-xl p-4 border border-border/30 bg-gradient-to-br from-card to-card/50 hover:border-primary/40 hover:shadow-lg transition-all duration-300 group/card"
+                  className="rounded-xl p-4 border border-border/20 bg-background/40 backdrop-blur-sm hover:border-primary/40 hover:shadow-lg transition-all duration-300 group/card"
                 >
                   <div className="space-y-3">
                     <div className="text-center">
@@ -244,7 +241,7 @@ Return as a JSON object with a "days" property containing an array of ${numDays}
                       </div>
                     </div>
 
-                    <div className="pt-2 border-t border-border/30 space-y-1.5">
+                    <div className="pt-2 border-t border-border/20 space-y-1.5">
                       <div className="flex items-center justify-between text-xs">
                         <div className="flex items-center gap-1.5 text-muted-foreground">
                           <Drop size={12} weight="fill" className="text-blue-400" />
@@ -279,7 +276,7 @@ Return as a JSON object with a "days" property containing an array of ${numDays}
             </div>
           </>
         ) : null}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }

@@ -1,4 +1,3 @@
-import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Lightbulb, X, CheckCircle, ArrowRight } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
@@ -66,15 +65,15 @@ export function SmartSuggestions() {
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'productivity':
-        return 'border-primary/30 bg-primary/5'
+        return 'border-primary/20 bg-background/30'
       case 'habit':
-        return 'border-accent/30 bg-accent/5'
+        return 'border-accent/20 bg-background/30'
       case 'task':
-        return 'border-primary/30 bg-primary/5'
+        return 'border-primary/20 bg-background/30'
       case 'automation':
-        return 'border-accent/30 bg-accent/5'
+        return 'border-accent/20 bg-background/30'
       default:
-        return 'border-border bg-card'
+        return 'border-border bg-background/30'
     }
   }
 
@@ -96,13 +95,13 @@ export function SmartSuggestions() {
   return (
     <div className="space-y-4">
       {activeSuggestions.map((suggestion) => (
-        <Card
+        <div
           key={suggestion.id}
-          className={`border hover:shadow-lg transition-all duration-300 ${getTypeColor(
+          className={`border hover:shadow-lg transition-all duration-300 rounded-xl backdrop-blur-sm ${getTypeColor(
             suggestion.type
           )}`}
         >
-          <CardContent className="p-5 flex items-start gap-4">
+          <div className="p-5 flex items-start gap-4">
             <div className="w-10 h-10 rounded-lg bg-background flex items-center justify-center flex-shrink-0 border border-border/50">
               {getTypeIcon(suggestion.type)}
             </div>
@@ -131,8 +130,8 @@ export function SmartSuggestions() {
             >
               <X size={18} weight="bold" />
             </Button>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       ))}
       {activeSuggestions.length > 0 && (
         <Button

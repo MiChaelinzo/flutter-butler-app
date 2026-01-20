@@ -1,4 +1,3 @@
-import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { Textarea } from '@/components/ui/textarea'
@@ -73,30 +72,27 @@ export function QuickActions() {
         {QUICK_ACTIONS.map((action) => {
           const Icon = iconMap[action.icon as keyof typeof iconMap]
           return (
-            <Card
+            <div
               key={action.id}
-              className="cursor-pointer transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,100,0,0.4)] hover:-translate-y-2 active:scale-95 border-2 border-orange/30 hover:border-orange/60 group overflow-hidden relative bg-card/40 backdrop-blur-2xl"
+              className="cursor-pointer transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,100,0,0.4)] hover:-translate-y-2 active:scale-95 border border-orange/20 hover:border-orange/60 group overflow-hidden relative bg-background/20 backdrop-blur-sm rounded-xl p-5 sm:p-6 flex flex-col items-center text-center gap-4"
               onClick={() => handleActionClick(action.id)}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-orange/20 via-accent/15 to-orange/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-orange to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              <CardContent className="p-5 sm:p-6 flex flex-col items-center text-center gap-4 relative">
-                <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-xl bg-gradient-to-br from-orange/30 via-accent/20 to-orange/20 flex items-center justify-center group-hover:scale-125 group-hover:from-orange/50 group-hover:to-accent/50 transition-all duration-300 border-2 border-orange/40 shadow-[0_0_20px_rgba(255,100,0,0.2)] group-hover:shadow-[0_0_40px_rgba(255,100,0,0.6)]">
-                  <Icon size={32} className="text-orange drop-shadow-[0_0_10px_rgba(255,100,0,0.6)] group-hover:text-orange transition-colors" weight="duotone" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-sm sm:text-base text-foreground mb-1.5 leading-tight tracking-tight">{action.title}</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-snug font-medium">{action.description}</p>
-                </div>
-              </CardContent>
-            </Card>
+              <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-xl bg-gradient-to-br from-orange/30 via-accent/20 to-orange/20 flex items-center justify-center group-hover:scale-125 group-hover:from-orange/50 group-hover:to-accent/50 transition-all duration-300 border-2 border-orange/40 shadow-[0_0_20px_rgba(255,100,0,0.2)] group-hover:shadow-[0_0_40px_rgba(255,100,0,0.6)]">
+                <Icon size={32} className="text-orange drop-shadow-[0_0_10px_rgba(255,100,0,0.6)] group-hover:text-orange transition-colors" weight="duotone" />
+              </div>
+              <div>
+                <h3 className="font-bold text-sm sm:text-base text-foreground mb-1.5 leading-tight tracking-tight">{action.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-snug font-medium">{action.description}</p>
+              </div>
+            </div>
           )
         })}
       </div>
 
       <Dialog open={!!selectedAction} onOpenChange={() => setSelectedAction(null)}>
-        <DialogContent className="max-w-2xl border-2 border-primary/40 bg-card/60 backdrop-blur-2xl shadow-[0_0_60px_rgba(0,200,255,0.3)]">
+        <DialogContent className="max-w-2xl border border-primary/30 bg-background/90 backdrop-blur-2xl shadow-[0_0_60px_rgba(0,200,255,0.3)]">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-4 text-2xl sm:text-3xl font-bold tracking-tight">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange/30 to-accent/30 flex items-center justify-center border-2 border-orange/50 shadow-[0_0_30px_rgba(255,100,0,0.4)]">
@@ -115,7 +111,7 @@ export function QuickActions() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 rows={5}
-                className="resize-none rounded-xl border-2 border-primary/30 focus:ring-2 focus:ring-primary focus:border-primary/60 text-sm sm:text-base bg-muted/30 backdrop-blur-xl font-medium"
+                className="resize-none rounded-xl border border-primary/20 focus:ring-2 focus:ring-primary focus:border-primary/60 text-sm sm:text-base bg-background/50 backdrop-blur-xl font-medium"
               />
             </div>
 
@@ -137,7 +133,7 @@ export function QuickActions() {
                       variant="outline"
                       size="sm"
                       onClick={handleCopy}
-                      className="h-11 rounded-xl border-2 border-primary/30 hover:bg-primary/20 hover:border-primary/60 backdrop-blur-xl font-semibold tracking-tight hover:shadow-[0_0_20px_rgba(0,200,255,0.3)]"
+                      className="h-11 rounded-xl border border-primary/20 hover:bg-primary/20 hover:border-primary/60 backdrop-blur-xl font-semibold tracking-tight hover:shadow-[0_0_20px_rgba(0,200,255,0.3)]"
                     >
                       {copied ? (
                         <>
@@ -153,13 +149,13 @@ export function QuickActions() {
                     </Button>
                   )}
                 </div>
-                <div className="bg-muted/30 backdrop-blur-xl rounded-xl p-6 sm:p-7 min-h-[200px] border-2 border-primary/30 shadow-[0_0_30px_rgba(0,200,255,0.2)] relative overflow-hidden">
+                <div className="bg-background/50 backdrop-blur-xl rounded-xl p-6 sm:p-7 min-h-[200px] border border-primary/20 shadow-[0_0_30px_rgba(0,200,255,0.2)] relative overflow-hidden">
                   <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent" />
                   {isLoading ? (
                     <div className="space-y-3 relative">
-                      <Skeleton className="h-5 w-full rounded-lg bg-muted/50 border border-primary/20" />
-                      <Skeleton className="h-5 w-5/6 rounded-lg bg-muted/50 border border-primary/20" />
-                      <Skeleton className="h-5 w-4/6 rounded-lg bg-muted/50 border border-primary/20" />
+                      <Skeleton className="h-5 w-full rounded-lg bg-muted/30 border border-primary/10" />
+                      <Skeleton className="h-5 w-5/6 rounded-lg bg-muted/30 border border-primary/10" />
+                      <Skeleton className="h-5 w-4/6 rounded-lg bg-muted/30 border border-primary/10" />
                     </div>
                   ) : (
                     <p className="text-sm sm:text-base whitespace-pre-wrap leading-relaxed text-foreground font-semibold relative">{result}</p>
