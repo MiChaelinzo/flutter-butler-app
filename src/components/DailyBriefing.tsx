@@ -31,9 +31,9 @@ export function DailyBriefing({ onRegenerate }: DailyBriefingProps) {
 3. Three key priorities for the day (productivity-focused, actionable)
 4. One insightful tip or mindset suggestion for the day
 
-Format as JSON with keys: greeting, weather, priorities (array), insight`
+Return the result as a valid JSON object with keys: greeting, weather, priorities (array), insight`
 
-      const prompt = window.spark.llmPrompt([promptText], '')
+      const prompt = window.spark.llmPrompt([promptText])
       const response = await window.spark.llm(prompt, 'gpt-4o-mini', true)
       const data = JSON.parse(response)
       setBriefing(data)
