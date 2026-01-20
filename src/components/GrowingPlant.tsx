@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
-
+import { motion } from 'framer-motion'
 
 interface GrowingPlantProps {
   progress: number
   isPaused: boolean
- 
+}
 
-      setIsGrowing(true)
-      setIsGrowing(false)
+export function GrowingPlant({ progress, isPaused }: GrowingPlantProps) {
+  const [isGrowing, setIsGrowing] = useState(false)
 
-  const growthStage
+  useEffect(() => {
     if (progress > 0 && !isPaused) {
       setIsGrowing(true)
     } else if (isPaused) {
@@ -22,51 +22,54 @@ interface GrowingPlantProps {
   const stemHeight = Math.max(20, (progress / 100) * 100)
 
   return (
-            <stop offset="0%" stopColor="oklch(0.65 0.15 145)" />
+    <div className="relative w-full h-[300px] flex items-center justify-center">
+      <svg 
+        width="200" 
+        height="300" 
+        viewBox="0 0 200 300"
+        className="drop-shadow-lg"
+      >
+        <defs>
+          <linearGradient id="stemGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="oklch(0.55 0.12 140)" />
+            <stop offset="50%" stopColor="oklch(0.60 0.14 142)" />
+            <stop offset="100%" stopColor="oklch(0.55 0.12 140)" />
+          </linearGradient>
           
-            <stop o
-            <stop of
+          <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="oklch(0.65 0.15 145)" />
+            <stop offset="50%" stopColor="oklch(0.60 0.14 142)" />
+            <stop offset="100%" stopColor="oklch(0.55 0.12 140)" />
+          </linearGradient>
+          
           <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
             <feMerge>
-       
-          </fi
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
 
+        <motion.g
           initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
+        >
           <motion.rect
+            x="95"
             y={300 - stemHeight}
+            width="10"
             height={stemHeight}
             rx="5"
+            fill="url(#stemGradient)"
+            filter="url(#glow)"
             animate={{ height: stemHeight }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           />
-          {growthStage >= 1 
-              initial={{ scale: 0, opacity: 0 }}
-                scale
-                rotate: isGrowing ? [0, -2, 0
-              transition={{ 
-                opacit
-              }}
-            >
-
-                r
-                fill="url(#leafGra
-                transform="rotate(
-            </motion.g>
-
+          
+          {growthStage >= 1 && (
             <motion.g
-              anim
-                opacity: 1,
-              }}
-                scale: { durati
-                rotate: { duration: 2
-              styl
-              <ellipse
-                cy="200"
-                ry="15"
-            
-
-          )}
-          {growthStag
               initial={{ scale: 0, opacity: 0 }}
               animate={{ 
                 scale: leafScale, 
@@ -88,6 +91,60 @@ interface GrowingPlantProps {
                 fill="url(#leafGradient)"
                 filter="url(#glow)"
                 transform="rotate(-30 70 220)"
+              />
+            </motion.g>
+          )}
+
+          {growthStage >= 1 && (
+            <motion.g
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ 
+                scale: leafScale, 
+                opacity: 1,
+                rotate: isGrowing ? [0, 2, 0] : 0 
+              }}
+              transition={{ 
+                scale: { duration: 0.8, ease: "easeOut" },
+                opacity: { duration: 0.5 },
+                rotate: { duration: 2.3, repeat: Infinity, ease: "easeInOut" }
+              }}
+              style={{ transformOrigin: "100px 220px" }}
+            >
+              <ellipse
+                cx="130"
+                cy="220"
+                rx="25"
+                ry="15"
+                fill="url(#leafGradient)"
+                filter="url(#glow)"
+                transform="rotate(30 130 220)"
+              />
+            </motion.g>
+          )}
+
+          {growthStage >= 2 && (
+            <motion.g
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ 
+                scale: leafScale, 
+                opacity: 1,
+                rotate: isGrowing ? [0, -2, 0] : 0 
+              }}
+              transition={{ 
+                scale: { duration: 0.8, ease: "easeOut" },
+                opacity: { duration: 0.5 },
+                rotate: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+              }}
+              style={{ transformOrigin: "100px 200px" }}
+            >
+              <ellipse
+                cx="70"
+                cy="200"
+                rx="25"
+                ry="15"
+                fill="url(#leafGradient)"
+                filter="url(#glow)"
+                transform="rotate(-30 70 200)"
               />
             </motion.g>
           )}
@@ -240,20 +297,20 @@ interface GrowingPlantProps {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           />
-
+        )}
       </svg>
 
       {progress === 100 && (
-
+        <motion.div
           className="absolute -top-8 left-1/2 -translate-x-1/2 text-center"
           initial={{ opacity: 0, y: 10, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-
+          transition={{ duration: 0.5 }}
         >
           <div className="text-2xl font-bold text-lime">🌟</div>
           <div className="text-xs font-semibold text-lime mt-1">Complete!</div>
         </motion.div>
-
+      )}
 
       <div className="absolute bottom-0 left-0 right-0 h-8 -z-10">
         <motion.div
@@ -263,9 +320,9 @@ interface GrowingPlantProps {
           }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-
+          transition={{ duration: 0.5 }}
         />
-
+      </div>
     </div>
-
+  )
 }
