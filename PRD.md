@@ -12,12 +12,12 @@ This is a multi-feature personal assistant platform with AI integration, task au
 
 ## Essential Features
 
-### AI-Powered Daily Briefing
-- **Functionality**: Generates a personalized daily summary with weather (featuring 15+ animated weather conditions), priorities, suggestions, and insights
-- **Purpose**: Helps users start their day informed and focused with visually engaging weather icons
-- **Trigger**: Automatic on page load or manual refresh button
-- **Progression**: User opens app → AI generates briefing with current context → displays weather with animated icons (sunny, cloudy, rainy, stormy, snowy, foggy, windy, hot, cold, night, hail, drizzle, etc.) → top priorities → personalized suggestions → user can regenerate for fresh insights
-- **Success criteria**: Briefing loads within 3 seconds, contains relevant personalized information with appropriate animated weather icon, users find value in the daily insights
+### AI-Powered Daily Briefing (Daily Intel)
+- **Functionality**: Generates a comprehensive personalized daily summary with weather (featuring 15+ animated weather conditions), environmental air quality metrics (CO2, PM2.5, PM10, TVOC, HCHO, AQI), personalized GitHub username greetings, priorities, user tips, and insights
+- **Purpose**: Helps users start their day informed and focused with visually engaging weather icons, health-conscious air quality data, personalized recognition, and actionable tips
+- **Trigger**: Automatic on page load (fetches GitHub username) or manual refresh button
+- **Progression**: User opens app → System fetches GitHub username → AI generates comprehensive briefing with current context → displays general greeting → personalized username greeting → weather with animated icons (sunny, cloudy, rainy, stormy, snowy, foggy, windy, hot, cold, night, hail, drizzle, etc.) + temperature & humidity → environmental air quality dashboard with CO2, PM2.5, PM10, TVOC, HCHO readings and AQI status badge → top priorities → 3 personalized actionable tips → daily insight → user can regenerate for fresh insights
+- **Success criteria**: Briefing loads within 3 seconds, contains relevant personalized information with appropriate animated weather icon and username greeting, air quality metrics display with status-based color coding, users find value in the daily insights and actionable tips, environmental awareness increases user engagement
 
 ### Smart Quick Actions
 - **Functionality**: Customizable AI-powered shortcuts for common tasks (email drafts, meeting prep, research summaries)
