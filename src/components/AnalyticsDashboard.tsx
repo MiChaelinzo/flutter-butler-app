@@ -16,13 +16,14 @@ interface AnalyticsData {
 }
 
 interface AirQualityData {
-  co2: number
   pm25: number
   pm10: number
-  tvoc: number
+  co2: number
+  humidity: number
+  temperature: number
+  voc: number
   hcho: number
   aqi: number
-  status: 'excellent' | 'good' | 'moderate' | 'poor' | 'unhealthy'
 }
 
 interface IntelData {
@@ -112,13 +113,14 @@ Include:
 6. One productivity tip (tactical and immediately useful)
 7. One health reminder (relevant to time of day and general wellness)
 8. Air quality data with realistic values:
-   - CO2 in ppm (normal: 400-1000, moderate: 1000-2000, poor: 2000+)
    - PM2.5 in μg/m³ (good: 0-12, moderate: 12-35, unhealthy: 35+)
    - PM10 in μg/m³ (good: 0-54, moderate: 55-154, unhealthy: 155+)
-   - TVOC in ppb (good: 0-220, moderate: 220-660, poor: 660+)
-   - HCHO (formaldehyde) in μg/m³ (good: 0-50, moderate: 50-100, poor: 100+)
-   - AQI (Air Quality Index: 0-50 excellent, 51-100 good, 101-150 moderate, 151-200 poor, 201+ unhealthy)
-   - status (one of: excellent, good, moderate, poor, unhealthy)
+   - CO2 in ppm (normal: 400-1000, moderate: 1000-2000, poor: 2000+)
+   - Humidity as percentage (30-60% is ideal)
+   - Temperature in Celsius (18-24°C is ideal)
+   - VOC (Volatile Organic Compounds) in ppb (good: 0-220, moderate: 220-660, poor: 660+)
+   - HCHO (formaldehyde) as decimal (0.01-0.08 is typical)
+   - AQI (Air Quality Index: 0-50 good, 51-100 moderate, 101-150 unhealthy for sensitive, 151-200 unhealthy, 201+ very unhealthy)
 
 Return as JSON with this exact structure:
 {
@@ -136,13 +138,14 @@ Return as JSON with this exact structure:
   "productivityTip": "tip here",
   "healthReminder": "reminder here",
   "airQuality": {
+    "pm25": 12,
+    "pm10": 18,
     "co2": 450,
-    "pm25": 8,
-    "pm10": 35,
-    "tvoc": 120,
-    "hcho": 25,
-    "aqi": 45,
-    "status": "excellent"
+    "humidity": 45,
+    "temperature": 22,
+    "voc": 150,
+    "hcho": 0.02,
+    "aqi": 35
   }
 }`
 
