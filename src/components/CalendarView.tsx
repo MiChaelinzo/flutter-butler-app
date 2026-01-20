@@ -127,7 +127,7 @@ export function CalendarView() {
     return (
       <div className="space-y-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <Card className="lg:col-span-2 shadow-xl border-2 border-white/10 bg-card/80 backdrop-blur-xl">
+          <Card className="lg:col-span-2 shadow-xl border-2 border-white/10 bg-card/80 backdrop-blur-xl card-pulse-gradient-slow">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-3 text-2xl font-bold">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center border-2 border-white/20">
@@ -159,7 +159,7 @@ export function CalendarView() {
           </Card>
 
           <div className="space-y-6">
-            <Card className="shadow-xl border-2 border-white/10 bg-card/80 backdrop-blur-xl">
+            <Card className="shadow-xl border-2 border-white/10 bg-card/80 backdrop-blur-xl card-pulse-gradient-primary">
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-3 text-xl font-bold">
                   <ListChecks size={20} weight="duotone" className="text-primary" />
@@ -172,7 +172,7 @@ export function CalendarView() {
                     <p className="text-sm text-muted-foreground text-center py-6 font-semibold">No tasks for today</p>
                   ) : (
                     incompleteTasks.map(event => (
-                      <div key={event.id} className="p-3 rounded-xl border-2 border-white/10 bg-card/50 hover:bg-primary/5 transition-all">
+                      <div key={event.id} className="p-3 rounded-xl border-2 border-white/10 bg-card/50 hover:bg-primary/5 transition-all card-pulse-gradient-fast">
                         <p className="text-sm font-bold text-foreground mb-2">{event.title}</p>
                         <div className="flex items-center gap-2 flex-wrap">
                           {event.priority && (
@@ -191,7 +191,7 @@ export function CalendarView() {
               </CardContent>
             </Card>
 
-            <Card className="shadow-xl border-2 border-white/10 bg-card/80 backdrop-blur-xl">
+            <Card className="shadow-xl border-2 border-white/10 bg-card/80 backdrop-blur-xl card-pulse-gradient-accent">
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-3 text-xl font-bold">
                   <Flame size={20} weight="duotone" className="text-accent" />

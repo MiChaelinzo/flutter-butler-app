@@ -74,7 +74,7 @@ export function QuickActions() {
           return (
             <div
               key={action.id}
-              className="cursor-pointer transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,100,0,0.4)] hover:-translate-y-2 active:scale-95 border border-orange/20 hover:border-orange/60 group overflow-hidden relative bg-background/20 backdrop-blur-sm rounded-xl p-5 sm:p-6 flex flex-col items-center text-center gap-4 card-gradient-hover-accent"
+              className="cursor-pointer transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,100,0,0.4)] hover:-translate-y-2 active:scale-95 border border-orange/20 hover:border-orange/60 group overflow-hidden relative bg-background/20 backdrop-blur-sm rounded-xl p-5 sm:p-6 flex flex-col items-center text-center gap-4 card-gradient-hover-accent card-pulse-gradient-warm"
               onClick={() => handleActionClick(action.id)}
             >
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-orange to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

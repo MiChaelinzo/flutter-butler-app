@@ -469,6 +469,201 @@
   animation: gradient-pulse-animation 3s ease-in-out infinite;
 }
 
+.card-pulse-gradient {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-pulse-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.72 0.19 200 / 0.15) 0%,
+    oklch(0.68 0.24 330 / 0.25) 25%,
+    oklch(0.70 0.20 45 / 0.20) 50%,
+    oklch(0.68 0.24 330 / 0.25) 75%,
+    oklch(0.72 0.19 200 / 0.15) 100%
+  );
+  background-size: 200% 200%;
+  animation: card-gradient-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.card-pulse-gradient > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-pulse-gradient-slow {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-pulse-gradient-slow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.72 0.19 200 / 0.12) 0%,
+    oklch(0.68 0.24 330 / 0.22) 25%,
+    oklch(0.82 0.18 130 / 0.18) 50%,
+    oklch(0.68 0.24 330 / 0.22) 75%,
+    oklch(0.72 0.19 200 / 0.12) 100%
+  );
+  background-size: 200% 200%;
+  animation: card-gradient-pulse-slow 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.card-pulse-gradient-slow > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-pulse-gradient-fast {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-pulse-gradient-fast::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.72 0.19 200 / 0.18) 0%,
+    oklch(0.70 0.20 45 / 0.28) 25%,
+    oklch(0.68 0.24 330 / 0.24) 50%,
+    oklch(0.70 0.20 45 / 0.28) 75%,
+    oklch(0.72 0.19 200 / 0.18) 100%
+  );
+  background-size: 200% 200%;
+  animation: card-gradient-pulse-fast 2.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.card-pulse-gradient-fast > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-pulse-gradient-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-pulse-gradient-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.72 0.19 200 / 0.15) 0%,
+    oklch(0.72 0.19 200 / 0.25) 50%,
+    oklch(0.72 0.19 200 / 0.15) 100%
+  );
+  background-size: 200% 200%;
+  animation: card-gradient-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.card-pulse-gradient-primary > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-pulse-gradient-accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-pulse-gradient-accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.68 0.24 330 / 0.15) 0%,
+    oklch(0.68 0.24 330 / 0.25) 50%,
+    oklch(0.68 0.24 330 / 0.15) 100%
+  );
+  background-size: 200% 200%;
+  animation: card-gradient-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.card-pulse-gradient-accent > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-pulse-gradient-success {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-pulse-gradient-success::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.82 0.18 130 / 0.15) 0%,
+    oklch(0.82 0.18 130 / 0.25) 50%,
+    oklch(0.82 0.18 130 / 0.15) 100%
+  );
+  background-size: 200% 200%;
+  animation: card-gradient-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.card-pulse-gradient-success > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-pulse-gradient-warm {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-pulse-gradient-warm::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    oklch(0.70 0.20 45 / 0.15) 0%,
+    oklch(0.70 0.20 45 / 0.25) 50%,
+    oklch(0.70 0.20 45 / 0.15) 100%
+  );
+  background-size: 200% 200%;
+  animation: card-gradient-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.card-pulse-gradient-warm > * {
+  position: relative;
+  z-index: 1;
+}
+
 @keyframes gradient-pulse-animation {
   0%, 100% {
     box-shadow: 0 0 20px var(--color-primary);
@@ -477,6 +672,39 @@
   50% {
     box-shadow: 0 0 40px var(--color-primary), 0 0 60px var(--color-primary);
     filter: brightness(1.1);
+  }
+}
+
+@keyframes card-gradient-pulse {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.15;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.25;
+  }
+}
+
+@keyframes card-gradient-pulse-slow {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.12;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.22;
+  }
+}
+
+@keyframes card-gradient-pulse-fast {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.18;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.28;
   }
 }
 

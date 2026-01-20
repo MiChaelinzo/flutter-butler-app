@@ -99,7 +99,7 @@ export function FocusMode() {
 
   return (
     <>
-      <Card className="shadow-2xl border-2 border-white/10 hover:shadow-accent/30 transition-all duration-300 bg-card backdrop-blur-2xl relative overflow-hidden group">
+      <Card className="shadow-2xl border-2 border-white/10 hover:shadow-accent/30 transition-all duration-300 bg-card backdrop-blur-2xl relative overflow-hidden group card-pulse-gradient-warm">
         <div className="absolute inset-0 bg-gradient-to-br from-orange/10 to-accent/10 pointer-events-none opacity-50" />
         
         <CardHeader className="pb-6 relative">

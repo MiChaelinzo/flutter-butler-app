@@ -59,7 +59,7 @@ export function ProductivityStats() {
   ]
 
   return (
-    <Card className="border border-border/50 hover:border-primary/40 transition-all duration-300">
+    <Card className="border border-border/50 hover:border-primary/40 transition-all duration-300 card-pulse-gradient-slow">
       <CardHeader className="pb-4">
         <CardTitle className="flex items-center gap-3 text-2xl font-semibold">
           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/30">
@@ -79,8 +79,8 @@ export function ProductivityStats() {
                 key={idx}
                 className={`p-5 rounded-lg border transition-all duration-300 hover:shadow-md card-gradient-hover ${
                   isAccent
-                    ? 'bg-accent/5 border-accent/30 hover:border-accent/50'
-                    : 'bg-primary/5 border-primary/30 hover:border-primary/50'
+                    ? 'bg-accent/5 border-accent/30 hover:border-accent/50 card-pulse-gradient-accent'
+                    : 'bg-primary/5 border-primary/30 hover:border-primary/50 card-pulse-gradient-primary'
                 }`}
               >
                 <div className="flex items-center justify-between mb-4">

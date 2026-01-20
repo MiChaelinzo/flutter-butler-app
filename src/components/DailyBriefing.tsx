@@ -237,11 +237,11 @@ Return the result as a valid JSON object with keys: greeting, weather, temperatu
           </>
         ) : briefing ? (
           <>
-            <div className="rounded-lg p-5 border border-border/20 bg-background/40 backdrop-blur-sm">
+            <div className="rounded-lg p-5 border border-border/20 bg-background/40 backdrop-blur-sm card-pulse-gradient">
               <p className="text-base sm:text-lg text-foreground leading-relaxed font-medium">{briefing.greeting}</p>
             </div>
 
-            <div className="rounded-lg p-5 border border-border/20 bg-background/40 backdrop-blur-sm">
+            <div className="rounded-lg p-5 border border-border/20 bg-background/40 backdrop-blur-sm card-pulse-gradient-primary">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-accent/20 to-primary/10 flex items-center justify-center border border-primary/20">
@@ -282,7 +282,7 @@ Return the result as a valid JSON object with keys: greeting, weather, temperatu
               </h4>
               <div className="space-y-3">
                 {briefing.priorities.map((priority, idx) => (
-                  <div key={idx} className="flex items-start gap-3 p-3 rounded-lg border border-border/20 bg-background/40 backdrop-blur-sm hover:border-primary/40 transition-colors">
+                  <div key={idx} className="flex items-start gap-3 p-3 rounded-lg border border-border/20 bg-background/40 backdrop-blur-sm hover:border-primary/40 transition-colors card-pulse-gradient-fast">
                     <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <span className="text-primary font-semibold text-sm">{idx + 1}</span>
                     </div>
@@ -292,7 +292,7 @@ Return the result as a valid JSON object with keys: greeting, weather, temperatu
               </div>
             </div>
 
-            <div className="rounded-lg p-5 border-l-4 border-accent bg-background/40 backdrop-blur-sm">
+            <div className="rounded-lg p-5 border-l-4 border-accent bg-background/40 backdrop-blur-sm card-pulse-gradient-accent">
               <div className="flex gap-3">
                 <Lightbulb size={24} weight="duotone" className="text-accent flex-shrink-0 mt-0.5" />
                 <p className="text-sm sm:text-base text-foreground leading-relaxed">{briefing.insight}</p>

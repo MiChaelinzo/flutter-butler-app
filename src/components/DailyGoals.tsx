@@ -94,7 +94,7 @@ export function DailyGoals() {
   const weekStats = getWeeklyStats()
 
   return (
-    <div className="space-y-6 border border-border/20 rounded-2xl p-6 bg-background/20 backdrop-blur-sm">
+    <div className="space-y-6 border border-border/20 rounded-2xl p-6 bg-background/20 backdrop-blur-sm card-pulse-gradient-slow">
       <div className="flex items-center justify-between pb-4">
         <div className="flex items-center gap-4 text-3xl sm:text-4xl font-bold">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/40 to-accent/40 flex items-center justify-center border border-white/10 shadow-xl shadow-primary/20">

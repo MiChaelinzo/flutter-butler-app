@@ -215,7 +215,7 @@ Return as a JSON object with a "days" property containing an array of ${days} fo
               {forecast.map((day, index) => (
                 <div
                   key={index}
-                  className="rounded-xl p-4 glass-border bg-background/40 hover:border-primary/40 hover:shadow-lg transition-all duration-300 group/card card-gradient-hover-primary"
+                  className="rounded-xl p-4 glass-border bg-background/40 hover:border-primary/40 hover:shadow-lg transition-all duration-300 group/card card-gradient-hover-primary card-pulse-gradient-primary"
                 >
                   <div className="space-y-3">
                     <div className="text-center">
