@@ -25,7 +25,7 @@ export function DailyBriefing({ onRegenerate }: DailyBriefingProps) {
       if (hour >= 12 && hour < 17) timeOfDay = 'Good afternoon'
       else if (hour >= 17) timeOfDay = 'Good evening'
 
-      const promptText = `Generate a brief daily briefing for a personal assistant app. Include:
+      const prompt = window.spark.llmPrompt`Generate a brief daily briefing for a personal assistant app. Include:
 1. A personalized ${timeOfDay} message (one sentence, warm and motivating)
 2. Weather description (assume current conditions, be specific but brief - make it realistic and interesting)
 3. Three key priorities for the day (productivity-focused, actionable)
@@ -33,7 +33,6 @@ export function DailyBriefing({ onRegenerate }: DailyBriefingProps) {
 
 Return the result as a valid JSON object with keys: greeting, weather, priorities (array), insight`
       
-      const prompt = window.spark.llmPrompt([promptText], '')
       const response = await window.spark.llm(prompt, 'gpt-4o-mini', true)
       const data = JSON.parse(response)
       setBriefing(data)
