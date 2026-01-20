@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Badge } from '@/components/ui/badge'
-import { ListChecks, Plus, Trash, Sparkle, Briefcase, Heart, Warning, Repeat, Palette } from '@phosphor-icons/react'
+import { ListChecks, Plus, Trash, Sparkle, Briefcase, Heart, Warning, Repeat, Palette, X } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { useKV } from '@github/spark/hooks'
 import { Task } from '@/lib/types'
@@ -15,6 +15,7 @@ export function TaskManager() {
   const [newTaskText, setNewTaskText] = useState('')
   const [newTaskCategory, setNewTaskCategory] = useState<Task['category']>('work')
   const [isAnalyzing, setIsAnalyzing] = useState(false)
+  const [selectedFilter, setSelectedFilter] = useState<Task['category'] | 'all'>('all')
 
   const addTask = async () => {
     if (!newTaskText.trim()) return
@@ -122,8 +123,26 @@ export function TaskManager() {
     return `${priorityClass} ${categoryClass}`.trim()
   }
 
-  const incompleteTasks = (tasks || []).filter(t => !t.completed)
-  const completedTasks = (tasks || []).filter(t => t.completed)
+  const filterTasks = (taskList: Task[]) => {
+    if (selectedFilter === 'all') return taskList
+    return taskList.filter(task => task.category === selectedFilter)
+  }
+
+  const incompleteTasks = filterTasks((tasks || []).filter(t => !t.completed))
+  const completedTasks = filterTasks((tasks || []).filter(t => t.completed))
+
+  const categoryFilters: Array<{ value: Task['category'] | 'all', label: string, icon: React.ReactNode, color: string }> = [
+    { value: 'all', label: 'All', icon: <ListChecks size={16} weight="bold" />, color: 'bg-muted/60 text-foreground border-white/20 hover:bg-muted/80' },
+    { value: 'work', label: 'Work', icon: <Briefcase size={16} weight="bold" />, color: 'bg-primary/30 text-primary border-primary/50 hover:bg-primary/40' },
+    { value: 'personal', label: 'Personal', icon: <Heart size={16} weight="bold" />, color: 'bg-lime/30 text-lime border-lime/50 hover:bg-lime/40' },
+    { value: 'urgent', label: 'Urgent', icon: <Warning size={16} weight="bold" />, color: 'bg-orange/30 text-orange border-orange/50 hover:bg-orange/40' },
+    { value: 'routine', label: 'Routine', icon: <Repeat size={16} weight="bold" />, color: 'bg-secondary/30 text-secondary-foreground border-secondary/50 hover:bg-secondary/40' },
+    { value: 'creative', label: 'Creative', icon: <Palette size={16} weight="bold" />, color: 'bg-accent/30 text-accent border-accent/50 hover:bg-accent/40' },
+  ]
+
+  const totalTasksForFilter = selectedFilter === 'all' 
+    ? (tasks || []).length 
+    : (tasks || []).filter(t => t.category === selectedFilter).length
 
   return (
     <div className="space-y-6 border border-border/20 rounded-2xl p-6 bg-background/20 backdrop-blur-sm card-pulse-gradient-hover">
@@ -193,6 +212,46 @@ export function TaskManager() {
               </SelectItem>
             </SelectContent>
           </Select>
+        </div>
+
+        <div className="space-y-3">
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Filter:</span>
+            <Badge variant="outline" className="bg-muted/60 text-foreground border-white/20 font-bold rounded-lg px-2 py-1">
+              {totalTasksForFilter} {totalTasksForFilter === 1 ? 'task' : 'tasks'}
+            </Badge>
+          </div>
+          
+          <div className="flex flex-wrap gap-2">
+            {categoryFilters.map((filter) => (
+              <Button
+                key={filter.value}
+                onClick={() => setSelectedFilter(filter.value)}
+                variant="outline"
+                size="sm"
+                className={`rounded-xl px-4 h-10 font-bold text-sm border-2 transition-all shadow-lg ${
+                  selectedFilter === filter.value 
+                    ? `${filter.color} scale-105 shadow-xl` 
+                    : 'bg-background/50 text-muted-foreground border-white/10 hover:scale-105'
+                }`}
+              >
+                <span className="flex items-center gap-2">
+                  {filter.icon}
+                  {filter.label}
+                </span>
+              </Button>
+            ))}
+            {selectedFilter !== 'all' && (
+              <Button
+                onClick={() => setSelectedFilter('all')}
+                variant="ghost"
+                size="sm"
+                className="rounded-xl px-3 h-10 font-bold text-sm hover:bg-destructive/20 hover:text-destructive transition-all"
+              >
+                <X size={16} weight="bold" />
+              </Button>
+            )}
+          </div>
         </div>
 
         <ScrollArea className="h-[400px] sm:h-[450px] pr-4">
