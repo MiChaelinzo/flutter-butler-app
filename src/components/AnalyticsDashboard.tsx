@@ -1,9 +1,10 @@
 import { Card } from '@/components/ui/card'
-import { TrendUp, Target, Clock, CheckCircle, ChartLine, Sparkle, Sun, CloudRain, Cloud, Lightbulb, ArrowsClockwise, ThermometerSimple, Drop, Wind, CalendarBlank, MapPin } from '@phosphor-icons/react'
+import { TrendUp, Target, Clock, CheckCircle, ChartLine, Sparkle, Sun, CloudRain, Cloud, Lightbulb, ArrowsClockwise, ThermometerSimple, Drop, Wind, CalendarBlank, MapPin, User } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
+import { HealthRecommendations } from '@/components/HealthRecommendations'
 
 interface AnalyticsData {
   completionRate: number
@@ -14,7 +15,19 @@ interface AnalyticsData {
   weeklyTrend: number
 }
 
+interface AirQualityData {
+  co2: number
+  pm25: number
+  pm10: number
+  tvoc: number
+  hcho: number
+  aqi: number
+  status: 'excellent' | 'good' | 'moderate' | 'poor' | 'unhealthy'
+}
+
 interface IntelData {
+  greeting: string
+  personalizedGreeting: string
   weather: {
     condition: string
     temperature: string
@@ -26,6 +39,7 @@ interface IntelData {
   motivationalQuote: string
   productivityTip: string
   healthReminder: string
+  airQuality: AirQualityData
 }
 
 export function AnalyticsDashboard() {
@@ -42,6 +56,20 @@ export function AnalyticsDashboard() {
   })
   const [intel, setIntel] = useState<IntelData | null>(null)
   const [isLoadingIntel, setIsLoadingIntel] = useState(false)
+  const [username, setUsername] = useState<string>('')
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const user = await window.spark.user()
+        setUsername(user?.login || 'User')
+      } catch (error) {
+        console.error('Failed to fetch user:', error)
+        setUsername('User')
+      }
+    }
+    fetchUser()
+  }, [])
 
   useEffect(() => {
     const taskArray = tasks || []
@@ -67,18 +95,35 @@ export function AnalyticsDashboard() {
     try {
       const hour = new Date().getHours()
       const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
+      let timeOfDay = 'Good morning'
+      if (hour >= 12 && hour < 17) timeOfDay = 'Good afternoon'
+      else if (hour >= 17) timeOfDay = 'Good evening'
+
+      const displayName = username || 'User'
       
       const promptText = `Generate comprehensive daily intelligence for a productivity app user. Current time: ${hour}:00, Date: ${date}
 
 Include:
-1. Weather information (realistic and detailed - condition, temperature in F, humidity %, wind speed, and a realistic city location)
-2. Three pieces of daily advice (specific, actionable, varied topics like productivity, wellness, learning)
-3. A powerful motivational quote (inspiring but not cliche)
-4. One productivity tip (tactical and immediately useful)
-5. One health reminder (relevant to time of day and general wellness)
+1. A general ${timeOfDay} message (one sentence, warm and motivating - DO NOT include username)
+2. A personalized greeting for user "${displayName}" (creative, warm, maybe reference their username creatively if it's interesting, one sentence)
+3. Weather information (realistic and detailed - condition, temperature in F, humidity %, wind speed, and a realistic city location)
+4. Three pieces of daily advice (specific, actionable, varied topics like productivity, wellness, learning)
+5. A powerful motivational quote (inspiring but not cliche)
+6. One productivity tip (tactical and immediately useful)
+7. One health reminder (relevant to time of day and general wellness)
+8. Air quality data with realistic values:
+   - CO2 in ppm (normal: 400-1000, moderate: 1000-2000, poor: 2000+)
+   - PM2.5 in μg/m³ (good: 0-12, moderate: 12-35, unhealthy: 35+)
+   - PM10 in μg/m³ (good: 0-54, moderate: 55-154, unhealthy: 155+)
+   - TVOC in ppb (good: 0-220, moderate: 220-660, poor: 660+)
+   - HCHO (formaldehyde) in μg/m³ (good: 0-50, moderate: 50-100, poor: 100+)
+   - AQI (Air Quality Index: 0-50 excellent, 51-100 good, 101-150 moderate, 151-200 poor, 201+ unhealthy)
+   - status (one of: excellent, good, moderate, poor, unhealthy)
 
 Return as JSON with this exact structure:
 {
+  "greeting": "general greeting message",
+  "personalizedGreeting": "personalized greeting for user",
   "weather": {
     "condition": "Clear sky with scattered clouds",
     "temperature": "72°F",
@@ -89,10 +134,19 @@ Return as JSON with this exact structure:
   "dailyAdvice": ["advice1", "advice2", "advice3"],
   "motivationalQuote": "quote here",
   "productivityTip": "tip here",
-  "healthReminder": "reminder here"
+  "healthReminder": "reminder here",
+  "airQuality": {
+    "co2": 450,
+    "pm25": 8,
+    "pm10": 35,
+    "tvoc": 120,
+    "hcho": 25,
+    "aqi": 45,
+    "status": "excellent"
+  }
 }`
 
-      const prompt = window.spark.llmPrompt([promptText], '')
+      const prompt = window.spark.llmPrompt([promptText], timeOfDay, displayName, date)
       const response = await window.spark.llm(prompt, 'gpt-4o', true)
       const data = JSON.parse(response)
       setIntel(data)
@@ -104,10 +158,10 @@ Return as JSON with this exact structure:
   }
 
   useEffect(() => {
-    if (!intel && !isLoadingIntel) {
+    if (!intel && !isLoadingIntel && username) {
       generateIntel()
     }
-  }, [])
+  }, [username])
 
   const getWeatherIcon = () => {
     if (!intel) return <Sun size={32} weight="duotone" />
@@ -287,6 +341,10 @@ Return as JSON with this exact structure:
               "{intel.motivationalQuote}"
             </p>
           </Card>
+
+          <div className="border-t border-border pt-8">
+            <HealthRecommendations airQuality={intel.airQuality} />
+          </div>
         </>
       ) : null}
 
