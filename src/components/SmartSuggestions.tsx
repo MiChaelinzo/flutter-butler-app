@@ -66,15 +66,15 @@ export function SmartSuggestions() {
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'productivity':
-        return 'from-primary/20 to-primary/10 border-primary/30'
+        return 'border-primary/30 bg-primary/5'
       case 'habit':
-        return 'from-accent/20 to-accent/10 border-accent/30'
+        return 'border-accent/30 bg-accent/5'
       case 'task':
-        return 'from-primary/20 to-primary/10 border-primary/30'
+        return 'border-primary/30 bg-primary/5'
       case 'automation':
-        return 'from-accent/20 to-accent/10 border-accent/30'
+        return 'border-accent/30 bg-accent/5'
       default:
-        return 'from-muted/40 to-muted/20 border-border'
+        return 'border-border bg-card'
     }
   }
 
@@ -98,17 +98,17 @@ export function SmartSuggestions() {
       {activeSuggestions.map((suggestion) => (
         <Card
           key={suggestion.id}
-          className={`border shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden relative bg-gradient-to-r ${getTypeColor(
+          className={`border hover:shadow-lg transition-all duration-300 ${getTypeColor(
             suggestion.type
           )}`}
         >
           <CardContent className="p-5 flex items-start gap-4">
-            <div className="w-10 h-10 rounded-xl bg-card/80 backdrop-blur-sm flex items-center justify-center flex-shrink-0 shadow-md border border-border/30">
+            <div className="w-10 h-10 rounded-lg bg-background flex items-center justify-center flex-shrink-0 border border-border/50">
               {getTypeIcon(suggestion.type)}
             </div>
             <div className="flex-1 min-w-0 space-y-2">
-              <h4 className="text-base sm:text-lg font-bold text-foreground">{suggestion.title}</h4>
-              <p className="text-sm text-foreground/80 leading-relaxed font-medium">
+              <h4 className="text-base sm:text-lg font-semibold text-foreground">{suggestion.title}</h4>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {suggestion.description}
               </p>
               {suggestion.action && (
@@ -116,7 +116,7 @@ export function SmartSuggestions() {
                   onClick={() => completeSuggestion(suggestion.id)}
                   variant="outline"
                   size="sm"
-                  className="mt-3 h-9 rounded-xl border border-border/50 hover:bg-card/60 font-bold"
+                  className="mt-3 h-9 rounded-lg"
                 >
                   {suggestion.action}
                   <ArrowRight className="ml-2" size={16} weight="bold" />
@@ -127,7 +127,7 @@ export function SmartSuggestions() {
               variant="ghost"
               size="icon"
               onClick={() => dismissSuggestion(suggestion.id)}
-              className="h-8 w-8 text-muted-foreground hover:text-foreground hover:bg-card/60 rounded-lg flex-shrink-0"
+              className="h-8 w-8 text-muted-foreground hover:text-foreground rounded-lg flex-shrink-0"
             >
               <X size={18} weight="bold" />
             </Button>
@@ -140,7 +140,7 @@ export function SmartSuggestions() {
           disabled={isGenerating}
           variant="outline"
           size="sm"
-          className="w-full h-10 rounded-xl border border-border/50 hover:bg-muted/80 font-bold"
+          className="w-full h-10 rounded-lg"
         >
           {isGenerating ? 'Generating...' : 'Get More Suggestions'}
         </Button>

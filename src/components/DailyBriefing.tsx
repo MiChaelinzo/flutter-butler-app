@@ -27,13 +27,13 @@ export function DailyBriefing({ onRegenerate }: DailyBriefingProps) {
 
       const promptText = `Generate a brief daily briefing for a personal assistant app. Include:
 1. A personalized ${timeOfDay} message (one sentence, warm and motivating)
-2. Weather description (assume current conditions, be specific but brief)
+2. Weather description (assume current conditions, be specific but brief - make it realistic and interesting)
 3. Three key priorities for the day (productivity-focused, actionable)
 4. One insightful tip or mindset suggestion for the day
 
 Return the result as a valid JSON object with keys: greeting, weather, priorities (array), insight`
       
-      const prompt = window.spark.llmPrompt([promptText])
+      const prompt = window.spark.llmPrompt([promptText], '')
       const response = await window.spark.llm(prompt, 'gpt-4o-mini', true)
       const data = JSON.parse(response)
       setBriefing(data)
@@ -95,12 +95,12 @@ Return the result as a valid JSON object with keys: greeting, weather, prioritie
           </>
         ) : briefing ? (
           <>
-            <div className="bg-gradient-to-r from-primary/8 via-transparent to-accent/8 rounded-lg p-5 border border-border/50">
-              <p className="text-base sm:text-lg text-foreground leading-relaxed">{briefing.greeting}</p>
+            <div className="rounded-lg p-5 border border-border/30">
+              <p className="text-base sm:text-lg text-foreground leading-relaxed font-medium">{briefing.greeting}</p>
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent/15 to-accent/5 flex items-center justify-center border border-accent/30">
+            <div className="flex items-center gap-3 p-4 rounded-lg border border-border/30">
+              <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
                 {getWeatherIcon()}
               </div>
               <span className="text-sm sm:text-base text-foreground">{briefing.weather}</span>
@@ -113,17 +113,17 @@ Return the result as a valid JSON object with keys: greeting, weather, prioritie
               </h4>
               <div className="space-y-3">
                 {briefing.priorities.map((priority, idx) => (
-                  <div key={idx} className="flex items-start gap-3 group/priority">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/15 to-accent/15 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/priority:from-primary/25 group-hover/priority:to-accent/25 transition-all border border-primary/30">
+                  <div key={idx} className="flex items-start gap-3 p-3 rounded-lg border border-border/30 hover:border-primary/40 transition-colors">
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <span className="text-primary font-semibold text-sm">{idx + 1}</span>
                     </div>
-                    <span className="text-sm sm:text-base text-foreground leading-relaxed pt-0.5">{priority}</span>
+                    <span className="text-sm sm:text-base text-foreground leading-relaxed pt-1">{priority}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-accent/8 via-transparent to-accent/5 rounded-lg p-5 border-l-2 border-accent">
+            <div className="rounded-lg p-5 border-l-4 border-accent bg-accent/5">
               <div className="flex gap-3">
                 <Lightbulb size={24} weight="duotone" className="text-accent flex-shrink-0 mt-0.5" />
                 <p className="text-sm sm:text-base text-foreground leading-relaxed">{briefing.insight}</p>
