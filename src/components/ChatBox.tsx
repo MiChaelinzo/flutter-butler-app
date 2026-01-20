@@ -1,9 +1,9 @@
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ScrollArea } from '@/components/ui/s
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { Input } from '@/components/ui/input'
 import { useState } from 'react'
 import { Robot, PaperPlaneRight, Trash } from '@phosphor-icons/react'
-import { useState } from 'react'
 import { useKV } from '@github/spark/hooks'
 
 interface Message {
@@ -14,22 +14,22 @@ interface Message {
 }
 
 interface ChatBoxProps {
+  storageKey: string
+  title: string
+  placeholder?: string
 }
-export function 
-  const [input, setInp
 
+export function ChatBox({ storageKey, title, placeholder = "Type your message..." }: ChatBoxProps) {
+  const [messages, setMessages] = useKV<Message[]>(storageKey, [])
+  const [input, setInput] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleSend = async () => {
+    if (!input.trim() || isLoading) return
 
     const userMessage: Message = {
+      id: Date.now().toString(),
       role: 'user',
-      timestamp: Date.now()
-
-
-
-      const promptText = `You
-
-      const assistantMessage: Mess
-        role: 'assistant',
-        timestamp: 
       content: input,
       timestamp: Date.now()
     }
@@ -127,31 +127,31 @@ export function
         </div>
       </ScrollArea>
 
+      <div className="p-5 border-t border-border bg-muted/20">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            handleSend()
+          }}
+          className="flex gap-2"
+        >
+          <Input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={placeholder}
+            disabled={isLoading}
+            className="flex-1 bg-background border-border"
+          />
+          <Button
+            type="submit"
+            disabled={!input.trim() || isLoading}
+            className="gap-2"
           >
-          </B
+            <PaperPlaneRight size={18} weight="duotone" />
+            Send
+          </Button>
+        </form>
       </div>
+    </Card>
   )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
