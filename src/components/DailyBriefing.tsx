@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Sparkle, ArrowsClockwise, Sun, Cloud, CloudRain, Lightbulb } from '@phosphor-icons/react'
+import { Sparkle, ArrowsClockwise, Sun, Cloud, CloudRain, Lightbulb, CloudSnow, CloudFog, CloudLightning, Wind, Moon, Snowflake, Drop, Thermometer, Eye } from '@phosphor-icons/react'
 import { useState, useEffect } from 'react'
 import { Skeleton } from '@/components/ui/skeleton'
 
@@ -25,13 +25,14 @@ export function DailyBriefing({ onRegenerate }: DailyBriefingProps) {
       if (hour >= 12 && hour < 17) timeOfDay = 'Good afternoon'
       else if (hour >= 17) timeOfDay = 'Good evening'
 
-      const prompt = window.spark.llmPrompt`Generate a brief daily briefing for a personal assistant app. Include:
+      const promptText = `Generate a brief daily briefing for a personal assistant app. Include:
 1. A personalized ${timeOfDay} message (one sentence, warm and motivating)
-2. Weather description (assume current conditions, be specific but brief - make it realistic and interesting)
+2. Weather description (choose from diverse conditions like: sunny, partly cloudy, overcast, rain, drizzle, thunderstorm, snow, blizzard, fog, mist, windy, hot, cold, freezing, clear night, hail, sleet - be specific and realistic for current season)
 3. Three key priorities for the day (productivity-focused, actionable)
 4. One insightful tip or mindset suggestion for the day
 
 Return the result as a valid JSON object with keys: greeting, weather, priorities (array), insight`
+      const prompt = window.spark.llmPrompt([promptText], timeOfDay)
       
       const response = await window.spark.llm(prompt, 'gpt-4o-mini', true)
       const data = JSON.parse(response)
@@ -57,9 +58,128 @@ Return the result as a valid JSON object with keys: greeting, weather, prioritie
   const getWeatherIcon = () => {
     if (!briefing) return null
     const weather = briefing.weather.toLowerCase()
-    if (weather.includes('sun') || weather.includes('clear')) return <Sun className="text-accent" size={24} weight="duotone" />
-    if (weather.includes('rain')) return <CloudRain className="text-accent" size={24} weight="duotone" />
-    return <Cloud className="text-accent" size={24} weight="duotone" />
+    
+    if (weather.includes('thunder') || weather.includes('storm') || weather.includes('lightning')) {
+      return (
+        <div className="relative">
+          <CloudLightning className="text-yellow-400 animate-pulse" size={24} weight="duotone" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('snow') || weather.includes('blizzard')) {
+      return (
+        <div className="relative animate-bounce-slow">
+          <CloudSnow className="text-blue-300" size={24} weight="duotone" />
+          <Snowflake className="absolute -bottom-1 -right-1 text-blue-200 animate-spin-slow" size={12} weight="duotone" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('fog') || weather.includes('mist') || weather.includes('hazy')) {
+      return (
+        <div className="relative opacity-80 animate-pulse-slow">
+          <CloudFog className="text-gray-400" size={24} weight="duotone" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('wind') || weather.includes('breezy') || weather.includes('gusty')) {
+      return (
+        <div className="animate-sway">
+          <Wind className="text-cyan-400" size={24} weight="duotone" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('drizzle') || weather.includes('sprinkle')) {
+      return (
+        <div className="relative">
+          <Cloud className="text-gray-400" size={24} weight="duotone" />
+          <Drop className="absolute -bottom-1 -right-1 text-blue-400 animate-drip" size={10} weight="fill" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('rain') || weather.includes('shower') || weather.includes('downpour')) {
+      return (
+        <div className="animate-bounce-gentle">
+          <CloudRain className="text-blue-500" size={24} weight="duotone" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('partly cloudy') || weather.includes('scattered clouds')) {
+      return (
+        <div className="relative">
+          <Sun className="text-amber-400 animate-spin-very-slow" size={20} weight="duotone" />
+          <Cloud className="absolute -bottom-1 -right-2 text-gray-300" size={16} weight="duotone" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('overcast') || weather.includes('cloudy')) {
+      return (
+        <div className="animate-float">
+          <Cloud className="text-gray-400" size={24} weight="duotone" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('hot') || weather.includes('heat')) {
+      return (
+        <div className="relative">
+          <Sun className="text-red-500 animate-pulse" size={24} weight="duotone" />
+          <Thermometer className="absolute -bottom-1 -right-1 text-red-400" size={12} weight="fill" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('cold') || weather.includes('freezing') || weather.includes('frost')) {
+      return (
+        <div className="relative animate-shiver">
+          <Snowflake className="text-cyan-300" size={24} weight="duotone" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('night') || weather.includes('clear night') || weather.includes('evening')) {
+      return (
+        <div className="animate-glow">
+          <Moon className="text-indigo-300" size={24} weight="duotone" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('hail') || weather.includes('sleet')) {
+      return (
+        <div className="relative animate-shake">
+          <CloudSnow className="text-gray-300" size={24} weight="duotone" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('dust') || weather.includes('sand')) {
+      return (
+        <div className="relative opacity-70 animate-drift">
+          <Eye className="text-amber-600" size={24} weight="duotone" />
+        </div>
+      )
+    }
+    
+    if (weather.includes('sun') || weather.includes('clear') || weather.includes('bright')) {
+      return (
+        <div className="animate-spin-very-slow">
+          <Sun className="text-amber-400" size={24} weight="duotone" />
+        </div>
+      )
+    }
+    
+    return (
+      <div className="animate-float">
+        <Cloud className="text-gray-400" size={24} weight="duotone" />
+      </div>
+    )
   }
 
   return (
