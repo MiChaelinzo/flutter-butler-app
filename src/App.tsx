@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar, ChartLine, Users, Microphone } from '@phosphor-icons/react'
+import { Robot, House, Lightning, ListChecks, Sparkle, Note, Flame, Gear, Timer, Target, Calendar, ChartLine, Users, Microphone, Plugs } from '@phosphor-icons/react'
 import { Toaster } from '@/components/ui/sonner'
 import { DailyBriefing } from '@/components/DailyBriefing'
 import { QuickActions } from '@/components/QuickActions'
@@ -19,6 +19,7 @@ import { AnalyticsDashboard } from '@/components/AnalyticsDashboard'
 import { TeamCollaboration } from '@/components/TeamCollaboration'
 import { VoiceCommands } from '@/components/VoiceCommands'
 import { PoweredByFooter } from '@/components/PoweredByFooter'
+import { APISettings } from '@/components/APISettings'
 
 function App() {
   const [chatOpen, setChatOpen] = useState(false)
@@ -26,16 +27,17 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      <div className="absolute inset-0 cyber-grid opacity-30" />
+      <div className="absolute inset-0 cyber-grid opacity-40" />
       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-primary/20 blur-[100px] floating-orb" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-accent/20 blur-[100px] floating-orb" style={{ animationDelay: '-5s' }} />
-        <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] rounded-full bg-orange/10 blur-[80px] floating-orb" style={{ animationDelay: '-10s' }} />
+        <div className="absolute top-0 left-1/4 w-[700px] h-[700px] rounded-full bg-primary/15 blur-[120px] floating-orb" />
+        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] rounded-full bg-accent/15 blur-[120px] floating-orb" style={{ animationDelay: '-8s' }} />
+        <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] rounded-full bg-orange/10 blur-[100px] floating-orb" style={{ animationDelay: '-16s' }} />
+        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] rounded-full bg-lime/8 blur-[90px] floating-orb" style={{ animationDelay: '-12s' }} />
       </div>
 
-      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
-      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-50" />
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
       
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 relative z-10">
         <header className="mb-12 md:mb-16">
@@ -43,19 +45,19 @@ function App() {
             <div className="space-y-4">
               <div className="flex items-center gap-6">
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-primary blur-2xl opacity-60 rounded-full animate-pulse" />
-                  <div className="absolute inset-0 border-2 border-primary rounded-3xl animate-ping opacity-20" />
-                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-primary/30 via-accent/20 to-orange/30 backdrop-blur-xl flex items-center justify-center border-2 border-primary/50 shadow-[0_0_30px_rgba(0,200,255,0.3)] group-hover:shadow-[0_0_50px_rgba(0,200,255,0.6)] transition-all duration-300 group-hover:scale-105">
-                    <Robot size={56} weight="duotone" className="text-primary drop-shadow-[0_0_10px_rgba(0,200,255,0.8)]" />
+                  <div className="absolute inset-0 bg-primary/40 blur-3xl rounded-full pulse-glow" />
+                  <div className="absolute inset-0 border-2 border-primary/60 rounded-3xl animate-ping opacity-20" />
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-primary/40 via-accent/25 to-orange/30 backdrop-blur-xl flex items-center justify-center border-2 border-primary/60 shadow-[0_0_40px_rgba(114,192,255,0.4)] group-hover:shadow-[0_0_60px_rgba(114,192,255,0.6)] transition-all duration-500 group-hover:scale-105 group-hover:border-primary/80">
+                    <Robot size={56} weight="duotone" className="text-primary drop-shadow-[0_0_15px_rgba(114,192,255,0.9)]" />
                   </div>
-                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-lime rounded-full border-2 border-background animate-pulse shadow-[0_0_15px_rgba(150,255,0,0.8)]" />
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-lime rounded-full border-2 border-background animate-pulse shadow-[0_0_20px_rgba(209,237,114,0.9)]" />
                 </div>
                 <div>
                   <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-[0.08em] uppercase text-gradient-cyber neon-text">
                     NEXUS
                   </h1>
                   <p className="text-muted-foreground text-sm sm:text-base mt-2 font-semibold tracking-[0.05em] uppercase flex items-center gap-2">
-                    <span className="inline-block w-2 h-2 bg-lime rounded-full animate-pulse shadow-[0_0_10px_rgba(150,255,0,0.8)]" />
+                    <span className="inline-block w-2 h-2 bg-lime rounded-full animate-pulse shadow-[0_0_12px_rgba(209,237,114,0.9)]" />
                     AI Command Center
                   </p>
                 </div>
@@ -64,10 +66,10 @@ function App() {
             <Button 
               onClick={() => setChatOpen(true)} 
               size="lg" 
-              className="relative gap-3 h-14 px-8 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] transition-all duration-500 border-2 border-primary/50 shadow-[0_0_20px_rgba(0,200,255,0.4)] hover:shadow-[0_0_40px_rgba(0,200,255,0.8)] font-bold text-base tracking-[0.05em] uppercase overflow-hidden group"
+              className="relative gap-3 h-14 px-8 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] transition-all duration-700 border-2 border-primary/60 shadow-[0_0_30px_rgba(114,192,255,0.5)] hover:shadow-[0_0_50px_rgba(114,192,255,0.8)] font-bold text-base tracking-[0.05em] uppercase overflow-hidden group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-              <Sparkle size={24} weight="fill" className="relative z-10 drop-shadow-[0_0_5px_rgba(255,255,255,0.8)]" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+              <Sparkle size={24} weight="fill" className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
               <span className="hidden sm:inline relative z-10">Activate AI</span>
               <span className="sm:hidden relative z-10">AI</span>
             </Button>
@@ -76,7 +78,7 @@ function App() {
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-10 md:space-y-12">
           <div className="flex justify-center overflow-x-auto pb-2 no-scrollbar">
-            <TabsList className="inline-flex h-16 rounded-2xl bg-card/40 backdrop-blur-2xl border-2 border-primary/30 shadow-[0_0_30px_rgba(0,200,255,0.2)] p-2 gap-2">
+            <TabsList className="inline-flex h-16 rounded-2xl bg-card/60 backdrop-blur-2xl border-2 border-primary/40 shadow-[0_0_40px_rgba(114,192,255,0.15)] p-2 gap-2">
               <TabsTrigger 
                 value="dashboard" 
                 className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_0_20px_rgba(0,200,255,0.6)] data-[state=active]:border-2 data-[state=active]:border-primary font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
@@ -153,6 +155,13 @@ function App() {
               >
                 <Note size={22} weight="duotone" />
                 <span className="hidden sm:inline">Notes</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="api" 
+                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_0_20px_rgba(0,200,255,0.6)] data-[state=active]:border-2 data-[state=active]:border-primary font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+              >
+                <Plugs size={22} weight="duotone" />
+                <span className="hidden sm:inline">API</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="automations" 
@@ -293,6 +302,10 @@ function App() {
               </div>
             </div>
             <NoteTaking />
+          </TabsContent>
+
+          <TabsContent value="api" className="space-y-8 mt-10">
+            <APISettings />
           </TabsContent>
 
           <TabsContent value="automations" className="space-y-8 mt-10">

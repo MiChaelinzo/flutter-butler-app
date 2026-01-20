@@ -54,6 +54,13 @@ This is a multi-feature personal assistant platform with AI integration, task au
 - **Progression**: User opens assistant → chooses mode (text/video/audio) → engages with AI butler → receives visual feedback from animated 3D avatar → controls mute/speaker during calls → AI provides contextual help based on current app state → ends call or switches modes
 - **Success criteria**: Video/audio modes provide engaging visual experience, 3D avatar responds naturally to conversation, context-aware suggestions improve productivity, users feel more connected to their AI assistant
 
+### API Integration Management
+- **Functionality**: Configure and connect external services including Serverpod backend, Flutter app, OpenAI, and custom REST APIs with secure credential storage
+- **Purpose**: Enables real integrations with external services and APIs for production use
+- **Trigger**: User opens API settings tab from navigation
+- **Progression**: User selects service tab → enables integration → enters credentials (endpoint, API keys, project IDs) → tests connection → receives validation feedback → saves configuration → uses throughout app
+- **Success criteria**: Users successfully connect 1+ external services, credentials persist securely, connection tests validate configurations
+
 ### Team Collaboration & Sharing
 - **Functionality**: Share tasks, goals, and automations with team members; collaborative workspaces with real-time sync
 - **Purpose**: Enables teams to coordinate productivity and share AI-powered workflows
@@ -128,23 +135,23 @@ This is a multi-feature personal assistant platform with AI integration, task au
 
 ## Design Direction
 
-The design should evoke a futuristic, cyberpunk-inspired AI interface with holographic elements and neon accents - bold and electrifying while remaining highly functional. It should feel like interacting with advanced technology from a sci-fi universe. The interface features dark gradients, glowing borders, vibrant neon highlights, and dynamic visual effects that create an immersive digital experience.
+The design evokes a sophisticated cyberpunk-inspired AI interface with refined neon accents and holographic elements - bold yet elegant while maintaining exceptional usability. The interface features carefully balanced dark gradients, luminous borders with subtle glow effects, vibrant accent highlights, and smooth dynamic animations that create an immersive, premium digital experience. Every element is crafted with attention to detail, from the floating orb backgrounds to the gradient text effects, creating a cohesive futuristic aesthetic that feels both cutting-edge and polished.
 
 ## Color Selection
 
-A striking cyberpunk palette featuring electric neon colors against deep dark backgrounds with holographic iridescence creating a futuristic, high-energy aesthetic.
+A refined cyberpunk palette featuring electric neon colors against sophisticated dark backgrounds with holographic iridescence - striking yet balanced for optimal readability and visual harmony.
 
-- **Primary Color**: Electric Cyan (oklch(0.75 0.20 195)) - Glowing digital energy representing AI intelligence and interactivity
-- **Secondary Color**: Deep Violet (oklch(0.35 0.18 285)) - Dark mystery with technological sophistication for containers and depth
-- **Accent Color**: Neon Magenta (oklch(0.70 0.28 330)) - Explosive highlight color for CTAs and critical interactive elements
-- **Orange**: Blazing Orange (oklch(0.72 0.22 40)) - Hot energy for warnings and time-critical features
-- **Yellow**: Electric Lime (oklch(0.85 0.20 130)) - Radioactive glow for achievements and positive feedback
+- **Primary Color**: Electric Cyan (oklch(0.72 0.19 200)) - Sophisticated digital energy representing AI intelligence with excellent luminosity
+- **Secondary Color**: Deep Violet (oklch(0.38 0.14 290)) - Rich mystery with technological depth for UI containers and accents
+- **Accent Color**: Neon Magenta (oklch(0.68 0.24 330)) - Vibrant highlight color for CTAs and critical interactive elements with perfect contrast
+- **Orange**: Blazing Orange (oklch(0.70 0.20 45)) - Warm energy for time-critical features and warm accents
+- **Lime**: Electric Lime (oklch(0.82 0.18 130)) - Bright glow for achievements, success states, and positive feedback
 - **Foreground/Background Pairings**: 
-  - Background (Deep Space oklch(0.12 0.03 285)): Bright Cyan text (oklch(0.92 0.15 195)) - Ratio 14.8:1 ✓
-  - Primary (Electric Cyan oklch(0.75 0.20 195)): Dark Space text (oklch(0.12 0.03 285)) - Ratio 12.1:1 ✓
-  - Accent (Neon Magenta oklch(0.70 0.28 330)): White text (oklch(0.99 0 0)) - Ratio 5.2:1 ✓
-  - Orange (Blazing Orange oklch(0.72 0.22 40)): White text (oklch(0.99 0 0)) - Ratio 5.8:1 ✓
-  - Card (Dark Violet oklch(0.18 0.08 285)): Cyan text (oklch(0.88 0.15 195)) - Ratio 9.5:1 ✓
+  - Background (Deep Space oklch(0.14 0.04 285)): Bright Cyan text (oklch(0.96 0.02 285)) - Ratio 15.2:1 ✓
+  - Primary (Electric Cyan oklch(0.72 0.19 200)): Dark Space text (oklch(0.12 0.04 285)) - Ratio 11.8:1 ✓
+  - Accent (Neon Magenta oklch(0.68 0.24 330)): White text (oklch(0.98 0.01 0)) - Ratio 5.4:1 ✓
+  - Orange (Blazing Orange oklch(0.70 0.20 45)): White text (oklch(0.98 0.01 0)) - Ratio 5.9:1 ✓
+  - Card (Dark Violet oklch(0.20 0.05 285)): Cyan text (oklch(0.94 0.02 285)) - Ratio 10.2:1 ✓
 
 ## Font Selection
 
@@ -163,42 +170,47 @@ Typography should feel futuristic and technical with sharp geometric forms - cut
 
 ## Animations
 
-Animations should reinforce the cyberpunk aesthetic with dynamic energy and digital effects - glowing pulses, holographic shimmers, and neon trails. Interactive elements glow on hover with animated neon borders (300ms ease-out). Content materializes with glitch effects and scan-line animations (0.5s). Cards have dramatic glow intensification and slight float on hover with pulsing borders. Background features animated gradient shifts and particle effects. Loading states use glowing scan lines and digital corruption effects. Celebrate completions with explosive neon bursts and screen flashes (200ms). All animations embrace the futuristic, high-energy aesthetic while maintaining usability.
+Animations reinforce the refined cyberpunk aesthetic with smooth energy and elegant digital effects - subtle glowing pulses, holographic shimmers, and fluid neon trails. Interactive elements glow softly on hover with animated borders (400ms ease-out). Content materializes with smooth fade and scale animations (0.4s). Cards have refined glow intensification and gentle lift on hover (6px) with pulsing borders. Background features smooth animated gradient shifts and floating orb particles (25s cycles). Loading states use elegant scan lines and progress indicators. Celebrate completions with satisfying neon bursts and gentle flashes (250ms). All animations embrace the futuristic aesthetic while prioritizing smoothness and never interfering with usability.
 
 ## Component Selection
 
 - **Components**: 
   - **Dialog/Sheet**: For AI chat interface with video/audio call views, automation builders, and detailed task editing
-  - **Card**: Primary container for all feature modules with subtle shadows for depth
-  - **Button**: Extensive use with variants - solid for primary actions (AI generation), outline for secondary (edit), ghost for tertiary (dismiss)
-  - **Input/Textarea**: Clean forms with floating labels for task entry and automation configuration
-  - **Badge**: Status indicators for task priority, automation status, reminder timing, call status (live indicator)
+  - **Card**: Primary container for all feature modules with refined shadows and glowing borders
+  - **Button**: Extensive use with variants - gradient fills for primary actions (AI generation), outline for secondary (edit), ghost for tertiary (dismiss)
+  - **Input/Textarea**: Clean forms with elegant focus states for task entry and API configuration
+  - **Badge**: Status indicators for task priority, automation status, reminder timing, API connection status
   - **ScrollArea**: For task lists and chat history ensuring content never feels cramped
-  - **Tabs**: Switch between different butler views (dashboard, tasks, automations, insights)
+  - **Tabs**: Switch between different butler views (dashboard, tasks, automations, insights, API settings)
   - **Separator**: Subtle dividers to create breathing room between sections
   - **Skeleton**: Loading states for AI content generation
   - **Avatar**: User profile in header, personalization touch
+  - **Switch**: Toggle controls for enabling/disabling API integrations
+  - **Alert**: Status messages for API connection tests and system feedback
   - **3D Canvas**: Three.js powered virtual assistant with animated sphere head, glowing eyes, orbital rings, and particle effects
 
 - **Customizations**: 
   - Custom AI thinking indicator with pulsing dots in accent color
-  - Custom quick action cards with icon backgrounds using subtle gradients
+  - Custom quick action cards with icon backgrounds using refined gradients
   - Custom task card with inline priority editing and smart time display
   - Custom briefing card with weather icon integration and dynamic greetings
+  - Custom API configuration cards with service-specific styling and status badges
+  - Custom connection test feedback with success/error states
   - Custom 3D virtual assistant model with reactive animations based on speaking state and user interaction
   - Custom video/audio call interface with in-call controls (mute, speaker, end call)
   
 - **States**: 
-  - Buttons: Default with clean borders, hover lifts 2px with enhanced shadow, active subtle scale (0.95), focus clean ring outline
-  - Cards: Default subtle border and shadow, hover lifts 4px with deeper shadow and maintained border
-  - Inputs: Default light border, focus primary ring with clean outline, error state with destructive color
-  - Tabs: Default muted appearance, active solid background color with clear text contrast, smooth transitions between states
+  - Buttons: Default with refined borders and gradients, hover lifts 2px with enhanced glow shadow, active subtle scale (0.97), focus clean ring with primary color
+  - Cards: Default with subtle border and glow, hover lifts 6px with intensified glow and enhanced border visibility
+  - Inputs: Default with subtle border, focus with primary ring and enhanced outline, error state with destructive color glow
+  - Tabs: Default with muted appearance, active with solid background and glow shadow (20px blur), smooth 300ms transitions between all states
+  - Switches: Default with muted background, active with primary color and glow effect
 
 - **Icon Selection**: 
   - Sparkles (AI generation)
   - Lightning (quick actions)
   - Brain (intelligent features)
-  - CheckCircle (task completion)
+  - CheckCircle (task completion, connection success)
   - Clock (reminders/time)
   - Robot (AI assistant)
   - Calendar (scheduling)
@@ -206,7 +218,14 @@ Animations should reinforce the cyberpunk aesthetic with dynamic energy and digi
   - Copy (copy AI output)
   - ArrowsClockwise (regenerate)
   - List (tasks)
-  - Gear (settings)
+  - Gear (settings/automations)
+  - Plugs (API integrations)
+  - Database (Serverpod)
+  - CloudArrowUp (Flutter)
+  - Eye/EyeSlash (show/hide credentials)
+  - TestTube (test connections)
+  - Trash (delete/clear)
+  - Warning (alerts/errors)
   - VideoCamera (video call)
   - Phone (audio call)
   - Microphone/MicrophoneSlash (mute toggle)
