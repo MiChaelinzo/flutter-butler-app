@@ -53,10 +53,10 @@ function App() {
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-lime rounded-full border-2 border-background animate-pulse" />
               </div>
               <div>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-gradient-cyber">
-                  NEXUS
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gradient-cyber">
+                  Nexus
                 </h1>
-                <p className="text-muted-foreground text-xs sm:text-sm mt-1 font-medium tracking-wide uppercase flex items-center gap-2">
+                <p className="text-muted-foreground text-xs sm:text-sm mt-1 font-medium tracking-wide flex items-center gap-2">
                   <span className="inline-block w-1.5 h-1.5 bg-lime rounded-full animate-pulse" />
                   AI Command Center
                 </p>
@@ -93,91 +93,91 @@ function App() {
             <TabsList className="inline-flex h-12 rounded-xl bg-card/80 backdrop-blur-xl border border-border shadow-lg p-1.5 gap-1">
               <TabsTrigger 
                 value="dashboard" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <House size={18} weight="duotone" />
                 <span className="hidden sm:inline">Command</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="analytics" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <ChartLine size={18} weight="duotone" />
                 <span className="hidden sm:inline">Intel</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="team" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <Users size={18} weight="duotone" />
                 <span className="hidden sm:inline">Squad</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="voice" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <Microphone size={18} weight="duotone" />
                 <span className="hidden sm:inline">Voice</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="focus" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <Timer size={18} weight="duotone" />
                 <span className="hidden sm:inline">Focus</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="goals" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <Target size={18} weight="duotone" />
                 <span className="hidden sm:inline">Goals</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="calendar" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <Calendar size={18} weight="duotone" />
                 <span className="hidden sm:inline">Timeline</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="actions" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <Lightning size={18} weight="duotone" />
                 <span className="hidden sm:inline">Actions</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="tasks" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <ListChecks size={18} weight="duotone" />
                 <span className="hidden sm:inline">Tasks</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="habits" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-lime data-[state=active]:text-lime-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-lime data-[state=active]:text-lime-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <Flame size={18} weight="duotone" />
                 <span className="hidden sm:inline">Habits</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="notes" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <Note size={18} weight="duotone" />
                 <span className="hidden sm:inline">Notes</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="api" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <Plugs size={18} weight="duotone" />
                 <span className="hidden sm:inline">API</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="automations" 
-                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide transition-all duration-200 hover:bg-muted/50"
               >
                 <Gear size={18} weight="duotone" />
                 <span className="hidden sm:inline">Auto</span>
@@ -202,7 +202,7 @@ function App() {
                     <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange/20 to-orange/5 border border-orange/30 flex items-center justify-center backdrop-blur-xl">
                       <Lightning className="text-orange" size={22} weight="duotone" />
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight uppercase text-gradient-hot">Quick Actions</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gradient-hot">Quick Actions</h2>
                   </div>
                   <QuickActions />
                 </div>
@@ -216,7 +216,7 @@ function App() {
                     <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center backdrop-blur-xl">
                       <Sparkle className="text-primary" size={22} weight="duotone" />
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight uppercase text-gradient-cyber">Smart AI</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gradient-cyber">Smart AI</h2>
                   </div>
                   <SmartSuggestions />
                 </div>
@@ -230,8 +230,8 @@ function App() {
                 <Timer className="text-secondary" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-cyber">Focus Mode</h2>
-                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gradient-cyber">Focus Mode</h2>
+                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide">
                   Deep Work Protocol
                 </p>
               </div>
@@ -245,8 +245,8 @@ function App() {
                 <Target className="text-accent" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-cyber">Daily Goals</h2>
-                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gradient-cyber">Daily Goals</h2>
+                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide">
                   Mission Objectives
                 </p>
               </div>
@@ -261,8 +261,8 @@ function App() {
                   <Lightning className="text-orange" size={32} weight="duotone" />
                 </div>
                 <div>
-                  <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-hot">Quick Actions</h2>
-                  <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
+                  <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gradient-hot">Quick Actions</h2>
+                  <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide">
                     AI-Powered Shortcuts
                   </p>
                 </div>
@@ -277,8 +277,8 @@ function App() {
                 <ListChecks className="text-primary" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-cyber">Task Manager</h2>
-                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gradient-cyber">Task Manager</h2>
+                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide">
                   Mission Control
                 </p>
               </div>
@@ -292,8 +292,8 @@ function App() {
                 <Flame className="text-lime" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-cyber">Habit Tracker</h2>
-                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gradient-cyber">Habit Tracker</h2>
+                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide">
                   Build Consistency
                 </p>
               </div>
@@ -307,8 +307,8 @@ function App() {
                 <Note className="text-secondary" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-cyber">Quick Notes</h2>
-                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gradient-cyber">Quick Notes</h2>
+                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide">
                   AI Summaries
                 </p>
               </div>
@@ -326,8 +326,8 @@ function App() {
                 <Gear className="text-orange" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-hot">Automations</h2>
-                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-gradient-hot">Automations</h2>
+                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide">
                   Workflow Engine
                 </p>
               </div>

@@ -68,7 +68,7 @@ Format as JSON with keys: greeting, weather, priorities (array), insight`
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
       
       <CardHeader className="flex flex-row items-center justify-between pb-6 relative">
-        <CardTitle className="flex items-center gap-4 text-3xl sm:text-4xl font-black tracking-[0.06em] uppercase">
+        <CardTitle className="flex items-center gap-4 text-2xl sm:text-3xl font-bold tracking-tight">
           <div className="relative w-16 h-16 rounded-xl bg-gradient-to-br from-primary/35 to-accent/30 flex items-center justify-center border-2 border-primary/60 shadow-[0_0_30px_rgba(114,192,255,0.35)] group-hover:shadow-[0_0_50px_rgba(114,192,255,0.5)] group-hover:scale-110 transition-all duration-300">
             <Sparkle className="text-primary drop-shadow-[0_0_15px_rgba(114,192,255,1)]" size={28} weight="duotone" />
           </div>
@@ -108,7 +108,7 @@ Format as JSON with keys: greeting, weather, priorities (array), insight`
             </div>
 
             <div className="space-y-5">
-              <h4 className="text-lg sm:text-xl font-black text-foreground flex items-center gap-4 tracking-[0.04em] uppercase">
+              <h4 className="text-lg sm:text-xl font-bold text-foreground flex items-center gap-4 tracking-tight">
                 <div className="w-1 h-8 bg-gradient-to-b from-primary via-accent to-primary rounded-full shadow-[0_0_15px_rgba(114,192,255,0.6)]" />
                 <span className="text-gradient-cyber">Priority Queue</span>
               </h4>
@@ -116,9 +116,9 @@ Format as JSON with keys: greeting, weather, priorities (array), insight`
                 {briefing.priorities.map((priority, idx) => (
                   <div key={idx} className="flex items-start gap-4 group/priority">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/priority:from-primary/50 group-hover/priority:to-accent/50 transition-all border-2 border-primary/50 shadow-[0_0_15px_rgba(114,192,255,0.2)] group-hover/priority:shadow-[0_0_25px_rgba(114,192,255,0.4)] group-hover/priority:scale-110 duration-300">
-                      <span className="text-primary font-black text-base drop-shadow-[0_0_5px_rgba(114,192,255,0.9)]">{idx + 1}</span>
+                      <span className="text-primary font-bold text-base drop-shadow-[0_0_5px_rgba(114,192,255,0.9)]">{idx + 1}</span>
                     </div>
-                    <span className="text-base sm:text-lg text-foreground leading-relaxed pt-1.5 font-semibold">{priority}</span>
+                    <span className="text-base sm:text-lg text-foreground leading-relaxed pt-1.5 font-medium">{priority}</span>
                   </div>
                 ))}
               </div>
@@ -128,7 +128,7 @@ Format as JSON with keys: greeting, weather, priorities (array), insight`
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/80 to-transparent" />
               <div className="flex gap-5 relative">
                 <Lightbulb size={28} weight="duotone" className="text-accent drop-shadow-[0_0_10px_rgba(173,77,213,0.9)] flex-shrink-0 mt-1" />
-                <p className="text-base sm:text-lg text-foreground leading-relaxed font-semibold">{briefing.insight}</p>
+                <p className="text-base sm:text-lg text-foreground leading-relaxed font-medium">{briefing.insight}</p>
               </div>
             </div>
           </>

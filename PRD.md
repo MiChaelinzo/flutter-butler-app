@@ -155,18 +155,18 @@ A refined cyberpunk palette featuring electric neon colors against sophisticated
 
 ## Font Selection
 
-Typography should feel futuristic and technical with sharp geometric forms - cutting-edge and bold, evoking advanced AI interfaces and digital displays.
+Typography should feel modern, clean, and highly legible while maintaining a tech-inspired aesthetic - professional and refined with excellent readability across all screen sizes.
 
-- **Primary Font**: Orbitron - A geometric futuristic sans-serif perfect for cyberpunk aesthetics with strong technical character and excellent screen readability
-- **Accent Font**: Rajdhani - Sharp and condensed, ideal for headers and labels with an ultra-modern sci-fi feeling
+- **Primary Font**: Inter - A modern sans-serif designed specifically for UI with exceptional legibility, variable weights, and optimized for digital screens
+- **Accent Font**: Space Grotesk - A tech-inspired geometric sans-serif perfect for headings with sleek, minimal character ideal for AI dashboards
 
 - **Typographic Hierarchy**: 
-  - H1 (Page Title): Orbitron Black / 36-48px / wide letter spacing (0.08em) / leading-none / uppercase
-  - H2 (Section Headings): Rajdhani Bold / 24-28px / wide letter spacing (0.06em) / leading-tight / uppercase
-  - H3 (Card Titles): Rajdhani SemiBold / 18-20px / letter spacing (0.04em) / leading-snug / uppercase
-  - Body (Main Content): Rajdhani Medium / 15-16px / slight letter spacing (0.01em) / leading-relaxed (1.5)
-  - Small (Metadata): Rajdhani Regular / 13-14px / letter spacing (0.02em) / leading-normal
-  - Button Text: Rajdhani Bold / 15-16px / letter spacing (0.05em) / uppercase
+  - H1 (Page Title): Space Grotesk Bold / 32-40px / tight letter spacing (-0.01em) / leading-tight
+  - H2 (Section Headings): Space Grotesk Bold / 24-32px / tight letter spacing (-0.01em) / leading-tight
+  - H3 (Card Titles): Space Grotesk SemiBold / 18-20px / normal letter spacing / leading-snug
+  - Body (Main Content): Inter Medium / 15-16px / normal letter spacing / leading-relaxed (1.6)
+  - Small (Metadata): Inter Regular / 13-14px / slight letter spacing (0.01em) / leading-normal
+  - Button Text: Inter SemiBold / 14-15px / slight letter spacing (0.02em)
 
 ## Animations
 

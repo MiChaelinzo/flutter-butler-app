@@ -86,8 +86,8 @@ export function QuickActions() {
                   <Icon size={32} className="text-orange drop-shadow-[0_0_10px_rgba(255,100,0,0.6)] group-hover:text-orange transition-colors" weight="duotone" />
                 </div>
                 <div>
-                  <h3 className="font-black text-sm sm:text-base text-foreground mb-1.5 leading-tight tracking-wide uppercase">{action.title}</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-snug font-semibold">{action.description}</p>
+                  <h3 className="font-bold text-sm sm:text-base text-foreground mb-1.5 leading-tight tracking-tight">{action.title}</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-snug font-medium">{action.description}</p>
                 </div>
               </CardContent>
             </Card>
@@ -98,18 +98,18 @@ export function QuickActions() {
       <Dialog open={!!selectedAction} onOpenChange={() => setSelectedAction(null)}>
         <DialogContent className="max-w-2xl border-2 border-primary/40 bg-card/60 backdrop-blur-2xl shadow-[0_0_60px_rgba(0,200,255,0.3)]">
           <DialogHeader>
-            <DialogTitle className="flex items-center gap-4 text-2xl sm:text-3xl font-black tracking-[0.06em] uppercase">
+            <DialogTitle className="flex items-center gap-4 text-2xl sm:text-3xl font-bold tracking-tight">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange/30 to-accent/30 flex items-center justify-center border-2 border-orange/50 shadow-[0_0_30px_rgba(255,100,0,0.4)]">
                 <Lightning className="text-orange drop-shadow-[0_0_15px_rgba(255,100,0,0.8)]" size={28} weight="duotone" />
               </div>
               <span className="text-gradient-hot">{action?.title}</span>
             </DialogTitle>
-            <DialogDescription className="text-sm sm:text-base font-semibold text-muted-foreground pl-1">{action?.description}</DialogDescription>
+            <DialogDescription className="text-sm sm:text-base font-medium text-muted-foreground pl-1">{action?.description}</DialogDescription>
           </DialogHeader>
 
           <div className="space-y-6 mt-6">
             <div>
-              <label className="text-sm font-bold mb-3 block text-foreground tracking-[0.04em] uppercase">Your Input</label>
+              <label className="text-sm font-semibold mb-3 block text-foreground tracking-tight">Your Input</label>
               <Textarea
                 placeholder={`Enter details for ${action?.title.toLowerCase()}...`}
                 value={input}
@@ -122,7 +122,7 @@ export function QuickActions() {
             <Button 
               onClick={handleGenerate} 
               disabled={!input.trim() || isLoading}
-              className="w-full h-14 text-base font-bold tracking-[0.05em] uppercase shadow-[0_0_30px_rgba(255,100,0,0.4)] hover:shadow-[0_0_50px_rgba(255,100,0,0.6)] transition-all duration-300 bg-gradient-to-r from-orange via-accent to-orange bg-[length:200%_100%] hover:bg-[position:100%_0] border-2 border-orange/50 group relative overflow-hidden"
+              className="w-full h-14 text-base font-semibold tracking-wide shadow-[0_0_30px_rgba(255,100,0,0.4)] hover:shadow-[0_0_50px_rgba(255,100,0,0.6)] transition-all duration-300 bg-gradient-to-r from-orange via-accent to-orange bg-[length:200%_100%] hover:bg-[position:100%_0] border-2 border-orange/50 group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               <span className="relative z-10">{isLoading ? 'Generating...' : 'Generate'}</span>
@@ -131,13 +131,13 @@ export function QuickActions() {
             {(result || isLoading) && (
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <label className="text-sm font-bold text-foreground tracking-[0.04em] uppercase">Result</label>
+                  <label className="text-sm font-semibold text-foreground tracking-tight">Result</label>
                   {result && (
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={handleCopy}
-                      className="h-11 rounded-xl border-2 border-primary/30 hover:bg-primary/20 hover:border-primary/60 backdrop-blur-xl font-bold tracking-[0.04em] uppercase hover:shadow-[0_0_20px_rgba(0,200,255,0.3)]"
+                      className="h-11 rounded-xl border-2 border-primary/30 hover:bg-primary/20 hover:border-primary/60 backdrop-blur-xl font-semibold tracking-tight hover:shadow-[0_0_20px_rgba(0,200,255,0.3)]"
                     >
                       {copied ? (
                         <>
