@@ -1,35 +1,35 @@
 import { useKV } from '@github/spark/hooks'
-import { Coins } from '@phosphor-icons/react'
+import { motion, AnimatePresence } from 'fram
 import { motion, AnimatePresence } from 'framer-motion'
 
-export interface RewardEvent {
-  id: string
-  amount: number
-  message: string
   timestamp: number
-}
 
-export function useRewardSystem() {
-  const [coins, setCoins] = useKV<number>('reward-coins', 0)
-  const [totalEarned, setTotalEarned] = useKV<number>('reward-total-earned', 0)
-  const [rewardQueue, setRewardQueue] = useKV<RewardEvent[]>('reward-queue', [])
+  const [coins, 
+  const [rewardQu
+  const awardCoins 
+ 
 
-  const awardCoins = (amount: number, message: string) => {
-    const event: RewardEvent = {
-      id: `reward-${Date.now()}-${Math.random()}`,
-      amount,
-      message,
-      timestamp: Date.now(),
     }
-
     setCoins((current = 0) => current + amount)
-    setTotalEarned((current = 0) => current + amount)
     setRewardQueue((queue = []) => [...queue, event])
-
     setTimeout(() => {
-      setRewardQueue((queue = []) => queue.filter((e) => e.id !== event.id))
-    }, 3000)
-  }
+
+
+    let canSpend = false
+      if (current >= amount) {
+        retur
+      return c
+    return canSpend
+
+
+export function RewardNotifications({ events }:
+    <div className="fixed top-24 right-4 z-50 space-y
+        {events.map((event) => (
+
+            animate={{
+            className="bg-card border border-border rounded-xl p-4 shadow-lg
+            
+   
 
   const spendCoins = (amount: number): boolean => {
     let canSpend = false
@@ -60,31 +60,31 @@ export function RewardNotifications({ events }: { events: RewardEvent[] }) {
           >
             <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
               <Coins size={24} weight="duotone" className="text-primary" />
-            </div>
-            <div className="flex-1">
-              <div className="font-semibold text-sm">{event.message}</div>
-              <div className="text-primary font-bold text-lg">+{event.amount} coins</div>
-            </div>
-          </motion.div>
-        ))}
-      </AnimatePresence>
-    </div>
-  )
-}
 
-export function CoinDisplay({ amount }: { amount: number }) {
-  return (
-    <div className="flex items-center gap-2 bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 rounded-xl px-4 py-2 backdrop-blur-xl">
-      <Coins size={24} weight="duotone" className="text-primary" />
-      <motion.span
-        key={amount}
-        initial={{ scale: 1.3, color: '#fbbf24' }}
-        animate={{ scale: 1, color: 'inherit' }}
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className="font-bold text-lg"
-      >
-        {amount}
-      </motion.span>
-    </div>
-  )
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
