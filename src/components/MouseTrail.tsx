@@ -14,7 +14,7 @@ export function MouseTrail() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const particlesRef = useRef<Particle[]>([])
   const mouseRef = useRef({ x: 0, y: 0 })
-  const animationRef = useRef<number>()
+  const animationRef = useRef<number>(0)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -31,10 +31,10 @@ export function MouseTrail() {
     window.addEventListener('resize', resizeCanvas)
 
     const colors = [
-      'oklch(0.72 0.19 200)',
-      'oklch(0.68 0.24 330)',
-      'oklch(0.70 0.20 45)',
-      'oklch(0.82 0.18 130)'
+      'oklch(0.75 0.20 230)',
+      'oklch(0.70 0.25 330)',
+      'oklch(0.72 0.22 45)',
+      'oklch(0.85 0.20 130)'
     ]
 
     const handleMouseMove = (e: MouseEvent) => {

@@ -34,62 +34,55 @@ function App() {
       {theme === 'dark' && <NebulaBackground />}
       {theme === 'dark' && <MouseTrail />}
       
-      <div className="absolute inset-0 cyber-grid opacity-40" />
+      <div className="absolute inset-0 cyber-grid opacity-30" />
       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[700px] h-[700px] rounded-full bg-primary/15 blur-[120px] floating-orb" />
-        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] rounded-full bg-accent/15 blur-[120px] floating-orb" style={{ animationDelay: '-8s' }} />
-        <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] rounded-full bg-orange/10 blur-[100px] floating-orb" style={{ animationDelay: '-16s' }} />
-        <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] rounded-full bg-lime/8 blur-[90px] floating-orb" style={{ animationDelay: '-12s' }} />
+        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full bg-primary/8 blur-[100px]" />
+        <div className="absolute bottom-0 left-1/3 w-[500px] h-[500px] rounded-full bg-accent/8 blur-[100px]" />
       </div>
 
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12 relative z-10">
-        <header className="mb-12 md:mb-16">
-          <div className="flex items-start sm:items-center justify-between gap-4 flex-col sm:flex-row">
-            <div className="space-y-4">
-              <div className="flex items-center gap-6">
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-primary/40 blur-3xl rounded-full pulse-glow" />
-                  <div className="absolute inset-0 border-2 border-primary/60 rounded-3xl animate-ping opacity-20" />
-                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-primary/40 via-accent/25 to-orange/30 backdrop-blur-xl flex items-center justify-center border-2 border-primary/60 shadow-[0_0_40px_rgba(114,192,255,0.4)] group-hover:shadow-[0_0_60px_rgba(114,192,255,0.6)] transition-all duration-500 group-hover:scale-105 group-hover:border-primary/80">
-                    <Robot size={56} weight="duotone" className="text-primary drop-shadow-[0_0_15px_rgba(114,192,255,0.9)]" />
-                  </div>
-                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-lime rounded-full border-2 border-background animate-pulse shadow-[0_0_20px_rgba(209,237,114,0.9)]" />
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-10 relative z-10">
+        <header className="mb-8 md:mb-12">
+          <div className="flex items-center justify-between gap-4 flex-wrap">
+            <div className="flex items-center gap-5">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full" />
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-card backdrop-blur-xl flex items-center justify-center border border-border shadow-lg group-hover:shadow-primary/20 transition-all duration-300 group-hover:scale-105">
+                  <Robot size={40} weight="duotone" className="text-primary" />
                 </div>
-                <div>
-                  <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-[0.08em] uppercase text-gradient-cyber neon-text">
-                    NEXUS
-                  </h1>
-                  <p className="text-muted-foreground text-sm sm:text-base mt-2 font-semibold tracking-[0.05em] uppercase flex items-center gap-2">
-                    <span className="inline-block w-2 h-2 bg-lime rounded-full animate-pulse shadow-[0_0_12px_rgba(209,237,114,0.9)]" />
-                    AI Command Center
-                  </p>
-                </div>
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-lime rounded-full border-2 border-background animate-pulse" />
+              </div>
+              <div>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-gradient-cyber">
+                  NEXUS
+                </h1>
+                <p className="text-muted-foreground text-xs sm:text-sm mt-1 font-medium tracking-wide uppercase flex items-center gap-2">
+                  <span className="inline-block w-1.5 h-1.5 bg-lime rounded-full animate-pulse" />
+                  AI Command Center
+                </p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <Button 
                 onClick={toggleTheme}
                 size="lg"
                 variant="outline"
-                className="h-14 w-14 rounded-xl border-2 border-primary/60 bg-card/60 backdrop-blur-xl shadow-[0_0_20px_rgba(114,192,255,0.3)] hover:shadow-[0_0_35px_rgba(114,192,255,0.5)] transition-all duration-300"
+                className="h-12 w-12 rounded-xl border-border bg-card/80 backdrop-blur-xl hover:bg-card hover:border-primary/40 transition-all duration-300"
               >
                 {theme === 'dark' ? (
-                  <Sun size={24} weight="duotone" className="text-primary" />
+                  <Sun size={20} weight="duotone" className="text-primary" />
                 ) : (
-                  <Moon size={24} weight="duotone" className="text-primary" />
+                  <Moon size={20} weight="duotone" className="text-primary" />
                 )}
               </Button>
               <Button 
                 onClick={() => setChatOpen(true)} 
                 size="lg" 
-                className="relative gap-3 h-14 px-8 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] transition-all duration-700 border-2 border-primary/60 shadow-[0_0_30px_rgba(114,192,255,0.5)] hover:shadow-[0_0_50px_rgba(114,192,255,0.8)] font-bold text-base tracking-[0.05em] uppercase overflow-hidden group"
+                className="gap-2 h-12 px-6 bg-primary hover:bg-primary/90 border border-primary/20 shadow-lg shadow-primary/20 hover:shadow-primary/30 font-semibold text-sm tracking-wide transition-all duration-300 overflow-hidden group"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-                <Sparkle size={24} weight="fill" className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
+                <Sparkle size={20} weight="fill" className="relative z-10" />
                 <span className="hidden sm:inline relative z-10">Activate AI</span>
                 <span className="sm:hidden relative z-10">AI</span>
               </Button>
@@ -97,121 +90,121 @@ function App() {
           </div>
         </header>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-10 md:space-y-12">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8 md:space-y-10">
           <div className="flex justify-center overflow-x-auto pb-2 no-scrollbar">
-            <TabsList className="inline-flex h-16 rounded-2xl bg-card/60 backdrop-blur-2xl border-2 border-primary/40 shadow-[0_0_40px_rgba(114,192,255,0.15)] p-2 gap-2">
+            <TabsList className="inline-flex h-12 rounded-xl bg-card/80 backdrop-blur-xl border border-border shadow-lg p-1.5 gap-1">
               <TabsTrigger 
                 value="dashboard" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_0_20px_rgba(0,200,255,0.6)] data-[state=active]:border-2 data-[state=active]:border-primary font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <House size={22} weight="duotone" />
+                <House size={18} weight="duotone" />
                 <span className="hidden sm:inline">Command</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="analytics" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_0_20px_rgba(0,200,255,0.6)] data-[state=active]:border-2 data-[state=active]:border-primary font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <ChartLine size={22} weight="duotone" />
+                <ChartLine size={18} weight="duotone" />
                 <span className="hidden sm:inline">Intel</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="team" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-[0_0_20px_rgba(255,0,150,0.6)] data-[state=active]:border-2 data-[state=active]:border-accent font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <Users size={22} weight="duotone" />
+                <Users size={18} weight="duotone" />
                 <span className="hidden sm:inline">Squad</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="voice" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-[0_0_20px_rgba(255,100,0,0.6)] data-[state=active]:border-2 data-[state=active]:border-orange font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <Microphone size={22} weight="duotone" />
+                <Microphone size={18} weight="duotone" />
                 <span className="hidden sm:inline">Voice</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="focus" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground data-[state=active]:shadow-[0_0_20px_rgba(100,50,200,0.6)] data-[state=active]:border-2 data-[state=active]:border-secondary font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <Timer size={22} weight="duotone" />
+                <Timer size={18} weight="duotone" />
                 <span className="hidden sm:inline">Focus</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="goals" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-[0_0_20px_rgba(255,0,150,0.6)] data-[state=active]:border-2 data-[state=active]:border-accent font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <Target size={22} weight="duotone" />
+                <Target size={18} weight="duotone" />
                 <span className="hidden sm:inline">Goals</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="calendar" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_0_20px_rgba(0,200,255,0.6)] data-[state=active]:border-2 data-[state=active]:border-primary font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <Calendar size={22} weight="duotone" />
+                <Calendar size={18} weight="duotone" />
                 <span className="hidden sm:inline">Timeline</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="actions" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-[0_0_20px_rgba(255,100,0,0.6)] data-[state=active]:border-2 data-[state=active]:border-orange font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <Lightning size={22} weight="duotone" />
+                <Lightning size={18} weight="duotone" />
                 <span className="hidden sm:inline">Actions</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="tasks" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-[0_0_20px_rgba(255,0,150,0.6)] data-[state=active]:border-2 data-[state=active]:border-accent font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <ListChecks size={22} weight="duotone" />
+                <ListChecks size={18} weight="duotone" />
                 <span className="hidden sm:inline">Tasks</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="habits" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-lime data-[state=active]:text-lime-foreground data-[state=active]:shadow-[0_0_20px_rgba(150,255,0,0.6)] data-[state=active]:border-2 data-[state=active]:border-lime font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-lime data-[state=active]:text-lime-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <Flame size={22} weight="duotone" />
+                <Flame size={18} weight="duotone" />
                 <span className="hidden sm:inline">Habits</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="notes" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground data-[state=active]:shadow-[0_0_20px_rgba(100,50,200,0.6)] data-[state=active]:border-2 data-[state=active]:border-secondary font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-secondary data-[state=active]:text-secondary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <Note size={22} weight="duotone" />
+                <Note size={18} weight="duotone" />
                 <span className="hidden sm:inline">Notes</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="api" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-[0_0_20px_rgba(0,200,255,0.6)] data-[state=active]:border-2 data-[state=active]:border-primary font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <Plugs size={22} weight="duotone" />
+                <Plugs size={18} weight="duotone" />
                 <span className="hidden sm:inline">API</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="automations" 
-                className="gap-2 px-4 sm:px-6 rounded-xl data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-[0_0_20px_rgba(255,100,0,0.6)] data-[state=active]:border-2 data-[state=active]:border-orange font-bold text-sm sm:text-base tracking-[0.04em] uppercase transition-all duration-300 hover:bg-muted/50"
+                className="gap-2 px-3 sm:px-4 rounded-lg data-[state=active]:bg-orange data-[state=active]:text-orange-foreground data-[state=active]:shadow-md font-semibold text-xs sm:text-sm tracking-wide uppercase transition-all duration-200 hover:bg-muted/50"
               >
-                <Gear size={22} weight="duotone" />
+                <Gear size={18} weight="duotone" />
                 <span className="hidden sm:inline">Auto</span>
               </TabsTrigger>
             </TabsList>
           </div>
 
-          <TabsContent value="dashboard" className="space-y-10 md:space-y-12 mt-10">
+          <TabsContent value="dashboard" className="space-y-8 md:space-y-10 mt-8">
             <DailyBriefing onRegenerate={() => {}} />
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <DailyGoals />
               <FocusMode />
             </div>
             
             <ProductivityStats />
             
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
-              <div className="lg:col-span-2 space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="lg:col-span-2 space-y-6">
                 <div>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-orange/30 to-orange/10 border-2 border-orange/50 flex items-center justify-center backdrop-blur-xl shadow-[0_0_20px_rgba(255,100,0,0.3)]">
-                      <Lightning className="text-orange drop-shadow-[0_0_10px_rgba(255,100,0,0.8)]" size={28} weight="duotone" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange/20 to-orange/5 border border-orange/30 flex items-center justify-center backdrop-blur-xl">
+                      <Lightning className="text-orange" size={22} weight="duotone" />
                     </div>
-                    <h2 className="text-3xl sm:text-4xl font-black tracking-[0.06em] uppercase text-gradient-hot">Quick Actions</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight uppercase text-gradient-hot">Quick Actions</h2>
                   </div>
                   <QuickActions />
                 </div>
@@ -219,13 +212,13 @@ function App() {
                 <TaskManager />
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <div>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-primary/30 to-primary/10 border-2 border-primary/50 flex items-center justify-center backdrop-blur-xl shadow-[0_0_20px_rgba(0,200,255,0.3)]">
-                      <Sparkle className="text-primary drop-shadow-[0_0_10px_rgba(0,200,255,0.8)]" size={28} weight="duotone" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center backdrop-blur-xl">
+                      <Sparkle className="text-primary" size={22} weight="duotone" />
                     </div>
-                    <h2 className="text-3xl sm:text-4xl font-black tracking-[0.06em] uppercase text-gradient-cyber">Smart AI</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight uppercase text-gradient-cyber">Smart AI</h2>
                   </div>
                   <SmartSuggestions />
                 </div>
@@ -233,14 +226,14 @@ function App() {
             </div>
           </TabsContent>
 
-          <TabsContent value="focus" className="space-y-8 mt-10">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-secondary/30 to-secondary/10 border-2 border-secondary/50 flex items-center justify-center backdrop-blur-xl shadow-[0_0_30px_rgba(100,50,200,0.3)]">
-                <Timer className="text-secondary drop-shadow-[0_0_15px_rgba(100,50,200,0.8)]" size={40} weight="duotone" />
+          <TabsContent value="focus" className="space-y-6 mt-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-secondary/20 to-secondary/5 border border-secondary/30 flex items-center justify-center backdrop-blur-xl">
+                <Timer className="text-secondary" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-black tracking-[0.08em] uppercase text-gradient-cyber">Focus Mode</h2>
-                <p className="text-muted-foreground mt-2 text-sm sm:text-base font-semibold tracking-[0.04em] uppercase">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-cyber">Focus Mode</h2>
+                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
                   Deep Work Protocol
                 </p>
               </div>
@@ -248,14 +241,14 @@ function App() {
             <FocusMode />
           </TabsContent>
 
-          <TabsContent value="goals" className="space-y-8 mt-10">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-accent/30 to-accent/10 border-2 border-accent/50 flex items-center justify-center backdrop-blur-xl shadow-[0_0_30px_rgba(255,0,150,0.3)]">
-                <Target className="text-accent drop-shadow-[0_0_15px_rgba(255,0,150,0.8)]" size={40} weight="duotone" />
+          <TabsContent value="goals" className="space-y-6 mt-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent/20 to-accent/5 border border-accent/30 flex items-center justify-center backdrop-blur-xl">
+                <Target className="text-accent" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-black tracking-[0.08em] uppercase text-gradient-cyber">Daily Goals</h2>
-                <p className="text-muted-foreground mt-2 text-sm sm:text-base font-semibold tracking-[0.04em] uppercase">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-cyber">Daily Goals</h2>
+                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
                   Mission Objectives
                 </p>
               </div>
@@ -263,15 +256,15 @@ function App() {
             <DailyGoals />
           </TabsContent>
 
-          <TabsContent value="actions" className="space-y-8 mt-10">
+          <TabsContent value="actions" className="space-y-6 mt-8">
             <div>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-orange/30 to-orange/10 border-2 border-orange/50 flex items-center justify-center backdrop-blur-xl shadow-[0_0_30px_rgba(255,100,0,0.3)]">
-                  <Lightning className="text-orange drop-shadow-[0_0_15px_rgba(255,100,0,0.8)]" size={40} weight="duotone" />
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange/20 to-orange/5 border border-orange/30 flex items-center justify-center backdrop-blur-xl">
+                  <Lightning className="text-orange" size={32} weight="duotone" />
                 </div>
                 <div>
-                  <h2 className="text-4xl sm:text-5xl font-black tracking-[0.08em] uppercase text-gradient-hot">Quick Actions</h2>
-                  <p className="text-muted-foreground mt-2 text-sm sm:text-base font-semibold tracking-[0.04em] uppercase">
+                  <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-hot">Quick Actions</h2>
+                  <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
                     AI-Powered Shortcuts
                   </p>
                 </div>
@@ -280,14 +273,14 @@ function App() {
             </div>
           </TabsContent>
 
-          <TabsContent value="tasks" className="space-y-8 mt-10">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/30 to-primary/10 border-2 border-primary/50 flex items-center justify-center backdrop-blur-xl shadow-[0_0_30px_rgba(0,200,255,0.3)]">
-                <ListChecks className="text-primary drop-shadow-[0_0_15px_rgba(0,200,255,0.8)]" size={40} weight="duotone" />
+          <TabsContent value="tasks" className="space-y-6 mt-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center backdrop-blur-xl">
+                <ListChecks className="text-primary" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-black tracking-[0.08em] uppercase text-gradient-cyber">Task Manager</h2>
-                <p className="text-muted-foreground mt-2 text-sm sm:text-base font-semibold tracking-[0.04em] uppercase">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-cyber">Task Manager</h2>
+                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
                   Mission Control
                 </p>
               </div>
@@ -295,14 +288,14 @@ function App() {
             <TaskManager />
           </TabsContent>
 
-          <TabsContent value="habits" className="space-y-8 mt-10">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-lime/30 to-lime/10 border-2 border-lime/50 flex items-center justify-center backdrop-blur-xl shadow-[0_0_30px_rgba(150,255,0,0.3)]">
-                <Flame className="text-lime drop-shadow-[0_0_15px_rgba(150,255,0,0.8)]" size={40} weight="duotone" />
+          <TabsContent value="habits" className="space-y-6 mt-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-lime/20 to-lime/5 border border-lime/30 flex items-center justify-center backdrop-blur-xl">
+                <Flame className="text-lime" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-black tracking-[0.08em] uppercase text-gradient-cyber">Habit Tracker</h2>
-                <p className="text-muted-foreground mt-2 text-sm sm:text-base font-semibold tracking-[0.04em] uppercase">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-cyber">Habit Tracker</h2>
+                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
                   Build Consistency
                 </p>
               </div>
@@ -310,14 +303,14 @@ function App() {
             <HabitTracker />
           </TabsContent>
 
-          <TabsContent value="notes" className="space-y-8 mt-10">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-secondary/30 to-secondary/10 border-2 border-secondary/50 flex items-center justify-center backdrop-blur-xl shadow-[0_0_30px_rgba(100,50,200,0.3)]">
-                <Note className="text-secondary drop-shadow-[0_0_15px_rgba(100,50,200,0.8)]" size={40} weight="duotone" />
+          <TabsContent value="notes" className="space-y-6 mt-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-secondary/20 to-secondary/5 border border-secondary/30 flex items-center justify-center backdrop-blur-xl">
+                <Note className="text-secondary" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-black tracking-[0.08em] uppercase text-gradient-cyber">Quick Notes</h2>
-                <p className="text-muted-foreground mt-2 text-sm sm:text-base font-semibold tracking-[0.04em] uppercase">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-cyber">Quick Notes</h2>
+                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
                   AI Summaries
                 </p>
               </div>
@@ -325,18 +318,18 @@ function App() {
             <NoteTaking />
           </TabsContent>
 
-          <TabsContent value="api" className="space-y-8 mt-10">
+          <TabsContent value="api" className="space-y-6 mt-8">
             <APISettings />
           </TabsContent>
 
-          <TabsContent value="automations" className="space-y-8 mt-10">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-orange/30 to-orange/10 border-2 border-orange/50 flex items-center justify-center backdrop-blur-xl shadow-[0_0_30px_rgba(255,100,0,0.3)]">
-                <Gear className="text-orange drop-shadow-[0_0_15px_rgba(255,100,0,0.8)]" size={40} weight="duotone" />
+          <TabsContent value="automations" className="space-y-6 mt-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange/20 to-orange/5 border border-orange/30 flex items-center justify-center backdrop-blur-xl">
+                <Gear className="text-orange" size={32} weight="duotone" />
               </div>
               <div>
-                <h2 className="text-4xl sm:text-5xl font-black tracking-[0.08em] uppercase text-gradient-hot">Automations</h2>
-                <p className="text-muted-foreground mt-2 text-sm sm:text-base font-semibold tracking-[0.04em] uppercase">
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight uppercase text-gradient-hot">Automations</h2>
+                <p className="text-muted-foreground mt-1 text-xs sm:text-sm font-medium tracking-wide uppercase">
                   Workflow Engine
                 </p>
               </div>
@@ -344,19 +337,19 @@ function App() {
             <AutomationTemplates />
           </TabsContent>
 
-          <TabsContent value="calendar" className="space-y-8 mt-10">
+          <TabsContent value="calendar" className="space-y-6 mt-8">
             <CalendarView />
           </TabsContent>
 
-          <TabsContent value="analytics" className="space-y-8 mt-10">
+          <TabsContent value="analytics" className="space-y-6 mt-8">
             <AnalyticsDashboard />
           </TabsContent>
 
-          <TabsContent value="team" className="space-y-8 mt-10">
+          <TabsContent value="team" className="space-y-6 mt-8">
             <TeamCollaboration />
           </TabsContent>
 
-          <TabsContent value="voice" className="space-y-8 mt-10">
+          <TabsContent value="voice" className="space-y-6 mt-8">
             <VoiceCommands />
           </TabsContent>
         </Tabs>
