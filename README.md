@@ -1,32 +1,28 @@
-# 🤖 Nexus • AI Command Center
+# 🤖 Flutter Butler • AI Command Center
 
-> Your sophisticated AI-powered personal butler dashboard that automates daily tasks, provides intelligent assistance, and helps you stay organized through smart automation and personalized insights.
+> Your sophisticated AI-powered personal butler built with **Flutter** and **Serverpod** that automates daily tasks, provides intelligent assistance, and helps you stay organized through smart automation and personalized insights.
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![React](https://img.shields.io/badge/React-19.2-61dafb)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178c6)
+![Flutter](https://img.shields.io/badge/Flutter-3.32-02569B)
+![Dart](https://img.shields.io/badge/Dart-3.8-0175C2)
+![Serverpod](https://img.shields.io/badge/Serverpod-3.3.1-purple)
 
 ---
 
 ## 🌟 Overview
 
-**Nexus** is a cutting-edge AI productivity platform that transforms how you manage your day. Combining advanced AI capabilities with an intuitive cyberpunk-inspired interface, Nexus serves as your digital personal assistant—anticipating needs, automating workflows, and providing intelligent insights to maximize productivity.
+**Flutter Butler** is a personal assistant app built with **Flutter** and **Serverpod** for the [Serverpod Hackathon](https://serverpod.devpost.com/). It transforms how you manage your day by combining AI-powered features with an intuitive Material Design 3 interface, all running on the Serverpod backend framework.
 
 ### ✨ Key Highlights
 
-- **🧠 AI-Powered Intelligence**: Built-in LLM integration for smart suggestions, daily briefings, and conversational assistance
-- **⚡ Quick Actions**: One-click AI-powered shortcuts for common tasks (draft emails, meeting prep, research summaries)
-- **📊 Advanced Analytics**: Comprehensive productivity insights with trend analysis and AI recommendations
-- **🎯 Smart Task Management**: Intelligent prioritization with energy-level matching and time estimates
-- **🔄 Automation Studio**: Visual workflow builder for routine tasks and morning/evening routines
-- **👥 Team Collaboration**: Share tasks, goals, and automations with real-time sync
-- **🎤 Voice Commands**: Hands-free control with natural language processing
-- **🔌 API Integrations**: Connect external services (Serverpod, Flutter, OpenAI, custom REST APIs)
-- **🎮 Gamification System**: Earn coins for productivity, shop for vanity items, compete on leaderboards
-- **🎵 Background Music**: Curated ambient tracks for focused work sessions
-- **🌓 Dual Theme**: Toggle between immersive dark cyberpunk and clean light professional modes
-- **📱 Fully Responsive**: Optimized mobile experience with touch gestures and adaptive layouts
+- **🧠 AI-Powered Intelligence**: Butler chat assistant for smart suggestions, daily briefings, and conversational assistance
+- **⚡ Quick Actions**: One-click shortcuts for common tasks (draft emails, meeting prep, research summaries)
+- **🎯 Smart Task Management**: Intelligent prioritization with categories and priority levels
+- **🔄 Automation Studio**: Pre-built workflow templates for morning routines, meeting prep, and day reviews
+- **📊 Daily Briefing Dashboard**: Personalized daily summaries with priorities and motivational quotes
+- **🔌 Serverpod Backend**: Full-stack Dart with type-safe API endpoints and serialization
+- **📱 Cross-Platform**: Flutter app runs on iOS, Android, Web, and Desktop
 
 ---
 
@@ -34,317 +30,205 @@
 
 ### 🎯 Core Productivity Suite
 
-#### Daily Briefing
-Start your day informed with AI-generated personalized summaries including weather, top priorities, and contextual suggestions.
+#### Daily Briefing Dashboard
+Start your day informed with personalized summaries including:
+- Time-aware greetings
+- Top 3 priorities for the day
+- Smart suggestions based on context
+- Motivational quotes
 
 #### Task Manager
 Intelligent task organization with:
-- Priority suggestions based on context
-- Time and energy-level estimates
+- Priority levels (urgent, high, medium, low)
+- Category tags (work, personal, creative, routine)
 - Completion tracking with visual progress
-- Quick filters and search
+- Swipe to delete, tap to complete
+- Add tasks with a dialog form
 
-#### Habit Tracker
-Build consistent routines with:
-- Daily check-in system
-- Streak monitoring with visual feedback
-- 10+ habit templates (exercise, reading, meditation)
-- Long-term progress analytics
-
-#### Focus Mode
-Achieve deep work with:
-- Customizable Pomodoro timers (25/45/60 min)
-- Distraction-free interface
-- Task isolation
-- Break reminders
-
-#### Daily Goals
-Set and track daily intentions with:
-- 1-3 goal recommendations per day
-- Progress visualization
-- Weekly/monthly analytics
-- AI pattern recognition
-
-### 🤖 AI-Powered Features
-
-#### AI Chat Assistant
-Conversational interface with:
+#### Butler Chat Assistant
+Conversational AI interface with:
 - Context-aware responses
-- Quick access to app features
-- Natural language task creation
-- Intelligent follow-up suggestions
+- Quick suggestion chips
+- Natural language interaction
+- Category-based reply routing
 
-#### Smart Suggestions
-Proactive recommendations including:
-- Optimal task timing based on energy patterns
-- Workflow improvements
-- Priority adjustments
-- Break reminders
+#### Automation Studio
+Pre-built workflow templates for:
+- Morning routine (5 steps)
+- Meeting preparation
+- End-of-day review
+- Weekly planning
+- Run automations with step-by-step execution
 
-#### Quick Actions
-AI-powered shortcuts for:
+### ⚡ Quick Actions
+One-click shortcuts powered by Serverpod endpoints:
 - Draft professional emails
 - Prepare meeting agendas
-- Summarize research
-- Generate reports
-- Create content outlines
-
-### 🔧 Advanced Tools
-
-#### Automation Templates
-Pre-built and custom automations:
-- Morning routine checklist
-- Meeting preparation workflow
-- End-of-day review
-- Weekly planning session
-
-#### Calendar View
-Comprehensive time visualization:
-- Day/week/month views
-- Task and habit integration
-- Visual timeline overview
-- Pattern identification
-
-#### Analytics Dashboard
-Deep productivity insights:
-- Task completion trends
-- Time allocation breakdowns
-- Productivity score tracking
-- AI-powered recommendations
-
-#### Voice Commands
-Hands-free interaction:
-- "Add task: finish presentation"
-- "Start focus timer for 45 minutes"
-- "Show today's goals"
-- 95%+ command accuracy
-
-### 🎮 Gamification & Rewards
-
-#### Reward System
-Earn and spend coins while building productive habits:
-- Earn coins for completing tasks, goals, and habits
-- Visual celebration animations for achievements
-- Persistent coin balance tracking
-- Total lifetime earnings statistics
-
-#### Vanity Shop
-Personalize your experience:
-- Purchase custom backgrounds, themes, and visual effects
-- Unique items to customize your workspace
-- Premium and rare collectibles
-- Real-time price display and purchase confirmation
-
-#### Global Leaderboard
-Compete with the community:
-- See top performers worldwide
-- Compare your stats (coins, total earned)
-- Dynamic ranking system
-- Motivational competitive element
-
-#### Background Music
-Create the perfect focus atmosphere:
-- Curated ambient music tracks
-- Persistent playback across tabs
-- Volume and track controls
-- Compact player in header
-
-### 🔌 Integration Management
-
-#### API Settings
-Connect external services:
-- **Serverpod Backend**: Configure endpoint and project credentials
-- **Flutter App**: Sync mobile app data
-- **OpenAI**: Custom API key for enhanced AI features
-- **Custom REST APIs**: Connect any service with authentication
-
-Features:
-- Secure credential storage
-- Connection testing
-- Status monitoring
-- Easy enable/disable toggles
-
-### 👥 Collaboration
-
-#### Team Features
-Coordinate with teammates:
-- Shared task lists
-- Collaborative workspaces
-- Real-time synchronization
-- Team progress tracking
-
----
-
-## 🎨 Design Philosophy
-
-Nexus features a **refined cyberpunk aesthetic** that balances bold visual impact with exceptional usability:
-
-- **Sophisticated Dark Interface**: Deep space backgrounds with electric cyan and neon magenta accents
-- **Dynamic Nebula Background**: Animated cosmic effects with stars and flowing colors
-- **Holographic Elements**: Glowing borders, gradient text, and luminous highlights
-- **Smooth Animations**: Purposeful motion that guides attention and provides feedback
-- **Premium Typography**: Inter and Space Grotesk fonts for modern, tech-inspired readability
-- **Accessible Color Palette**: WCAG AA compliant contrast ratios across all text pairings
-
-### Theme Toggle
-Switch between:
-- **Dark Mode**: Immersive cyberpunk with neon accents and cosmic backgrounds
-- **Light Mode**: Clean professional theme for daytime work
+- Summarize content
+- Start focus timer
 
 ---
 
 ## 🛠️ Technology Stack
 
 ### Frontend
-- **React 19.2** - Modern UI library with concurrent features
-- **TypeScript 5.7** - Type-safe development
-- **Vite 7** - Lightning-fast build tool
-- **Tailwind CSS 4** - Utility-first styling with custom theme
+- **Flutter 3.32+** — Cross-platform UI framework
+- **Material Design 3** — Modern design system with dynamic color
+- **Dart 3.8+** — Type-safe programming language
 
-### UI Components
-- **shadcn/ui v4** - 40+ pre-built accessible components
-- **Radix UI** - Unstyled, accessible component primitives
-- **Phosphor Icons** - Consistent icon system
-- **Framer Motion** - Smooth animations
+### Backend
+- **Serverpod 3.3.1** — The Flutter backend framework
+- **PostgreSQL 16** — Database (via Docker)
+- **Redis 7** — Caching (via Docker)
 
-### Data & State
-- **Spark KV Store** - Persistent key-value storage
-- **React Hook Form** - Performant form handling
-- **TanStack Query** - Async state management
+### Architecture
+- **Serverpod Endpoints** — Type-safe API with auto-generated client code
+- **Protocol Models** — Shared serializable data classes (`.spy.yaml`)
+- **Three-Package Structure** — Server, Client, Flutter app
 
-### AI & APIs
-- **Spark LLM API** - Built-in GPT-4o integration
-- **Custom REST APIs** - Flexible integration support
+---
 
-### Utilities
-- **date-fns** - Date manipulation
-- **zod** - Schema validation
-- **D3.js** - Data visualization (analytics charts)
+## 📁 Project Structure
+
+```
+flutter-butler-app/
+├── flutter_butler_server/       # Serverpod backend
+│   ├── bin/main.dart            # Server entry point
+│   ├── lib/
+│   │   ├── server.dart          # Server initialization
+│   │   └── src/
+│   │       ├── endpoints/       # API endpoints
+│   │       │   ├── butler_endpoint.dart
+│   │       │   ├── task_endpoint.dart
+│   │       │   └── automation_endpoint.dart
+│   │       ├── models/          # Protocol YAML + Dart models
+│   │       └── generated/       # Auto-generated code
+│   ├── config/                  # Environment configs
+│   ├── docker-compose.yaml      # Postgres + Redis
+│   └── Dockerfile
+│
+├── flutter_butler_client/       # Serverpod client package
+│   ├── lib/
+│   │   ├── flutter_butler_client.dart
+│   │   └── src/protocol/       # Client-side models + protocol
+│   └── pubspec.yaml
+│
+├── flutter_butler_flutter/      # Flutter frontend app
+│   ├── lib/
+│   │   ├── main.dart           # App entry point
+│   │   └── src/
+│   │       ├── app.dart        # Material 3 app with navigation
+│   │       └── screens/
+│   │           ├── home_screen.dart
+│   │           ├── tasks_screen.dart
+│   │           ├── butler_chat_screen.dart
+│   │           └── automations_screen.dart
+│   ├── assets/config.json      # Server URL config
+│   ├── web/                    # Flutter web support
+│   └── pubspec.yaml
+│
+├── src/                        # Web dashboard (React/TypeScript)
+├── README.md
+└── LICENSE
+```
 
 ---
 
 ## 📦 Installation & Setup
 
 ### Prerequisites
-- Node.js 18+ and npm 9+
-- Modern web browser (Chrome, Firefox, Safari, Edge)
+- [Flutter SDK](https://flutter.dev/docs/get-started/install) 3.32+
+- [Dart SDK](https://dart.dev/get-dart) 3.8+
+- [Serverpod CLI](https://docs.serverpod.dev/) 3.3.1
+- [Docker](https://www.docker.com/) (for PostgreSQL and Redis)
 
 ### Quick Start
 
 1. **Clone the repository**
 ```bash
-git clone <repository-url>
-cd nexus-ai-command-center
+git clone https://github.com/MiChaelinzo/flutter-butler-app.git
+cd flutter-butler-app
 ```
 
-2. **Install dependencies**
+2. **Start the database**
 ```bash
-npm install
+cd flutter_butler_server
+docker compose up -d
 ```
 
-3. **Start development server**
+3. **Generate Serverpod code**
 ```bash
-npm run dev
+cd flutter_butler_server
+serverpod generate
 ```
 
-4. **Open in browser**
-Navigate to `http://localhost:5173`
-
-### Production Build
-
+4. **Start the server**
 ```bash
-npm run build
-npm run preview
+cd flutter_butler_server
+dart bin/main.dart --apply-migrations
 ```
 
----
+5. **Run the Flutter app**
+```bash
+cd flutter_butler_flutter
+flutter run
+```
 
-## 🎯 Usage Guide
-
-### First-Time Setup
-
-1. **Explore the Dashboard**
-   - Navigate through tabs to discover features
-   - Review the auto-generated daily briefing
-   - Check out Smart Suggestions for quick wins
-
-2. **Create Your First Task**
-   - Click "Add Task" in Task Manager
-   - Let AI suggest priority and time estimate
-   - Mark complete when done
-
-3. **Set Daily Goals**
-   - Navigate to Goals tab
-   - Add 1-3 intentions for the day
-   - Track progress throughout the day
-
-4. **Try Quick Actions**
-   - Go to Actions tab
-   - Click any action (e.g., "Draft Email")
-   - Enter context and let AI generate content
-
-5. **Configure Integrations** (Optional)
-   - Open API tab
-   - Enable desired services
-   - Enter credentials and test connection
-
-### Pro Tips
-
-- **Use Voice Commands**: Press the voice button for hands-free task entry
-- **Focus Sessions**: Start Pomodoro timer when tackling difficult work
-- **Morning Routine**: Check Daily Briefing first thing to set priorities
-- **Automation**: Build custom automations for repetitive workflows
-- **Team Sync**: Invite teammates to shared workspaces for coordination
+### Running on Web
+```bash
+cd flutter_butler_flutter
+flutter run -d chrome
+```
 
 ---
 
 ## 🔐 Security & Privacy
 
-- **Local-First Storage**: All personal data stored in browser using Spark KV
-- **Encrypted Credentials**: API keys stored securely with encryption
-- **No Third-Party Tracking**: Zero analytics or tracking scripts
-- **Transparent AI**: All AI calls clearly indicated with user consent
-- **Data Portability**: Export your data anytime
+- **Local-First Development**: Default config connects to localhost
+- **Serverpod Security**: Built-in session management and authentication support
+- **Docker Isolation**: Database and cache run in isolated containers
+- **No Hardcoded Secrets**: Passwords managed via `config/passwords.yaml`
 
 ---
 
-## 📊 Performance
+## 🏆 Hackathon Submission
 
-- **Lighthouse Score**: 95+ across all metrics
-- **First Contentful Paint**: < 1.2s
-- **Time to Interactive**: < 2.5s
-- **Bundle Size**: Optimized with code splitting
-- **AI Response Time**: < 3s for most queries
+### Serverpod Hackathon — Flutter Butler
 
----
+This project was built for the [Serverpod Hackathon on Devpost](https://serverpod.devpost.com/).
 
-## 🗺️ Roadmap
+| Requirement | Status |
+|-------------|--------|
+| Built with Serverpod and Flutter | ✅ Serverpod 3.3.1 + Flutter 3.32 |
+| New and original project | ✅ Built from scratch for this hackathon |
+| Working project | ✅ Full-stack with server, client, and Flutter app |
+| Code repository | ✅ Public GitHub repo |
+| Demo video | 📹 Coming soon |
+| Project description | ✅ This README |
 
-### Upcoming Features
-- [ ] Mobile native apps (iOS/Android)
-- [ ] Calendar sync (Google, Outlook)
-- [ ] Email integration
-- [ ] Browser extension
-- [ ] Offline mode enhancements
-- [ ] Custom AI model selection
-- [ ] Export/import data
-- [ ] Shared team analytics
-- [ ] Webhook support
-- [ ] Plugin marketplace
+### What Flutter Butler Does
 
----
+Flutter Butler is a personal assistant app that helps users:
+- **Stay organized** with smart task management and priority suggestions
+- **Start each day informed** with AI-generated daily briefings
+- **Automate routines** with pre-built workflow templates
+- **Get instant help** through a conversational chat interface
+- **Take quick actions** like drafting emails and preparing for meetings
 
-## 🤝 Contributing
+### How It Was Built
 
-We welcome contributions! Whether it's:
+- **Serverpod** powers the backend with type-safe endpoints for tasks, briefings, automations, and chat
+- **Flutter** provides the cross-platform frontend with Material Design 3
+- **Protocol models** defined in YAML ensure type safety across server and client
+- **Three-package architecture** follows Serverpod best practices (server, client, Flutter)
 
-- 🐛 Bug reports
-- 💡 Feature requests
-- 📖 Documentation improvements
-- 🎨 Design enhancements
-- 💻 Code contributions
+### Technical Innovation
 
-Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+- Full-stack Dart — same language on frontend and backend
+- Type-safe API calls with auto-generated client code
+- Serializable protocol models shared between server and client
+- Material Design 3 with dynamic color theming
+- Cross-platform support (iOS, Android, Web, Desktop)
 
 ---
 
@@ -352,78 +236,12 @@ Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-The Spark Template files and resources from GitHub are licensed under the terms of the MIT license, Copyright GitHub, Inc.
-
----
-
-## 🏆 For Judges & Evaluators
-
-### Innovation Highlights
-
-**AI Integration Depth**
-- Native Spark LLM API integration with GPT-4o
-- Context-aware suggestions based on usage patterns
-- Natural language processing for voice commands
-- Intelligent task prioritization algorithms
-
-**User Experience Excellence**
-- Cohesive cyberpunk design language executed consistently
-- Smooth animations that enhance rather than distract
-- Responsive design that adapts gracefully to all screen sizes
-- Accessibility-first approach with WCAG AA compliance
-
-**Technical Architecture**
-- Modern React 19 with TypeScript for type safety
-- Spark KV persistence for reliable data storage
-- Modular component architecture for maintainability
-- Performance-optimized with code splitting and lazy loading
-
-**Real-World Utility**
-- Solves genuine productivity pain points
-- Comprehensive feature set rivals commercial solutions
-- Team collaboration enables organizational adoption
-- API integrations provide extensibility
-
-### Evaluation Criteria
-
-| Criterion | Implementation |
-|-----------|---------------|
-| **Functionality** | 15+ core features fully implemented with AI integration and gamification |
-| **Design** | Sophisticated cyberpunk aesthetic with dual theme support |
-| **Code Quality** | TypeScript, ESLint, component-driven architecture |
-| **Innovation** | Unique AI butler concept with voice, automation, and reward system |
-| **Usability** | Intuitive navigation, clear feedback, responsive design |
-| **Performance** | Optimized bundle, fast AI responses, smooth animations |
-| **Scalability** | Modular architecture, API integrations, team features |
-
----
-
-## 📞 Support & Contact
-
-- **Documentation**: Full guides in `/docs` folder
-- **Issues**: Report bugs via GitHub Issues
-- **Discussions**: Share ideas in GitHub Discussions
-- **Email**: support@nexus-ai.example.com
-
----
-
-## 🙏 Acknowledgments
-
-Built with:
-- [Spark](https://github.com/github/spark) - AI-powered development platform
-- [shadcn/ui](https://ui.shadcn.com/) - Beautiful component library
-- [Radix UI](https://www.radix-ui.com/) - Accessible primitives
-- [Phosphor Icons](https://phosphoricons.com/) - Flexible icon family
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
-
-Special thanks to the open-source community for making modern web development accessible and delightful.
-
 ---
 
 <div align="center">
 
-**Made with ⚡ and 🤖 using GitHub Spark**
+**Made with 💜 using Flutter + Serverpod**
 
-[View Demo](#) • [Report Bug](../../issues) • [Request Feature](../../issues)
+[Serverpod Hackathon](https://serverpod.devpost.com/) • [Report Bug](../../issues) • [Request Feature](../../issues)
 
 </div>

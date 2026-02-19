@@ -1,0 +1,11 @@
+include: package:lints/recommended.yaml
+
+linter:
+  rules: []
+
+analyzer:
+  exclude:
+    - lib/src/protocol/generated/**
+
+formatter:
+  trailing_commas: preserve

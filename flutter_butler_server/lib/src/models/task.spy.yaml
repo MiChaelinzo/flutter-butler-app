@@ -1,0 +1,17 @@
+### A task managed by the Flutter Butler.
+class: Task
+fields:
+  ### Unique identifier for the task.
+  taskId: int
+  ### Title of the task.
+  title: String
+  ### Description of the task.
+  description: String
+  ### Priority level: urgent, high, medium, low.
+  priority: String
+  ### Category: work, personal, routine, creative.
+  category: String
+  ### Whether the task is completed.
+  isCompleted: bool
+  ### When the task was created.
+  createdAt: DateTime
