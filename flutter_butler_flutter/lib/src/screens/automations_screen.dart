@@ -225,8 +225,8 @@ class _AutomationsScreenState extends State<AutomationsScreen> {
                         ),
                         decoration: BoxDecoration(
                           color: automation.isActive
-                              ? Colors.green.withValues(alpha: 0.15)
-                              : Colors.grey.withValues(alpha: 0.15),
+                              ? Colors.green.withOpacity(0.15)
+                              : Colors.grey.withOpacity(0.15),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Text(

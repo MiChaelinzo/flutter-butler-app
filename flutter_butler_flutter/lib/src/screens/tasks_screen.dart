@@ -287,7 +287,7 @@ class _TasksScreenState extends State<TasksScreen> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
-                  color: _priorityColor(task.priority).withValues(alpha: 0.15),
+                  color: _priorityColor(task.priority).withOpacity(0.15),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
