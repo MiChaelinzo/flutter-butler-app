@@ -1,0 +1,9 @@
+### A response from the Flutter Butler assistant.
+class: ButlerResponse
+fields:
+  ### The response message content.
+  message: String
+  ### Category of the response (tasks, scheduling, automation, etc.).
+  category: String
+  ### When the response was generated.
+  timestamp: DateTime

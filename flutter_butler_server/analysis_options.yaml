@@ -1,0 +1,14 @@
+include: package:lints/recommended.yaml
+
+linter:
+  rules:
+    unawaited_futures: true
+    avoid_print: true
+
+analyzer:
+  exclude:
+    - lib/src/generated/**
+    - test/integration/test_tools/serverpod_test_tools.dart
+
+formatter:
+  trailing_commas: preserve

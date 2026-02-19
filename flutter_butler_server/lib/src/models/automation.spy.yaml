@@ -1,0 +1,15 @@
+### An automation workflow template.
+class: Automation
+fields:
+  ### Unique identifier for the automation.
+  automationId: int
+  ### Name of the automation.
+  name: String
+  ### Description of what the automation does.
+  description: String
+  ### List of steps in the automation.
+  steps: List<String>
+  ### Whether the automation is currently active.
+  isActive: bool
+  ### Time when the automation should trigger (HH:mm format).
+  triggerTime: String

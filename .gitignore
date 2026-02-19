@@ -32,3 +32,13 @@ pids
 .devcontainer/
 
 .spark-workbench-id
+
+# Dart/Flutter
+.dart_tool/
+.packages
+build/
+pubspec.lock
+*.iml
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
